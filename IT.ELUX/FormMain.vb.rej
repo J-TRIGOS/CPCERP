@@ -1,0 +1,12 @@
+diff a/IT.ELUX/FormMain.vb b/IT.ELUX/FormMain.vb	(rejected hunks)
+@@ -2086,6 +2086,10 @@
+             Case "0801160000"
+                 FormRptVacaPend.ShowDialog()
+                 TSButtonRefresh_Click(Nothing, Nothing)
++            Case "0801170000"
++                If gsUser <> "RCONISLLA" Then
++                    FormRptBoletaCTS.ShowDialog()
++                End If
+             Case "0802020000"
+                 If gsUser <> "JMONTES" And gsUser <> "LPIÑA" And gsUser <> "MPEÑA" And gsUser <> "RCONISLLA" Then
+                     dt = PERBL.SelPerAll()

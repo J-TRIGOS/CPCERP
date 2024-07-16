@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a6128971-5f04-4c0f-bf4d-a6df30460ae3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://demointegracion.ebi-pac.com/ws/obj/v1.0/Service.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Service.xsd" MetadataType="Schema" ID="b9d26a23-961d-4e73-b521-3c7edda63af6" SourceId="1" SourceUrl="https://demointegracion.ebi-pac.com/ws/obj/v1.0/Service.svc?xsd=xsd6" />
+    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="05ab4ba3-cacf-4be5-b5c5-13b0bdd627d0" SourceId="1" SourceUrl="https://demointegracion.ebi-pac.com/ws/obj/v1.0/Service.svc?xsd=xsd4" />
+    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="cf862992-8088-4569-bca2-93f320da785d" SourceId="1" SourceUrl="https://demointegracion.ebi-pac.com/ws/obj/v1.0/Service.svc?wsdl" />
+    <MetadataFile FileName="Service.disco" MetadataType="Disco" ID="55e31852-0411-425d-b4bd-f399de0bf6eb" SourceId="1" SourceUrl="https://demointegracion.ebi-pac.com/ws/obj/v1.0/Service.svc?disco" />
+    <MetadataFile FileName="Service2.xsd" MetadataType="Schema" ID="ff6393e4-f224-4558-b606-317bc5822aed" SourceId="1" SourceUrl="https://demointegracion.ebi-pac.com/ws/obj/v1.0/Service.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service3.xsd" MetadataType="Schema" ID="bd844388-2d27-4473-9764-d412fd20c668" SourceId="1" SourceUrl="https://demointegracion.ebi-pac.com/ws/obj/v1.0/Service.svc?xsd=xsd5" />
+    <MetadataFile FileName="Service4.xsd" MetadataType="Schema" ID="2190478a-aa1d-4a0c-96cd-7dc967733a01" SourceId="1" SourceUrl="https://demointegracion.ebi-pac.com/ws/obj/v1.0/Service.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service5.xsd" MetadataType="Schema" ID="a2bb5088-bcd4-4a84-a18b-499f6beb8468" SourceId="1" SourceUrl="https://demointegracion.ebi-pac.com/ws/obj/v1.0/Service.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service6.xsd" MetadataType="Schema" ID="fdc8f52e-eaca-4c64-aea7-55295968e5da" SourceId="1" SourceUrl="https://demointegracion.ebi-pac.com/ws/obj/v1.0/Service.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

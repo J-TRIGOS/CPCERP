@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1D555D6E-15D8-4240-AAC4-8EE50F3ACE08}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>IT.ELUX.BE.My.MyApplication</StartupObject>
+    <RootNamespace>IT.ELUX.BE</RootNamespace>
+    <AssemblyName>IT.ELUX.BE</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>IT.ELUX.BE.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>IT.ELUX.BE.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ALMACEN\GUIASROTULOBE.vb" />
+    <Compile Include="ALMACEN\KARDEXBINDCARDBE.vb" />
+    <Compile Include="Config\ARTICULOBE.vb" />
+    <Compile Include="Config\ART_UPDATEBE.vb" />
+    <Compile Include="Config\ASI_CPTOBE.vb" />
+    <Compile Include="Config\BINDCARDBE.vb" />
+    <Compile Include="Config\BOLETABE.vb" />
+    <Compile Include="Config\BONOPRODBE.vb" />
+    <Compile Include="Config\CALCPLABE.vb" />
+    <Compile Include="Config\CCOSTOBE.vb" />
+    <Compile Include="Config\CIIUBE.vb" />
+    <Compile Include="Config\ELTBKARDEXITEMBE.vb" />
+    <Compile Include="Config\COSTOS_EXPBE.vb" />
+    <Compile Include="Config\CTCTBE.vb" />
+    <Compile Include="Config\CTSBE.vb" />
+    <Compile Include="Config\CUENTABANCOBE.vb" />
+    <Compile Include="Config\DERECHOHABBE.vb" />
+    <Compile Include="Config\DETALLE_DOCUMENTOBE.vb" />
+    <Compile Include="Config\DETBINDCARDBE.vb" />
+    <Compile Include="Config\DET_DOCUMENTOBE.vb" />
+    <Compile Include="Config\DET_LIBRO_DIARIOBE.vb" />
+    <Compile Include="Config\DHAB_DIRBE.vb" />
+    <Compile Include="Config\ELALBARANBE.vb" />
+    <Compile Include="Config\ELCAJABANCOBE.vb" />
+    <Compile Include="Config\ELCERTIFICABE.vb" />
+    <Compile Include="Config\ELCONTRATOBE.vb" />
+    <Compile Include="Config\ELCUENTA_ARTBE.vb" />
+    <Compile Include="Config\ELDECLARACIONDUABE.vb" />
+    <Compile Include="Config\ELDOCUMENTOBE.vb" />
+    <Compile Include="Config\ELESPECIFI_TBE.vb" />
+    <Compile Include="Config\ELETIQUETABE.vb" />
+    <Compile Include="Config\ELFALLADOSBE.vb" />
+    <Compile Include="Config\ELLIB_CONTBE.vb" />
+    <Compile Include="Config\ELLIQUIDACIONBE.vb" />
+    <Compile Include="Config\ELMVALMABE.vb" />
+    <Compile Include="Config\ELMVLOGSBE.vb" />
+    <Compile Include="Config\ELORDEN_DET_MANTBE.vb" />
+    <Compile Include="Config\ELORDEN_DET_PROGRAMBE.vb" />
+    <Compile Include="Config\ELORDEN_MANTBE.vb" />
+    <Compile Include="Config\ELORDEN_PROGRAMBE.vb" />
+    <Compile Include="Config\ELPAGO_DET_DOCUMENTOBE.vb" />
+    <Compile Include="Config\ELPAGO_DOCUMENTOBE.vb" />
+    <Compile Include="Config\ELPERIODOBE.vb" />
+    <Compile Include="Config\ELPERIODOS.vb" />
+    <Compile Include="Config\ELPERMISOSBE.vb" />
+    <Compile Include="Config\ELPRODUCCIONBE.vb" />
+    <Compile Include="Config\ELPROGRAMACIONBE.vb" />
+    <Compile Include="Config\ELREINGRESOBE.vb" />
+    <Compile Include="Config\ELSUBLINESBE.vb" />
+    <Compile Include="Config\ELTBACTUALIZAR_DATOSBE.vb" />
+    <Compile Include="Config\ELTBALMACENBE.vb" />
+    <Compile Include="Config\ELTBAREABE.vb" />
+    <Compile Include="Config\ELTBARTPREMOVBE.vb" />
+    <Compile Include="Config\ELTBARTSTOCKBE.vb" />
+    <Compile Include="Config\ELTBCAPACITACIONBE.vb" />
+    <Compile Include="Config\ELTBCARABE.vb" />
+    <Compile Include="Config\ELTBCARA_VALBE.vb" />
+    <Compile Include="Config\ELTBCARGADETASIENTOBE.vb" />
+    <Compile Include="Config\ELTBCARGOBE.vb" />
+    <Compile Include="Config\ELTBCATABE.vb" />
+    <Compile Include="Config\ELTBCLIENTEBE.vb" />
+    <Compile Include="Config\ELTBCOMPBE.vb" />
+    <Compile Include="Config\ELTBCONCEPTOSBE.vb" />
+    <Compile Include="Config\ELTBCOSTARTBE.vb" />
+    <Compile Include="Config\ELTBCOSTOGASTOBE.vb" />
+    <Compile Include="Config\ELTBCTA_FACTURACIONBE.vb" />
+    <Compile Include="Config\ELTBCUENTABE.vb" />
+    <Compile Include="Config\ELTBCUENTA_OPBE.vb" />
+    <Compile Include="Config\ELTBDETDETRACCIONBE.vb" />
+    <Compile Include="Config\ELTBDETDOCEXPBE.vb" />
+    <Compile Include="Config\ELTBDETDOCOPBE.vb" />
+    <Compile Include="Config\ELTBDETGRUPOBE.vb" />
+    <Compile Include="Config\ELTBDETGUIABE.vb" />
+    <Compile Include="Config\ELTBDETKARDEXIMP.vb" />
+    <Compile Include="Config\ELTBDETPERCEPBE.vb" />
+    <Compile Include="Config\ELTBDETRACCIONBE.vb" />
+    <Compile Include="Config\ELTBDETRECEPCOMPBE.vb" />
+    <Compile Include="Config\ELTBDETSOLMATERIALESBE.vb" />
+    <Compile Include="Config\ELTBDETSTIEMBE.vb" />
+    <Compile Include="Config\ELTBDOCEXPBE.vb" />
+    <Compile Include="Config\ELTBESPEBE.vb" />
+    <Compile Include="Config\ELTBEVALUACIONBE.vb" />
+    <Compile Include="Config\ELTBGRUPCORBE.vb" />
+    <Compile Include="Config\ELTBGRUPCORVALBE.vb" />
+    <Compile Include="Config\ELTBGRUPOBE.vb" />
+    <Compile Include="Config\ELTBINICIALCBBE.vb" />
+    <Compile Include="Config\ELTBKARDEXBE.vb" />
+    <Compile Include="Config\ELTBKARDEXIMPBE.vb" />
+    <Compile Include="Config\ELTBKARDEXIMPCOSBE.vb" />
+    <Compile Include="Config\ELTBLETRAS_MONTOBE.vb" />
+    <Compile Include="Config\ELTBLINEABE.vb" />
+    <Compile Include="Config\ELTBLINESBE.vb" />
+    <Compile Include="Config\ELTBMANTENIMIENTOBE.vb" />
+    <Compile Include="Config\ELTBMESSAGEBE.vb" />
+    <Compile Include="Config\ELTBMOVIMIENTOBE.vb" />
+    <Compile Include="Config\ELTBMTIEMBE.vb" />
+    <Compile Include="Config\ELTBOPERBE.vb" />
+    <Compile Include="Config\ELTBORDENPROGRAMABE.vb" />
+    <Compile Include="Config\ELTBPARCIALBE.vb" />
+    <Compile Include="Config\ELTBPERCEPBE.vb" />
+    <Compile Include="Config\ELTBPLANILLAVWBE.vb" />
+    <Compile Include="Config\ELTBPRDO_CONTABE.vb" />
+    <Compile Include="Config\ELTBPRECIOSARTBE.vb" />
+    <Compile Include="Config\ELTBPRESTAMOPERBE.vb" />
+    <Compile Include="Config\ELTBPROCBE.vb" />
+    <Compile Include="Config\ELTBPROGPAGOBE.vb" />
+    <Compile Include="Config\ELTBPROVEEDORESBE.vb" />
+    <Compile Include="Config\ELTBREAPBE.vb" />
+    <Compile Include="Config\ELTBRECCBE.vb" />
+    <Compile Include="Config\ELTBRECEPCOMPBE.vb" />
+    <Compile Include="Config\ELTBREGISTRO_NRO.vb" />
+    <Compile Include="Config\ELTBREPOBE.vb" />
+    <Compile Include="Config\ELTBSINTOMAS_COVIDBE.vb" />
+    <Compile Include="Config\ELTBSISTINTCALIDADBE.vb" />
+    <Compile Include="Config\ELTBSOLMMASBE.vb" />
+    <Compile Include="Config\ELTBSTIEMBE.vb" />
+    <Compile Include="Config\ELTBSTURNBE.vb" />
+    <Compile Include="Config\ELTBTAREABE.vb" />
+    <Compile Include="Config\ELTBTAREOBE.vb" />
+    <Compile Include="Config\ELTBTIPOCAMBIOBE.vb" />
+    <Compile Include="Config\ELTBTRANSPBE.vb" />
+    <Compile Include="Config\ELTBTRANSPCHOFERBE.vb" />
+    <Compile Include="Config\ELTBTRANSPTRACTORBE.vb" />
+    <Compile Include="Config\ELTBTURNOBE.vb" />
+    <Compile Include="Config\ELTBUNIDADNEGOCIOBE.vb" />
+    <Compile Include="Config\ELTBVALOPERBE.vb" />
+    <Compile Include="Config\ELT_OPEBE.vb" />
+    <Compile Include="Config\ELUTILIDADESBE.vb" />
+    <Compile Include="Config\ELVACACIONESBE.vb" />
+    <Compile Include="Config\FACTURACIONBE.vb" />
+    <Compile Include="Config\FORMA_ENTBE.vb" />
+    <Compile Include="Config\FORMA_PAGOBE.vb" />
+    <Compile Include="Config\GUIAALMACENBE.vb" />
+    <Compile Include="Config\GUIADESPACHOBE.vb" />
+    <Compile Include="Config\IMPUESTOBE.vb" />
+    <Compile Include="Config\LETRASBE.vb" />
+    <Compile Include="Config\LIBRO_DIARIOBE.vb" />
+    <Compile Include="Config\LINEABE.vb" />
+    <Compile Include="Config\MOV_MOTBE.vb" />
+    <Compile Include="Config\NOTACREDITOBE.vb" />
+    <Compile Include="Config\NOTADEBITOBE.vb" />
+    <Compile Include="Config\ORDENCOMPRABE.vb" />
+    <Compile Include="Config\ORDEN_COMPRABE.vb" />
+    <Compile Include="Config\PARCIALBE.vb" />
+    <Compile Include="Config\PERBE.vb" />
+    <Compile Include="Config\PROVISIONESBE.vb" />
+    <Compile Include="Config\REPORTE_DETTRABAJOBE.vb" />
+    <Compile Include="Config\REPORTE_PRODUCCIONBE.vb" />
+    <Compile Include="Config\REPORTE_TRABAJOBE.vb" />
+    <Compile Include="Config\REQUERIMIENTOBE.vb" />
+    <Compile Include="Config\SOLMATERIALESBE.vb" />
+    <Compile Include="Config\TMP_HOREXTBE.vb" />
+    <Compile Include="Config\T_MOVINVBE.vb" />
+    <Compile Include="Config\T_MEDIDABE.vb" />
+    <Compile Include="Config\UNIBE.vb" />
+    <Compile Include="Config\ELTBUSERBE.vb" />
+    <Compile Include="CONTABILIDAD\MOV_CTBE.vb" />
+    <Compile Include="MANTENIENTO\TipoFallaBE.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="R.HUMANOS\DETPRESTAMOBE.vb" />
+    <Compile Include="R.HUMANOS\MEMOBE.vb" />
+    <Compile Include="R.HUMANOS\PRESTAMOBE.vb" />
+    <Compile Include="R.HUMANOS\VACUNABE.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

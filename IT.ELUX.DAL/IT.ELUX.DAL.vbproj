@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AA586A57-8421-444D-AACD-33EFA623DCFB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>IT.ELUX.DAL.My.MyApplication</StartupObject>
+    <RootNamespace>IT.ELUX.DAL</RootNamespace>
+    <AssemblyName>IT.ELUX.DAL</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>IT.ELUX.DAL.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>IT.ELUX.DAL.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.9.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ALMACEN\BINDCARDDAL.vb" />
+    <Compile Include="ALMACEN\BINDCARDDAL2.vb" />
+    <Compile Include="ALMACEN\DETBINDCARDDAL.vb" />
+    <Compile Include="ALMACEN\KARDEXBCDAL.vb" />
+    <Compile Include="Config\ALMACENDAL.vb" />
+    <Compile Include="Config\ART_UPDATEDAL.vb" />
+    <Compile Include="Config\ASI_CPTODAL.vb" />
+    <Compile Include="Config\BOLETADAL.vb" />
+    <Compile Include="Config\CCOSTODAL.vb" />
+    <Compile Include="Config\ARTICULODAL.vb" />
+    <Compile Include="Config\CIIUDAL.vb" />
+    <Compile Include="Config\COSTOS_EXPDAL.vb" />
+    <Compile Include="Config\CTCTDAL.vb" />
+    <Compile Include="Config\CTS_DAL.vb" />
+    <Compile Include="Config\CUENTABANCODAL.vb" />
+    <Compile Include="Config\DERECHOHABDAL.vb" />
+    <Compile Include="Config\DET_DOCUMENTODAL.vb" />
+    <Compile Include="Config\DHAB_DIRDAL.vb" />
+    <Compile Include="Config\ELALBARANDAL.vb" />
+    <Compile Include="Config\ELARTLINEASTOKDAL.vb" />
+    <Compile Include="Config\ELBCALCULOSUBSUDIODAL.vb" />
+    <Compile Include="Config\ELCAJABANCODAL.vb" />
+    <Compile Include="Config\ELCERTIFICADAL.vb" />
+    <Compile Include="Config\ELCONTRATODAL.vb" />
+    <Compile Include="Config\ELCUENTA_ARTDAL.vb" />
+    <Compile Include="Config\ELDECLARACIONDUADAL.vb" />
+    <Compile Include="Config\ELDESPACHODAL.vb" />
+    <Compile Include="Config\ELDOCUMENTODAL.vb" />
+    <Compile Include="Config\ELESPECI_TDAL.vb" />
+    <Compile Include="Config\ELETIQUETADAL.vb" />
+    <Compile Include="Config\ELFALLADOSDAL.vb" />
+    <Compile Include="Config\ELLIB_CONTDAL.vb" />
+    <Compile Include="Config\ELLIQUIDACIONDAL.vb" />
+    <Compile Include="Config\ELORDEN_MANTDAL.vb" />
+    <Compile Include="Config\ELORDEN_PROGRAMDAL.vb" />
+    <Compile Include="Config\ELPAGO_DOCUMENTODAL.vb" />
+    <Compile Include="Config\ELPERIODODAL.vb" />
+    <Compile Include="Config\ELPERMISOSDAL.vb" />
+    <Compile Include="Config\ELPRODUCCIONDAL.vb" />
+    <Compile Include="Config\ELPROGRAMACIONDAL.vb" />
+    <Compile Include="Config\ELREINGRESODAL.vb" />
+    <Compile Include="Config\ELRRHH_FUNCIONESDAL.vb" />
+    <Compile Include="Config\ELSUBLINESDAL.vb" />
+    <Compile Include="Config\ELTBACTUALIZAR_DATODAL.vb" />
+    <Compile Include="Config\ELTBALMACENDAL.vb" />
+    <Compile Include="Config\ELTBAREADAL.vb" />
+    <Compile Include="Config\ELTBARTPREMOVDAL.vb" />
+    <Compile Include="Config\ELTBARTSTOCKDAL.vb" />
+    <Compile Include="Config\ELTBCAPACITACIONDAL.vb" />
+    <Compile Include="Config\ELTBCARADAL.vb" />
+    <Compile Include="Config\ELTBCARA_VALDAL.vb" />
+    <Compile Include="Config\ELTBCARGADETASIENTODAL.vb" />
+    <Compile Include="Config\ELTBCARGODAL.vb" />
+    <Compile Include="Config\ELTBCATADAL.vb" />
+    <Compile Include="Config\ELTBCLIENTEDAL.vb" />
+    <Compile Include="Config\ELTBCOMPDAL.vb" />
+    <Compile Include="Config\ELTBCONCEPTOSDAL.vb" />
+    <Compile Include="Config\ELTBCOSTARTDAL.vb" />
+    <Compile Include="Config\ELTBCOSTOGASTODAL.vb" />
+    <Compile Include="Config\ELTBCTA_FACTURACIONDAL.vb" />
+    <Compile Include="Config\ELTBCUENTADAL.vb" />
+    <Compile Include="Config\ELTBCUENTA_OPEDAL.vb" />
+    <Compile Include="Config\ELTBDETDETRACCIONDAL.vb" />
+    <Compile Include="Config\ELTBDETDOCOPDAL.vb" />
+    <Compile Include="Config\ELTBDETGRUPODAL.vb" />
+    <Compile Include="Config\ELTBDETGUIADAL.vb" />
+    <Compile Include="Config\ELTBDETPERCEPDAL.vb" />
+    <Compile Include="Config\ELTBDETRACCIONDAL.vb" />
+    <Compile Include="Config\ELTBDETSOLMATERIALESDAL.vb" />
+    <Compile Include="Config\ELTBDETSTIEMDAL.vb" />
+    <Compile Include="Config\ELTBDOCEXPDAL.vb" />
+    <Compile Include="Config\ELTBESPEDAL.vb" />
+    <Compile Include="Config\ELTBEVALUACIONDAL.vb" />
+    <Compile Include="Config\ELTBFACTURAELDAL.vb" />
+    <Compile Include="Config\ELTBGRUPCORDAL.vb" />
+    <Compile Include="Config\ELTBGRUPCORVALDAL.vb" />
+    <Compile Include="Config\ELTBGRUPODAL.vb" />
+    <Compile Include="Config\ELTBINICIALCBDAL.vb" />
+    <Compile Include="Config\ELTBKARDEXDAL.vb" />
+    <Compile Include="Config\ELTBKARDEXIMPDAL.vb" />
+    <Compile Include="Config\ELTBKARDEXITEMDAL.vb" />
+    <Compile Include="Config\ELTBLETRAS_MONTODAL.vb" />
+    <Compile Include="Config\ELTBLINEADAL.vb" />
+    <Compile Include="Config\ELTBLINESDAL.vb" />
+    <Compile Include="Config\ELTBMANTENIMIENTODAL.vb" />
+    <Compile Include="Config\ELTBMESSAGEDAL.vb" />
+    <Compile Include="Config\ELTBMOVIMIENTODAL.vb" />
+    <Compile Include="Config\ELTBMTIEMDAL.vb" />
+    <Compile Include="Config\ELTBOPERDAL.vb" />
+    <Compile Include="Config\ELTBORDENPROGRAMADAL.vb" />
+    <Compile Include="Config\ELTBPARCIALDAL.vb" />
+    <Compile Include="Config\ELTBPERCEPDAL.vb" />
+    <Compile Include="Config\ELTBPLANILLAVWDAL.vb" />
+    <Compile Include="Config\ELTBPRDO_CONTADAL.vb" />
+    <Compile Include="Config\ELTBPRECIOSARTDAL.vb" />
+    <Compile Include="Config\ELTBPRESTAMOPERDAL.vb" />
+    <Compile Include="Config\ELTBPROCDAL.vb" />
+    <Compile Include="Config\ELTBPROGPAGODAL.vb" />
+    <Compile Include="Config\ELTBPROVEEDORESDAL.vb" />
+    <Compile Include="Config\ELTBREAPDAL.vb" />
+    <Compile Include="Config\ELTBRECCDAL.vb" />
+    <Compile Include="Config\ELFUNCIONESDAL.vb" />
+    <Compile Include="Config\ELTBRECEPCOMPDAL.vb" />
+    <Compile Include="Config\ELTBREGISTRO_NRODAL.vb" />
+    <Compile Include="Config\ELTBREPODAL.vb" />
+    <Compile Include="Config\ELTBSINTOMAS_COVIDDAL.vb" />
+    <Compile Include="Config\ELTBSISTINTCALIDADDAL.vb" />
+    <Compile Include="Config\ELTBSTIEMDAL.vb" />
+    <Compile Include="Config\ELTBSTURNDAL.vb" />
+    <Compile Include="Config\ELTBTAREADAL.vb" />
+    <Compile Include="Config\ELTBTAREODAL.vb" />
+    <Compile Include="Config\ELTBTIPOCAMBIODAL.vb" />
+    <Compile Include="Config\ELTBTRANSPCHOFERDAL.vb" />
+    <Compile Include="Config\ELTBTRANSPDAL.vb" />
+    <Compile Include="Config\ELTBTRANSPTRACTORDAL.vb" />
+    <Compile Include="Config\ELTBTURNODAL.vb" />
+    <Compile Include="Config\ELTBUNIDADNEGOCIODAL.vb" />
+    <Compile Include="Config\ELTBVALOPERDAL.vb" />
+    <Compile Include="Config\ELT_OPEDAL.vb" />
+    <Compile Include="Config\ELUTILIDADESDAL.vb" />
+    <Compile Include="Config\ELVACACIONESDAL.vb" />
+    <Compile Include="Config\FACTURACIONDAL.vb" />
+    <Compile Include="Config\FORMA_ENTDAL.vb" />
+    <Compile Include="Config\FORMA_PAGODAL.vb" />
+    <Compile Include="Config\FormBUSQSELECTMULTDAL.vb" />
+    <Compile Include="Config\GUIAALMACENDAL.vb" />
+    <Compile Include="Config\GUIADESPACHODAL.vb" />
+    <Compile Include="Config\IMPUESTODAL.vb" />
+    <Compile Include="Config\LETRASDAL.vb" />
+    <Compile Include="Config\LINEADAL.vb" />
+    <Compile Include="Config\MOV_MOTDAL.vb" />
+    <Compile Include="Config\NOTACREDITODAL.vb" />
+    <Compile Include="Config\NOTADEBITODAL.vb" />
+    <Compile Include="Config\ORDENCOMPRADAL.vb" />
+    <Compile Include="Config\ORDEN_COMPRADAL.vb" />
+    <Compile Include="Config\PARCIALDAL.vb" />
+    <Compile Include="Config\PERDAL.vb" />
+    <Compile Include="Config\PERROTDAL.vb" />
+    <Compile Include="Config\PROVISIONESDAL.vb" />
+    <Compile Include="Config\REPORTE_INVENTARIODAL.vb" />
+    <Compile Include="Config\REPORTE_PRODUCCIONDAL.vb" />
+    <Compile Include="Config\REPORTE_TRABAJODAL.vb" />
+    <Compile Include="Config\REQUERIMIENTODAL.vb" />
+    <Compile Include="Config\SOLMATERIALESDAL.vb" />
+    <Compile Include="Config\TMP_HOREXTDAL.vb" />
+    <Compile Include="Config\T_MOVINVDAL.vb" />
+    <Compile Include="Config\T_MEDIDADAL.vb" />
+    <Compile Include="Config\UNIDAL.vb" />
+    <Compile Include="Config\ELTBUSERDAL.vb" />
+    <Compile Include="Config\MenuDAL.vb" />
+    <Compile Include="Config\DETALLE_DOCUMENTODAL.vb" />
+    <Compile Include="CONTABILIDAD\AsientoPlaDAL.vb" />
+    <Compile Include="CONTABILIDAD\CONTABILIDADDAL.vb" />
+    <Compile Include="CONTABILIDAD\FLUJOPROYECTADODAL.vb" />
+    <Compile Include="CONTABILIDAD\FLUJOPROYECTADOMENSUALDAL.vb" />
+    <Compile Include="CONTABILIDAD\MayorDAL.vb" />
+    <Compile Include="CONTABILIDAD\REGCONTDAL.vb" />
+    <Compile Include="COSTOS\COSTEODAL.vb" />
+    <Compile Include="COSTOS\INDICECOSTOSDAL.vb" />
+    <Compile Include="IBaseDAL.vb" />
+    <Compile Include="MANTENIMIENTO\TipoFallaDAL.vb" />
+    <Compile Include="MARCACION\MARCACIONDAL.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PRODUCCION\PRODUCCIONDAL.vb" />
+    <Compile Include="PRODUCCION\UBICACIONDAL.vb" />
+    <Compile Include="R.HUMANOS\BONONOCTURNODAL.vb" />
+    <Compile Include="R.HUMANOS\CTSDAL.vb" />
+    <Compile Include="R.HUMANOS\MEMODAL.vb" />
+    <Compile Include="R.HUMANOS\PRESTAMODAL.vb" />
+    <Compile Include="R.HUMANOS\QUINCENADAL.vb" />
+    <Compile Include="R.HUMANOS\VACUNADAL.vb" />
+    <Compile Include="SEGURIDAD\SistemaDAL.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IT.ELUX.BE\IT.ELUX.BE.vbproj">
+      <Project>{1d555d6e-15d8-4240-aac4-8ee50f3ace08}</Project>
+      <Name>IT.ELUX.BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IT.ELUX.Connect\IT.ELUX.Connect.vbproj">
+      <Project>{63388bb9-7a66-44cd-86aa-260cc0802968}</Project>
+      <Name>IT.ELUX.Connect</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

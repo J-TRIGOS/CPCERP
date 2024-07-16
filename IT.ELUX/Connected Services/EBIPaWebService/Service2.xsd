@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Services.Response" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Services.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://demointegracion.ebi-pac.com/ws/obj/v1.0/Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Services.Logic.Caching.Correo" />
+  <xs:complexType name="EnviarResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="resultado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mensaje" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cufe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="qr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaRecepcionDGI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nroProtocoloAutorizacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaLimite" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EnviarResponse" nillable="true" type="tns:EnviarResponse" />
+  <xs:complexType name="FoliosRestantesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mensaje" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="licencia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaLicencia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ciclo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaCiclo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="foliosTotalesCiclo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="foliosUtilizadosCiclo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="foliosDisponibleCiclo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="foliosTotales" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="foliosTotalesDisponibles" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="resultado" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FoliosRestantesResponse" nillable="true" type="tns:FoliosRestantesResponse" />
+  <xs:complexType name="DescargaXMLResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="resultado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mensaje" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="documento" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DescargaXMLResponse" nillable="true" type="tns:DescargaXMLResponse" />
+  <xs:complexType name="DescargaPDFResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="resultado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mensaje" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="documento" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DescargaPDFResponse" nillable="true" type="tns:DescargaPDFResponse" />
+  <xs:complexType name="EnvioCorreoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="resultado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mensaje" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EnvioCorreoResponse" nillable="true" type="tns:EnvioCorreoResponse" />
+  <xs:complexType name="RastreoCorreoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mensaje" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Services.Logic.Caching.Correo" minOccurs="0" name="listaRastreo" nillable="true" type="q1:ArrayOflistTracking" />
+      <xs:element minOccurs="0" name="resultado" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RastreoCorreoResponse" nillable="true" type="tns:RastreoCorreoResponse" />
+  <xs:complexType name="EstadoDocumentoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mensaje" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cufe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaEmisionDocumento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaRecepcionDocumento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="estatusDocumento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mensajeDocumento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="resultado" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EstadoDocumentoResponse" nillable="true" type="tns:EstadoDocumentoResponse" />
+  <xs:complexType name="AnulacionDocumentoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="resultado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mensaje" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AnulacionDocumentoResponse" nillable="true" type="tns:AnulacionDocumentoResponse" />
+  <xs:complexType name="ConsultarRucDVResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="infoRuc" nillable="true" type="tns:infoRuc" />
+      <xs:element minOccurs="0" name="mensaje" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="resultado" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsultarRucDVResponse" nillable="true" type="tns:ConsultarRucDVResponse" />
+  <xs:complexType name="infoRuc">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="tipoRuc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ruc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="razonSocial" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="afiliadoFE" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="infoRuc" nillable="true" type="tns:infoRuc" />
+</xs:schema>

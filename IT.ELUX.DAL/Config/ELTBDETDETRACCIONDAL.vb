@@ -1,0 +1,3 @@
+﻿Public Class ELTBDETDETRACCIONDAL
+
+End Class

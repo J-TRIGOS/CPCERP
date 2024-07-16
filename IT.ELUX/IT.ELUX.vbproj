@@ -1,0 +1,3821 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FE34D10A-337F-416E-A029-343ACBB1BC24}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>IT.ELUX.My.MyApplication</StartupObject>
+    <RootNamespace>IT.ELUX</RootNamespace>
+    <AssemblyName>IT.CPC</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>76</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>IT.CPC.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>IT.CPC.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Centralpack-logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="itDLL">
+      <HintPath>..\IT.DLL\itDLL.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connected Services\EBIPaWebServices\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="factura.vb" />
+    <Compile Include="FormFiltroOreq.Designer.vb">
+      <DependentUpon>FormFiltroOreq.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormFiltroOreq.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormIdle.designer.vb">
+      <DependentUpon>FormIdle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormIdle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoginCPC.Designer.vb">
+      <DependentUpon>FormLoginCPC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoginCPC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.designer.vb">
+      <DependentUpon>FormMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportes.Designer.vb">
+      <DependentUpon>FormReportes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ALMACEN\FormConsumoPersonal.Designer.vb">
+      <DependentUpon>FormConsumoPersonal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ALMACEN\FormConsumoPersonal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ALMACEN\FormDetDocumentoOP.Designer.vb">
+      <DependentUpon>FormDetDocumentoOP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ALMACEN\FormDetDocumentoOP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ALMACEN\FormRegistroDetBindCard.Designer.vb">
+      <DependentUpon>FormRegistroDetBindCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ALMACEN\FormRegistroDetBindCard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ALMACEN\FormReporteBindCard.Designer.vb">
+      <DependentUpon>FormReporteBindCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ALMACEN\FormReporteBindCard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ALMACEN\FormReporteReqxEstado.Designer.vb">
+      <DependentUpon>FormReporteReqxEstado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ALMACEN\FormReporteReqxEstado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\BusquedaPersonal.designer.vb">
+      <DependentUpon>BusquedaPersonal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\BusquedaPersonal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\ELPRODUCCION.designer.vb">
+      <DependentUpon>ELPRODUCCION.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\ELPRODUCCION.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\ELPRODUCCION_VARIOS.designer.vb">
+      <DependentUpon>ELPRODUCCION_VARIOS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\ELPRODUCCION_VARIOS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormActCntSolm.Designer.vb">
+      <DependentUpon>FormActCntSolm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormActCntSolm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormAlbaran.Designer.vb">
+      <DependentUpon>FormAlbaran.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormAlbaran.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormAsientoPlanilla.Designer.vb">
+      <DependentUpon>FormAsientoPlanilla.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormAsientoPlanilla.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormAsignarFamilia.designer.vb">
+      <DependentUpon>FormAsignarFamilia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormAsignarFamilia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormBusFechProv.Designer.vb">
+      <DependentUpon>FormBusFechProv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormBusFechProv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormBUSQSELECTMULT.Designer.vb">
+      <DependentUpon>FormBUSQSELECTMULT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormBUSQSELECTMULT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormBUSQUEDA.Designer.vb">
+      <DependentUpon>FormBUSQUEDA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormBUSQUEDA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormBusquedaAnterior.Designer.vb">
+      <DependentUpon>FormBusquedaAnterior.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormBusquedaAnterior.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormBusquedaPerGrupo.Designer.vb">
+      <DependentUpon>FormBusquedaPerGrupo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormBusquedaPerGrupo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormCapacitacion.Designer.vb">
+      <DependentUpon>FormCapacitacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormCapacitacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormCargaDetAsiento.Designer.vb">
+      <DependentUpon>FormCargaDetAsiento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormCargaDetAsiento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormCargarDias.Designer.vb">
+      <DependentUpon>FormCargarDias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormCargarDias.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormCIIU.Designer.vb">
+      <DependentUpon>FormCIIU.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormCIIU.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormClasificacionProveedor.Designer.vb">
+      <DependentUpon>FormClasificacionProveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormClasificacionProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormConsultaKardex.designer.vb">
+      <DependentUpon>FormConsultaKardex.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormConsultaKardex.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormCptoPer.Designer.vb">
+      <DependentUpon>FormCptoPer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormCptoPer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormCtaArticulo_Compra.Designer.vb">
+      <DependentUpon>FormCtaArticulo_Compra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormCtaArticulo_Compra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormCtaNDNC.Designer.vb">
+      <DependentUpon>FormCtaNDNC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormCtaNDNC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDerechoHabiente.Designer.vb">
+      <DependentUpon>FormDerechoHabiente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDerechoHabiente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDetElect.Designer.vb">
+      <DependentUpon>FormDetElect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDetElect.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDetELTBDETRACCION.Designer.vb">
+      <DependentUpon>FormDetELTBDETRACCION.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDetELTBDETRACCION.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDetGuiaDespDuplicar.Designer.vb">
+      <DependentUpon>FormDetGuiaDespDuplicar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDetGuiaDespDuplicar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDetMantArea.Designer.vb">
+      <DependentUpon>FormDetMantArea.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDetMantArea.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDetRecepComp.Designer.vb">
+      <DependentUpon>FormDetRecepComp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDetRecepComp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDirDep.Designer.vb">
+      <DependentUpon>FormDirDep.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDirDep.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuProvCon.Designer.vb">
+      <DependentUpon>FormDocuProvCon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuProvCon.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuProvExp.Designer.vb">
+      <DependentUpon>FormDocuProvExp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuProvExp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRecep.Designer.vb">
+      <DependentUpon>FormDocuRecep.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRecep.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRef.Designer.vb">
+      <DependentUpon>FormDocuRef.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRef.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefCon.designer.vb">
+      <DependentUpon>FormDocuRefCon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefCon.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefContaff.designer.vb">
+      <DependentUpon>FormDocuRefContaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefContaff.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefDet.Designer.vb">
+      <DependentUpon>FormDocuRefDet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefDet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefEva.Designer.vb">
+      <DependentUpon>FormDocuRefEva.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefEva.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefKardexImp.Designer.vb">
+      <DependentUpon>FormDocuRefKardexImp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefKardexImp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefLtBanco.Designer.vb">
+      <DependentUpon>FormDocuRefLtBanco.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefLtBanco.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefMant.Designer.vb">
+      <DependentUpon>FormDocuRefMant.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefMant.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefProgPago.designer.vb">
+      <DependentUpon>FormDocuRefProgPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefProgPago.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefRecep.Designer.vb">
+      <DependentUpon>FormDocuRefRecep.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefRecep.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefTurn.Designer.vb">
+      <DependentUpon>FormDocuRefTurn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDocuRefTurn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDuaCompra.designer.vb">
+      <DependentUpon>FormDuaCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDuaCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormDuplicarDetDocumento.Designer.vb">
+      <DependentUpon>FormDuplicarDetDocumento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormDuplicarDetDocumento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELARTCARACTERISTI.designer.vb">
+      <DependentUpon>FormELARTCARACTERISTI.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELARTCARACTERISTI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELCERTIFICA.designer.vb">
+      <DependentUpon>FormELCERTIFICA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELCERTIFICA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELDESPACHO.Designer.vb">
+      <DependentUpon>FormELDESPACHO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELDESPACHO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELDOCUMENTO.designer.vb">
+      <DependentUpon>FormELDOCUMENTO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELDOCUMENTO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELESPECIFICACIONES_t.designer.vb">
+      <DependentUpon>FormELESPECIFICACIONES_t.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELESPECIFICACIONES_t.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELLIB_CONT.designer.vb">
+      <DependentUpon>FormELLIB_CONT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELLIB_CONT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELLIQUIDACION.designer.vb">
+      <DependentUpon>FormELLIQUIDACION.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELLIQUIDACION.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELPAGO_DETDOCUMENTO.designer.vb">
+      <DependentUpon>FormELPAGO_DETDOCUMENTO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELPAGO_DETDOCUMENTO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELPAGO_DOCUMENTO.designer.vb">
+      <DependentUpon>FormELPAGO_DOCUMENTO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELPAGO_DOCUMENTO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELPERIODO.designer.vb">
+      <DependentUpon>FormELPERIODO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELPERIODO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELPERMISOS.Designer.vb">
+      <DependentUpon>FormELPERMISOS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELPERMISOS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELPROGRAMACION.designer.vb">
+      <DependentUpon>FormELPROGRAMACION.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELPROGRAMACION.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELPROGRAMACION_cuadro.designer.vb">
+      <DependentUpon>FormELPROGRAMACION_cuadro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELPROGRAMACION_cuadro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBARTPREMOV.Designer.vb">
+      <DependentUpon>FormELTBARTPREMOV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBARTPREMOV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBCAPACITACION.Designer.vb">
+      <DependentUpon>FormELTBCAPACITACION.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBCAPACITACION.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBCARGO.Designer.vb">
+      <DependentUpon>FormELTBCARGO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBCARGO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBCONCEPTOS.designer.vb">
+      <DependentUpon>FormELTBCONCEPTOS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBCONCEPTOS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBCUENTA.designer.vb">
+      <DependentUpon>FormELTBCUENTA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBCUENTA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBCUENTA_OPE.designer.vb">
+      <DependentUpon>FormELTBCUENTA_OPE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBCUENTA_OPE.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBDEPRECIACION.Designer.vb">
+      <DependentUpon>FormELTBDEPRECIACION.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBDEPRECIACION.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBDETCAPACITACION.Designer.vb">
+      <DependentUpon>FormELTBDETCAPACITACION.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBDETCAPACITACION.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBDETGUIA.Designer.vb">
+      <DependentUpon>FormELTBDETGUIA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBDETGUIA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBDETMTIEM.Designer.vb">
+      <DependentUpon>FormELTBDETMTIEM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBDETMTIEM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBDetProv.Designer.vb">
+      <DependentUpon>FormELTBDetProv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBDetProv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBDETRACCION.Designer.vb">
+      <DependentUpon>FormELTBDETRACCION.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBDETRACCION.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBDETSOLMATERIALES.Designer.vb">
+      <DependentUpon>FormELTBDETSOLMATERIALES.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBDETSOLMATERIALES.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBDETSTIEM.Designer.vb">
+      <DependentUpon>FormELTBDETSTIEM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBDETSTIEM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBEVALUACION.Designer.vb">
+      <DependentUpon>FormELTBEVALUACION.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBEVALUACION.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormEltbInicialCB.Designer.vb">
+      <DependentUpon>FormEltbInicialCB.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormEltbInicialCB.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBKardexImp.Designer.vb">
+      <DependentUpon>FormELTBKardexImp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBKardexImp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBKARDEXIMPCOSTO.designer.vb">
+      <DependentUpon>FormELTBKARDEXIMPCOSTO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBKARDEXIMPCOSTO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBPrdoContable.Designer.vb">
+      <DependentUpon>FormELTBPrdoContable.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBPrdoContable.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBPreciosArt.Designer.vb">
+      <DependentUpon>FormELTBPreciosArt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBPreciosArt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBREGISTRO_NRO.designer.vb">
+      <DependentUpon>FormELTBREGISTRO_NRO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBREGISTRO_NRO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBREINGRESO.Designer.vb">
+      <DependentUpon>FormELTBREINGRESO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBREINGRESO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBSINTOMASCOVID.designer.vb">
+      <DependentUpon>FormELTBSINTOMASCOVID.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBSINTOMASCOVID.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBSOLMMAS.Designer.vb">
+      <DependentUpon>FormELTBSOLMMAS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBSOLMMAS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBSTiem.Designer.vb">
+      <DependentUpon>FormELTBSTiem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBSTiem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBSTIEMOM.Designer.vb">
+      <DependentUpon>FormELTBSTIEMOM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBSTIEMOM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBSTIEMRH.Designer.vb">
+      <DependentUpon>FormELTBSTIEMRH.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBSTIEMRH.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBSTURN.Designer.vb">
+      <DependentUpon>FormELTBSTURN.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBSTURN.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELT_OPE.designer.vb">
+      <DependentUpon>FormELT_OPE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELT_OPE.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELUTILIDADES.designer.vb">
+      <DependentUpon>FormELUTILIDADES.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELUTILIDADES.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELVACACIONES.designer.vb">
+      <DependentUpon>FormELVACACIONES.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELVACACIONES.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormEtiquetas.Designer.vb">
+      <DependentUpon>FormEtiquetas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormEtiquetas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormEtiquetasCaja.designer.vb">
+      <DependentUpon>FormEtiquetasCaja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormEtiquetasCaja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormEtiquetasTWO.designer.vb">
+      <DependentUpon>FormEtiquetasTWO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormEtiquetasTWO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormExplosion.Designer.vb">
+      <DependentUpon>FormExplosion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormExplosion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormExplosionadoAll.Designer.vb">
+      <DependentUpon>FormExplosionadoAll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormExplosionadoAll.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormFactElect.Designer.vb">
+      <DependentUpon>FormFactElect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormFactElect.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormFallados_Produccion.Designer.vb">
+      <DependentUpon>FormFallados_Produccion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormFallados_Produccion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormFiltroFecha.Designer.vb">
+      <DependentUpon>FormFiltroFecha.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormFiltroFecha.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormFiltroOrdenesCompra.Designer.vb">
+      <DependentUpon>FormFiltroOrdenesCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormFiltroOrdenesCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormFiltroProgramacion.Designer.vb">
+      <DependentUpon>FormFiltroProgramacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormFiltroProgramacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormFormaEntrega.designer.vb">
+      <DependentUpon>FormFormaEntrega.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormFormaEntrega.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormFormaPago.designer.vb">
+      <DependentUpon>FormFormaPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormFormaPago.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormGenerarFiltro.designer.vb">
+      <DependentUpon>FormGenerarFiltro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormGenerarFiltro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormHoraAsistencia.Designer.vb">
+      <DependentUpon>FormHoraAsistencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormHoraAsistencia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormHorasHombre.Designer.vb">
+      <DependentUpon>FormHorasHombre.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormHorasHombre.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormIMPUESTO.designer.vb">
+      <DependentUpon>FormIMPUESTO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormIMPUESTO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormKardexConta.Designer.vb">
+      <DependentUpon>FormKardexConta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormKardexConta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormLectorIMG.Designer.vb">
+      <DependentUpon>FormLectorIMG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormLectorIMG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormLectorPDF.Designer.vb">
+      <DependentUpon>FormLectorPDF.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormLectorPDF.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormLetrasBanco.Designer.vb">
+      <DependentUpon>FormLetrasBanco.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormLetrasBanco.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormLetrasCompras.Designer.vb">
+      <DependentUpon>FormLetrasCompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormLetrasCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormLimpiarDias.Designer.vb">
+      <DependentUpon>FormLimpiarDias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormLimpiarDias.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantActaEntrega.designer.vb">
+      <DependentUpon>FormMantActaEntrega.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantActaEntrega.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantArticulo.Designer.vb">
+      <DependentUpon>FormMantARTICULO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantARTICULO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantAtencionReq.Designer.vb">
+      <DependentUpon>FormMantAtencionReq.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantAtencionReq.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantBoleta.Designer.vb">
+      <DependentUpon>FormMantBoleta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantBoleta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantCentroCosto.Designer.vb">
+      <DependentUpon>FormMantCentroCosto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantCentroCosto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantContratos.designer.vb">
+      <DependentUpon>FormMantContratos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantContratos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantCosteoArt.Designer.vb">
+      <DependentUpon>FormMantCosteoArt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantCosteoArt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantCUENTABANCO.designer.vb">
+      <DependentUpon>FormMantCUENTABANCO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantCUENTABANCO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetBoleta.Designer.vb">
+      <DependentUpon>FormMantDetBoleta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetBoleta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetDocExp.Designer.vb">
+      <DependentUpon>FormMantDetDocExp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetDocExp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetElcertifica.designer.vb">
+      <DependentUpon>FormMantDetElcertifica.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetElcertifica.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetEltbprogpago.designer.vb">
+      <DependentUpon>FormMantDetEltbprogpago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetEltbprogpago.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetEvaluacion.Designer.vb">
+      <DependentUpon>FormMantDetEvaluacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetEvaluacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetFacturacion.Designer.vb">
+      <DependentUpon>FormMantDetFacturacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetFacturacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetFCRecepComp.Designer.vb">
+      <DependentUpon>FormMantDetFCRecepComp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetFCRecepComp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetGuiaAlmacen.Designer.vb">
+      <DependentUpon>FormMantDetGuiaAlmacen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetGuiaAlmacen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetGuiaAlmacenTrans.designer.vb">
+      <DependentUpon>FormMantDetGuiaAlmacenTrans.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetGuiaAlmacenTrans.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetGuiaDespacho.Designer.vb">
+      <DependentUpon>FormMantDetGuiaDespacho.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetGuiaDespacho.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetLetras.Designer.vb">
+      <DependentUpon>FormMantDetLetras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetLetras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetLet_Monto.Designer.vb">
+      <DependentUpon>FormMantDetLet_Monto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetLet_Monto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetNotaCredito.Designer.vb">
+      <DependentUpon>FormMantDetNotaCredito.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetNotaCredito.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetNotaDebito.designer.vb">
+      <DependentUpon>FormMantDetNotaDebito.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetNotaDebito.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetOrdenCompra.Designer.vb">
+      <DependentUpon>FormMantDetOrdenCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetOrdenCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetProvisiones.Designer.vb">
+      <DependentUpon>FormMantDetProvisiones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetProvisiones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetRequerimiento.designer.vb">
+      <DependentUpon>FormMantDetRequerimiento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetRequerimiento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetReq_ok.Designer.vb">
+      <DependentUpon>FormMantDetReq_ok.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDetReq_ok.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDocExp.Designer.vb">
+      <DependentUpon>FormMantDocExp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantDocExp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELCERTIFICA.designer.vb">
+      <DependentUpon>FormMantELCERTIFICA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELCERTIFICA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBALMACEN.designer.vb">
+      <DependentUpon>FormMantELTBALMACEN.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBALMACEN.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBArea.Designer.vb">
+      <DependentUpon>FormMantELTBArea.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBArea.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBCARA.designer.vb">
+      <DependentUpon>FormMantELTBCARA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBCARA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBCATA.designer.vb">
+      <DependentUpon>FormMantELTBCATA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBCATA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBCLIENTE.designer.vb">
+      <DependentUpon>FormMantELTBCLIENTE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBCLIENTE.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\formMantELTBCLIENTE_cor.designer.vb">
+      <DependentUpon>formMantELTBCLIENTE_cor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\formMantELTBCLIENTE_cor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBCLIENTE_dir.designer.vb">
+      <DependentUpon>FormMantELTBCLIENTE_dir.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBCLIENTE_dir.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\formMantELTBCLIENTE_tel.designer.vb">
+      <DependentUpon>formMantELTBCLIENTE_tel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\formMantELTBCLIENTE_tel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBCOSTOGASTO.Designer.vb">
+      <DependentUpon>FormMantELTBCOSTOGASTO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBCOSTOGASTO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBCTA_FACTURAC.designer.vb">
+      <DependentUpon>FormMantELTBCTA_FACTURAC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBCTA_FACTURAC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBGRUPCOR.Designer.vb">
+      <DependentUpon>FormMantELTBGRUPCOR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBGRUPCOR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantEltbgrupcorval.Designer.vb">
+      <DependentUpon>FormMantEltbgrupcorval.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantEltbgrupcorval.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBGRUPO.Designer.vb">
+      <DependentUpon>FormMantELTBGRUPO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBGRUPO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBLINEA.Designer.vb">
+      <DependentUpon>FormMantELTBLINEA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBLINEA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBLINES.designer.vb">
+      <DependentUpon>FormMantELTBLINES.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBLINES.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBMESSAGE.designer.vb">
+      <DependentUpon>FormMantELTBMESSAGE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBMESSAGE.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBOPER.Designer.vb">
+      <DependentUpon>FormMantELTBOPER.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBOPER.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBParcial.Designer.vb">
+      <DependentUpon>FormMantELTBParcial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBParcial.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBPROC.Designer.vb">
+      <DependentUpon>FormMantELTBPROC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBPROC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBPROGPAGO.Designer.vb">
+      <DependentUpon>FormMantELTBPROGPAGO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBPROGPAGO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBPROVEEDORES.designer.vb">
+      <DependentUpon>FormMantELTBPROVEEDORES.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBPROVEEDORES.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBPROVEEDORES_cor.designer.vb">
+      <DependentUpon>FormMantELTBPROVEEDORES_cor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBPROVEEDORES_cor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBPROVEEDORES_dir.designer.vb">
+      <DependentUpon>FormMantELTBPROVEEDORES_dir.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBPROVEEDORES_dir.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBPROVEEDORES_tel.designer.vb">
+      <DependentUpon>FormMantELTBPROVEEDORES_tel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBPROVEEDORES_tel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBREAP.Designer.vb">
+      <DependentUpon>FormMantELTBREAP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBREAP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBRECC.Designer.vb">
+      <DependentUpon>FormMantELTBRECC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBRECC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBREPO.Designer.vb">
+      <DependentUpon>FormMantELTBREPO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBREPO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBSOLMATERIALES.Designer.vb">
+      <DependentUpon>FormMantELTBSOLMATERIALES.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBSOLMATERIALES.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBTAREO.designer.vb">
+      <DependentUpon>FormMantELTBTAREO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBTAREO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBTIPOCAMBIO.Designer.vb">
+      <DependentUpon>FormMantELTBTIPOCAMBIO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBTIPOCAMBIO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBTRANSP.Designer.vb">
+      <DependentUpon>FormMantELTBTRANSP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBTRANSP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBTRANSPCHOFER.Designer.vb">
+      <DependentUpon>FormMantELTBTRANSPCHOFER.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBTRANSPCHOFER.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBTRANSPTRACTOR.Designer.vb">
+      <DependentUpon>FormMantELTBTRANSPTRACTOR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBTRANSPTRACTOR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBUnidadNegocio.Designer.vb">
+      <DependentUpon>FormMantELTBUnidadNegocio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantELTBUnidadNegocio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantExpor.Designer.vb">
+      <DependentUpon>FormMantExpor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantExpor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantFacEst.Designer.vb">
+      <DependentUpon>FormMantFacEst.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantFacEst.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantFacturacion.Designer.vb">
+      <DependentUpon>FormMantFacturacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantFacturacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantFCRecepComp.designer.vb">
+      <DependentUpon>FormMantFCRecepComp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantFCRecepComp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantFCRecepNew.Designer.vb">
+      <DependentUpon>FormMantFCRecepNew.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantFCRecepNew.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantGuiaAlmacen.Designer.vb">
+      <DependentUpon>FormMantGuiaAlmacen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantGuiaAlmacen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantGuiaDespacho.Designer.vb">
+      <DependentUpon>FormMantGuiaDespacho.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantGuiaDespacho.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantLetras.Designer.vb">
+      <DependentUpon>FormMantLetras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantLetras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantLetras_Monto.designer.vb">
+      <DependentUpon>FormMantLetras_Monto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantLetras_Monto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantLinea.Designer.vb">
+      <DependentUpon>FormMantLinea.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantLinea.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantLtEst.Designer.vb">
+      <DependentUpon>FormMantLtEst.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantLtEst.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantNCEst.Designer.vb">
+      <DependentUpon>FormMantNCEst.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantNCEst.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantNDEst.Designer.vb">
+      <DependentUpon>FormMantNDEst.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantNDEst.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantNotaCredito.Designer.vb">
+      <DependentUpon>FormMantNotaCredito.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantNotaCredito.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantNotaDebito.designer.vb">
+      <DependentUpon>FormMantNotaDebito.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantNotaDebito.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantOrdenCompra.Designer.vb">
+      <DependentUpon>FormMantOrdenCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantOrdenCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantPallet.Designer.vb">
+      <DependentUpon>FormMantPallet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantPallet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantPersonal.Designer.vb">
+      <DependentUpon>FormMantPersonal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantPersonal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantPlanilla.Designer.vb">
+      <DependentUpon>FormMantPlanilla.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantPlanilla.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantProvisiones.Designer.vb">
+      <DependentUpon>FormMantProvisiones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantProvisiones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantRequerimiento.Designer.vb">
+      <DependentUpon>FormMantRequerimiento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantRequerimiento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantStockFisico.Designer.vb">
+      <DependentUpon>FormMantStockFisico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantStockFisico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantSublines.designer.vb">
+      <DependentUpon>FormMantSublines.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantSublines.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantTema.Designer.vb">
+      <DependentUpon>FormMantTema.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantTema.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantTurnoNoche.Designer.vb">
+      <DependentUpon>FormMantTurnoNoche.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantTurnoNoche.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantT_MEDIDA.Designer.vb">
+      <DependentUpon>FormMantT_MEDIDA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantT_MEDIDA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantT_MOVINV.designer.vb">
+      <DependentUpon>FormMantT_MOVINV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantT_MOVINV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantUNI.Designer.vb">
+      <DependentUpon>FormMantUNI.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMantUNI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMntELTBUSER.Designer.vb">
+      <DependentUpon>FormMntELTBUSER.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMntELTBUSER.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormModifGuiaTrans.designer.vb">
+      <DependentUpon>FormModifGuiaTrans.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormModifGuiaTrans.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMovim.Designer.vb">
+      <DependentUpon>FormMovim.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMovim.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormMultiploArtViru.Designer.vb">
+      <DependentUpon>FormMultiploArtViru.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormMultiploArtViru.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormNewArt.Designer.vb">
+      <DependentUpon>FormNewArt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormNewArt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormObsOrdenCompra.Designer.vb">
+      <DependentUpon>FormObsOrdenCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormObsOrdenCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormObsRecepDoc.Designer.vb">
+      <DependentUpon>FormObsRecepDoc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormObsRecepDoc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormOpcionStock.Designer.vb">
+      <DependentUpon>FormOpcionStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormOpcionStock.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormOrdenMantenimiento.Designer.vb">
+      <DependentUpon>FormOrdenMantenimiento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormOrdenMantenimiento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormOrdenProgramas.designer.vb">
+      <DependentUpon>FormOrdenProgramas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormOrdenProgramas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormOrdenProgramas_Agregar.designer.vb">
+      <DependentUpon>FormOrdenProgramas_Agregar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormOrdenProgramas_Agregar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormPerGrupo.Designer.vb">
+      <DependentUpon>FormPerGrupo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormPerGrupo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormPerGrupoCapa.Designer.vb">
+      <DependentUpon>FormPerGrupoCapa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormPerGrupoCapa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormPerGrupoHora.Designer.vb">
+      <DependentUpon>FormPerGrupoHora.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormPerGrupoHora.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormPerHoraOM.Designer.vb">
+      <DependentUpon>FormPerHoraOM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormPerHoraOM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormPerTurnoHora.Designer.vb">
+      <DependentUpon>FormPerTurnoHora.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormPerTurnoHora.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormPesoReq_ok.Designer.vb">
+      <DependentUpon>FormPesoReq_ok.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormPesoReq_ok.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormPrecioCompra.Designer.vb">
+      <DependentUpon>FormPrecioCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormPrecioCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormPrecioCompra01.Designer.vb">
+      <DependentUpon>FormPrecioCompra01.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormPrecioCompra01.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormProcesarHora.Designer.vb">
+      <DependentUpon>FormProcesarHora.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormProcesarHora.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormReingreso_Produccion.Designer.vb">
+      <DependentUpon>FormReingreso_Produccion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormReingreso_Produccion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRepFallAll.Designer.vb">
+      <DependentUpon>FormRepFallAll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRepFallAll.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRepFallProd.Designer.vb">
+      <DependentUpon>FormRepFallProd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRepFallProd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRepMovimHojalata.Designer.vb">
+      <DependentUpon>FormRepMovimHojalata.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRepMovimHojalata.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormReporteDespacho.Designer.vb">
+      <DependentUpon>FormReporteDespacho.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormReporteDespacho.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormReporteInventario.Designer.vb">
+      <DependentUpon>FormReporteInventario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormReporteInventario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormReporteOrdenC.designer.vb">
+      <DependentUpon>FormReporteOrdenC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormReporteOrdenC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormReporteStock.designer.vb">
+      <DependentUpon>FormReporteStock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormReporteStock.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormReporteVenta.Designer.vb">
+      <DependentUpon>FormReporteVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormReporteVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormReporte_Produccion.Designer.vb">
+      <DependentUpon>FormReporte_Produccion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormReporte_Produccion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormReporte_Trabajo.Designer.vb">
+      <DependentUpon>FormReporte_Trabajo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormReporte_Trabajo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormReporte_T_Env.Designer.vb">
+      <DependentUpon>FormReporte_T_Env.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormReporte_T_Env.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRepProdAll.Designer.vb">
+      <DependentUpon>FormRepProdAll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRepProdAll.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRepReinAll.Designer.vb">
+      <DependentUpon>FormRepReinAll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRepReinAll.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormReque_Ok.Designer.vb">
+      <DependentUpon>FormReque_Ok.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormReque_Ok.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptAfiliaAFP.Designer.vb">
+      <DependentUpon>FormRptAfiliaAFP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptAfiliaAFP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptAFPPer.Designer.vb">
+      <DependentUpon>FormRptAFPPer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptAFPPer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptAnalisisAtencion.Designer.vb">
+      <DependentUpon>FormRptAnalisisAtencion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptAnalisisAtencion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTAnalisProd.Designer.vb">
+      <DependentUpon>FormRPTAnalisProd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTAnalisProd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTAnaliticoLT.Designer.vb">
+      <DependentUpon>FormRPTAnaliticoLT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTAnaliticoLT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptBalanceComp.Designer.vb">
+      <DependentUpon>FormRptBalanceComp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptBalanceComp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTBINDCARD.Designer.vb">
+      <DependentUpon>FormRPTBINDCARD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTBINDCARD.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTCalculoCTS.Designer.vb">
+      <DependentUpon>FormRPTCalculoCTS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTCalculoCTS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTClienteVendedor.Designer.vb">
+      <DependentUpon>FormRPTClienteVendedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTClienteVendedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptComprasArt.Designer.vb">
+      <DependentUpon>FormRptComprasArt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptComprasArt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTConDevolucion.Designer.vb">
+      <DependentUpon>FormRPTConDevolucion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTConDevolucion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTConIng.Designer.vb">
+      <DependentUpon>FormRPTConIng.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTConIng.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTConsumo.Designer.vb">
+      <DependentUpon>FormRPTConsumo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTConsumo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptConsVal.Designer.vb">
+      <DependentUpon>FormRptConsVal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptConsVal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptContaControlCobra.designer.vb">
+      <DependentUpon>FormRptContaControlCobra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptContaControlCobra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptContrato.Designer.vb">
+      <DependentUpon>FormRptContrato.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptContrato.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptCon_bancaria.Designer.vb">
+      <DependentUpon>FormRptCon_bancaria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptCon_bancaria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTDESPACHO.Designer.vb">
+      <DependentUpon>FormRPTDESPACHO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTDESPACHO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptDespachoCli.Designer.vb">
+      <DependentUpon>FormRptDespachoCli.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptDespachoCli.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTDespClienteMed.Designer.vb">
+      <DependentUpon>FormRPTDespClienteMed.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTDespClienteMed.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTDespResuCli.Designer.vb">
+      <DependentUpon>FormRPTDespResuCli.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTDespResuCli.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptDetDocumento.Designer.vb">
+      <DependentUpon>FormRptDetDocumento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptDetDocumento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptDetEncuestaINEI.Designer.vb">
+      <DependentUpon>FormRptDetEncuestaINEI.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptDetEncuestaINEI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptDetEssalud.Designer.vb">
+      <DependentUpon>FormRptDetEssalud.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptDetEssalud.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptDetRecep.Designer.vb">
+      <DependentUpon>FormRptDetRecep.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptDetRecep.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptDocTrans.Designer.vb">
+      <DependentUpon>FormRptDocTrans.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptDocTrans.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptExpArtCos.Designer.vb">
+      <DependentUpon>FormRptExpArtCos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptExpArtCos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptFacturasAdelantadas.Designer.vb">
+      <DependentUpon>FormRptFacturasAdelantadas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptFacturasAdelantadas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTFCCompras.Designer.vb">
+      <DependentUpon>FormRPTFCCompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTFCCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTFCVentas_Sunat.Designer.vb">
+      <DependentUpon>FormRPTFCVentas_Sunat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTFCVentas_Sunat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptFecKardex.Designer.vb">
+      <DependentUpon>FormRptFecKardex.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptFecKardex.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptFichaArticulo.Designer.vb">
+      <DependentUpon>FormRptFichaArticulo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptFichaArticulo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTGUIASDESPACHO.Designer.vb">
+      <DependentUpon>FormRPTGUIASDESPACHO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTGUIASDESPACHO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptHorasExtras.Designer.vb">
+      <DependentUpon>FormRptHorasExtras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptHorasExtras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptHorExtPer.Designer.vb">
+      <DependentUpon>FormRptHorExtPer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptHorExtPer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTKardex_Consumo_Costo.Designer.vb">
+      <DependentUpon>FormRPTKardex_Consumo_Costo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTKardex_Consumo_Costo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTLetrasCambio.Designer.vb">
+      <DependentUpon>FormRPTLetrasCambio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTLetrasCambio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptLineaSubliena.Designer.vb">
+      <DependentUpon>FormRptLineaSubliena.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptLineaSubliena.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptMasVendidos.Designer.vb">
+      <DependentUpon>FormRptMasVendidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptMasVendidos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTMerma.Designer.vb">
+      <DependentUpon>FormRPTMerma.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTMerma.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptNetoAPagar.designer.vb">
+      <DependentUpon>FormRptNetoAPagar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptNetoAPagar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptOrdenProgam.Designer.vb">
+      <DependentUpon>FormRptOrdenProgam.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptOrdenProgam.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptPerCesado.Designer.vb">
+      <DependentUpon>FormRptPerCesado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptPerCesado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptPerEstado.Designer.vb">
+      <DependentUpon>FormRptPerEstado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptPerEstado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptPlaResuCons.Designer.vb">
+      <DependentUpon>FormRptPlaResuCons.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptPlaResuCons.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTPrecioArtVenta.Designer.vb">
+      <DependentUpon>FormRPTPrecioArtVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTPrecioArtVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptProdCCO_COD.Designer.vb">
+      <DependentUpon>FormRptProdCCO_COD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptProdCCO_COD.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormSistIntCalidad.Designer.vb">
+      <DependentUpon>FormSistIntCalidad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormSistIntCalidad.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormResumenLD2D.Designer.vb">
+      <DependentUpon>FormResumenLD2D.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormResumenLD2D.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRPTLIB_DIA_ANA.Designer.vb">
+      <DependentUpon>FormRPTLIB_DIA_ANA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRPTLIB_DIA_ANA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRptRegistroCobranza.Designer.vb">
+      <DependentUpon>FormRptRegistroCobranza.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRptRegistroCobranza.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptRegVentas.Designer.vb">
+      <DependentUpon>FormRptRegVentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptRegVentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTREMGLOBAL.designer.vb">
+      <DependentUpon>FormRPTREMGLOBAL.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTREMGLOBAL.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptRemuAfp.designer.vb">
+      <DependentUpon>FormRptRemuAfp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptRemuAfp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptResuCliente.Designer.vb">
+      <DependentUpon>FormRptResuCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptResuCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTResuComprasServ.Designer.vb">
+      <DependentUpon>FormRPTResuComprasServ.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTResuComprasServ.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTResuKardex.Designer.vb">
+      <DependentUpon>FormRPTResuKardex.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTResuKardex.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptResumenAFP.Designer.vb">
+      <DependentUpon>FormRptResumenAFP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptResumenAFP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTResuProdMed.Designer.vb">
+      <DependentUpon>FormRPTResuProdMed.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTResuProdMed.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptSCTR.Designer.vb">
+      <DependentUpon>FormRptSCTR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptSCTR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptSegOrdProd.Designer.vb">
+      <DependentUpon>FormRptSegOrdProd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptSegOrdProd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptSintomaCovidRH.Designer.vb">
+      <DependentUpon>FormRptSintomaCovidRH.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptSintomaCovidRH.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptSolMat.Designer.vb">
+      <DependentUpon>FormRptSolMat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptSolMat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTSolOrden.Designer.vb">
+      <DependentUpon>FormRPTSolOrden.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTSolOrden.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptStockFecha.Designer.vb">
+      <DependentUpon>FormRptStockFecha.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptStockFecha.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptStockVen.Designer.vb">
+      <DependentUpon>FormRptStockVen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptStockVen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptTodos.Designer.vb">
+      <DependentUpon>FormRptTodos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptTodos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptVacaciones.Designer.vb">
+      <DependentUpon>FormRptVacaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptVacaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptVacaPend.Designer.vb">
+      <DependentUpon>FormRptVacaPend.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptVacaPend.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptVenMedida.Designer.vb">
+      <DependentUpon>FormRptVenMedida.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptVenMedida.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTVentasAnualCli.Designer.vb">
+      <DependentUpon>FormRPTVentasAnualCli.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTVentasAnualCli.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTVentasProdMed.Designer.vb">
+      <DependentUpon>FormRPTVentasProdMed.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRPTVentasProdMed.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptVentas_Fact_Art.Designer.vb">
+      <DependentUpon>FormRptVentas_Fact_Art.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptVentas_Fact_Art.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptVidaLey.Designer.vb">
+      <DependentUpon>FormRptVidaLey.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormRptVidaLey.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRVEI.Designer.vb">
+      <DependentUpon>FormRVEI.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRVEI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormSolmOrden.Designer.vb">
+      <DependentUpon>FormSolmOrden.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormSolmOrden.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormStatusCuentasCobrar.Designer.vb">
+      <DependentUpon>FormStatusCuentasCobrar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormStatusCuentasCobrar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormSUBSIDIOMONTOS.Designer.vb">
+      <DependentUpon>FormSUBSIDIOMONTOS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormSUBSIDIOMONTOS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormTBMOVIMIENTO.designer.vb">
+      <DependentUpon>FormTBMOVIMIENTO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormTBMOVIMIENTO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormTextoPago.Designer.vb">
+      <DependentUpon>FormTextoPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormTextoPago.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormTextoPlame.Designer.vb">
+      <DependentUpon>FormTextoPlame.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormTextoPlame.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormTransportista.designer.vb">
+      <DependentUpon>FormTransportista.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormTransportista.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormtTest.designer.vb">
+      <DependentUpon>FormtTest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormtTest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\Form_Stock_Precio.designer.vb">
+      <DependentUpon>Form_Stock_Precio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\Form_Stock_Precio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormELTBPERCEP.Designer.vb">
+      <DependentUpon>FormELTBPERCEP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormELTBPERCEP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormFlujoProyectado.Designer.vb">
+      <DependentUpon>FormFlujoProyectado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormFlujoProyectado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormLibroDiario.Designer.vb">
+      <DependentUpon>FormLibroDiario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormLibroDiario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormResumenRentaQuinta.Designer.vb">
+      <DependentUpon>FormResumenRentaQuinta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormResumenRentaQuinta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRptDiario.Designer.vb">
+      <DependentUpon>FormRptDiario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRptDiario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELSUBSIDIOS.designer.vb">
+      <DependentUpon>FormELSUBSIDIOS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELSUBSIDIOS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormModifGuia.designer.vb">
+      <DependentUpon>FormModifGuia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormModifGuia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormROTACION.designer.vb">
+      <DependentUpon>FormROTACION.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormROTACION.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBSTIEMJF.designer.vb">
+      <DependentUpon>FormELTBSTIEMJF.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Config\FormELTBSTIEMJF.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRptInsumosVenta.Designer.vb">
+      <DependentUpon>FormRptInsumosVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRptInsumosVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRPTRegalo.Designer.vb">
+      <DependentUpon>FormRPTRegalo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRPTRegalo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormSeguimientoClientes.Designer.vb">
+      <DependentUpon>FormSeguimientoClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormSeguimientoClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\COSTOS\FormIndiceCostos.Designer.vb">
+      <DependentUpon>FormIndiceCostos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\COSTOS\FormIndiceCostos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\COSTOS\FormKardexArtPreMov.Designer.vb">
+      <DependentUpon>FormKardexArtPreMov.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\COSTOS\FormKardexArtPreMov.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\COSTOS\FormOPAnuladas.Designer.vb">
+      <DependentUpon>FormOPAnuladas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\COSTOS\FormOPAnuladas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\COSTOS\FormProcesoCostos.Designer.vb">
+      <DependentUpon>FormProcesoCostos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\COSTOS\FormProcesoCostos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FINANZAS\FormAnalPtoMantenimiento.Designer.vb">
+      <DependentUpon>FormAnalPtoMantenimiento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FINANZAS\FormAnalPtoMantenimiento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FINANZAS\FormRPTAnalisis_Presupuesto.Designer.vb">
+      <DependentUpon>FormRPTAnalisis_Presupuesto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FINANZAS\FormRPTAnalisis_Presupuesto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FINANZAS\FormRPT_Cliente_Ventas_totales.Designer.vb">
+      <DependentUpon>FormRPT_Cliente_Ventas_totales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FINANZAS\FormRPT_Cliente_Ventas_totales.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GERENCIA\FormRptEstOC.Designer.vb">
+      <DependentUpon>FormRptEstOC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GERENCIA\FormRptEstOC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MARCACION\FormRegistroAsistencia.Designer.vb">
+      <DependentUpon>FormRegistroAsistencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MARCACION\FormRegistroAsistencia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PRODUCCION\FormBonoProduccion.Designer.vb">
+      <DependentUpon>FormBonoProduccion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PRODUCCION\FormBonoProduccion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PRODUCCION\FormDiferencasSeguiProd.Designer.vb">
+      <DependentUpon>FormDiferencasSeguiProd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PRODUCCION\FormDiferencasSeguiProd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PRODUCCION\FormUbicacionMant.Designer.vb">
+      <DependentUpon>FormUbicacionMant.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PRODUCCION\FormUbicacionMant.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormCalcLiquidacion.Designer.vb">
+      <DependentUpon>FormCalcLiquidacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormCalcLiquidacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormDetalleIngresos.Designer.vb">
+      <DependentUpon>FormDetalleIngresos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormDetalleIngresos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormModDetPrestamo.Designer.vb">
+      <DependentUpon>FormModDetPrestamo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormModDetPrestamo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormPrestamoPer.Designer.vb">
+      <DependentUpon>FormPrestamoPer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormPrestamoPer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormProcesarQuincena.Designer.vb">
+      <DependentUpon>FormProcesarQuincena.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormProcesarQuincena.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRegistroBonoNocturno.Designer.vb">
+      <DependentUpon>FormRegistroBonoNocturno.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRegistroBonoNocturno.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRegistroMemos.Designer.vb">
+      <DependentUpon>FormRegistroMemos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRegistroMemos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRegistroVacunas.Designer.vb">
+      <DependentUpon>FormRegistroVacunas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRegistroVacunas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRPTCristina.Designer.vb">
+      <DependentUpon>FormRPTCristina.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRPTCristina.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRptHorExt.Designer.vb">
+      <DependentUpon>FormRptHorExt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRptHorExt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRptListAFP.Designer.vb">
+      <DependentUpon>FormRptListAFP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRptListAFP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRPTPRESTAMOPER.Designer.vb">
+      <DependentUpon>FormRPTPRESTAMOPER.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRPTPRESTAMOPER.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRptQuinta.Designer.vb">
+      <DependentUpon>FormRptQuinta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRptQuinta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRptRemuPla.Designer.vb">
+      <DependentUpon>FormRptRemuPla.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRptRemuPla.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRptResumenSenati.Designer.vb">
+      <DependentUpon>FormRptResumenSenati.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRptResumenSenati.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRptVencContrato.Designer.vb">
+      <DependentUpon>FormRptVencContrato.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRptVencContrato.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRptGuiaPlaca.Designer.vb">
+      <DependentUpon>FormRptGuiaPlaca.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRptGuiaPlaca.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRptLibroMayor.Designer.vb">
+      <DependentUpon>FormRptLibroMayor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRptLibroMayor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\VACACIONES\FormELTBPROVVACA.Designer.vb">
+      <DependentUpon>FormELTBPROVVACA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\VACACIONES\FormELTBPROVVACA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MANTENIMIENTO\FormELTBMANTENIMIENTO.Designer.vb">
+      <DependentUpon>FormELTBMANTENIMIENTO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MANTENIMIENTO\FormELTBMANTENIMIENTO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRptBoletaCTS.Designer.vb">
+      <DependentUpon>FormRptBoletaCTS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRptBoletaCTS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRptBoletaPagoNuevo.Designer.vb">
+      <DependentUpon>FormRptBoletaPagoNuevo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRptBoletaPagoNuevo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\REPORTE\FormRPTFLUJOEFECTIVO.Designer.vb">
+      <DependentUpon>FormRPTFLUJOEFECTIVO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\REPORTE\FormRPTFLUJOEFECTIVO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PRUEBA\FormPRUEBA.Designer.vb">
+      <DependentUpon>FormPRUEBA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PRUEBA\FormPRUEBA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\REPORTE\FormRPTCuentasCCO.Designer.vb">
+      <DependentUpon>FormRPTCuentasCCO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\REPORTE\FormRPTCuentasCCO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\REPORTE\FormRPTVentasTotalesCliente.Designer.vb">
+      <DependentUpon>FormRPTVentasTotalesCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\REPORTE\FormRPTVentasTotalesCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\REPORTE\FormRptVentasVendedor.Designer.vb">
+      <DependentUpon>FormRptVentasVendedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\REPORTE\FormRptVentasVendedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.vb">
+      <DependentUpon>FormLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRptAsientoPla.Designer.vb">
+      <DependentUpon>FormRptAsientoPla.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRptAsientoPla.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRptMayor.Designer.vb">
+      <DependentUpon>FormRptMayor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormRptMayor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MANTENIMIENTO\FrmMantOrdenServicio.Designer.vb">
+      <DependentUpon>FrmMantOrdenServicio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MANTENIMIENTO\FrmMantOrdenServicio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MANTENIMIENTO\FrmMantOrdenTrabajo.Designer.vb">
+      <DependentUpon>FrmMantOrdenTrabajo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MANTENIMIENTO\FrmMantOrdenTrabajo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MANTENIMIENTO\FrmMantReporteDiario.Designer.vb">
+      <DependentUpon>FrmMantReporteDiario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MANTENIMIENTO\FrmMantReporteDiario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MANTENIMIENTO\FrmMantTipoFalla.Designer.vb">
+      <DependentUpon>FrmMantTipoFalla.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MANTENIMIENTO\FrmMantTipoFalla.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRptBoletaPago.Designer.vb">
+      <DependentUpon>FormRptBoletaPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\R.HUMANOS\FormRptBoletaPago.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modMain.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Shared\Funciones.vb" />
+    <Compile Include="UControls\ccInhLoginText.Designer.vb">
+      <DependentUpon>ccInhLoginText.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UControls\ccInhLoginText.vb">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormFiltroOreq.resx">
+      <DependentUpon>FormFiltroOreq.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormIdle.resx">
+      <DependentUpon>FormIdle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoginCPC.resx">
+      <DependentUpon>FormLoginCPC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportes.resx">
+      <DependentUpon>FormReportes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ALMACEN\FormConsumoPersonal.resx">
+      <DependentUpon>FormConsumoPersonal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ALMACEN\FormDetDocumentoOP.resx">
+      <DependentUpon>FormDetDocumentoOP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ALMACEN\FormRegistroDetBindCard.resx">
+      <DependentUpon>FormRegistroDetBindCard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ALMACEN\FormReporteBindCard.resx">
+      <DependentUpon>FormReporteBindCard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ALMACEN\FormReporteReqxEstado.resx">
+      <DependentUpon>FormReporteReqxEstado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\BusquedaPersonal.resx">
+      <DependentUpon>BusquedaPersonal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\ELPRODUCCION.resx">
+      <DependentUpon>ELPRODUCCION.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\ELPRODUCCION_VARIOS.resx">
+      <DependentUpon>ELPRODUCCION_VARIOS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormActCntSolm.resx">
+      <DependentUpon>FormActCntSolm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormAlbaran.resx">
+      <DependentUpon>FormAlbaran.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormAsientoPlanilla.resx">
+      <DependentUpon>FormAsientoPlanilla.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormAsignarFamilia.resx">
+      <DependentUpon>FormAsignarFamilia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormBusFechProv.resx">
+      <DependentUpon>FormBusFechProv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormBUSQSELECTMULT.resx">
+      <DependentUpon>FormBUSQSELECTMULT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormBUSQUEDA.resx">
+      <DependentUpon>FormBUSQUEDA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormBusquedaAnterior.resx">
+      <DependentUpon>FormBusquedaAnterior.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormBusquedaPerGrupo.resx">
+      <DependentUpon>FormBusquedaPerGrupo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormCapacitacion.resx">
+      <DependentUpon>FormCapacitacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormCargaDetAsiento.resx">
+      <DependentUpon>FormCargaDetAsiento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormCargarDias.resx">
+      <DependentUpon>FormCargarDias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormCIIU.resx">
+      <DependentUpon>FormCIIU.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormClasificacionProveedor.resx">
+      <DependentUpon>FormClasificacionProveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormConsultaKardex.resx">
+      <DependentUpon>FormConsultaKardex.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormCptoPer.resx">
+      <DependentUpon>FormCptoPer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormCtaArticulo_Compra.resx">
+      <DependentUpon>FormCtaArticulo_Compra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormCtaNDNC.resx">
+      <DependentUpon>FormCtaNDNC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDerechoHabiente.resx">
+      <DependentUpon>FormDerechoHabiente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDetElect.resx">
+      <DependentUpon>FormDetElect.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDetELTBDETRACCION.resx">
+      <DependentUpon>FormDetELTBDETRACCION.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDetGuiaDespDuplicar.resx">
+      <DependentUpon>FormDetGuiaDespDuplicar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDetMantArea.resx">
+      <DependentUpon>FormDetMantArea.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDetRecepComp.resx">
+      <DependentUpon>FormDetRecepComp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDirDep.resx">
+      <DependentUpon>FormDirDep.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDocuProvCon.resx">
+      <DependentUpon>FormDocuProvCon.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDocuProvExp.resx">
+      <DependentUpon>FormDocuProvExp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDocuRecep.resx">
+      <DependentUpon>FormDocuRecep.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDocuRef.resx">
+      <DependentUpon>FormDocuRef.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDocuRefCon.resx">
+      <DependentUpon>FormDocuRefCon.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDocuRefContaff.resx">
+      <DependentUpon>FormDocuRefContaff.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDocuRefDet.resx">
+      <DependentUpon>FormDocuRefDet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDocuRefEva.resx">
+      <DependentUpon>FormDocuRefEva.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDocuRefKardexImp.resx">
+      <DependentUpon>FormDocuRefKardexImp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDocuRefLtBanco.resx">
+      <DependentUpon>FormDocuRefLtBanco.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDocuRefMant.resx">
+      <DependentUpon>FormDocuRefMant.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDocuRefProgPago.resx">
+      <DependentUpon>FormDocuRefProgPago.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDocuRefRecep.resx">
+      <DependentUpon>FormDocuRefRecep.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDocuRefTurn.resx">
+      <DependentUpon>FormDocuRefTurn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDuaCompra.resx">
+      <DependentUpon>FormDuaCompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormDuplicarDetDocumento.resx">
+      <DependentUpon>FormDuplicarDetDocumento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELARTCARACTERISTI.resx">
+      <DependentUpon>FormELARTCARACTERISTI.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELCERTIFICA.resx">
+      <DependentUpon>FormELCERTIFICA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELDESPACHO.resx">
+      <DependentUpon>FormELDESPACHO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELDOCUMENTO.resx">
+      <DependentUpon>FormELDOCUMENTO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELESPECIFICACIONES_t.resx">
+      <DependentUpon>FormELESPECIFICACIONES_t.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELLIB_CONT.resx">
+      <DependentUpon>FormELLIB_CONT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELLIQUIDACION.resx">
+      <DependentUpon>FormELLIQUIDACION.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELPAGO_DETDOCUMENTO.resx">
+      <DependentUpon>FormELPAGO_DETDOCUMENTO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELPAGO_DOCUMENTO.resx">
+      <DependentUpon>FormELPAGO_DOCUMENTO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELPERIODO.resx">
+      <DependentUpon>FormELPERIODO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELPERMISOS.resx">
+      <DependentUpon>FormELPERMISOS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELPROGRAMACION.resx">
+      <DependentUpon>FormELPROGRAMACION.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELPROGRAMACION_cuadro.resx">
+      <DependentUpon>FormELPROGRAMACION_cuadro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBARTPREMOV.resx">
+      <DependentUpon>FormELTBARTPREMOV.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBCAPACITACION.resx">
+      <DependentUpon>FormELTBCAPACITACION.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBCARGO.resx">
+      <DependentUpon>FormELTBCARGO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBCONCEPTOS.resx">
+      <DependentUpon>FormELTBCONCEPTOS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBCUENTA.resx">
+      <DependentUpon>FormELTBCUENTA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBCUENTA_OPE.resx">
+      <DependentUpon>FormELTBCUENTA_OPE.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBDEPRECIACION.resx">
+      <DependentUpon>FormELTBDEPRECIACION.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBDETCAPACITACION.resx">
+      <DependentUpon>FormELTBDETCAPACITACION.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBDETGUIA.resx">
+      <DependentUpon>FormELTBDETGUIA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBDETMTIEM.resx">
+      <DependentUpon>FormELTBDETMTIEM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBDetProv.resx">
+      <DependentUpon>FormELTBDetProv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBDETRACCION.resx">
+      <DependentUpon>FormELTBDETRACCION.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBDETSOLMATERIALES.resx">
+      <DependentUpon>FormELTBDETSOLMATERIALES.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBDETSTIEM.resx">
+      <DependentUpon>FormELTBDETSTIEM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBEVALUACION.resx">
+      <DependentUpon>FormELTBEVALUACION.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormEltbInicialCB.resx">
+      <DependentUpon>FormEltbInicialCB.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBKardexImp.resx">
+      <DependentUpon>FormELTBKardexImp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBKARDEXIMPCOSTO.resx">
+      <DependentUpon>FormELTBKARDEXIMPCOSTO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBPrdoContable.resx">
+      <DependentUpon>FormELTBPrdoContable.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBPreciosArt.resx">
+      <DependentUpon>FormELTBPreciosArt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBREGISTRO_NRO.resx">
+      <DependentUpon>FormELTBREGISTRO_NRO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBREINGRESO.resx">
+      <DependentUpon>FormELTBREINGRESO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBSINTOMASCOVID.resx">
+      <DependentUpon>FormELTBSINTOMASCOVID.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBSOLMMAS.resx">
+      <DependentUpon>FormELTBSOLMMAS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBSTiem.resx">
+      <DependentUpon>FormELTBSTiem.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBSTIEMOM.resx">
+      <DependentUpon>FormELTBSTIEMOM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBSTIEMRH.resx">
+      <DependentUpon>FormELTBSTIEMRH.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBSTURN.resx">
+      <DependentUpon>FormELTBSTURN.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELT_OPE.resx">
+      <DependentUpon>FormELT_OPE.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELUTILIDADES.resx">
+      <DependentUpon>FormELUTILIDADES.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELVACACIONES.resx">
+      <DependentUpon>FormELVACACIONES.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormEtiquetas.resx">
+      <DependentUpon>FormEtiquetas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormEtiquetasCaja.resx">
+      <DependentUpon>FormEtiquetasCaja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormEtiquetasTWO.resx">
+      <DependentUpon>FormEtiquetasTWO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormExplosion.resx">
+      <DependentUpon>FormExplosion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormExplosionadoAll.resx">
+      <DependentUpon>FormExplosionadoAll.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormFactElect.resx">
+      <DependentUpon>FormFactElect.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormFallados_Produccion.resx">
+      <DependentUpon>FormFallados_Produccion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormFiltroFecha.resx">
+      <DependentUpon>FormFiltroFecha.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormFiltroOrdenesCompra.resx">
+      <DependentUpon>FormFiltroOrdenesCompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormFiltroProgramacion.resx">
+      <DependentUpon>FormFiltroProgramacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormFormaEntrega.resx">
+      <DependentUpon>FormFormaEntrega.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormFormaPago.resx">
+      <DependentUpon>FormFormaPago.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormGenerarFiltro.resx">
+      <DependentUpon>FormGenerarFiltro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormHoraAsistencia.resx">
+      <DependentUpon>FormHoraAsistencia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormHorasHombre.resx">
+      <DependentUpon>FormHorasHombre.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormIMPUESTO.resx">
+      <DependentUpon>FormIMPUESTO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormKardexConta.resx">
+      <DependentUpon>FormKardexConta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormLectorIMG.resx">
+      <DependentUpon>FormLectorIMG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormLectorPDF.resx">
+      <DependentUpon>FormLectorPDF.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormLetrasBanco.resx">
+      <DependentUpon>FormLetrasBanco.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormLetrasCompras.resx">
+      <DependentUpon>FormLetrasCompras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormLimpiarDias.resx">
+      <DependentUpon>FormLimpiarDias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantActaEntrega.resx">
+      <DependentUpon>FormMantActaEntrega.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantArticulo.resx">
+      <DependentUpon>FormMantARTICULO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantAtencionReq.resx">
+      <DependentUpon>FormMantAtencionReq.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantBoleta.resx">
+      <DependentUpon>FormMantBoleta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantCentroCosto.resx">
+      <DependentUpon>FormMantCentroCosto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantContratos.resx">
+      <DependentUpon>FormMantContratos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantCosteoArt.resx">
+      <DependentUpon>FormMantCosteoArt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantCUENTABANCO.resx">
+      <DependentUpon>FormMantCUENTABANCO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDetBoleta.resx">
+      <DependentUpon>FormMantDetBoleta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDetDocExp.resx">
+      <DependentUpon>FormMantDetDocExp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDetElcertifica.resx">
+      <DependentUpon>FormMantDetElcertifica.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDetEltbprogpago.resx">
+      <DependentUpon>FormMantDetEltbprogpago.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDetEvaluacion.resx">
+      <DependentUpon>FormMantDetEvaluacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDetFacturacion.resx">
+      <DependentUpon>FormMantDetFacturacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDetFCRecepComp.resx">
+      <DependentUpon>FormMantDetFCRecepComp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDetGuiaAlmacen.resx">
+      <DependentUpon>FormMantDetGuiaAlmacen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDetGuiaAlmacenTrans.resx">
+      <DependentUpon>FormMantDetGuiaAlmacenTrans.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDetGuiaDespacho.resx">
+      <DependentUpon>FormMantDetGuiaDespacho.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDetLetras.resx">
+      <DependentUpon>FormMantDetLetras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDetLet_Monto.resx">
+      <DependentUpon>FormMantDetLet_Monto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDetNotaCredito.resx">
+      <DependentUpon>FormMantDetNotaCredito.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDetNotaDebito.resx">
+      <DependentUpon>FormMantDetNotaDebito.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDetOrdenCompra.resx">
+      <DependentUpon>FormMantDetOrdenCompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDetProvisiones.resx">
+      <DependentUpon>FormMantDetProvisiones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDetRequerimiento.resx">
+      <DependentUpon>FormMantDetRequerimiento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDetReq_ok.resx">
+      <DependentUpon>FormMantDetReq_ok.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantDocExp.resx">
+      <DependentUpon>FormMantDocExp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELCERTIFICA.resx">
+      <DependentUpon>FormMantELCERTIFICA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBALMACEN.resx">
+      <DependentUpon>FormMantELTBALMACEN.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBArea.resx">
+      <DependentUpon>FormMantELTBArea.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBCARA.resx">
+      <DependentUpon>FormMantELTBCARA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBCATA.resx">
+      <DependentUpon>FormMantELTBCATA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBCLIENTE.resx">
+      <DependentUpon>FormMantELTBCLIENTE.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\formMantELTBCLIENTE_cor.resx">
+      <DependentUpon>formMantELTBCLIENTE_cor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBCLIENTE_dir.resx">
+      <DependentUpon>FormMantELTBCLIENTE_dir.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\formMantELTBCLIENTE_tel.resx">
+      <DependentUpon>formMantELTBCLIENTE_tel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBCOSTOGASTO.resx">
+      <DependentUpon>FormMantELTBCOSTOGASTO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBCTA_FACTURAC.resx">
+      <DependentUpon>FormMantELTBCTA_FACTURAC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBGRUPCOR.resx">
+      <DependentUpon>FormMantELTBGRUPCOR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantEltbgrupcorval.resx">
+      <DependentUpon>FormMantEltbgrupcorval.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBGRUPO.resx">
+      <DependentUpon>FormMantELTBGRUPO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBLINEA.resx">
+      <DependentUpon>FormMantELTBLINEA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBLINES.resx">
+      <DependentUpon>FormMantELTBLINES.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBMESSAGE.resx">
+      <DependentUpon>FormMantELTBMESSAGE.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBOPER.resx">
+      <DependentUpon>FormMantELTBOPER.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBParcial.resx">
+      <DependentUpon>FormMantELTBParcial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBPROC.resx">
+      <DependentUpon>FormMantELTBPROC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBPROGPAGO.resx">
+      <DependentUpon>FormMantELTBPROGPAGO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBPROVEEDORES.resx">
+      <DependentUpon>FormMantELTBPROVEEDORES.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBPROVEEDORES_cor.resx">
+      <DependentUpon>FormMantELTBPROVEEDORES_cor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBPROVEEDORES_dir.resx">
+      <DependentUpon>FormMantELTBPROVEEDORES_dir.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBPROVEEDORES_tel.resx">
+      <DependentUpon>FormMantELTBPROVEEDORES_tel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBREAP.resx">
+      <DependentUpon>FormMantELTBREAP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBRECC.resx">
+      <DependentUpon>FormMantELTBRECC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBREPO.resx">
+      <DependentUpon>FormMantELTBREPO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBSOLMATERIALES.resx">
+      <DependentUpon>FormMantELTBSOLMATERIALES.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBTAREO.resx">
+      <DependentUpon>FormMantELTBTAREO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBTIPOCAMBIO.resx">
+      <DependentUpon>FormMantELTBTIPOCAMBIO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBTRANSP.resx">
+      <DependentUpon>FormMantELTBTRANSP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBTRANSPCHOFER.resx">
+      <DependentUpon>FormMantELTBTRANSPCHOFER.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBTRANSPTRACTOR.resx">
+      <DependentUpon>FormMantELTBTRANSPTRACTOR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantELTBUnidadNegocio.resx">
+      <DependentUpon>FormMantELTBUnidadNegocio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantExpor.resx">
+      <DependentUpon>FormMantExpor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantFacEst.resx">
+      <DependentUpon>FormMantFacEst.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantFacturacion.resx">
+      <DependentUpon>FormMantFacturacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantFCRecepComp.resx">
+      <DependentUpon>FormMantFCRecepComp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantFCRecepNew.resx">
+      <DependentUpon>FormMantFCRecepNew.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantGuiaAlmacen.resx">
+      <DependentUpon>FormMantGuiaAlmacen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantGuiaDespacho.resx">
+      <DependentUpon>FormMantGuiaDespacho.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantLetras.resx">
+      <DependentUpon>FormMantLetras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantLetras_Monto.resx">
+      <DependentUpon>FormMantLetras_Monto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantLinea.resx">
+      <DependentUpon>FormMantLinea.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantLtEst.resx">
+      <DependentUpon>FormMantLtEst.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantNCEst.resx">
+      <DependentUpon>FormMantNCEst.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantNDEst.resx">
+      <DependentUpon>FormMantNDEst.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantNotaCredito.resx">
+      <DependentUpon>FormMantNotaCredito.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantNotaDebito.resx">
+      <DependentUpon>FormMantNotaDebito.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantOrdenCompra.resx">
+      <DependentUpon>FormMantOrdenCompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantPallet.resx">
+      <DependentUpon>FormMantPallet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantPersonal.resx">
+      <DependentUpon>FormMantPersonal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantPlanilla.resx">
+      <DependentUpon>FormMantPlanilla.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantProvisiones.resx">
+      <DependentUpon>FormMantProvisiones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantRequerimiento.resx">
+      <DependentUpon>FormMantRequerimiento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantStockFisico.resx">
+      <DependentUpon>FormMantStockFisico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantSublines.resx">
+      <DependentUpon>FormMantSublines.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantTema.resx">
+      <DependentUpon>FormMantTema.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantTurnoNoche.resx">
+      <DependentUpon>FormMantTurnoNoche.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantT_MEDIDA.resx">
+      <DependentUpon>FormMantT_MEDIDA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantT_MOVINV.resx">
+      <DependentUpon>FormMantT_MOVINV.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMantUNI.resx">
+      <DependentUpon>FormMantUNI.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMntELTBUSER.resx">
+      <DependentUpon>FormMntELTBUSER.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormModifGuiaTrans.resx">
+      <DependentUpon>FormModifGuiaTrans.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMovim.resx">
+      <DependentUpon>FormMovim.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormMultiploArtViru.resx">
+      <DependentUpon>FormMultiploArtViru.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormNewArt.resx">
+      <DependentUpon>FormNewArt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormObsOrdenCompra.resx">
+      <DependentUpon>FormObsOrdenCompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormObsRecepDoc.resx">
+      <DependentUpon>FormObsRecepDoc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormOpcionStock.resx">
+      <DependentUpon>FormOpcionStock.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormOrdenMantenimiento.resx">
+      <DependentUpon>FormOrdenMantenimiento.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormOrdenProgramas.resx">
+      <DependentUpon>FormOrdenProgramas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormOrdenProgramas_Agregar.resx">
+      <DependentUpon>FormOrdenProgramas_Agregar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormPerGrupo.resx">
+      <DependentUpon>FormPerGrupo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormPerGrupoCapa.resx">
+      <DependentUpon>FormPerGrupoCapa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormPerGrupoHora.resx">
+      <DependentUpon>FormPerGrupoHora.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormPerHoraOM.resx">
+      <DependentUpon>FormPerHoraOM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormPerTurnoHora.resx">
+      <DependentUpon>FormPerTurnoHora.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormPesoReq_ok.resx">
+      <DependentUpon>FormPesoReq_ok.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormPrecioCompra.resx">
+      <DependentUpon>FormPrecioCompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormPrecioCompra01.resx">
+      <DependentUpon>FormPrecioCompra01.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormProcesarHora.resx">
+      <DependentUpon>FormProcesarHora.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormReingreso_Produccion.resx">
+      <DependentUpon>FormReingreso_Produccion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRepFallAll.resx">
+      <DependentUpon>FormRepFallAll.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRepFallProd.resx">
+      <DependentUpon>FormRepFallProd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRepMovimHojalata.resx">
+      <DependentUpon>FormRepMovimHojalata.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormReporteDespacho.resx">
+      <DependentUpon>FormReporteDespacho.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormReporteInventario.resx">
+      <DependentUpon>FormReporteInventario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormReporteOrdenC.resx">
+      <DependentUpon>FormReporteOrdenC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormReporteStock.resx">
+      <DependentUpon>FormReporteStock.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormReporteVenta.resx">
+      <DependentUpon>FormReporteVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormReporte_Produccion.resx">
+      <DependentUpon>FormReporte_Produccion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormReporte_Trabajo.resx">
+      <DependentUpon>FormReporte_Trabajo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormReporte_T_Env.resx">
+      <DependentUpon>FormReporte_T_Env.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRepProdAll.resx">
+      <DependentUpon>FormRepProdAll.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRepReinAll.resx">
+      <DependentUpon>FormRepReinAll.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormReque_Ok.resx">
+      <DependentUpon>FormReque_Ok.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptAfiliaAFP.resx">
+      <DependentUpon>FormRptAfiliaAFP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptAFPPer.resx">
+      <DependentUpon>FormRptAFPPer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptAnalisisAtencion.resx">
+      <DependentUpon>FormRptAnalisisAtencion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTAnalisProd.resx">
+      <DependentUpon>FormRPTAnalisProd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTAnaliticoLT.resx">
+      <DependentUpon>FormRPTAnaliticoLT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptBalanceComp.resx">
+      <DependentUpon>FormRptBalanceComp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTBINDCARD.resx">
+      <DependentUpon>FormRPTBINDCARD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTCalculoCTS.resx">
+      <DependentUpon>FormRPTCalculoCTS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTClienteVendedor.resx">
+      <DependentUpon>FormRPTClienteVendedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptComprasArt.resx">
+      <DependentUpon>FormRptComprasArt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTConDevolucion.resx">
+      <DependentUpon>FormRPTConDevolucion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTConIng.resx">
+      <DependentUpon>FormRPTConIng.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTConsumo.resx">
+      <DependentUpon>FormRPTConsumo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptConsVal.resx">
+      <DependentUpon>FormRptConsVal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptContaControlCobra.resx">
+      <DependentUpon>FormRptContaControlCobra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptContrato.resx">
+      <DependentUpon>FormRptContrato.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptCon_bancaria.resx">
+      <DependentUpon>FormRptCon_bancaria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTDESPACHO.resx">
+      <DependentUpon>FormRPTDESPACHO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptDespachoCli.resx">
+      <DependentUpon>FormRptDespachoCli.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTDespClienteMed.resx">
+      <DependentUpon>FormRPTDespClienteMed.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTDespResuCli.resx">
+      <DependentUpon>FormRPTDespResuCli.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptDetDocumento.resx">
+      <DependentUpon>FormRptDetDocumento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptDetEncuestaINEI.resx">
+      <DependentUpon>FormRptDetEncuestaINEI.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptDetEssalud.resx">
+      <DependentUpon>FormRptDetEssalud.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptDetRecep.resx">
+      <DependentUpon>FormRptDetRecep.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptDocTrans.resx">
+      <DependentUpon>FormRptDocTrans.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptExpArtCos.resx">
+      <DependentUpon>FormRptExpArtCos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptFacturasAdelantadas.resx">
+      <DependentUpon>FormRptFacturasAdelantadas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTFCCompras.resx">
+      <DependentUpon>FormRPTFCCompras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTFCVentas_Sunat.resx">
+      <DependentUpon>FormRPTFCVentas_Sunat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptFecKardex.resx">
+      <DependentUpon>FormRptFecKardex.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptFichaArticulo.resx">
+      <DependentUpon>FormRptFichaArticulo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTGUIASDESPACHO.resx">
+      <DependentUpon>FormRPTGUIASDESPACHO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptHorasExtras.resx">
+      <DependentUpon>FormRptHorasExtras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptHorExtPer.resx">
+      <DependentUpon>FormRptHorExtPer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTKardex_Consumo_Costo.resx">
+      <DependentUpon>FormRPTKardex_Consumo_Costo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTLetrasCambio.resx">
+      <DependentUpon>FormRPTLetrasCambio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptLineaSubliena.resx">
+      <DependentUpon>FormRptLineaSubliena.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptMasVendidos.resx">
+      <DependentUpon>FormRptMasVendidos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTMerma.resx">
+      <DependentUpon>FormRPTMerma.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptNetoAPagar.resx">
+      <DependentUpon>FormRptNetoAPagar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptOrdenProgam.resx">
+      <DependentUpon>FormRptOrdenProgam.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptPerCesado.resx">
+      <DependentUpon>FormRptPerCesado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptPerEstado.resx">
+      <DependentUpon>FormRptPerEstado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptPlaResuCons.resx">
+      <DependentUpon>FormRptPlaResuCons.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTPrecioArtVenta.resx">
+      <DependentUpon>FormRPTPrecioArtVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptProdCCO_COD.resx">
+      <DependentUpon>FormRptProdCCO_COD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormSistIntCalidad.resx">
+      <DependentUpon>FormSistIntCalidad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\FormResumenLD2D.resx">
+      <DependentUpon>FormResumenLD2D.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\FormRPTCristina.resx">
+      <DependentUpon>FormRPTCristina.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\FormRPTLIB_DIA_ANA.resx">
+      <DependentUpon>FormRPTLIB_DIA_ANA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\FormRptRegistroCobranza.resx">
+      <DependentUpon>FormRptRegistroCobranza.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptRegVentas.resx">
+      <DependentUpon>FormRptRegVentas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTREMGLOBAL.resx">
+      <DependentUpon>FormRPTREMGLOBAL.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptRemuAfp.resx">
+      <DependentUpon>FormRptRemuAfp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptResuCliente.resx">
+      <DependentUpon>FormRptResuCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTResuComprasServ.resx">
+      <DependentUpon>FormRPTResuComprasServ.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTResuKardex.resx">
+      <DependentUpon>FormRPTResuKardex.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptResumenAFP.resx">
+      <DependentUpon>FormRptResumenAFP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTResuProdMed.resx">
+      <DependentUpon>FormRPTResuProdMed.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptSCTR.resx">
+      <DependentUpon>FormRptSCTR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptSegOrdProd.resx">
+      <DependentUpon>FormRptSegOrdProd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptSintomaCovidRH.resx">
+      <DependentUpon>FormRptSintomaCovidRH.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptSolMat.resx">
+      <DependentUpon>FormRptSolMat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTSolOrden.resx">
+      <DependentUpon>FormRPTSolOrden.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptStockFecha.resx">
+      <DependentUpon>FormRptStockFecha.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptStockVen.resx">
+      <DependentUpon>FormRptStockVen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptTodos.resx">
+      <DependentUpon>FormRptTodos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptVacaciones.resx">
+      <DependentUpon>FormRptVacaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptVacaPend.resx">
+      <DependentUpon>FormRptVacaPend.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptVenMedida.resx">
+      <DependentUpon>FormRptVenMedida.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTVentasAnualCli.resx">
+      <DependentUpon>FormRPTVentasAnualCli.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRPTVentasProdMed.resx">
+      <DependentUpon>FormRPTVentasProdMed.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptVentas_Fact_Art.resx">
+      <DependentUpon>FormRptVentas_Fact_Art.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormRptVidaLey.resx">
+      <DependentUpon>FormRptVidaLey.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormSolmOrden.resx">
+      <DependentUpon>FormSolmOrden.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormStatusCuentasCobrar.resx">
+      <DependentUpon>FormStatusCuentasCobrar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormSUBSIDIOMONTOS.resx">
+      <DependentUpon>FormSUBSIDIOMONTOS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormTBMOVIMIENTO.resx">
+      <DependentUpon>FormTBMOVIMIENTO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormTextoPago.resx">
+      <DependentUpon>FormTextoPago.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormTextoPlame.resx">
+      <DependentUpon>FormTextoPlame.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormTransportista.resx">
+      <DependentUpon>FormTransportista.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormtTest.resx">
+      <DependentUpon>FormtTest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\Form_Stock_Precio.resx">
+      <DependentUpon>Form_Stock_Precio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\FormELTBPERCEP.resx">
+      <DependentUpon>FormELTBPERCEP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\FormFlujoProyectado.resx">
+      <DependentUpon>FormFlujoProyectado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\FormLibroDiario.resx">
+      <DependentUpon>FormLibroDiario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\FormResumenRentaQuinta.resx">
+      <DependentUpon>FormResumenRentaQuinta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\FormRptDiario.resx">
+      <DependentUpon>FormRptDiario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELSUBSIDIOS.resx">
+      <DependentUpon>FormELSUBSIDIOS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormModifGuia.resx">
+      <DependentUpon>FormModifGuia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormROTACION.resx">
+      <DependentUpon>FormROTACION.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Config\FormELTBSTIEMJF.resx">
+      <DependentUpon>FormELTBSTIEMJF.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\FormRptInsumosVenta.resx">
+      <DependentUpon>FormRptInsumosVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\FormRPTRegalo.resx">
+      <DependentUpon>FormRPTRegalo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\FormRVEI.resx">
+      <DependentUpon>FormRVEI.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\FormSeguimientoClientes.resx">
+      <DependentUpon>FormSeguimientoClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\COSTOS\FormIndiceCostos.resx">
+      <DependentUpon>FormIndiceCostos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\COSTOS\FormKardexArtPreMov.resx">
+      <DependentUpon>FormKardexArtPreMov.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\COSTOS\FormOPAnuladas.resx">
+      <DependentUpon>FormOPAnuladas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\COSTOS\FormProcesoCostos.resx">
+      <DependentUpon>FormProcesoCostos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FINANZAS\FormAnalPtoMantenimiento.resx">
+      <DependentUpon>FormAnalPtoMantenimiento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FINANZAS\FormRPTAnalisis_Presupuesto.resx">
+      <DependentUpon>FormRPTAnalisis_Presupuesto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FINANZAS\FormRPT_Cliente_Ventas_totales.resx">
+      <DependentUpon>FormRPT_Cliente_Ventas_totales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GERENCIA\FormRptEstOC.resx">
+      <DependentUpon>FormRptEstOC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MARCACION\FormRegistroAsistencia.resx">
+      <DependentUpon>FormRegistroAsistencia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PRODUCCION\FormBonoProduccion.resx">
+      <DependentUpon>FormBonoProduccion.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PRODUCCION\FormDiferencasSeguiProd.resx">
+      <DependentUpon>FormDiferencasSeguiProd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PRODUCCION\FormUbicacionMant.resx">
+      <DependentUpon>FormUbicacionMant.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\R.HUMANOS\FormCalcLiquidacion.resx">
+      <DependentUpon>FormCalcLiquidacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\R.HUMANOS\FormDetalleIngresos.resx">
+      <DependentUpon>FormDetalleIngresos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\R.HUMANOS\FormModDetPrestamo.resx">
+      <DependentUpon>FormModDetPrestamo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\R.HUMANOS\FormPrestamoPer.resx">
+      <DependentUpon>FormPrestamoPer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\R.HUMANOS\FormProcesarQuincena.resx">
+      <DependentUpon>FormProcesarQuincena.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\R.HUMANOS\FormRegistroBonoNocturno.resx">
+      <DependentUpon>FormRegistroBonoNocturno.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\R.HUMANOS\FormRegistroMemos.resx">
+      <DependentUpon>FormRegistroMemos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\R.HUMANOS\FormRegistroVacunas.resx">
+      <DependentUpon>FormRegistroVacunas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\R.HUMANOS\FormRptHorExt.resx">
+      <DependentUpon>FormRptHorExt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\R.HUMANOS\FormRptListAFP.resx">
+      <DependentUpon>FormRptListAFP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\R.HUMANOS\FormRPTPRESTAMOPER.resx">
+      <DependentUpon>FormRPTPRESTAMOPER.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\R.HUMANOS\FormRptQuinta.resx">
+      <DependentUpon>FormRptQuinta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\R.HUMANOS\FormRptRemuPla.resx">
+      <DependentUpon>FormRptRemuPla.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\R.HUMANOS\FormRptResumenSenati.resx">
+      <DependentUpon>FormRptResumenSenati.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\R.HUMANOS\FormRptVencContrato.resx">
+      <DependentUpon>FormRptVencContrato.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\FormRptGuiaPlaca.resx">
+      <DependentUpon>FormRptGuiaPlaca.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\FormRptLibroMayor.resx">
+      <DependentUpon>FormRptLibroMayor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\VACACIONES\FormELTBPROVVACA.resx">
+      <DependentUpon>FormELTBPROVVACA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MANTENIMIENTO\FormELTBMANTENIMIENTO.resx">
+      <DependentUpon>FormELTBMANTENIMIENTO.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PRUEBA\FormPRUEBA.resx">
+      <DependentUpon>FormPRUEBA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\R.HUMANOS\FormRptBoletaCTS.resx">
+      <DependentUpon>FormRptBoletaCTS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\R.HUMANOS\FormRptBoletaPagoNuevo.resx">
+      <DependentUpon>FormRptBoletaPagoNuevo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Report1.rdlc" />
+    <EmbeddedResource Include="Forms\REPORTE\FormRPTCuentasCCO.resx">
+      <DependentUpon>FormRPTCuentasCCO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\REPORTE\FormRPTFLUJOEFECTIVO.resx">
+      <DependentUpon>FormRPTFLUJOEFECTIVO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\REPORTE\FormRPTVentasTotalesCliente.resx">
+      <DependentUpon>FormRPTVentasTotalesCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\REPORTE\FormRptVentasVendedor.resx">
+      <DependentUpon>FormRptVentasVendedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\FormRptAsientoPla.resx">
+      <DependentUpon>FormRptAsientoPla.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\FormRptMayor.resx">
+      <DependentUpon>FormRptMayor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MANTENIMIENTO\FrmMantOrdenServicio.resx">
+      <DependentUpon>FrmMantOrdenServicio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MANTENIMIENTO\FrmMantTipoFalla.resx">
+      <DependentUpon>FrmMantTipoFalla.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\R.HUMANOS\FormRptBoletaPago.resx">
+      <DependentUpon>FormRptBoletaPago.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\EBIPaWebServices\IT.ELUX.EBIPaWebServices.AnulacionDocumentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EBIPaWebServices\IT.ELUX.EBIPaWebServices.ConsultarRucDVResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EBIPaWebServices\IT.ELUX.EBIPaWebServices.DescargaPDFResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EBIPaWebServices\IT.ELUX.EBIPaWebServices.DescargaXMLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EBIPaWebServices\IT.ELUX.EBIPaWebServices.EnviarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EBIPaWebServices\IT.ELUX.EBIPaWebServices.EnvioCorreoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EBIPaWebServices\IT.ELUX.EBIPaWebServices.EstadoDocumentoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EBIPaWebServices\IT.ELUX.EBIPaWebServices.FoliosRestantesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EBIPaWebServices\IT.ELUX.EBIPaWebServices.RastreoCorreoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\EBIPaWebServices\Service.wsdl" />
+    <None Include="Connected Services\EBIPaWebServices\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EBIPaWebServices\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EBIPaWebServices\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EBIPaWebServices\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EBIPaWebServices\Service4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EBIPaWebServices\Service5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EBIPaWebServices\Service6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="banner.png" />
+    <None Include="Centralpack logo Recortado.jpg" />
+    <Content Include="Centralpack-logo.ico" />
+    <None Include="Connected Services\EBIPaWebServices\configuration91.svcinfo" />
+    <None Include="Connected Services\EBIPaWebServices\configuration.svcinfo" />
+    <None Include="Connected Services\EBIPaWebServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <Content Include="LOGO_ELUX_SOLO.ico" />
+    <None Include="Resources\if_question-type-one-correct_63144.png" />
+    <None Include="Resources\descarga.jpg" />
+    <None Include="Resources\descarga.png" />
+    <None Include="Resources\Delete Ico1.png" />
+    <Content Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IT.ELUX.BE\IT.ELUX.BE.vbproj">
+      <Project>{1d555d6e-15d8-4240-aac4-8ee50f3ace08}</Project>
+      <Name>IT.ELUX.BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IT.ELUX.BL\IT.ELUX.BL.vbproj">
+      <Project>{a43569d4-c74e-4032-ba04-5ba9a6b74557}</Project>
+      <Name>IT.ELUX.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IT.ELUX.Connect\IT.ELUX.Connect.vbproj">
+      <Project>{63388bb9-7a66-44cd-86aa-260cc0802968}</Project>
+      <Name>IT.ELUX.Connect</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Scripting">
+      <Guid>{420B2830-E718-11CF-893D-00A0C9054228}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\LOGISTICA\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\EBIPaWebServices\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
