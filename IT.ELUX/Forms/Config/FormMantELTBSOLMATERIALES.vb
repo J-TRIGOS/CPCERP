@@ -356,9 +356,9 @@ Public Class FormMantELTBSOLMATERIALES
                 '     MsgBox("La fecha de ingreso no debe ser mayor a la fecha actual")
                 '     Exit Sub
                 ' End If
-                If (DateTime.Compare(DateTime.Now.AddDays(-3), dtpfecha.Value) > 0) Then
-                    Exit Sub
-                End If
+                'If (DateTime.Compare(DateTime.Now.AddDays(-3), dtpfecha.Value) > 0) Then
+                '    Exit Sub
+                'End If
             End If
         End If
 
