@@ -47,6 +47,124 @@ Public Class FormMantFacturacion
     End Function
 #End Region
 
+    Private Sub tsbForm_ItemClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolStripItemClickedEventArgs) Handles tsbForm.ItemClicked
+        Try
+            Dim sFunc = e.ClickedItem.Tag.ToString()
+
+            If Mid(sFunc, 5, 4) = "func" Then
+                'obtener el objeto a procesar desde el tag del boton
+                sFunc = Mid(sFunc, 10)
+            End If
+            Dim mesaño As String
+            Dim m As String
+            Select Case sFunc
+
+                Case "save"
+                    If sMes <= "12" And dtpfecha.Value.Year <= "2020" Then
+                        MsgBox("Mes Cerrado")
+                        Exit Sub
+                    End If
+
+                    SaveData()
+
+                    Exit Sub
+                Case "exit"
+                    Dispose()
+                    Exit Sub
+                Case "Print"
+                    If txtt_movinv.Text <> "S06" Then
+                        ReDim gsRptArgs(2)
+                        gsRptArgs(0) = RTrim(txtt_doc.Text)
+                        gsRptArgs(1) = RTrim(cmb_serdoc.Text)
+                        gsRptArgs(2) = RTrim(txtnumero.Text)
+                        gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_IMPRESION_FC.rpt"
+                        gsRptPath = gsPathRpt
+                        FormReportes.ShowDialog()
+                        Exit Sub
+                    Else
+                        ReDim gsRptArgs(2)
+                        gsRptArgs(0) = RTrim(txtt_doc.Text)
+                        gsRptArgs(1) = RTrim(cmb_serdoc.Text)
+                        gsRptArgs(2) = RTrim(txtnumero.Text)
+                        gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_IMPRESION_FC_EXPORT.rpt"
+                        gsRptPath = gsPathRpt
+                        FormReportes.ShowDialog()
+                        Exit Sub
+                    End If
+                Case "exportar"
+                    Dim frm As New FormFactElect
+                    frm.fac = "01"
+                    frm.mov = txtt_movinv.Text
+                    frm.tipo = txtt_pago.Text
+                    If cmbestado.SelectedIndex = 0 Then
+                        frm.estfac = "H"
+                    ElseIf cmbestado.SelectedIndex = 1 Then
+                        frm.estfac = "A"
+                    End If
+                    Dim mes As String = dtpfanul.Value.Month.ToString
+                    If mes.Length = 1 Then
+                        mes = 0 & mes
+                    End If
+                    Dim dia As String = dtpfanul.Value.Day.ToString
+                    If dia.Length = 1 Then
+                        dia = 0 & dia
+                    End If
+                    frm.fecfact = dtpfanul.Value.Year.ToString & mes & dia
+                    'MsgBox(dtpfecha.Value.Year.ToString & dtpfecha.Value.Month.ToString & dtpfecha.Value.Day.ToString)
+                    frm.ShowDialog()
+                Case "anular"
+
+                    If MessageBox.Show("Desea anular el documento",
+                       gpCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                       MessageBoxDefaultButton.Button1) <> DialogResult.Yes Then
+                        Exit Sub
+                    End If
+
+                    Dim FACTURACIONBE As New FACTURACIONBE
+                    Dim DET_DOCUMENTOBE As New DET_DOCUMENTOBE
+                    FACTURACIONBE.T_DOC_REF = txtt_doc.Text
+                    FACTURACIONBE.SER_DOC_REF = cmb_serdoc.Text
+                    FACTURACIONBE.NRO_DOC_REF = txtnumero.Text
+
+                    Dim ELMVLOGSBE As New ELMVLOGSBE
+                    ELMVLOGSBE.log_codusu = gsCodUsr
+                    mesaño = Replace(Mid(dtpfecha.Value, 4, 7), "/", "")
+                    m = Mid(dtpfecha.Value, 4, 2)
+                    gsError = FACTURACIONBL.SaveRow(FACTURACIONBE, DET_DOCUMENTOBE, ELMVLOGSBE, "AR", dgvt_doc)
+                    If gsError = "OK" Then
+                        MsgBox("Datos Grabados Correctamente", MsgBoxStyle.Information)
+                        ' gsError2 = FACTURACIONBL.AsientoFC("Asiento", mesaño, m, RTrim(txtnumero.Text), cmb_serdoc.Text, txtt_doc.Text, FACTURACIONBE.EST, dgvt_doc)
+                        '  If gsError2 = "OK" Then
+                        '  MsgBox("Asiento Creado", MsgBoxStyle.Information)
+                        '  cmb_serdoc.Enabled = False
+                        ' 'sEstAlmac = cmbalmac.SelectedValue
+                        ' Me.btnborrar.Enabled = False
+                        ' Me.btndocu.Enabled = False
+                        ' Me.btnagregar.Enabled = False
+                        ' Dim i As Integer
+                        ' For i = 0 To 45
+                        ' dgvt_doc.Columns(i).ReadOnly = True
+                        ' Next
+                        ' 'Dispose()
+                        'Else
+                        '   FormMain.LblError.Text = gsError2
+                        '  MsgBox("Error al Grabar Asiento", MsgBoxStyle.Critical)
+                        'End If
+
+                    Else
+                        FormMain.LblError.Text = gsError
+                        MsgBox("Error al Grabar", MsgBoxStyle.Critical)
+                    End If
+
+
+
+                    Exit Sub
+            End Select
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
     Private Sub CleanVar()
 
         txtt_doc.Clear()
@@ -241,124 +359,7 @@ Public Class FormMantFacturacion
         End If
 
     End Sub
-    Private Sub tsbForm_ItemClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolStripItemClickedEventArgs) Handles tsbForm.ItemClicked
-        Try
-            Dim sFunc = e.ClickedItem.Tag.ToString()
 
-            If Mid(sFunc, 5, 4) = "func" Then
-                'obtener el objeto a procesar desde el tag del boton
-                sFunc = Mid(sFunc, 10)
-            End If
-            Dim mesaño As String
-            Dim m As String
-            Select Case sFunc
-
-                Case "save"
-                    If sMes <= "12" And dtpfecha.Value.Year <= "2020" Then
-                        MsgBox("Mes Cerrado")
-                        Exit Sub
-                    End If
-
-                    SaveData()
-
-                    Exit Sub
-                Case "exit"
-                    Dispose()
-                    Exit Sub
-                Case "Print"
-                    If txtt_movinv.Text <> "S06" Then
-                        ReDim gsRptArgs(2)
-                        gsRptArgs(0) = RTrim(txtt_doc.Text)
-                        gsRptArgs(1) = RTrim(cmb_serdoc.Text)
-                        gsRptArgs(2) = RTrim(txtnumero.Text)
-                        gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_IMPRESION_FC.rpt"
-                        gsRptPath = gsPathRpt
-                        FormReportes.ShowDialog()
-                        Exit Sub
-                    Else
-                        ReDim gsRptArgs(2)
-                        gsRptArgs(0) = RTrim(txtt_doc.Text)
-                        gsRptArgs(1) = RTrim(cmb_serdoc.Text)
-                        gsRptArgs(2) = RTrim(txtnumero.Text)
-                        gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_IMPRESION_FC_EXPORT.rpt"
-                        gsRptPath = gsPathRpt
-                        FormReportes.ShowDialog()
-                        Exit Sub
-                    End If
-                Case "exportar"
-                    Dim frm As New FormFactElect
-                    frm.fac = "01"
-                    frm.mov = txtt_movinv.Text
-                    frm.tipo = txtt_pago.Text
-                    If cmbestado.SelectedIndex = 0 Then
-                        frm.estfac = "H"
-                    ElseIf cmbestado.SelectedIndex = 1 Then
-                        frm.estfac = "A"
-                    End If
-                    Dim mes As String = dtpfanul.Value.Month.ToString
-                    If mes.Length = 1 Then
-                        mes = 0 & mes
-                    End If
-                    Dim dia As String = dtpfanul.Value.Day.ToString
-                    If dia.Length = 1 Then
-                        dia = 0 & dia
-                    End If
-                    frm.fecfact = dtpfanul.Value.Year.ToString & mes & dia
-                    'MsgBox(dtpfecha.Value.Year.ToString & dtpfecha.Value.Month.ToString & dtpfecha.Value.Day.ToString)
-                    frm.ShowDialog()
-                Case "anular"
-
-                    If MessageBox.Show("Desea anular el documento",
-                       gpCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question,
-                       MessageBoxDefaultButton.Button1) <> DialogResult.Yes Then
-                        Exit Sub
-                    End If
-
-                    Dim FACTURACIONBE As New FACTURACIONBE
-                    Dim DET_DOCUMENTOBE As New DET_DOCUMENTOBE
-                    FACTURACIONBE.T_DOC_REF = txtt_doc.Text
-                    FACTURACIONBE.SER_DOC_REF = cmb_serdoc.Text
-                    FACTURACIONBE.NRO_DOC_REF = txtnumero.Text
-
-                    Dim ELMVLOGSBE As New ELMVLOGSBE
-                    ELMVLOGSBE.log_codusu = gsCodUsr
-                    mesaño = Replace(Mid(dtpfecha.Value, 4, 7), "/", "")
-                    m = Mid(dtpfecha.Value, 4, 2)
-                    gsError = FACTURACIONBL.SaveRow(FACTURACIONBE, DET_DOCUMENTOBE, ELMVLOGSBE, "AR", dgvt_doc)
-                    If gsError = "OK" Then
-                        MsgBox("Datos Grabados Correctamente", MsgBoxStyle.Information)
-                        ' gsError2 = FACTURACIONBL.AsientoFC("Asiento", mesaño, m, RTrim(txtnumero.Text), cmb_serdoc.Text, txtt_doc.Text, FACTURACIONBE.EST, dgvt_doc)
-                        '  If gsError2 = "OK" Then
-                        '  MsgBox("Asiento Creado", MsgBoxStyle.Information)
-                        '  cmb_serdoc.Enabled = False
-                        ' 'sEstAlmac = cmbalmac.SelectedValue
-                        ' Me.btnborrar.Enabled = False
-                        ' Me.btndocu.Enabled = False
-                        ' Me.btnagregar.Enabled = False
-                        ' Dim i As Integer
-                        ' For i = 0 To 45
-                        ' dgvt_doc.Columns(i).ReadOnly = True
-                        ' Next
-                        ' 'Dispose()
-                        'Else
-                        '   FormMain.LblError.Text = gsError2
-                        '  MsgBox("Error al Grabar Asiento", MsgBoxStyle.Critical)
-                        'End If
-
-                    Else
-                        FormMain.LblError.Text = gsError
-                        MsgBox("Error al Grabar", MsgBoxStyle.Critical)
-                    End If
-
-
-
-                    Exit Sub
-            End Select
-        Catch ex As Exception
-
-        End Try
-
-    End Sub
     Private Sub GetData(ByVal sT_Ref As String, ByVal sS_Ref As String, ByVal sN_Ref As String)
         Dim dtUsuario As DataTable
         Dim Registro As DataRow

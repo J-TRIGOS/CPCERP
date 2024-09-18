@@ -13,6 +13,8 @@ Public Class FormReporte_Produccion
     Private bSegundo As Boolean = True
     Private bTercero As Boolean = True
     Private bCuarto As String = "0"
+    Private GUIAALMACENBL As New GUIAALMACENBL
+    'Private bquinto As String = "0"
     'Private bquinto As String = "0"
 #Region "Llenar combos"
     Private Function GetCmb(ByVal sCodigo As String, ByVal sDescri As String, ByVal dtSelect As DataTable, ByVal cmb As ComboBox) As DataTable
@@ -25,6 +27,25 @@ Public Class FormReporte_Produccion
 #End Region
 
     Private Function OkData() As Boolean
+        Dim dtCierre As New DataTable
+        Dim modulo As String = "PRODUCCION"
+        Dim mesCierre As String = dtpfec_gene.Value.ToString("MM")
+        Dim anhoCierre As String = dtpfec_gene.Value.Year
+        dtCierre = GUIAALMACENBL.VerificarCierre(modulo, mesCierre, anhoCierre)
+        If dtCierre.Rows.Count = 0 Then
+            MsgBox("MES CERRADO PARA REGISTRO DE DOCUMENTOS")
+            dtpfec_gene.Select()
+            Return False
+        Else
+            If dtCierre.Rows(0).Item(0) = "1" Then
+                MsgBox("MES CERRADO PARA REGISTRO DE DOCUMENTOS")
+                dtpfec_gene.Select()
+                Return False
+
+            End If
+        End If
+
+
         If rdbant.Checked Then
             If txtnroprod.Text = "" Then
                 MsgBox("Ingrese Numero de Produccion del área", MsgBoxStyle.Exclamation)
@@ -935,71 +956,82 @@ Public Class FormReporte_Produccion
         End If
     End Sub
 
-    'Private Sub dtpfec_gene_LostFocus(sender As Object, e As EventArgs) Handles dtpfec_gene.LostFocus
-    '    'If DateTime.Now.ToString("yyyy").PadLeft(2, "0") - dtpfec_gene.Value.Year = 1 Then
-    '    '    Dim dtpini As DateTime = dtpfec_gene.Value.AddDays(+13).ToShortDateString
-    '    '    Dim Today As DateTime = DateTime.Now.ToShortDateString
-    '    '    If DateTime.Compare(dtpini, Today) <= 0 Then
-    '    '        MsgBox("La fecha de inicio no debe ser más de 5 dias antes a la fecha actual, Si desea Generar el Ingreso favor comuniquese con los jefes de Producción", MsgBoxStyle.Exclamation)
-    '    '        dtpfec_gene.Focus()
-    '    '    Else
-    '    '        dtphoragene.Value = dtpfec_gene.Value
-    '    '    End If
-    '    'Else
+    Private Sub dtpfec_gene_LostFocus(sender As Object, e As EventArgs) Handles dtpfec_gene.LostFocus
+        Dim dtCierre As New DataTable
+        Dim modulo As String = "PRODUCCION"
+        Dim mesCierre As String = dtpfec_gene.Value.ToString("MM")
+        Dim anhoCierre As String = dtpfec_gene.Value.Year
+        dtCierre = GUIAALMACENBL.VerificarCierre(modulo, mesCierre, anhoCierre)
+        If dtCierre.Rows.Count = 0 Then
+            MsgBox("MES CERRADO PARA REGISTRO DE DOCUMENTOS")
+            dtpfec_gene.Select()
+            Exit Sub
+        Else
+            If dtCierre.Rows(0).Item(0) = "1" Then
+                MsgBox("MES CERRADO PARA REGISTRO DE DOCUMENTOS")
+                dtpfec_gene.Select()
+                Exit Sub
+            End If
+        End If
 
-    '    If dtpfec_gene.Value.Month > DateTime.Now.ToString("MM").PadLeft(2, "0") Then
-    '        If DateTime.Now.ToString("MM").PadLeft(2, "0") = "01" And dtpfec_gene.Value.Month = 12 And
-    '             DateTime.Now.ToString("yyyy") - dtpfec_gene.Value.Year <= 1 And DateTime.Now.ToString("yyyy") - dtpfec_gene.Value.Year >= 1 Then
-    '            If ELTBSTIEMBL.SelPermiso(gsUser) = "1" Then
-    '                dtphoragene.Value = dtpfec_gene.Value
-    '            Else
-    '                If dtpfec_gene.Value.Month = DateTime.Now.ToString("MM").PadLeft(2, "0") Then
-    '                    If dtpfec_gene.Value.Day > DateTime.Now.ToString("dd").PadLeft(2, "0") Then
-    '                        MsgBox("Error al ingresar la fecha")
-    '                        dtpfec_gene.Focus()
-    '                        Exit Sub
-    '                    End If
-    '                End If
-    '                Dim dtpini As DateTime = dtpfec_gene.Value.AddDays(+6).ToShortDateString
-    '                'Dim dtpini As DateTime = dtpfec_gene.Value.AddDays(+13).ToShortDateString
-    '                Dim Today As DateTime = DateTime.Now.ToShortDateString
-    '                If DateTime.Compare(dtpini, Today) <= 0 Then
-    '                    MsgBox("La fecha de inicio no debe ser más de 5 dias antes a la fecha actual, Si desea Generar el Ingreso favor comuniquese con los jefes de Producción", MsgBoxStyle.Exclamation)
-    '                    dtpfec_gene.Focus()
-    '                Else
-    '                    dtphoragene.Value = dtpfec_gene.Value
-    '                End If
-    '            End If
-    '        Else
-    '            MsgBox("Error al ingresar la fecha")
-    '            dtpfec_gene.Focus()
-    '            Exit Sub
-    '        End If
+        If dtpfec_gene.Value < dtpfec_gene.Value.AddDays(1) Then
+            MsgBox("NO PUEDE REGISTRAR PRODUCCION ADELANTADA")
+            Exit Sub
+        End If
 
-    '    Else
-    '        If ELTBSTIEMBL.SelPermiso(gsUser) = "1" Then
-    '                dtphoragene.Value = dtpfec_gene.Value
-    '            Else
-    '                If dtpfec_gene.Value.Month = DateTime.Now.ToString("MM").PadLeft(2, "0") Then
-    '                    If dtpfec_gene.Value.Day > DateTime.Now.ToString("dd").PadLeft(2, "0") Then
-    '                        MsgBox("Error al ingresar la fecha")
-    '                        dtpfec_gene.Focus()
-    '                        Exit Sub
-    '                    End If
-    '                End If
-    '            Dim dtpini As DateTime = dtpfec_gene.Value.AddDays(+6).ToShortDateString
-    '            'Dim dtpini As DateTime = dtpfec_gene.Value.AddDays(+13).ToShortDateString
-    '            Dim Today As DateTime = DateTime.Now.ToShortDateString
-    '            If DateTime.Compare(dtpini, Today) <= 0 Then
-    '                MsgBox("La fecha de inicio no debe ser más de 5 dias antes a la fecha actual, Si desea Generar el Ingreso favor comuniquese con los jefes de Producción", MsgBoxStyle.Exclamation)
-    '                dtpfec_gene.Focus()
-    '            Else
-    '                dtphoragene.Value = dtpfec_gene.Value
-    '            End If
-    '            End If
-    '        End If
-    '    'End If
-    'End Sub
+        If dtpfec_gene.Value.Month > DateTime.Now.ToString("MM").PadLeft(2, "0") Then
+            If DateTime.Now.ToString("MM").PadLeft(2, "0") = "01" And dtpfec_gene.Value.Month = 12 And
+                 DateTime.Now.ToString("yyyy") - dtpfec_gene.Value.Year <= 1 And DateTime.Now.ToString("yyyy") - dtpfec_gene.Value.Year >= 1 Then
+                If ELTBSTIEMBL.SelPermiso(gsUser) = "1" Then
+                    dtphoragene.Value = dtpfec_gene.Value
+                Else
+                    If dtpfec_gene.Value.Month = DateTime.Now.ToString("MM").PadLeft(2, "0") Then
+                        If dtpfec_gene.Value.Day > DateTime.Now.ToString("dd").PadLeft(2, "0") Then
+                            MsgBox("Error al ingresar la fecha")
+                            dtpfec_gene.Focus()
+                            Exit Sub
+                        End If
+                    End If
+                    Dim dtpini As DateTime = dtpfec_gene.Value.AddDays(+6).ToShortDateString
+                    'Dim dtpini As DateTime = dtpfec_gene.Value.AddDays(+13).ToShortDateString
+                    Dim Today As DateTime = DateTime.Now.ToShortDateString
+                    If DateTime.Compare(dtpini, Today) <= 0 Then
+                        MsgBox("La fecha de inicio no debe ser más de 5 dias antes a la fecha actual, Si desea Generar el Ingreso favor comuniquese con los jefes de Producción", MsgBoxStyle.Exclamation)
+                        dtpfec_gene.Focus()
+                    Else
+                        dtphoragene.Value = dtpfec_gene.Value
+                    End If
+                End If
+            Else
+                MsgBox("Error al ingresar la fecha")
+                dtpfec_gene.Focus()
+                Exit Sub
+            End If
+
+        Else
+            If ELTBSTIEMBL.SelPermiso(gsUser) = "1" Then
+                dtphoragene.Value = dtpfec_gene.Value
+            Else
+                If dtpfec_gene.Value.Month = DateTime.Now.ToString("MM").PadLeft(2, "0") Then
+                    If dtpfec_gene.Value.Day > DateTime.Now.ToString("dd").PadLeft(2, "0") Then
+                        MsgBox("Error al ingresar la fecha")
+                        dtpfec_gene.Focus()
+                        Exit Sub
+                    End If
+                End If
+                Dim dtpini As DateTime = dtpfec_gene.Value.AddDays(+6).ToShortDateString
+                'Dim dtpini As DateTime = dtpfec_gene.Value.AddDays(+13).ToShortDateString
+                Dim Today As DateTime = DateTime.Now.ToShortDateString
+                If DateTime.Compare(dtpini, Today) <= 0 Then
+                    MsgBox("La fecha de inicio no debe ser más de 5 dias antes a la fecha actual, Si desea Generar el Ingreso favor comuniquese con los jefes de Producción", MsgBoxStyle.Exclamation)
+                    dtpfec_gene.Focus()
+                Else
+                    dtphoragene.Value = dtpfec_gene.Value
+                End If
+            End If
+        End If
+        'End If
+    End Sub
     Private Sub cmbturno_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbturno.SelectedIndexChanged
         If bPrimero Then
             Exit Sub

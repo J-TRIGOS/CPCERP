@@ -1877,6 +1877,12 @@
     <Compile Include="Forms\Config\FormSistIntCalidad.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormMantCierreMes.Designer.vb">
+      <DependentUpon>FormMantCierreMes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CONTABILIDAD\FormMantCierreMes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\CONTABILIDAD\FormResumenLD2D.Designer.vb">
       <DependentUpon>FormResumenLD2D.vb</DependentUpon>
     </Compile>
@@ -3356,6 +3362,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Config\FormSistIntCalidad.resx">
       <DependentUpon>FormSistIntCalidad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CONTABILIDAD\FormMantCierreMes.resx">
+      <DependentUpon>FormMantCierreMes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CONTABILIDAD\FormResumenLD2D.resx">
       <DependentUpon>FormResumenLD2D.vb</DependentUpon>

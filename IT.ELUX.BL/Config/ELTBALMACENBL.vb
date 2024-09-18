@@ -58,5 +58,25 @@ Public Class ELTBALMACENBL
 
 #End Region
 
+    Public Function SelectCierreMes(ByVal manho As String, ByVal mmes As String) As DataTable
+
+        Return ELTBALMACENDAL.SelectCierreMes(manho, mmes)
+
+    End Function
+
+    Public Function Savedata(ByVal modulo As String, ByVal estado As String, ByVal anho As String, ByVal mes As String) As String
+
+        Select Case modulo
+            Case "ALMACEN"
+                Return ELTBALMACENDAL.SavedataAlmacen(modulo, estado, anho, mes)
+            Case "PRODUCCION"
+                Return ELTBALMACENDAL.SavedataAProduccion(modulo, estado, anho, mes)
+            Case "REINGRESOS"
+                Return ELTBALMACENDAL.SavedataReingresos(modulo, estado, anho, mes)
+            Case "FALLADOS"
+                Return ELTBALMACENDAL.SavedataFallados(modulo, estado, anho, mes)
+        End Select
+
+    End Function
 
 End Class

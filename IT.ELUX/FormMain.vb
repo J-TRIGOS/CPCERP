@@ -1499,6 +1499,13 @@ Public Class FormMain
             Case "0204010000"
                 FormMovim.ShowDialog()
                 TSButtonRefresh_Click(Nothing, Nothing)
+            Case "0504150000"
+                If gsUser = "JHUAYLLACAYAN" Or gsUser = "SISTEMA" Then
+                    FormMantCierreMes.ShowDialog()
+                    TSButtonRefresh_Click(Nothing, Nothing)
+                Else
+                    MsgBox("Usted no tiene acceso a este Modulo, Coordinar con Contabilidad", MsgBoxStyle.Exclamation)
+                End If
             Case "1203010000"
                 FormCapacitacion.ShowDialog()
                 TSButtonRefresh_Click(Nothing, Nothing)
@@ -9224,6 +9231,8 @@ Public Class FormMain
             End If
         End If
     End Sub
+
+
 
     Private Sub tmrCheck_Tick(sender As Object, e As EventArgs) Handles tmrCheck.Tick
         chkNewVersion()

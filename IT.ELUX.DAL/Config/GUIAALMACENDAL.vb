@@ -21,6 +21,21 @@ Public Class GUIAALMACENDAL
         Return dt
 
     End Function
+
+
+    Public Function VerificarCierre(ByVal modulo As String, ByVal mesCierre As String, ByVal anhoCierre As String) As DataTable
+        Dim cmd As New Oracle.ManagedDataAccess.Client.OracleCommand
+        Dim dt As New DataTable
+        Using dr As Oracle.ManagedDataAccess.Client.OracleDataReader = Me.GetDataReader("SP_VERIFICAR_CIERREMES", {New Oracle.ManagedDataAccess.Client.OracleParameter("@MODULO", modulo),
+                                                                                                                   New Oracle.ManagedDataAccess.Client.OracleParameter("@MESCIERRE", mesCierre),
+                                                                                                                   New Oracle.ManagedDataAccess.Client.OracleParameter("@ANHOCIERRE", anhoCierre)})
+            If dr.HasRows Then
+                dt.Load(dr)
+            End If
+        End Using
+        Return dt
+
+    End Function
     Private Sub InsertRow(ByVal GUIAALMACENBE As GUIAALMACENBE, ByVal DET_DOCUMENTOBE As DET_DOCUMENTOBE, ByVal ELMVALMABE As ELMVALMABE, ByVal ELMVLOGSBE As ELMVLOGSBE,
                           ByVal sqlCon As Oracle.ManagedDataAccess.Client.OracleConnection, ByVal sqlTrans As Oracle.ManagedDataAccess.Client.OracleTransaction,
                           ByVal dg As DataGridView, ByVal scodcat As String, ByVal sEst As String)

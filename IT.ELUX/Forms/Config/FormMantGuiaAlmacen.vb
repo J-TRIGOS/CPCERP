@@ -1523,6 +1523,24 @@ Public Class FormMantGuiaAlmacen
 
 
     Private Sub dtpfecha_Validated(sender As Object, e As EventArgs) Handles dtpfecha.Validated
+
+        Dim dtCierre As New DataTable
+        Dim modulo As String = "ALMACEN"
+        Dim mesCierre As String = dtpfecha.Value.ToString("MM")
+        Dim anhoCierre As String = dtpfecha.Value.Year
+        dtCierre = GUIAALMACENBL.VerificarCierre(modulo, mesCierre, anhoCierre)
+        If dtCierre.Rows.Count = 0 Then
+            MsgBox("MES CERRADO PARA REGISTRO DE DOCUMENTOS")
+            dtpfecha.Select()
+            Exit Sub
+        Else
+            If dtCierre.Rows(0).Item(0) = "1" Then
+                MsgBox("MES CERRADO PARA REGISTRO DE DOCUMENTOS")
+                dtpfecha.Select()
+                Exit Sub
+
+            End If
+        End If
         'Dim mes As String
         'If sAño - dtpfecha.Value.Year = 1 And DateTime.Now.ToString("MM") = "01" And dtpfecha.Value.Month = "12" Then
         '    If DateTime.Now.ToString("dd") > 12 Then

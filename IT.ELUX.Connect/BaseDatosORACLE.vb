@@ -390,4 +390,90 @@ Public MustInherit Class BaseDatosORACLE
 
 #End Region
 
+    Protected Function ConnectionBeginA() As Oracle.ManagedDataAccess.Client.OracleConnection
+
+        If Not Me.cnConexion Is Nothing Then
+            If Me.cnConexion.State.Equals(ConnectionState.Closed) Then
+                Me.cnConexion.Open()
+            End If
+        End If
+
+        Try
+            If Me.cnConexion Is Nothing Then
+                Me.cnConexion = New Oracle.ManagedDataAccess.Client.OracleConnection
+                Me.cnConexion.ConnectionString = Me.CgrConnString
+                Me.cnConexion.Open()
+            End If
+        Catch ex As DataException
+            Throw New BaseDatosException("Error al conectarse.")
+        End Try
+
+        Return cnConexion
+
+    End Function
+
+    Protected Function ConnectionBeginP() As Oracle.ManagedDataAccess.Client.OracleConnection
+
+        If Not Me.cnConexion Is Nothing Then
+            If Me.cnConexion.State.Equals(ConnectionState.Closed) Then
+                Me.cnConexion.Open()
+            End If
+        End If
+
+        Try
+            If Me.cnConexion Is Nothing Then
+                Me.cnConexion = New Oracle.ManagedDataAccess.Client.OracleConnection
+                Me.cnConexion.ConnectionString = Me.CgrConnString
+                Me.cnConexion.Open()
+            End If
+        Catch ex As DataException
+            Throw New BaseDatosException("Error al conectarse.")
+        End Try
+
+        Return cnConexion
+
+    End Function
+    Protected Function ConnectionBeginR() As Oracle.ManagedDataAccess.Client.OracleConnection
+
+        If Not Me.cnConexion Is Nothing Then
+            If Me.cnConexion.State.Equals(ConnectionState.Closed) Then
+                Me.cnConexion.Open()
+            End If
+        End If
+
+        Try
+            If Me.cnConexion Is Nothing Then
+                Me.cnConexion = New Oracle.ManagedDataAccess.Client.OracleConnection
+                Me.cnConexion.ConnectionString = Me.CgrConnString
+                Me.cnConexion.Open()
+            End If
+        Catch ex As DataException
+            Throw New BaseDatosException("Error al conectarse.")
+        End Try
+
+        Return cnConexion
+
+    End Function
+
+    Protected Function ConnectionBeginF() As Oracle.ManagedDataAccess.Client.OracleConnection
+
+        If Not Me.cnConexion Is Nothing Then
+            If Me.cnConexion.State.Equals(ConnectionState.Closed) Then
+                Me.cnConexion.Open()
+            End If
+        End If
+
+        Try
+            If Me.cnConexion Is Nothing Then
+                Me.cnConexion = New Oracle.ManagedDataAccess.Client.OracleConnection
+                Me.cnConexion.ConnectionString = Me.CgrConnString
+                Me.cnConexion.Open()
+            End If
+        Catch ex As DataException
+            Throw New BaseDatosException("Error al conectarse.")
+        End Try
+
+        Return cnConexion
+
+    End Function
 End Class

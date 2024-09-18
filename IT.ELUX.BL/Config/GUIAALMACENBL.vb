@@ -240,4 +240,9 @@ Public Class GUIAALMACENBL
 
 #End Region
 
+
+    Public Function VerificarCierre(ByVal modulo As String, ByVal mesCierre As String, ByVal anhoCierre As String) As DataTable
+        Return GUIAALMACENDAL.VerificarCierre(modulo, mesCierre, anhoCierre)
+    End Function
+
 End Class
