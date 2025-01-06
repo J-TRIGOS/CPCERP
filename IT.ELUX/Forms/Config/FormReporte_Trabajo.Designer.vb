@@ -220,7 +220,7 @@ Partial Class FormReporte_Trabajo
         Me.cmbserie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbserie.Enabled = False
         Me.cmbserie.FormattingEnabled = True
-        Me.cmbserie.Items.AddRange(New Object() {"2018", "2019", "2020", "2021", "2022", "2023", "2024"})
+        Me.cmbserie.Items.AddRange(New Object() {"2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"})
         Me.cmbserie.Location = New System.Drawing.Point(228, 10)
         Me.cmbserie.Name = "cmbserie"
         Me.cmbserie.Size = New System.Drawing.Size(76, 21)

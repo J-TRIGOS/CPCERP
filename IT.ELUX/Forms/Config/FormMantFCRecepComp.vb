@@ -667,13 +667,13 @@ Public Class FormMantFCRecepComp
             btndocu.Select()
             Return False
         End If
-        If gsUser <> "SISTEMA" Then
-            If dtpfec_gene.Value.Year <> cmb_serdoc.Text Then
-                MsgBox("El año es distinto al que se intenta declarar", MsgBoxStyle.Exclamation)
-                btndocu.Select()
-                Return False
-            End If
-        End If
+        'If gsUser <> "SISTEMA" Then
+        '    If dtpfec_gene.Value.Year <> cmb_serdoc.Text Then
+        '        MsgBox("El año es distinto al que se intenta declarar", MsgBoxStyle.Exclamation)
+        '        btndocu.Select()
+        '        Return False
+        '    End If
+        'End If
 
         Return True
     End Function
