@@ -355,7 +355,7 @@ Public Class FormReque_Ok
             GUIAALMACENBE.CTCT_COD = RTrim(txtproveedor.Text)
             GUIAALMACENBE.PER_COD = RTrim(txtdni.Text)
             GUIAALMACENBE.DIR_COD = RTrim(txtdir.Text)
-            GUIAALMACENBE.PROVEEDOR = "20100279348"
+            GUIAALMACENBE.PROVEEDOR = "155729857-2-2022"
             GUIAALMACENBE.PER_COD = RTrim(txtdni.Text)
             GUIAALMACENBE.FEC_DIA = RTrim(DateTime.Now)
             GUIAALMACENBE.USUARIO = RTrim(gsUser)

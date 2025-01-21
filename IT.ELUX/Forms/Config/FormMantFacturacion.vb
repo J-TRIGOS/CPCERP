@@ -296,7 +296,7 @@ Public Class FormMantFacturacion
         FACTURACIONBE.T_DCTO_DOLAR = DAcumula3
         FACTURACIONBE.T_IGV = DAcumula4
         FACTURACIONBE.T_IGV_DOLAR = DAcumula5
-        FACTURACIONBE.PROVEEDOR = "20100279348"
+        FACTURACIONBE.PROVEEDOR = "155729857-2-2022"
         FACTURACIONBE.CTCT_COD = RTrim(txtctct_cod.Text)
         FACTURACIONBE.FEC_DIA = RTrim(DateTime.Now)
         FACTURACIONBE.NUMPEDIDO = txtoc.Text
@@ -950,7 +950,7 @@ Public Class FormMantFacturacion
                 End If
             Catch ex As Exception
             End Try
-            If txtctct_cod.Text = "20100279348" Then
+            If txtctct_cod.Text = "155729857-2-2022" Then
                 cmbdir.SelectedValue = "0"
             End If
             txtvendedor.Text = CTCTBL.SelectVendedor(txtctct_cod.Text)
@@ -1214,7 +1214,7 @@ Public Class FormMantFacturacion
                 frm.dgvt_doclet.Columns.Add("NOM_CTCT", "NOM_CTCT") '18
                 frm.dgvt_doclet.Rows.Add("", "", "",
                                       txtctct_cod.Text,
-                                      "H", "-", "", "07010003", gsUser, txtmon.Text, dtpfecha.Value, "20100279348", txtvendedor.Text,
+                                      "H", "-", "", "07010003", gsUser, txtmon.Text, dtpfecha.Value, "155729857-2-2022", txtvendedor.Text,
                                       txtdir.Text, txtoc.Text, txttprecio_compra.Text, txttprecio_dcompra.Text, txtt_igv.Text, txtt_igv_dolar.Text,
                                       cmbctct_cod.Text)
                 frm.dtpfec_gene.Value = dtpfecha.Value

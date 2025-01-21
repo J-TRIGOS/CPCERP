@@ -98,7 +98,7 @@ Public Class FormMantDetLet_Monto
         LETRASBE.T_DCTO_DOLAR = DAcumula3
         LETRASBE.T_IGV = DAcumula4
         LETRASBE.T_IGV_DOLAR = DAcumula5
-        LETRASBE.PROVEEDOR = "20100279348"
+        LETRASBE.PROVEEDOR = "155729857-2-2022"
         LETRASBE.CTCT_COD = RTrim(txtproveedor.Text)
         LETRASBE.FEC_DIA = RTrim(DateTime.Now)
         LETRASBE.NUMPEDIDO = dgvt_doclet.Rows(0).Cells("NUMPEDIDO").Value

@@ -185,7 +185,7 @@ Public Class FormMantLetras
         LETRASBE.T_DCTO_DOLAR = DAcumula3
         LETRASBE.T_IGV = DAcumula4
         LETRASBE.T_IGV_DOLAR = DAcumula5
-        LETRASBE.PROVEEDOR = "20100279348"
+        LETRASBE.PROVEEDOR = "155729857-2-2022"
         LETRASBE.CTCT_COD = RTrim(txtctct_cod.Text)
         LETRASBE.FEC_DIA = RTrim(DateTime.Now)
         LETRASBE.NUMPEDIDO = txtoc.Text
@@ -979,7 +979,7 @@ Public Class FormMantLetras
             dt = REQUERIMIENTOBL.SelectDir(txtctct_cod.Text)
             GetCmb("dir_cod", "nom_dir", dt, cmbdir)
             cmbdir.SelectedValue = txtdir.Text
-            If txtctct_cod.Text = "20100279348" Then
+            If txtctct_cod.Text = "155729857-2-2022" Then
                 cmbdir.SelectedValue = "0"
             End If
 

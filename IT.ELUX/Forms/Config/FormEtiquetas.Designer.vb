@@ -466,7 +466,7 @@ Partial Class FormEtiquetas
         Me.txtlogo.Name = "txtlogo"
         Me.txtlogo.Size = New System.Drawing.Size(231, 20)
         Me.txtlogo.TabIndex = 11
-        Me.txtlogo.Text = "FABRICA DE ENVASES DE LATA LUX S.A"
+        Me.txtlogo.Text = "CENTRALPACK CORP SA"
         '
         'Label10
         '

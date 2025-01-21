@@ -236,7 +236,7 @@ Public Class FormMantDocExp
         ELTBDOCEXPBE.T_IGV_DOLAR = DAcumula5
         ELTBDOCEXPBE.PROVEEDOR = txtproveedor.Text
         ELTBDOCEXPBE.OBSERVA = txtobserva.Text
-        'ELTBDOCEXPBE.CTCT_COD = "20100279348"
+        'ELTBDOCEXPBE.CTCT_COD = "155729857-2-2022"
         ELTBDOCEXPBE.USUARIO = RTrim(gsUser)
         ELTBDOCEXPBE.F_PAGO_ENT = txtt_pago.Text
         ELTBDOCEXPBE.MONEDA = txtmoneda.Text

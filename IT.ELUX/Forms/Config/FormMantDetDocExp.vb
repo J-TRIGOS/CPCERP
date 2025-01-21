@@ -1373,7 +1373,7 @@ Public Class FormMantDetDocExp
                                                              txtcuenta.Text, '8
                                                              txtcuenta_dest.Text,'9
                                                              signo, '10
-                                                             "20100279348", '11
+                                                             "155729857-2-2022", '11
                                                              npdcantidad.Value,'12
                                                              txtcodart.Text,'13
                                                              txtunidad.Text,'14

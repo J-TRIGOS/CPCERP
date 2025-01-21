@@ -6702,7 +6702,7 @@ Public Class FormMain
                 'CONTROL DOCUMENTO EXTRACTO BANCARIO
                 txttexto.Text = Replace(ELTBPERCEPBL.getTxtFc(cmbaño.Text, (cmbmes.SelectedIndex + 1).ToString.PadLeft(2, "0")), ",", ".")
                 Dim utf8WithoutBom As New System.Text.UTF8Encoding(False)
-                Dim RutaTxt As String = "\\192.168.1.7\sistema\Percepcion\062120100279348" & cmbaño.Text & (cmbmes.SelectedIndex + 1).ToString.PadLeft(2, "0") & "P.txt"
+                Dim RutaTxt As String = "\\192.168.1.7\sistema\Percepcion\0621155729857-2-2022" & cmbaño.Text & (cmbmes.SelectedIndex + 1).ToString.PadLeft(2, "0") & "P.txt"
                 IO.File.WriteAllText(RutaTxt, txttexto.Text, utf8WithoutBom)
                 MsgBox("Se genero El texto")
             Case "0604010000"

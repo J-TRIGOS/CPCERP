@@ -152,7 +152,7 @@ Public Class FormMantBoleta
         BOLETABE.T_DCTO_DOLAR = DAcumula3
         BOLETABE.T_IGV = DAcumula4
         BOLETABE.T_IGV_DOLAR = DAcumula5
-        BOLETABE.PROVEEDOR = "20100279348"
+        BOLETABE.PROVEEDOR = "155729857-2-2022"
         BOLETABE.CTCT_COD = RTrim(txtctct_cod.Text)
         BOLETABE.FEC_DIA = RTrim(DateTime.Now)
         BOLETABE.NUMPEDIDO = txtoc.Text
@@ -836,7 +836,7 @@ Public Class FormMantBoleta
             dt = REQUERIMIENTOBL.SelectDir(txtctct_cod.Text)
             GetCmb("dir_cod", "nom_dir", dt, cmbdir)
             cmbdir.SelectedValue = txtdir.Text
-            If txtctct_cod.Text = "20100279348" Then
+            If txtctct_cod.Text = "155729857-2-2022" Then
                 cmbdir.SelectedValue = "1"
             End If
 

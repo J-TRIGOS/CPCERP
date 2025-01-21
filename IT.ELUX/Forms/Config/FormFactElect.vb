@@ -80,37 +80,37 @@ Public Class FormFactElect
         If estfac = "H" Then
             If fac = "01" Then
                 Dim utf8WithoutBom As New System.Text.UTF8Encoding(False)
-                Dim RutaTxt As String = "\\192.168.1.7\sistema\Factura_Electronica\20100279348-" & fac & "-" & FormMantFacturacion.cmb_serdoc.Text & "-" & FormMantFacturacion.txtnumero.Text & ".csv"
+                Dim RutaTxt As String = "\\192.168.1.7\sistema\Factura_Electronica\155729857-2-2022-" & fac & "-" & FormMantFacturacion.cmb_serdoc.Text & "-" & FormMantFacturacion.txtnumero.Text & ".csv"
                 IO.File.WriteAllText(RutaTxt, txttexto.Text, utf8WithoutBom)
                 MsgBox("Se genero El texto")
             ElseIf fac = "03" Then
                 'If gsUser = "SISTEMA" Then
                 '    Dim utf8WithoutBom As New System.Text.UTF8Encoding(False)
-                '    Dim RutaTxt As String = "\\192.168.1.7\sistema\Factura_Electronica\20100279348-" & fac & "-0000172(PR).csv"
+                '    Dim RutaTxt As String = "\\192.168.1.7\sistema\Factura_Electronica\155729857-2-2022-" & fac & "-0000172(PR).csv"
                 '    IO.File.WriteAllText(RutaTxt, txttexto.Text, utf8WithoutBom)
                 '    MsgBox("Se genero El texto")
                 'Else
                 Dim utf8WithoutBom As New System.Text.UTF8Encoding(False)
-                Dim RutaTxt As String = "\\192.168.1.7\sistema\Factura_Electronica\20100279348-" & fac & "-" & FormMantBoleta.cmb_serdoc.Text & "-" & FormMantBoleta.txtnumero.Text & ".csv"
+                Dim RutaTxt As String = "\\192.168.1.7\sistema\Factura_Electronica\155729857-2-2022-" & fac & "-" & FormMantBoleta.cmb_serdoc.Text & "-" & FormMantBoleta.txtnumero.Text & ".csv"
                 IO.File.WriteAllText(RutaTxt, txttexto.Text, utf8WithoutBom)
                 MsgBox("Se genero El texto")
                 'End If
 
             ElseIf fac = "07" Then
                 Dim utf8WithoutBom As New System.Text.UTF8Encoding(False)
-                Dim RutaTxt As String = "\\192.168.1.7\sistema\Factura_Electronica\20100279348-" & fac & "-" & FormMantNotaCredito.cmb_serdoc.Text & "-" & FormMantNotaCredito.txtnumero.Text & ".csv"
+                Dim RutaTxt As String = "\\192.168.1.7\sistema\Factura_Electronica\155729857-2-2022-" & fac & "-" & FormMantNotaCredito.cmb_serdoc.Text & "-" & FormMantNotaCredito.txtnumero.Text & ".csv"
                 IO.File.WriteAllText(RutaTxt, txttexto.Text, utf8WithoutBom)
                 MsgBox("Se genero El texto")
             ElseIf fac = "08" Then
                 Dim utf8WithoutBom As New System.Text.UTF8Encoding(False)
-                Dim RutaTxt As String = "\\192.168.1.7\sistema\Factura_Electronica\20100279348-" & fac & "-" & FormMantNotaDebito.cmb_serdoc.Text & "-" & FormMantNotaDebito.txtnumero.Text & ".csv"
+                Dim RutaTxt As String = "\\192.168.1.7\sistema\Factura_Electronica\155729857-2-2022-" & fac & "-" & FormMantNotaDebito.cmb_serdoc.Text & "-" & FormMantNotaDebito.txtnumero.Text & ".csv"
                 IO.File.WriteAllText(RutaTxt, txttexto.Text, utf8WithoutBom)
                 MsgBox("Se genero El texto")
             End If
         Else
             'If fac = "01" Then
             Dim utf8WithoutBom As New System.Text.UTF8Encoding(False)
-            Dim RutaTxt As String = "\\192.168.1.7\sistema\Factura_Electronica\20100279348-RA-" & fecfact & "-" & Mid(txttexto.Text, 35, 4) & ".csv"
+            Dim RutaTxt As String = "\\192.168.1.7\sistema\Factura_Electronica\155729857-2-2022-RA-" & fecfact & "-" & Mid(txttexto.Text, 35, 4) & ".csv"
             IO.File.WriteAllText(RutaTxt, txttexto.Text, utf8WithoutBom)
             MsgBox("Se genero El texto")
         End If

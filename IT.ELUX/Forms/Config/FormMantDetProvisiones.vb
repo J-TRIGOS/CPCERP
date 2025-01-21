@@ -1356,7 +1356,7 @@ Public Class FormMantDetProvisiones
                                                              txtcuenta.Text, '7
                                                              txtcuenta_dest.Text,'8
                                                              signo, '9
-                                                             "20100279348", '10
+                                                             "155729857-2-2022", '10
                                                              npdcantidad.Value,'11
                                                              txtcodart.Text,'12
                                                              txtunidad.Text,'13

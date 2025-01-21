@@ -213,7 +213,7 @@ Public Class FormMantDetBoleta
                                                               cmbuni.SelectedValue, '31
                                                               FormMantBoleta.txtt_pago.Text, '30
                                                               FormMantBoleta.txtfor_ent.Text,'31
-                                                              RTrim(DateTime.Now), "20100279348", '35
+                                                              RTrim(DateTime.Now), "155729857-2-2022", '35
                                                               "", "", '37
                                                               "", "", '39
                                                               "0", "", txtdscto.Text, txtdscto_impor.Text, '43
@@ -245,7 +245,7 @@ Public Class FormMantDetBoleta
                                                               cmbuni.SelectedValue, '31
                                                               FormMantBoleta.txtt_pago.Text, '30
                                                               FormMantBoleta.txtfor_ent.Text,'31
-                                                              RTrim(DateTime.Now), "20100279348", '35
+                                                              RTrim(DateTime.Now), "155729857-2-2022", '35
                                                               "", "", '37
                                                               "", "", '39
                                                               "0", "", txtdscto.Text, txtdscto_impor.Text, '43

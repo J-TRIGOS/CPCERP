@@ -112,7 +112,7 @@ Public Class FormMantDetGuiaAlmacen
                                                       "", "", "", "+", txtobservacion.Text, FormMantGuiaAlmacen.txtt_movinv.Text, "", "", "", "", "", "",
                                                       "", "", "", FormMantGuiaAlmacen.dtpfecha.Text, gsUser, ARTICULOBL.SelectUniMed(Mid(txtcodart.Text, 1, 8)),
                                                       FormMantGuiaAlmacen.txtt_pago.Text, FormMantGuiaAlmacen.txtfor_ent.Text,
-                                                      RTrim(DateTime.Now), "20100279348", FormMantGuiaAlmacen.txtc_costo.Text, "", txtlote.Text, FormMantGuiaAlmacen.txtdni.Text, "", "", "", "", "", "",
+                                                      RTrim(DateTime.Now), "155729857-2-2022", FormMantGuiaAlmacen.txtc_costo.Text, "", txtlote.Text, FormMantGuiaAlmacen.txtdni.Text, "", "", "", "", "", "",
                                                       FormMantGuiaAlmacen.cmbestado.Text, txttdoc.Text, txtsdoc.Text, txtndoc.Text)
 
                     Dispose()
@@ -139,7 +139,7 @@ Public Class FormMantDetGuiaAlmacen
                                                           "", "", "", "+", txtobservacion.Text, FormMantGuiaAlmacen.txtt_movinv.Text, "", "", "", "", "", "",
                                                           "", "", "", FormMantGuiaAlmacen.dtpfecha.Text, gsUser, ARTICULOBL.SelectUniMed(Mid(txtcodart.Text, 1, 8)),
                                                           FormMantGuiaAlmacen.txtt_pago.Text, FormMantGuiaAlmacen.txtfor_ent.Text,
-                                                          RTrim(DateTime.Now), "20100279348", FormMantGuiaAlmacen.txtc_costo.Text, "", txtlote.Text, FormMantGuiaAlmacen.txtdni.Text, "", "", "", "", "", "",
+                                                          RTrim(DateTime.Now), "155729857-2-2022", FormMantGuiaAlmacen.txtc_costo.Text, "", txtlote.Text, FormMantGuiaAlmacen.txtdni.Text, "", "", "", "", "", "",
                                                           FormMantGuiaAlmacen.cmbestado.Text, txttdoc.Text, txtsdoc.Text, txtndoc.Text)
 
 

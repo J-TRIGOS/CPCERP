@@ -394,7 +394,7 @@ Public Class FormMantGuiaDespacho
         GUIADESPACHOBE.T_DCTO_DOLAR = DAcumula3
         GUIADESPACHOBE.T_IGV = DAcumula4
         GUIADESPACHOBE.T_IGV_DOLAR = DAcumula5
-        GUIADESPACHOBE.PROVEEDOR = "20100279348"
+        GUIADESPACHOBE.PROVEEDOR = "155729857-2-2022"
         GUIADESPACHOBE.CTCT_COD = RTrim(txtctct_cod.Text)
         GUIADESPACHOBE.FEC_DIA = RTrim(DateTime.Now)
         GUIADESPACHOBE.NUMPEDIDO = ""
@@ -1328,7 +1328,7 @@ Public Class FormMantGuiaDespacho
             Catch ex As Exception
 
             End Try
-            If txtctct_cod.Text = "20100279348" Then
+            If txtctct_cod.Text = "155729857-2-2022" Then
                 cmbdir.SelectedValue = "1"
             End If
 

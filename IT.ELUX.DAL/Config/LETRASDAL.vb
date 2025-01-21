@@ -158,7 +158,7 @@ Public Class LETRASDAL
             cmd.Parameters.Add("@unidad", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.UNIDAD)
             cmd.Parameters.Add("@fec_gene", OracleDbType.Date).Value = LETRASBE.FEC_GENE
             cmd.Parameters.Add("@fec_dia", OracleDbType.Date).Value = DET_DOCUMENTOBE.FEC_DIA
-            cmd.Parameters.Add("@proveedor", OracleDbType.Char).Value = "20100279348"
+            cmd.Parameters.Add("@proveedor", OracleDbType.Char).Value = "155729857-2-2022"
             cmd.Parameters.Add("@FEC_ENT", OracleDbType.Date).Value = DET_DOCUMENTOBE.FEC_ENT
             cmd.ExecuteNonQuery()
             cmd.Dispose()
@@ -282,7 +282,7 @@ Public Class LETRASDAL
                 cmd.Parameters.Add("@t_igv_dolar", OracleDbType.Double).Value = Val(IIf(IsDBNull(RTrim(row1.Cells("T_IGV_DOLAR").Value)), 0, RTrim(row1.Cells("T_IGV_DOLAR").Value)))
                 cmd.Parameters.Add("@f_pago_ent", OracleDbType.Varchar2).Value = IIf(IsDBNull(RTrim(row.Cells("F_PAGO_ENT").Value)), "", RTrim(row.Cells("F_PAGO_ENT").Value))
                 cmd.Parameters.Add("@for_ent_cod", OracleDbType.Varchar2).Value = ""
-                cmd.Parameters.Add("@proveedor", OracleDbType.Varchar2).Value = "20100279348"
+                cmd.Parameters.Add("@proveedor", OracleDbType.Varchar2).Value = "155729857-2-2022"
                 cmd.Parameters.Add("@FEC_PROV", OracleDbType.Date).Value = LETRASBE.FEC_PROV
                 cmd.Parameters.Add("@ctct_cod", OracleDbType.Varchar2).Value = IIf(IsDBNull(RTrim(row1.Cells("CTCT_COD").Value)), "", RTrim(row1.Cells("CTCT_COD").Value))
                 cmd.Parameters.Add("@vendedor", OracleDbType.Varchar2).Value = IIf(IsDBNull(RTrim(row1.Cells("VENDEDOR").Value)), "", RTrim(row1.Cells("VENDEDOR").Value))
@@ -364,7 +364,7 @@ Public Class LETRASDAL
                 'DAcumula5 = DET_DOCUMENTOBE.IGV_DIMPOR + DAcumula5
 
                 DET_DOCUMENTOBE.UNIDAD = IIf(IsDBNull(RTrim(row1.Cells("UNIDAD").Value)), "", RTrim(row1.Cells("UNIDAD").Value))
-                DET_DOCUMENTOBE.PROVEEDOR = "20100279348"
+                DET_DOCUMENTOBE.PROVEEDOR = "155729857-2-2022"
                 DET_DOCUMENTOBE.FEC_ENT = IIf(IsDBNull(RTrim(row1.Cells("FEC_ENT").Value)), "", RTrim(row1.Cells("FEC_ENT").Value))
                 DET_DOCUMENTOBE.EST = "H"
                 'If LETRASBE.SER_DOC_REF = DET_DOCUMENTOBE.SER_DOC_REF1 And LETRASBE.T_DOC_REF = DET_DOCUMENTOBE.T_DOC_REF1 Then
@@ -642,7 +642,7 @@ Public Class LETRASDAL
             cmd.Parameters.Add("@unidad", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.UNIDAD)
             cmd.Parameters.Add("@fec_gene", OracleDbType.Date).Value = LETRASBE.FEC_GENE
             cmd.Parameters.Add("@fec_dia", OracleDbType.Date).Value = DET_DOCUMENTOBE.FEC_DIA
-            cmd.Parameters.Add("@proveedor", OracleDbType.Char).Value = "20100279348"
+            cmd.Parameters.Add("@proveedor", OracleDbType.Char).Value = "155729857-2-2022"
             cmd.Parameters.Add("@FEC_ENT", OracleDbType.Date).Value = DET_DOCUMENTOBE.FEC_ENT
             cmd.ExecuteNonQuery()
             cmd.Dispose()

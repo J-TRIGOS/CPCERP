@@ -240,7 +240,7 @@ Public Class FormMantDetFacturacion
                                                               cmbuni.SelectedValue, '31
                                                               FormMantFacturacion.txtt_pago.Text, '30
                                                               FormMantFacturacion.txtfor_ent.Text,'31
-                                                              RTrim(DateTime.Now), "20100279348", '35
+                                                              RTrim(DateTime.Now), "155729857-2-2022", '35
                                                               "", "", '37
                                                               "", "", '39
                                                               txtnro_docu1.Text, "", txtdscto.Text, txtdscto_impor.Text, '43
@@ -273,7 +273,7 @@ Public Class FormMantDetFacturacion
                                                               cmbuni.SelectedValue, '31
                                                               FormMantFacturacion.txtt_pago.Text, '30
                                                               FormMantFacturacion.txtfor_ent.Text,'31
-                                                              RTrim(DateTime.Now), "20100279348", '35
+                                                              RTrim(DateTime.Now), "155729857-2-2022", '35
                                                               "", "", '37
                                                               "", "", '39
                                                               txtnro_docu1.Text, "", txtdscto.Text, txtdscto_impor.Text, '43

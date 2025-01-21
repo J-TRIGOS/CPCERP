@@ -130,7 +130,7 @@ Public Class FormMantDetReq_ok
                                                            "",'11
                                                           "", "", "", "+", txtobservacion.Text, FormReque_Ok.txtt_movinv.Text, "", "", "", "", "", "",
                                                           "", "", "", FormReque_Ok.dtpfecha.Text, gsUser, cmbuni.SelectedValue, FormReque_Ok.txtt_pago.Text, FormReque_Ok.txtfor_ent.Text,
-                                                          RTrim(DateTime.Now), "20100279348", FormReque_Ok.txtc_costo.Text, "", txtlote.Text, FormReque_Ok.txtdni.Text, "", "", "", "", "", "",
+                                                          RTrim(DateTime.Now), "155729857-2-2022", FormReque_Ok.txtc_costo.Text, "", txtlote.Text, FormReque_Ok.txtdni.Text, "", "", "", "", "", "",
                                                           FormReque_Ok.cmbestado.Text, "", npdpeso.Value, activo, cmb_tipoReq.SelectedItem, txtobservacion.Text)
                         If MessageBox.Show("Agregar complementos", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
 
@@ -168,7 +168,7 @@ Public Class FormMantDetReq_ok
                                                                                   "",'11
                                                                                   "", "", "", "+", txtobservacion.Text, FormReque_Ok.txtt_movinv.Text, "", "", "", "", "", "",
                                                                                   "", "", "", FormReque_Ok.dtpfecha.Text, gsUser, cmbuni.SelectedValue, FormReque_Ok.txtt_pago.Text, FormReque_Ok.txtfor_ent.Text,
-                                                                                  RTrim(DateTime.Now), "20100279348", FormReque_Ok.txtc_costo.Text, "", txtlote.Text, FormReque_Ok.txtdni.Text, "", "", "", "", "", "",
+                                                                                  RTrim(DateTime.Now), "155729857-2-2022", FormReque_Ok.txtc_costo.Text, "", txtlote.Text, FormReque_Ok.txtdni.Text, "", "", "", "", "", "",
                                                                                   FormReque_Ok.cmbestado.Text, "", npdpeso.Value, activo, cmb_tipoReq.SelectedItem, txtobservacion.Text)
 
                                     End If
@@ -192,7 +192,7 @@ Public Class FormMantDetReq_ok
                                                                       "",'11
                                                                       "", "", "", "+", txtobservacion.Text, FormReque_Ok.txtt_movinv.Text, "", "", "", "", "", "",
                                                                       "", "", "", FormReque_Ok.dtpfecha.Text, gsUser, cmbuni.SelectedValue, FormReque_Ok.txtt_pago.Text, FormReque_Ok.txtfor_ent.Text,
-                                                                      RTrim(DateTime.Now), "20100279348", FormReque_Ok.txtc_costo.Text, "", txtlote.Text, FormReque_Ok.txtdni.Text, "", "", "", "", "", "",
+                                                                      RTrim(DateTime.Now), "155729857-2-2022", FormReque_Ok.txtc_costo.Text, "", txtlote.Text, FormReque_Ok.txtdni.Text, "", "", "", "", "", "",
                                                                       FormReque_Ok.cmbestado.Text, "", npdpeso.Value, activo, cmb_tipoReq.SelectedItem, txtobservacion.Text)
                                 Next
                             End If
@@ -214,7 +214,7 @@ Public Class FormMantDetReq_ok
                                                               "",'11
                                                               "", "", "", "+", txtobservacion.Text, FormReque_Ok.txtt_movinv.Text, "", "", "", "", "", "",
                                                               "", "", "", FormReque_Ok.dtpfecha.Text, gsUser, cmbuni.SelectedValue, FormReque_Ok.txtt_pago.Text, FormReque_Ok.txtfor_ent.Text,
-                                                              RTrim(DateTime.Now), "20100279348", FormReque_Ok.txtc_costo.Text, "", txtlote.Text, FormReque_Ok.txtdni.Text, "", "", "", "", "", "",
+                                                              RTrim(DateTime.Now), "155729857-2-2022", FormReque_Ok.txtc_costo.Text, "", txtlote.Text, FormReque_Ok.txtdni.Text, "", "", "", "", "", "",
                                                               FormReque_Ok.cmbestado.Text, "", npdpeso.Value, activo, cmb_tipoReq.SelectedItem, txtobservacion.Text)
 
                         If MessageBox.Show("Agregar complementos", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
@@ -252,7 +252,7 @@ Public Class FormMantDetReq_ok
                                                                                   "",'11
                                                                                   "", "", "", "+", txtobservacion.Text, FormReque_Ok.txtt_movinv.Text, "", "", "", "", "", "",
                                                                                   "", "", "", FormReque_Ok.dtpfecha.Text, gsUser, cmbuni.SelectedValue, FormReque_Ok.txtt_pago.Text, FormReque_Ok.txtfor_ent.Text,
-                                                                                  RTrim(DateTime.Now), "20100279348", FormReque_Ok.txtc_costo.Text, "", txtlote.Text, FormReque_Ok.txtdni.Text, "", "", "", "", "", "",
+                                                                                  RTrim(DateTime.Now), "155729857-2-2022", FormReque_Ok.txtc_costo.Text, "", txtlote.Text, FormReque_Ok.txtdni.Text, "", "", "", "", "", "",
                                                                                   FormReque_Ok.cmbestado.Text, "", npdpeso.Value, activo, cmb_tipoReq.SelectedItem, txtobservacion.Text)
 
                                     End If
@@ -276,7 +276,7 @@ Public Class FormMantDetReq_ok
                                                                       "",'11
                                                                       "", "", "", "+", txtobservacion.Text, FormReque_Ok.txtt_movinv.Text, "", "", "", "", "", "",
                                                                       "", "", "", FormReque_Ok.dtpfecha.Text, gsUser, cmbuni.SelectedValue, FormReque_Ok.txtt_pago.Text, FormReque_Ok.txtfor_ent.Text,
-                                                                      RTrim(DateTime.Now), "20100279348", FormReque_Ok.txtc_costo.Text, "", txtlote.Text, FormReque_Ok.txtdni.Text, "", "", "", "", "", "",
+                                                                      RTrim(DateTime.Now), "155729857-2-2022", FormReque_Ok.txtc_costo.Text, "", txtlote.Text, FormReque_Ok.txtdni.Text, "", "", "", "", "", "",
                                                                       FormReque_Ok.cmbestado.Text, "", npdpeso.Value, activo, cmb_tipoReq.SelectedItem, txtobservacion.Text)
                                 Next
                             End If
@@ -336,7 +336,7 @@ Public Class FormMantDetReq_ok
                                                           txtactivo.Text,'11
                                                           "", "", "", "+", txtobservacion.Text, FormReque_Ok.txtt_movinv.Text, "", "", "", "", "", "",
                                                           "", "", "", FormReque_Ok.dtpfecha.Text, gsUser, cmbuni.SelectedValue, FormReque_Ok.txtt_pago.Text, FormReque_Ok.txtfor_ent.Text,
-                                                          RTrim(DateTime.Now), "20100279348", FormReque_Ok.txtc_costo.Text, "", txtlote.Text, FormReque_Ok.txtdni.Text, "", "", "", "", "", "",
+                                                          RTrim(DateTime.Now), "155729857-2-2022", FormReque_Ok.txtc_costo.Text, "", txtlote.Text, FormReque_Ok.txtdni.Text, "", "", "", "", "", "",
                                                           FormReque_Ok.cmbestado.Text, "", npdpeso.Value, "")
                             Dispose()
                         Else
@@ -354,7 +354,7 @@ Public Class FormMantDetReq_ok
                                                               txtactivo.Text,'11
                                                               "", "", "", "+", txtobservacion.Text, FormReque_Ok.txtt_movinv.Text, "", "", "", "", "", "",
                                                               "", "", "", FormReque_Ok.dtpfecha.Text, gsUser, cmbuni.SelectedValue, FormReque_Ok.txtt_pago.Text, FormReque_Ok.txtfor_ent.Text,
-                                                              RTrim(DateTime.Now), "20100279348", FormReque_Ok.txtc_costo.Text, "", txtlote.Text, FormReque_Ok.txtdni.Text, "", "", "", "", "", "",
+                                                              RTrim(DateTime.Now), "155729857-2-2022", FormReque_Ok.txtc_costo.Text, "", txtlote.Text, FormReque_Ok.txtdni.Text, "", "", "", "", "", "",
                                                               FormReque_Ok.cmbestado.Text, "", npdpeso.Value, "")
                             Dispose()
 

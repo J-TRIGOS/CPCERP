@@ -165,7 +165,7 @@ Public Class FormMantNotaDebito
         NOTADEBITOBE.T_DCTO_DOLAR = DAcumula3
         NOTADEBITOBE.T_IGV = DAcumula4
         NOTADEBITOBE.T_IGV_DOLAR = DAcumula5
-        NOTADEBITOBE.PROVEEDOR = "20100279348"
+        NOTADEBITOBE.PROVEEDOR = "155729857-2-2022"
         NOTADEBITOBE.CTCT_COD = RTrim(txtctct_cod.Text)
         NOTADEBITOBE.NOM_CTCT = cmbctct_cod.Text
         NOTADEBITOBE.FEC_DIA = RTrim(DateTime.Now)
@@ -960,7 +960,7 @@ Public Class FormMantNotaDebito
                 End If
             Catch ex As Exception
             End Try
-            If txtctct_cod.Text = "20100279348" Then
+            If txtctct_cod.Text = "155729857-2-2022" Then
                 cmbdir.SelectedValue = "0"
             End If
             txtvendedor.Text = CTCTBL.SelectVendedor(txtctct_cod.Text)

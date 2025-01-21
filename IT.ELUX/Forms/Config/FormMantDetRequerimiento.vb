@@ -118,7 +118,7 @@ Public Class FormMantDetRequerimiento
                                                               cmbuni.SelectedValue, '29
                                                               FormMantRequerimiento.txtt_pago.Text, '30
                                                               FormMantRequerimiento.txtfor_ent.Text,'31
-                                                              RTrim(DateTime.Now), "20100279348", '33
+                                                              RTrim(DateTime.Now), "155729857-2-2022", '33
                                                               FormMantRequerimiento.txtc_costo.Text, "", '35
                                                               txtlote.Text, FormMantRequerimiento.txtdni.Text, '37
                                                               "0", txtmarca.Text, txtdscto.Text, txtdscto_impor.Text, '41 
@@ -150,7 +150,7 @@ Public Class FormMantDetRequerimiento
                                                                   cmbuni.SelectedValue, '29
                                                                   FormMantRequerimiento.txtt_pago.Text, '30
                                                                   FormMantRequerimiento.txtfor_ent.Text,'31
-                                                                  RTrim(DateTime.Now), "20100279348", '33
+                                                                  RTrim(DateTime.Now), "155729857-2-2022", '33
                                                                   FormMantRequerimiento.txtc_costo.Text, "", '35
                                                                   txtlote.Text, FormMantRequerimiento.txtdni.Text, '37
                                                                   "0", txtmarca.Text, txtdscto.Text, txtdscto_impor.Text, '41 

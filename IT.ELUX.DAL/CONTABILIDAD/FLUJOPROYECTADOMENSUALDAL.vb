@@ -73,7 +73,7 @@ Public Class FLUJOPROYECTADOMENSUALDAL
         cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
         cmd.CommandText = "UPDATE ELTBFLUJOMENSUAL " &
                           "SET " & diaACT & " = (SELECT NVL(SUM(TPRECIO_VENTA+T_IGV),0) FROM DOCUMENTO " &
-                          "WHERE T_DOC_REF IN ('01', '03') AND SER_DOC_REF IN ('F001', 'B001') AND PROVEEDOR = '20100279348' " &
+                          "WHERE T_DOC_REF IN ('01', '03') AND SER_DOC_REF IN ('F001', 'B001') AND PROVEEDOR = '155729857-2-2022' " &
                           "AND FEC_GENE = TO_DATE('" & i & "/" & mes & "/" & anho & "', 'DD/MM/YYYY' ) AND F_PAGO_ENT IN ('01-A', '23', '01-B', '01-C', '01') AND EST = 'H' ) " &
                           "WHERE T_MOVI = 'E' AND OPE_COD = '0101' AND MES = " & mes & " AND ANHO = " & anho & ""
         cmd.Connection = sqlCon
@@ -86,7 +86,7 @@ Public Class FLUJOPROYECTADOMENSUALDAL
         cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
         cmd.CommandText = "UPDATE ELTBFLUJOMENSUAL " &
                           "SET " & diaACT & " = (SELECT NVL(SUM(TPRECIO_VENTA+T_IGV),0) FROM DOCUMENTO " &
-                          "WHERE T_DOC_REF IN ('01', '03') AND SER_DOC_REF IN ('F001', 'B001') AND PROVEEDOR = '20100279348' " &
+                          "WHERE T_DOC_REF IN ('01', '03') AND SER_DOC_REF IN ('F001', 'B001') AND PROVEEDOR = '155729857-2-2022' " &
                           "AND FEC_GENE + F_DIAS_PAGO(F_PAGO_ENT) = TO_DATE('" & i & "/" & mes & "/" & anho & "', 'DD/MM/YYYY' ) AND F_PAGO_ENT NOT IN ('01-A', '23', '01-B', '01-C', '01') AND EST = 'H' ) " &
                           "WHERE T_MOVI = 'E' AND OPE_COD = '0102' AND MES = " & mes & " AND ANHO = " & anho & ""
         cmd.Connection = sqlCon

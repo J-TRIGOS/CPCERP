@@ -53,7 +53,7 @@ Public Class FormDetElect
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim utf8WithoutBom As New System.Text.UTF8Encoding(False)
-        Dim RutaTxt As String = "\\192.168.1.7\sistema\Detraccion\D20100279348" & Mid(FormELTBDETRACCION.cmb_serdoc.Text, 3, 2) & Mid(FormELTBDETRACCION.txtnumero.Text, 4, 7) & ".txt"
+        Dim RutaTxt As String = "\\192.168.1.7\sistema\Detraccion\D155729857-2-2022" & Mid(FormELTBDETRACCION.cmb_serdoc.Text, 3, 2) & Mid(FormELTBDETRACCION.txtnumero.Text, 4, 7) & ".txt"
         IO.File.WriteAllText(RutaTxt, txttexto.Text, utf8WithoutBom)
         MsgBox("Se genero El texto")
     End Sub

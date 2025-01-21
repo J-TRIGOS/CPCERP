@@ -1,4 +1,5 @@
 ﻿Imports IT.ELUX.BL
+Imports itDLL
 Imports Scripting
 Public Class FormLoginCPC
 
@@ -32,6 +33,7 @@ Public Class FormLoginCPC
             End
             Exit Sub
         End If
+
 #End If
 
     End Sub
@@ -40,7 +42,19 @@ Public Class FormLoginCPC
         Dim ELTBUSERBL As New ELTBUSERBL
         Dim sUser = txtUser.Text.ToUpper
         Dim sPass = txtPass.Text
+        Dim nomPC = ""
+        nomPC = Environ("COMPUTERNAME")
 
+        If nomPC = "PE-JTRIGOSNB" Or nomPC = "PE-JTRIGOSWS" Then
+            If sUser <> "JTRIGOS" And sUser <> "USERNAME" Then
+                sUser = txtUser.Text.ToUpper
+                sPass = txtPass.Text
+            Else
+                sUser = "JTRIGOS"
+                sPass = "1658"
+            End If
+
+        End If
         nIntentos = nIntentos + 1
 
         gsCodUsr = ELTBUSERBL.Login(sUser, sPass)

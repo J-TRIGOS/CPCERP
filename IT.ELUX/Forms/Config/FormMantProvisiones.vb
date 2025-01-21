@@ -250,7 +250,7 @@ Public Class FormMantProvisiones
         PROVISIONESBE.T_IGV_DOLAR = DAcumula5
         PROVISIONESBE.PROVEEDOR = txtproveedor.Text
         PROVISIONESBE.OBSERVA = txtobserva.Text
-        PROVISIONESBE.CTCT_COD = "20100279348"
+        PROVISIONESBE.CTCT_COD = "155729857-2-2022"
         PROVISIONESBE.USUARIO = RTrim(gsUser)
         PROVISIONESBE.F_PAGO_ENT = txtt_pago.Text
         PROVISIONESBE.MONEDA = txtmoneda.Text

@@ -62,7 +62,7 @@ Public Class FormMantLetras_Monto
                                                                      cmb, IIf(IsDBNull(row("UPRECIO_VENTA")), 0, row("UPRECIO_VENTA")),
                                                                      IIf(IsDBNull(row("UPRECIO_DVENTA")), 0, row("UPRECIO_DVENTA")), IIf(IsDBNull(row("IGV_DIMPOR")), 0, row("IGV_DIMPOR")), IIf(IsDBNull(row("MONEDA")), "", row("MONEDA")),
                                                                      FormMantLetras.dtpfecha.Text, gsUser, IIf(IsDBNull(row("UNIDAD")), "", row("UNIDAD")), IIf(IsDBNull(row("F_PAGO_ENT")), "", row("F_PAGO_ENT")), IIf(IsDBNull(row("FOR_ENT_COD")), "", row("FOR_ENT_COD")),
-                                                                     RTrim(Date.Now), "20100279348", "", IIf(IsDBNull(row("CANTIDAD")), "", row("CANTIDAD")), IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", IIf(IsDBNull(row("NRO_DOCU1")), "", row("NRO_DOCU1")), "", "", "", "",
+                                                                     RTrim(Date.Now), "155729857-2-2022", "", IIf(IsDBNull(row("CANTIDAD")), "", row("CANTIDAD")), IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", IIf(IsDBNull(row("NRO_DOCU1")), "", row("NRO_DOCU1")), "", "", "", "",
                                                                      FormMantLetras.cmbestado.Text)
                 Next
             Else

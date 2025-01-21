@@ -626,7 +626,7 @@ Public Class CONTABILIDADDAL
         End If
         cmd.Parameters.Add("@MTPRECIO_COMPRA", OracleDbType.Double).Value = detlibrodiario.TPRECIO_COMPRA
         cmd.Parameters.Add("@MTPRECIO_DCOMPRA", OracleDbType.Double).Value = detlibrodiario.TPRECIO_DCOMPRA
-        cmd.Parameters.Add("@MRUC", OracleDbType.Varchar2).Value = "20100279348"
+        cmd.Parameters.Add("@MRUC", OracleDbType.Varchar2).Value = "155729857-2-2022"
         cmd.Parameters.Add("@MSIGNO", OracleDbType.Varchar2).Value = detlibrodiario.SIGNO
         cmd.Parameters.Add("@MT_CAMB", OracleDbType.Double).Value = detlibrodiario.T_CAMB
         cmd.Parameters.Add("@MT_REGISTRO", OracleDbType.Varchar2).Value = detlibrodiario.T_REGISTRO

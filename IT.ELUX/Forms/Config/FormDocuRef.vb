@@ -696,7 +696,7 @@ Public Class FormDocuRef
                                                             lvbusqueda1.Items(i).SubItems(12).Text, FormMantRequerimiento.txtproveedor.Text, lvbusqueda1.Items(i).SubItems(13).Text, lvbusqueda1.Items(i).SubItems(4).Text,
                                                             lvbusqueda1.Items(i).SubItems(5).Text, Nothing, lvbusqueda1.Items(i).SubItems(14).Text, "", "", "", "+", lvbusqueda1.Items(i).SubItems(18).Text, FormMantRequerimiento.txtt_movinv.Text, "", "", "", "", "", "",
                                                             "", "", "", FormMantRequerimiento.dtpfecha.Text, gsUser, lvbusqueda1.Items(i).SubItems(15).Text, FormMantRequerimiento.txtt_pago.Text, FormMantRequerimiento.txtfor_ent.Text,
-                                                            RTrim(Date.Now), "20100279348", lvbusqueda1.Items(i).SubItems(16).Text, "", lvbusqueda1.Items(i).SubItems(17).Text, FormMantRequerimiento.txtdni.Text, "", "", "", "", "", "",
+                                                            RTrim(Date.Now), "155729857-2-2022", lvbusqueda1.Items(i).SubItems(16).Text, "", lvbusqueda1.Items(i).SubItems(17).Text, FormMantRequerimiento.txtdni.Text, "", "", "", "", "", "",
                                                             FormMantRequerimiento.cmbestado.Text, lvbusqueda1.Items(i).SubItems(19).Text)
                             End If
                             'Next
@@ -739,7 +739,7 @@ Public Class FormDocuRef
                                                                      IIf(IsDBNull(row("T_CAMB")), 0, row("T_CAMB")), IIf(IsDBNull(row("UPRECIO_COMPRA")), 0, row("UPRECIO_COMPRA")),
                                                                      IIf(IsDBNull(row("UPRECIO_DCOMPRA")), 0, row("UPRECIO_DCOMPRA")), IIf(IsDBNull(row("IGV_DIMPOR")), 0, row("IGV_DIMPOR")), IIf(IsDBNull(row("MONEDA")), "", row("MONEDA")),
                                                                      FormMantGuiaAlmacen.dtpfecha.Text, gsUser, IIf(IsDBNull(row("UNIDAD")), "", row("UNIDAD")), FormMantGuiaAlmacen.txtt_pago.Text, FormMantGuiaAlmacen.txtfor_ent.Text,
-                                                                     RTrim(Date.Now), "20100279348", IIf(IsDBNull(row("CCO_COD")), "", row("CCO_COD")), "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), FormMantGuiaAlmacen.txtdni.Text, "", "", "", "", "", "",
+                                                                     RTrim(Date.Now), "155729857-2-2022", IIf(IsDBNull(row("CCO_COD")), "", row("CCO_COD")), "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), FormMantGuiaAlmacen.txtdni.Text, "", "", "", "", "", "",
                                                                      FormMantGuiaAlmacen.cmbestado.Text)
                                         End If
                                     Next
@@ -770,7 +770,7 @@ Public Class FormDocuRef
                                                                                                                     IIf(IsDBNull(row("NRO_DOC_REF")), "", row("NRO_DOC_REF")), FormMantGuiaAlmacen.txtproveedor.Text, IIf(IsDBNull(row("CANTIDAD")), "", row("CANTIDAD")), IIf(IsDBNull(row("ART_COD")), "", row("ART_COD")),
                                                                                                                      IIf(IsDBNull(row("NOM_ART")), "", row("NOM_ART")), Nothing, IIf(IsDBNull(row("ACT_COD")), "", row("ACT_COD")), "", "", "", "+", IIf(IsDBNull(row("OBSERVA")), "", row("OBSERVA")), FormMantGuiaAlmacen.txtt_movinv.Text, "", "", "", "", "", "",
                                                                                                                      "", "", "", FormMantGuiaAlmacen.dtpfecha.Text, gsUser, IIf(IsDBNull(row("UNIDAD")), "", row("UNIDAD")), FormMantGuiaAlmacen.txtt_pago.Text, FormMantGuiaAlmacen.txtfor_ent.Text,
-                                                                                                                     RTrim(Date.Now), "20100279348", FormMantGuiaAlmacen.txtc_costo.Text, "", "", FormMantGuiaAlmacen.txtdni.Text, "", "", "", "", "", "",
+                                                                                                                     RTrim(Date.Now), "155729857-2-2022", FormMantGuiaAlmacen.txtc_costo.Text, "", "", FormMantGuiaAlmacen.txtdni.Text, "", "", "", "", "", "",
                                                                                                                      FormMantGuiaAlmacen.cmbestado.Text)
 
                                                 End If
@@ -800,7 +800,7 @@ Public Class FormDocuRef
                                                                      IIf(IsDBNull(row("NOM_ART")), "", row("NOM_ART")), ARTICULOBL.getMedida(IIf(IsDBNull(row("ART_COD")), "", row("ART_COD"))), IIf(IsDBNull(row("UNIDAD")), "", row("UNIDAD")), "", "", FormMantGuiaDespacho.dtpfecha.Text, IIf(IsDBNull(row("ACT_COD")), "", row("ACT_COD")),
                                                                      IIf(IsDBNull(row("ALM_COD")), "", row("ALM_COD")), "+", FormMantGuiaDespacho.txtt_movinv.Text, IIf(IsDBNull(row("TPRECIO_VENTA")), "0", row("TPRECIO_VENTA")), IIf(IsDBNull(row("TPRECIO_DVENTA")), "0", row("TPRECIO_DVENTA")), IIf(IsDBNull(row("IGV")), "0", row("IGV")), IIf(IsDBNull(row("IGV_IMPOR")), "0", row("IGV_IMPOR")), IIf(IsDBNull(row("T_CAMB")), "0", row("T_CAMB")), IIf(IsDBNull(row("UPRECIO_VENTA")), "0", row("UPRECIO_VENTA")),
                                                                      IIf(IsDBNull(row("UPRECIO_DVENTA")), "0", row("UPRECIO_DVENTA")), IIf(IsDBNull(row("IGV_DIMPOR")), "0", row("IGV_DIMPOR")), FormMantGuiaDespacho.txtmon.Text, FormMantGuiaDespacho.dtpfecha.Text, IIf(IsDBNull(row("USUARIO")), "", row("USUARIO")), FormMantGuiaDespacho.txtt_pago.Text, FormMantGuiaDespacho.txtfor_ent.Text,
-                                                                     RTrim(Date.Now), "20100279348", IIf(IsDBNull(row("CCO_COD")), "", row("CCO_COD")), "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), IIf(IsDBNull(row("PER_COD")), "", row("PER_COD")), IIf(IsDBNull(row("NRO_DOCU1")), "", row("NRO_DOCU1")), "", "0", "0", FormMantGuiaDespacho.cmbestado.Text, "", "", "", "", "", "", "", "", "", "", IIf(IsDBNull(row("OBSERVA")), "", row("OBSERVA")))
+                                                                     RTrim(Date.Now), "155729857-2-2022", IIf(IsDBNull(row("CCO_COD")), "", row("CCO_COD")), "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), IIf(IsDBNull(row("PER_COD")), "", row("PER_COD")), IIf(IsDBNull(row("NRO_DOCU1")), "", row("NRO_DOCU1")), "", "0", "0", FormMantGuiaDespacho.cmbestado.Text, "", "", "", "", "", "", "", "", "", "", IIf(IsDBNull(row("OBSERVA")), "", row("OBSERVA")))
 
                                             End If
                                         Next
@@ -828,7 +828,7 @@ Public Class FormDocuRef
                                                                 IIf(IsDBNull(row("NRO_DOC_REF")), "", row("NRO_DOC_REF")), FormMantGuiaAlmacen.txtproveedor.Text, IIf(IsDBNull(row("CANTIDAD")), "", row("CANTIDAD")), IIf(IsDBNull(row("ART_COD")), "", row("ART_COD")),
                                                               IIf(IsDBNull(row("NOM_ART")), "", row("NOM_ART")), Nothing, "", "", "", "", "+", IIf(IsDBNull(row("OBSERVA1")), "", row("OBSERVA1")), FormMantGuiaAlmacen.txtt_movinv.Text, "", "", "", "", "", "",
                                                              "", "", "", FormMantGuiaAlmacen.dtpfecha.Text, gsUser, IIf(IsDBNull(row("UNIDAD")), "", row("UNIDAD")), FormMantGuiaAlmacen.txtt_pago.Text, FormMantGuiaAlmacen.txtfor_ent.Text,
-                                                             RTrim(Date.Now), "20100279348", IIf(IsDBNull(row("CCO_COD")), "", row("CCO_COD")), "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), FormMantGuiaAlmacen.txtdni.Text, "", "", "", "", "", "",
+                                                             RTrim(Date.Now), "155729857-2-2022", IIf(IsDBNull(row("CCO_COD")), "", row("CCO_COD")), "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), FormMantGuiaAlmacen.txtdni.Text, "", "", "", "", "", "",
                                                              FormMantGuiaAlmacen.cmbestado.Text)
                                     End If
                                 Next
@@ -864,7 +864,7 @@ Public Class FormDocuRef
                                                                                                 IIf(IsDBNull(row("NRO_DOC_REF")), "", row("NRO_DOC_REF")), FormMantGuiaAlmacen.txtproveedor.Text, IIf(IsDBNull(row("CANTIDAD")), "", row("CANTIDAD")), IIf(IsDBNull(row("ART_COD")), "", row("ART_COD")),
                                                                                                  IIf(IsDBNull(row("NOM_ART")), "", row("NOM_ART")), Nothing, IIf(IsDBNull(row("ACT_COD")), "", row("ACT_COD")), "", "", "", "+", IIf(IsDBNull(row("OBSERVA")), "", row("OBSERVA")), FormMantGuiaAlmacen.txtt_movinv.Text, "", "", "", "", "", "",
                                                                                                  "", "", "", FormMantGuiaAlmacen.dtpfecha.Text, gsUser, IIf(IsDBNull(row("UNIDAD")), "", row("UNIDAD")), FormMantGuiaAlmacen.txtt_pago.Text, FormMantGuiaAlmacen.txtfor_ent.Text,
-                                                                                                 RTrim(Date.Now), "20100279348", FormMantGuiaAlmacen.txtc_costo.Text, "", "", FormMantGuiaAlmacen.txtdni.Text, "", "", "", "", "", "",
+                                                                                                 RTrim(Date.Now), "155729857-2-2022", FormMantGuiaAlmacen.txtc_costo.Text, "", "", FormMantGuiaAlmacen.txtdni.Text, "", "", "", "", "", "",
                                                                                                  FormMantGuiaAlmacen.cmbestado.Text)
 
                                         End If
@@ -950,7 +950,7 @@ Public Class FormDocuRef
                                                                                        0, 0, IIf(IsDBNull(row("IGV")), 0, row("IGV")), 0, cmb, 0,
                                                                                        0, 0, IIf(IsDBNull(row("MONEDA")), "", row("MONEDA")),
                                                                                        FormMantGuiaDespacho.dtpfecha.Text, gsUser, IIf(IsDBNull(row("F_PAGO_ENT")), "", row("F_PAGO_ENT")), IIf(IsDBNull(row("FOR_ENT_COD")), "", row("FOR_ENT_COD")),
-                                                                                       RTrim(Date.Now), "20100279348", "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", "", 'nro,
+                                                                                       RTrim(Date.Now), "155729857-2-2022", "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", "", 'nro,
                                                                                        "", "", "", "",
                                                                                        FormMantGuiaDespacho.cmbestado.Text, "", "", "", "", "", "", "", "", "", "", "", "", Mid(RTrim(Date.Now), 1, 10), IIf(IsDBNull(row("OBSERVA")), "", row("OBSERVA")))
                                         Else
@@ -971,7 +971,7 @@ Public Class FormDocuRef
                                                                                        cmb, IIf(IsDBNull(row("UPRECIO_VENTA")), 0, row("UPRECIO_VENTA")),
                                                                                        uprecio_dventa, igv_dimpor, IIf(IsDBNull(row("MONEDA")), "", row("MONEDA")),
                                                                                        FormMantGuiaDespacho.dtpfecha.Text, gsUser, IIf(IsDBNull(row("F_PAGO_ENT")), "", row("F_PAGO_ENT")), IIf(IsDBNull(row("FOR_ENT_COD")), "", row("FOR_ENT_COD")),
-                                                                                       RTrim(Date.Now), "20100279348", "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", nro,
+                                                                                       RTrim(Date.Now), "155729857-2-2022", "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", nro,
                                                                                        "", "", "", "",
                                                                                        FormMantGuiaDespacho.cmbestado.Text, "", "", "", "", "", "", "", "", "", "", "", "", Mid(RTrim(Date.Now), 1, 10), IIf(IsDBNull(row("OBSERVA")), "", row("OBSERVA")))
 
@@ -992,7 +992,7 @@ Public Class FormDocuRef
                                                                                        cmb, IIf(IsDBNull(row("UPRECIO_VENTA")), 0, row("UPRECIO_VENTA")),
                                                                                        uprecio_dventa, igv_dimpor, IIf(IsDBNull(row("MONEDA")), "", row("MONEDA")),
                                                                                        FormMantGuiaDespacho.dtpfecha.Text, gsUser, IIf(IsDBNull(row("F_PAGO_ENT")), "", row("F_PAGO_ENT")), IIf(IsDBNull(row("FOR_ENT_COD")), "", row("FOR_ENT_COD")),
-                                                                                       RTrim(Date.Now), "20100279348", "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", nro,
+                                                                                       RTrim(Date.Now), "155729857-2-2022", "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", nro,
                                                                                        "", "", "", "",
                                                                                        FormMantGuiaDespacho.cmbestado.Text, "", "", "", "", "", "", "", "", "", "", "", "", Mid(RTrim(Date.Now), 1, 10), IIf(IsDBNull(row("OBSERVA")), "", row("OBSERVA")))
                                             End If
@@ -1021,7 +1021,7 @@ Public Class FormDocuRef
                                                                                        0, 0, IIf(IsDBNull(row("IGV")), 0, row("IGV")), 0, cmb, 0,
                                                                                        0, 0, IIf(IsDBNull(row("MONEDA")), "", row("MONEDA")),
                                                                                        FormMantGuiaDespacho.dtpfecha.Text, gsUser, IIf(IsDBNull(row("F_PAGO_ENT")), "", row("F_PAGO_ENT")), IIf(IsDBNull(row("FOR_ENT_COD")), "", row("FOR_ENT_COD")),
-                                                                                       RTrim(Date.Now), "20100279348", "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", "", 'nro,
+                                                                                       RTrim(Date.Now), "155729857-2-2022", "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", "", 'nro,
                                                                                        "", "", "", "",
                                                                                        FormMantGuiaDespacho.cmbestado.Text, "", "", "", "", "", "", "", "", "", "", "", "", Mid(RTrim(Date.Now), 1, 10), IIf(IsDBNull(row("OBSERVA")), "", row("OBSERVA")))
                                         Else
@@ -1048,7 +1048,7 @@ Public Class FormDocuRef
                                                                         cmb, uprecio_venta,
                                                                         IIf(IsDBNull(row("UPRECIO_DVENTA")), 0, row("UPRECIO_DVENTA")), igv_dimpor, IIf(IsDBNull(row("MONEDA")), "", row("MONEDA")),
                                                                         FormMantGuiaDespacho.dtpfecha.Text, gsUser, IIf(IsDBNull(row("F_PAGO_ENT")), "", row("F_PAGO_ENT")), IIf(IsDBNull(row("FOR_ENT_COD")), "", row("FOR_ENT_COD")),
-                                                                        RTrim(Date.Now), "20100279348", "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", nro,
+                                                                        RTrim(Date.Now), "155729857-2-2022", "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", nro,
                                                                         "", "", "", "",
                                                                         FormMantGuiaDespacho.cmbestado.Text, "", "", "", "", "", "", "", "", "", "", "", "", Mid(RTrim(Date.Now), 1, 10), IIf(IsDBNull(row("OBSERVA")), "", row("OBSERVA")))
                                             Else
@@ -1068,7 +1068,7 @@ Public Class FormDocuRef
                                                                         cmb, uprecio_venta,
                                                                         IIf(IsDBNull(row("UPRECIO_DVENTA")), 0, row("UPRECIO_DVENTA")), igv_dimpor, IIf(IsDBNull(row("MONEDA")), "", row("MONEDA")),
                                                                         FormMantGuiaDespacho.dtpfecha.Text, gsUser, IIf(IsDBNull(row("F_PAGO_ENT")), "", row("F_PAGO_ENT")), IIf(IsDBNull(row("FOR_ENT_COD")), "", row("FOR_ENT_COD")),
-                                                                        RTrim(Date.Now), "20100279348", "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", nro,
+                                                                        RTrim(Date.Now), "155729857-2-2022", "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", nro,
                                                                         "", "", "", "",
                                                                         FormMantGuiaDespacho.cmbestado.Text, "", "", "", "", "", "", "", "", "", "", "", "", Mid(RTrim(Date.Now), 1, 10), IIf(IsDBNull(row("OBSERVA")), "", row("OBSERVA")))
                                             End If
@@ -1117,7 +1117,7 @@ Public Class FormDocuRef
                                                              cmb, IIf(IsDBNull(row("UPRECIO_VENTA")), 0, row("UPRECIO_VENTA")),
                                                              IIf(IsDBNull(row("UPRECIO_DVENTA")), 0, row("UPRECIO_DVENTA")), IIf(IsDBNull(row("IGV_DIMPOR")), 0, row("IGV_DIMPOR")), IIf(IsDBNull(row("MONEDA")), "", row("MONEDA")),
                                                              FormMantFacturacion.dtpfecha.Text, gsUser, IIf(IsDBNull(row("UNIDAD")), "", row("UNIDAD")), IIf(IsDBNull(row("F_PAGO_ENT")), "", row("F_PAGO_ENT")), IIf(IsDBNull(row("FOR_ENT_COD")), "", row("FOR_ENT_COD")),
-                                                             RTrim(Date.Now), "20100279348", "", IIf(IsDBNull(row("CANTIDAD")), "", row("CANTIDAD")), IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", IIf(IsDBNull(row("NRO_DOC_REF1")), "", row("NRO_DOC_REF1")), "", "", "", "",
+                                                             RTrim(Date.Now), "155729857-2-2022", "", IIf(IsDBNull(row("CANTIDAD")), "", row("CANTIDAD")), IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", IIf(IsDBNull(row("NRO_DOC_REF1")), "", row("NRO_DOC_REF1")), "", "", "", "",
                                                              FormMantFacturacion.cmbestado.Text)
                             Next
 
@@ -1171,7 +1171,7 @@ Public Class FormDocuRef
                                                                  cmb, IIf(IsDBNull(row("UPRECIO_VENTA")), 0, row("UPRECIO_VENTA")),
                                                                  IIf(IsDBNull(row("UPRECIO_DVENTA")), 0, row("UPRECIO_DVENTA")), IIf(IsDBNull(row("IGV_DIMPOR")), 0, row("IGV_DIMPOR")), IIf(IsDBNull(row("MONEDA")), "", row("MONEDA")),
                                                                  FormMantNotaCredito.dtpfecha.Text, gsUser, IIf(IsDBNull(row("UNIDAD")), "", row("UNIDAD")), IIf(IsDBNull(row("F_PAGO_ENT")), "", row("F_PAGO_ENT")), IIf(IsDBNull(row("FOR_ENT_COD")), "", row("FOR_ENT_COD")),
-                                                                 RTrim(Date.Now), "20100279348", "", IIf(IsDBNull(row("CANTIDAD")), "", row("CANTIDAD")), IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", IIf(IsDBNull(row("NRO_DOCU1")), "", row("NRO_DOCU1")), "", "", "", "",
+                                                                 RTrim(Date.Now), "155729857-2-2022", "", IIf(IsDBNull(row("CANTIDAD")), "", row("CANTIDAD")), IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", IIf(IsDBNull(row("NRO_DOCU1")), "", row("NRO_DOCU1")), "", "", "", "",
                                                                  FormMantNotaCredito.cmbestado.Text, row("FECFACT"))
                                 End If
                             Next
@@ -1207,7 +1207,7 @@ Public Class FormDocuRef
                                                                  cmb, IIf(IsDBNull(row("UPRECIO_VENTA")), 0, row("UPRECIO_VENTA")),
                                                                  IIf(IsDBNull(row("UPRECIO_DVENTA")), 0, row("UPRECIO_DVENTA")), IIf(IsDBNull(row("IGV_DIMPOR")), 0, row("IGV_DIMPOR")), IIf(IsDBNull(row("MONEDA")), "", row("MONEDA")),
                                                                  FormMantNotaDebito.dtpfecha.Text, gsUser, IIf(IsDBNull(row("UNIDAD")), "", row("UNIDAD")), IIf(IsDBNull(row("F_PAGO_ENT")), "", row("F_PAGO_ENT")), IIf(IsDBNull(row("FOR_ENT_COD")), "", row("FOR_ENT_COD")),
-                                                                 RTrim(Date.Now), "20100279348", "", IIf(IsDBNull(row("CANTIDAD")), "", row("CANTIDAD")), IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", IIf(IsDBNull(row("NRO_DOCU1")), "", row("NRO_DOCU1")), "", "", "", "",
+                                                                 RTrim(Date.Now), "155729857-2-2022", "", IIf(IsDBNull(row("CANTIDAD")), "", row("CANTIDAD")), IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", IIf(IsDBNull(row("NRO_DOCU1")), "", row("NRO_DOCU1")), "", "", "", "",
                                                                  FormMantNotaDebito.cmbestado.Text)
                             Next
                         End If
@@ -1249,7 +1249,7 @@ Public Class FormDocuRef
                                                                  cmb, IIf(IsDBNull(row("UPRECIO_VENTA")), 0, row("UPRECIO_VENTA")),
                                                                  IIf(IsDBNull(row("UPRECIO_DVENTA")), 0, row("UPRECIO_DVENTA")), IIf(IsDBNull(row("IGV_DIMPOR")), 0, row("IGV_DIMPOR")), IIf(IsDBNull(row("MONEDA")), "", row("MONEDA")),
                                                                  FormMantBoleta.dtpfecha.Text, gsUser, IIf(IsDBNull(row("UNIDAD")), "", row("UNIDAD")), IIf(IsDBNull(row("F_PAGO_ENT")), "", row("F_PAGO_ENT")), IIf(IsDBNull(row("FOR_ENT_COD")), "", row("FOR_ENT_COD")),
-                                                                 RTrim(Date.Now), "20100279348", "", IIf(IsDBNull(row("CANTIDAD")), "", row("CANTIDAD")), IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", IIf(IsDBNull(row("NRO_DOCU1")), "", row("NRO_DOCU1")), "", "", "", "",
+                                                                 RTrim(Date.Now), "155729857-2-2022", "", IIf(IsDBNull(row("CANTIDAD")), "", row("CANTIDAD")), IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", IIf(IsDBNull(row("NRO_DOCU1")), "", row("NRO_DOCU1")), "", "", "", "",
                                                                  FormMantBoleta.cmbestado.Text)
                                 End If
                             Next
@@ -1348,7 +1348,7 @@ Public Class FormDocuRef
                                                                      cmb, IIf(IsDBNull(row("UPRECIO_VENTA")), 0, row("UPRECIO_VENTA")),
                                                                      IIf(IsDBNull(row("UPRECIO_DVENTA")), 0, row("UPRECIO_DVENTA")), IIf(IsDBNull(row("IGV_DIMPOR")), 0, row("IGV_DIMPOR")), IIf(IsDBNull(row("MONEDA")), "", row("MONEDA")),
                                                                      FormMantLetras.dtpfecha.Text, gsUser, IIf(IsDBNull(row("UNIDAD")), "", row("UNIDAD")), IIf(IsDBNull(row("F_PAGO_ENT")), "", row("F_PAGO_ENT")), IIf(IsDBNull(row("FOR_ENT_COD")), "", row("FOR_ENT_COD")),
-                                                                     RTrim(Date.Now), "20100279348", "", IIf(IsDBNull(row("CANTIDAD")), "", row("CANTIDAD")), IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", IIf(IsDBNull(row("NRO_DOCU1")), "", row("NRO_DOCU1")), "", "", "", "",
+                                                                     RTrim(Date.Now), "155729857-2-2022", "", IIf(IsDBNull(row("CANTIDAD")), "", row("CANTIDAD")), IIf(IsDBNull(row("LOTE")), "", row("LOTE")), "", IIf(IsDBNull(row("NRO_DOCU1")), "", row("NRO_DOCU1")), "", "", "", "",
                                                                      FormMantLetras.cmbestado.Text)
                                         If contar = 1 Then
                                             FormMantLetras.btcmb = IIf(IsDBNull(row("T_CAMB")), 0, row("T_CAMB"))
@@ -1453,7 +1453,7 @@ Public Class FormDocuRef
                                                                             IIf(IsDBNull(row("NRO_DOC_REF")), "", row("NRO_DOC_REF")), FormMantGuiaAlmacen.txtproveedor.Text, IIf(IsDBNull(row("CANTIDAD")), "", row("CANTIDAD")), IIf(IsDBNull(row("ART_COD")), "", row("ART_COD")),
                                                                           IIf(IsDBNull(row("NOM_ART")), "", row("NOM_ART")), Nothing, "", "", "", "", "+", IIf(IsDBNull(row("OBSERVA1")), "", row("OBSERVA1")), FormMantGuiaAlmacen.txtt_movinv.Text, "", "", "", "", "", "",
                                                                          "", "", "", FormMantGuiaAlmacen.dtpfecha.Text, gsUser, IIf(IsDBNull(row("UNIDAD")), "", row("UNIDAD")), FormMantGuiaAlmacen.txtt_pago.Text, FormMantGuiaAlmacen.txtfor_ent.Text,
-                                                                         RTrim(Date.Now), "20100279348", IIf(IsDBNull(row("CCO_COD")), "", row("CCO_COD")), "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), FormMantGuiaAlmacen.txtdni.Text, "", "", "", "", "", "",
+                                                                         RTrim(Date.Now), "155729857-2-2022", IIf(IsDBNull(row("CCO_COD")), "", row("CCO_COD")), "", IIf(IsDBNull(row("LOTE")), "", row("LOTE")), FormMantGuiaAlmacen.txtdni.Text, "", "", "", "", "", "",
                                                                          FormMantGuiaAlmacen.cmbestado.Text)
                         End If
                         'If IIf(IsDBNull(row("T_DOC_REF")), "", row("T_DOC_REF")) = "OREQ" Or contador = 1 Then

@@ -203,7 +203,7 @@ Public Class FormMantDetGuiaDespacho
                                                               gsUser, '29
                                                               FormMantGuiaDespacho.txtt_pago.Text, '30
                                                               FormMantGuiaDespacho.txtfor_ent.Text,'31
-                                                              RTrim(DateTime.Now), "20100279348", '33
+                                                              RTrim(DateTime.Now), "155729857-2-2022", '33
                                                               "", "", '35
                                                               "", "", '37
                                                               "", txtdscto.Text, txtdscto_impor.Text, '40

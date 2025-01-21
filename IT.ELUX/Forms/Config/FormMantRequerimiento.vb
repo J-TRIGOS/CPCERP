@@ -185,7 +185,7 @@ Public Class FormMantRequerimiento
         REQUERIMIENTOBE.T_DCTO_DOLAR = DAcumula3
         REQUERIMIENTOBE.T_IGV = DAcumula4
         REQUERIMIENTOBE.T_IGV_DOLAR = DAcumula5
-        REQUERIMIENTOBE.PROVEEDOR = "20100279348"
+        REQUERIMIENTOBE.PROVEEDOR = "155729857-2-2022"
         REQUERIMIENTOBE.PER_COD = RTrim(txtdni.Text)
         REQUERIMIENTOBE.FEC_DIA = RTrim(DateTime.Now)
         REQUERIMIENTOBE.USUARIO = RTrim(gsUser)
@@ -881,7 +881,7 @@ Public Class FormMantRequerimiento
 
 
         If cmbdir.Items.Count > 0 Then
-            If txtproveedor.Text = "20100279348" Then
+            If txtproveedor.Text = "155729857-2-2022" Then
                 cmbdir.SelectedIndex = 1
             Else
                 cmbdir.SelectedIndex = 0
@@ -970,7 +970,7 @@ Public Class FormMantRequerimiento
                                                                   dtpfecha.Text, '27
                                                                   gsUser, "SERV", txtt_pago.Text, '30
                                                                   txtfor_ent.Text,'31
-                                                                  RTrim(DateTime.Now), "20100279348", '33
+                                                                  RTrim(DateTime.Now), "155729857-2-2022", '33
                                                                   txtc_costo.Text, "", '35
                                                                   "", txtdni.Text, '37
                                                                   "0", "", 0, 0, 0, cmbestado.Text, "", "", "P") '43
@@ -984,7 +984,7 @@ Public Class FormMantRequerimiento
                                                                  dtpfecha.Text, '27
                                                                  gsUser, "SERV", txtt_pago.Text, '30
                                                                  txtfor_ent.Text,'31
-                                                                 RTrim(DateTime.Now), "20100279348", '33
+                                                                 RTrim(DateTime.Now), "155729857-2-2022", '33
                                                                  txtc_costo.Text, "", '35
                                                                  "", txtdni.Text, '37
                                                                  "0", "", 0, 0, 0, cmbestado.Text, "", "", "P") '43
@@ -998,7 +998,7 @@ Public Class FormMantRequerimiento
                                                                  dtpfecha.Text, '27
                                                                  gsUser, "SERV", txtt_pago.Text, '30
                                                                  txtfor_ent.Text,'31
-                                                                 RTrim(DateTime.Now), "20100279348", '33
+                                                                 RTrim(DateTime.Now), "155729857-2-2022", '33
                                                                  txtc_costo.Text, "", '35
                                                                  "", txtdni.Text, '37
                                                                  "0", "", 0, 0, 0, cmbestado.Text, "", "", "P") '43
@@ -1012,7 +1012,7 @@ Public Class FormMantRequerimiento
                                                                  dtpfecha.Text, '27
                                                                  gsUser, "SERV", txtt_pago.Text, '30
                                                                  txtfor_ent.Text,'31
-                                                                 RTrim(DateTime.Now), "20100279348", '33
+                                                                 RTrim(DateTime.Now), "155729857-2-2022", '33
                                                                  txtc_costo.Text, "", '35
                                                                  "", txtdni.Text, '37
                                                                  "0", "", 0, 0, 0, cmbestado.Text, "", "", "P") '43
@@ -1026,7 +1026,7 @@ Public Class FormMantRequerimiento
                                                                  dtpfecha.Text, '27
                                                                  gsUser, "SERV", txtt_pago.Text, '30
                                                                  txtfor_ent.Text,'31
-                                                                 RTrim(DateTime.Now), "20100279348", '33
+                                                                 RTrim(DateTime.Now), "155729857-2-2022", '33
                                                                  txtc_costo.Text, "", '35
                                                                  "", txtdni.Text, '37
                                                                  "0", "", 0, 0, 0, cmbestado.Text, "", "", "P") '43
@@ -1040,7 +1040,7 @@ Public Class FormMantRequerimiento
                                                                  dtpfecha.Text, '27
                                                                  gsUser, "SERV", txtt_pago.Text, '30
                                                                  txtfor_ent.Text,'31
-                                                                 RTrim(DateTime.Now), "20100279348", '33
+                                                                 RTrim(DateTime.Now), "155729857-2-2022", '33
                                                                  txtc_costo.Text, "", '35
                                                                  "", txtdni.Text, '37
                                                                  "0", "", 0, 0, 0, cmbestado.Text, "", "", "P") '43
@@ -1054,7 +1054,7 @@ Public Class FormMantRequerimiento
                                                                  dtpfecha.Text, '27
                                                                  gsUser, "SERV", txtt_pago.Text, '30
                                                                  txtfor_ent.Text,'31
-                                                                 RTrim(DateTime.Now), "20100279348", '33
+                                                                 RTrim(DateTime.Now), "155729857-2-2022", '33
                                                                  txtc_costo.Text, "", '35
                                                                  "", txtdni.Text, '37
                                                                  "0", "", 0, 0, 0, cmbestado.Text, "", "", "P") '43
@@ -1068,7 +1068,7 @@ Public Class FormMantRequerimiento
                                                                  dtpfecha.Text, '27
                                                                  gsUser, "SERV", txtt_pago.Text, '30
                                                                  txtfor_ent.Text,'31
-                                                                 RTrim(DateTime.Now), "20100279348", '33
+                                                                 RTrim(DateTime.Now), "155729857-2-2022", '33
                                                                  txtc_costo.Text, "", '35
                                                                  "", txtdni.Text, '37
                                                                  "0", "", 0, 0, 0, cmbestado.Text, "", "", "P") '43
@@ -1082,7 +1082,7 @@ Public Class FormMantRequerimiento
                                                                  dtpfecha.Text, '27
                                                                  gsUser, "SERV", txtt_pago.Text, '30
                                                                  txtfor_ent.Text,'31
-                                                                 RTrim(DateTime.Now), "20100279348", '33
+                                                                 RTrim(DateTime.Now), "155729857-2-2022", '33
                                                                  txtc_costo.Text, "", '35
                                                                  "", txtdni.Text, '37
                                                                  "0", "", 0, 0, 0, cmbestado.Text, "", "", "P") '43
@@ -1096,7 +1096,7 @@ Public Class FormMantRequerimiento
                                                                  dtpfecha.Text, '27
                                                                  gsUser, "HORA", txtt_pago.Text, '30
                                                                  txtfor_ent.Text,'31
-                                                                 RTrim(DateTime.Now), "20100279348", '33
+                                                                 RTrim(DateTime.Now), "155729857-2-2022", '33
                                                                  txtc_costo.Text, "", '35
                                                                  "", txtdni.Text, '37
                                                                  "0", "", 0, 0, 0, cmbestado.Text, "", "", "P") '43
@@ -1110,7 +1110,7 @@ Public Class FormMantRequerimiento
                                                                  dtpfecha.Text, '27
                                                                  gsUser, "SERV", txtt_pago.Text, '30
                                                                  txtfor_ent.Text,'31
-                                                                 RTrim(DateTime.Now), "20100279348", '33
+                                                                 RTrim(DateTime.Now), "155729857-2-2022", '33
                                                                  txtc_costo.Text, "", '35
                                                                  "", txtdni.Text, '37
                                                                  "0", "", 0, 0, 0, cmbestado.Text, "", "", "P") '43
@@ -1124,7 +1124,7 @@ Public Class FormMantRequerimiento
                                                                  dtpfecha.Text, '27
                                                                  gsUser, "SERV", txtt_pago.Text, '30
                                                                  txtfor_ent.Text,'31
-                                                                 RTrim(DateTime.Now), "20100279348", '33
+                                                                 RTrim(DateTime.Now), "155729857-2-2022", '33
                                                                  txtc_costo.Text, "", '35
                                                                  "", txtdni.Text, '37
                                                                  "0", "", 0, 0, 0, cmbestado.Text, "", "", "P") '43

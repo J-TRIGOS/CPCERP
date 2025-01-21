@@ -879,7 +879,7 @@ Public Class FormMantOrdenCompra
         ORDENCOMPRABE.T_DCTO_DOLAR = DAcumula3
         ORDENCOMPRABE.T_IGV = DAcumula4
         ORDENCOMPRABE.T_IGV_DOLAR = DAcumula5
-        ORDENCOMPRABE.PROVEEDOR = "20100279348"
+        ORDENCOMPRABE.PROVEEDOR = "155729857-2-2022"
         ORDENCOMPRABE.CTCT_COD = RTrim(txtctct_cod.Text)
         ORDENCOMPRABE.FEC_DIA = RTrim(DateTime.Now)
         ORDENCOMPRABE.FEC_PROV = dtpfec_prov.Value
@@ -1739,11 +1739,11 @@ Public Class FormMantOrdenCompra
             GetCmb("dir_cod", "nom_dir", dt, cmbdir)
             cmbdir.SelectedValue = txtdir.Text
             txtemail.Text = CTCTBL.SelectEmail(txtctct_cod.Text)
-            If txtctct_cod.Text <> "20100279348" Then
+            If txtctct_cod.Text <> "155729857-2-2022" Then
                 txtt_pago.Text = ORDENCOMPRABL.SelectF_PAGO_ENT_Ult(txtctct_cod.Text)
                 cmbt_pago.SelectedValue = txtt_pago.Text
             End If
-            If txtctct_cod.Text = "20100279348" Then
+            If txtctct_cod.Text = "155729857-2-2022" Then
                 cmbdir.SelectedValue = "1"
             End If
 
@@ -1774,7 +1774,7 @@ Public Class FormMantOrdenCompra
             txtemail.Text = CTCTBL.SelectEmail(txtctct_cod.Text)
             txtvendedor.Text = CTCTBL.SelectVendedor(txtctct_cod.Text)
             cmbvendedor.SelectedValue = txtvendedor.Text
-            If txtctct_cod.Text <> "20100279348" Then
+            If txtctct_cod.Text <> "155729857-2-2022" Then
                 txtt_pago.Text = ORDENCOMPRABL.SelectF_PAGO_ENT_Ult(txtctct_cod.Text)
                 cmbt_pago.SelectedValue = txtt_pago.Text
             End If
