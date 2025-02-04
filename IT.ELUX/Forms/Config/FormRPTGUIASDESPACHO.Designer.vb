@@ -141,7 +141,7 @@ Partial Class FormRPTGUIASDESPACHO
         '
         Me.cmbdestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbdestino.FormattingEnabled = True
-        Me.cmbdestino.Items.AddRange(New Object() {"", "0001-GALERA 108 PANAMA", "0002-FALLADO PANAMA"})
+        Me.cmbdestino.Items.AddRange(New Object() {"", "0001-GALERA 108 PANAMA", "0002-FALLADO PANAMA", "0003-PROPIEDAD DEL CLIENTE"})
         Me.cmbdestino.Location = New System.Drawing.Point(103, 188)
         Me.cmbdestino.Name = "cmbdestino"
         Me.cmbdestino.Size = New System.Drawing.Size(151, 21)

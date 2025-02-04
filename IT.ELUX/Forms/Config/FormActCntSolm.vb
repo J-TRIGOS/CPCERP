@@ -68,7 +68,7 @@ Public Class FormActCntSolm
             ARTICULOBE.alm_cod = "0001"
         ElseIf cmbAlmacen.Text = "0002 - FALLADO PANAMA" Then
             ARTICULOBE.alm_cod = "0002"
-        ElseIf cmbAlmacen.Text = "0003 - LURIN" Then
+        ElseIf cmbAlmacen.Text = "0003 - PROPIEDAD DEL CLIENTE" Then
             ARTICULOBE.alm_cod = "0003"
         End If
         ARTICULOBE.anho = txtanho.Text

@@ -998,34 +998,34 @@ Public Class GUIADESPACHODAL
                 End If
                 'VOLVER A SUMAR STOCK
                 If DET_DOCUMENTOBE.T_DOC_REF1 = "82" Then
-                        cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
-                        cmd.CommandText = "SP_DOCU_UPDCANT82"
-                        cmd.Connection = sqlCon
-                        cmd.Transaction = sqlTrans
-                        cmd.CommandType = CommandType.StoredProcedure
-                        cmd.Parameters.Add("@T_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.T_DOC_REF1)
-                        cmd.Parameters.Add("@SER_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.SER_DOC_REF1)
-                        cmd.Parameters.Add("@NRO_DOC_REF1", OracleDbType.Varchar2).Value = Mid(DET_DOCUMENTOBE.NRO_DOC_REF1, 1, 7)
-                        cmd.Parameters.Add("@ART_COD", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.ART_COD)
-                        cmd.Parameters.Add("@CANTIDAD", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD
-                        cmd.ExecuteNonQuery()
-                        cmd.Dispose()
-                    End If
-
-                    'ACTUALIZA CABECERA
                     cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
-                    cmd.CommandText = "SP_DOCUMENTO_UPDTOTALESGD"
+                    cmd.CommandText = "SP_DOCU_UPDCANT82"
                     cmd.Connection = sqlCon
                     cmd.Transaction = sqlTrans
                     cmd.CommandType = CommandType.StoredProcedure
-                    cmd.Parameters.Add("@t_doc_ref", OracleDbType.Varchar2).Value = GUIADESPACHOBE.T_DOC_REF
-                    cmd.Parameters.Add("@ser_doc_ref", OracleDbType.Varchar2).Value = GUIADESPACHOBE.SER_DOC_REF
-                    cmd.Parameters.Add("@nro_doc_ref", OracleDbType.Varchar2).Value = GUIADESPACHOBE.NRO_DOC_REF
-                    cmd.Parameters.Add("@TPRECIO_VENTA", OracleDbType.Double).Value = DAcumula3
-                    cmd.Parameters.Add("@TPRECIO_DVENTA", OracleDbType.Double).Value = DAcumula2
-                    cmd.Parameters.Add("@T_IGV", OracleDbType.Double).Value = DAcumula4
-                    cmd.Parameters.Add("@T_IGV_DOLAR", OracleDbType.Double).Value = DAcumula5
+                    cmd.Parameters.Add("@T_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.T_DOC_REF1)
+                    cmd.Parameters.Add("@SER_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.SER_DOC_REF1)
+                    cmd.Parameters.Add("@NRO_DOC_REF1", OracleDbType.Varchar2).Value = Mid(DET_DOCUMENTOBE.NRO_DOC_REF1, 1, 7)
+                    cmd.Parameters.Add("@ART_COD", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                    cmd.Parameters.Add("@CANTIDAD", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD
                     cmd.ExecuteNonQuery()
+                    cmd.Dispose()
+                End If
+
+                'ACTUALIZA CABECERA
+                cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                cmd.CommandText = "SP_DOCUMENTO_UPDTOTALESGD"
+                cmd.Connection = sqlCon
+                cmd.Transaction = sqlTrans
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Parameters.Add("@t_doc_ref", OracleDbType.Varchar2).Value = GUIADESPACHOBE.T_DOC_REF
+                cmd.Parameters.Add("@ser_doc_ref", OracleDbType.Varchar2).Value = GUIADESPACHOBE.SER_DOC_REF
+                cmd.Parameters.Add("@nro_doc_ref", OracleDbType.Varchar2).Value = GUIADESPACHOBE.NRO_DOC_REF
+                cmd.Parameters.Add("@TPRECIO_VENTA", OracleDbType.Double).Value = DAcumula3
+                cmd.Parameters.Add("@TPRECIO_DVENTA", OracleDbType.Double).Value = DAcumula2
+                cmd.Parameters.Add("@T_IGV", OracleDbType.Double).Value = DAcumula4
+                cmd.Parameters.Add("@T_IGV_DOLAR", OracleDbType.Double).Value = DAcumula5
+                cmd.ExecuteNonQuery()
                 cmd.Dispose()
 
                 If Mid(DET_DOCUMENTOBE.OBSERVA, 1, 1) = "F" And Mid(DET_DOCUMENTOBE.OBSERVA, 11, 1) = "N" Then

@@ -948,7 +948,7 @@ Partial Class FormKardexConta
         '
         Me.cmbalmacen4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbalmacen4.FormattingEnabled = True
-        Me.cmbalmacen4.Items.AddRange(New Object() {"0001-GALERA 108 PANAMA", "0002-FALLADO PANAMA"})
+        Me.cmbalmacen4.Items.AddRange(New Object() {"0001-GALERA 108 PANAMA", "0002-FALLADO PANAMA", "0003-PROPIEDAD DEL CLIENTE"})
         Me.cmbalmacen4.Location = New System.Drawing.Point(103, 100)
         Me.cmbalmacen4.Name = "cmbalmacen4"
         Me.cmbalmacen4.Size = New System.Drawing.Size(121, 21)

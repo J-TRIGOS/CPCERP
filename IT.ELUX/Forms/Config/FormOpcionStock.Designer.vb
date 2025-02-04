@@ -111,7 +111,7 @@ Partial Class FormOpcionStock
         '
         Me.cmbalmacen.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbalmacen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbalmacen.Items.AddRange(New Object() {"Todos", "0001-GALERA 108 PANAMA", "0002-FALLADO PANAMA"})
+        Me.cmbalmacen.Items.AddRange(New Object() {"Todos", "0001-GALERA 108 PANAMA", "0002-FALLADO PANAMA", "0003-PROPIEDAD DEL CLIENTE"})
         Me.cmbalmacen.Location = New System.Drawing.Point(101, 129)
         Me.cmbalmacen.Name = "cmbalmacen"
         Me.cmbalmacen.Size = New System.Drawing.Size(101, 21)

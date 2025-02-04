@@ -412,7 +412,7 @@ Partial Class FormActCntSolm
         '
         Me.cmbAlmacen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbAlmacen.FormattingEnabled = True
-        Me.cmbAlmacen.Items.AddRange(New Object() {"0001 - GALERA 108 PANAMA", "0002 - FALLADO PANAMA"})
+        Me.cmbAlmacen.Items.AddRange(New Object() {"0001 - GALERA 108 PANAMA", "0002 - FALLADO PANAMA", "0003 - PROPIEDAD DEL CLIENTE"})
         Me.cmbAlmacen.Location = New System.Drawing.Point(148, 12)
         Me.cmbAlmacen.Name = "cmbAlmacen"
         Me.cmbAlmacen.Size = New System.Drawing.Size(121, 21)

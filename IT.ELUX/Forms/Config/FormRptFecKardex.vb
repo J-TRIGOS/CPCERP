@@ -222,6 +222,9 @@ Public Class FormRptFecKardex
             Case 2
                 almacen = "0002"
                 nomAlm = "FALLADO PANAMA"
+            Case 3
+                almacen = "0003"
+                nomAlm = "PROPIEDAD DEL CLIENTE"
         End Select
 
         Select Case drpMes.SelectedIndex

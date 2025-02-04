@@ -176,7 +176,7 @@ Partial Class FormUbicacionMant
         '
         Me.cmbAlmacen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbAlmacen.FormattingEnabled = True
-        Me.cmbAlmacen.Items.AddRange(New Object() {"0001 - LAS TORRES", "0002 - ELOY URETA", "0003 - LURIN"})
+        Me.cmbAlmacen.Items.AddRange(New Object() {"0001 - GALERA 108 PANAMA", "0002 - FALLADO PANAMA", "0003 - PROPIEDAD DEL CLIENTE"})
         Me.cmbAlmacen.Location = New System.Drawing.Point(83, 25)
         Me.cmbAlmacen.Name = "cmbAlmacen"
         Me.cmbAlmacen.Size = New System.Drawing.Size(176, 21)
@@ -211,7 +211,7 @@ Partial Class FormUbicacionMant
         '
         Me.cmbUbiAlmacen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbUbiAlmacen.FormattingEnabled = True
-        Me.cmbUbiAlmacen.Items.AddRange(New Object() {"0001 - LAS TORRES", "0002 - ELOY URETA", "0003 - LURIN"})
+        Me.cmbUbiAlmacen.Items.AddRange(New Object() {"0001 - GALERA 108 PANAMA", "0002 - FALLADO PANAMA", "0003 - PROPIEDAD DEL CLIENTE"})
         Me.cmbUbiAlmacen.Location = New System.Drawing.Point(85, 6)
         Me.cmbUbiAlmacen.Name = "cmbUbiAlmacen"
         Me.cmbUbiAlmacen.Size = New System.Drawing.Size(176, 21)
