@@ -45,6 +45,177 @@ Public Class FormMantGuiaDespacho
         'End If
     End Function
 #End Region
+
+    Private Sub tsbForm_ItemClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolStripItemClickedEventArgs) Handles tsbForm.ItemClicked
+        Dim sFunc = e.ClickedItem.Tag.ToString()
+
+        If Mid(sFunc, 5, 4) = "func" Then
+            'obtener el objeto a procesar desde el tag del boton
+            sFunc = Mid(sFunc, 10)
+        End If
+
+        Select Case sFunc
+
+            Case "certi_calidad"
+                ReDim gsRptArgs(2)
+                gsRptArgs(0) = RTrim(txtt_doc.Text)
+                gsRptArgs(1) = RTrim(cmb_serdoc.Text)
+                gsRptArgs(2) = RTrim(txtnumero.Text)
+                gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_SP_DOCUMENTO_CERTIFICADO_CALIDAD.rpt"
+                gsRptPath = gsPathRpt
+                FormReportes.ShowDialog()
+                Exit Sub
+            Case "acta"
+                ReDim gsRptArgs(2)
+                gsRptArgs(0) = RTrim(txtt_doc.Text)
+                gsRptArgs(1) = RTrim(cmb_serdoc.Text)
+                gsRptArgs(2) = RTrim(txtnumero.Text)
+                gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_ACTA_ENTREGA_GD.rpt"
+                gsRptPath = gsPathRpt
+                FormReportes.ShowDialog()
+                Exit Sub
+            Case "guia_transpor"
+                ReDim gsRptArgs(3)
+                gsRptArgs(0) = RTrim(txtt_doc.Text)
+                gsRptArgs(1) = txtctct_cod.Text.Trim
+                gsRptArgs(2) = dgvt_doc.Rows(0).Cells("NRO_DOCU2").Value
+                gsRptArgs(3) = dgvt_doc.Rows(0).Cells("TRANSP_COD").Value
+                gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_SP_DOCUMENTO_GUIA_TRASNPORTISTA.rpt"
+                gsRptPath = gsPathRpt
+                FormReportes.ShowDialog()
+                Exit Sub
+            Case "save"
+                SaveData()
+                Exit Sub
+            Case "exit"
+                SelDataOP()
+                Dispose()
+                Exit Sub
+            Case "Print"
+                If txtt_movinv.Text <> "S06" Then
+                    ReDim gsRptArgs(3)
+                    gsRptArgs(0) = RTrim(txtt_doc.Text)
+                    gsRptArgs(1) = RTrim(cmb_serdoc.Text)
+                    gsRptArgs(2) = RTrim(txtnumero.Text)
+                    gsRptArgs(3) = RTrim(txtt_movinv.Text)
+                    gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_GUIADESPACHO.rpt"
+                    gsRptPath = gsPathRpt
+                    FormReportes.ShowDialog()
+                    Exit Sub
+                Else
+                    ReDim gsRptArgs(3)
+                    gsRptArgs(0) = RTrim(txtt_doc.Text)
+                    gsRptArgs(1) = RTrim(cmb_serdoc.Text)
+                    gsRptArgs(2) = RTrim(txtnumero.Text)
+                    gsRptArgs(3) = RTrim(txtt_movinv.Text)
+                    gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_GUIADESPACHO_EXP.rpt"
+                    gsRptPath = gsPathRpt
+                    FormReportes.ShowDialog()
+                    Exit Sub
+                End If
+                Exit Sub
+            Case "anular"
+                If sEstado = "A" Then
+                    MsgBox("Este documento ya se encuentra anulado")
+                    Exit Sub
+                End If
+                If MessageBox.Show("Desea anular el documento",
+                   gpCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                   MessageBoxDefaultButton.Button1) <> DialogResult.Yes Then
+                    Exit Sub
+                End If
+
+                Dim GUIADESPACHOBE As New GUIADESPACHOBE
+                Dim DET_DOCUMENTOBE As New DET_DOCUMENTOBE
+                GUIADESPACHOBE.T_DOC_REF = txtt_doc.Text
+                GUIADESPACHOBE.SER_DOC_REF = cmb_serdoc.Text
+                GUIADESPACHOBE.NRO_DOC_REF = txtnumero.Text
+                GUIADESPACHOBE.OBSERVA = dtpfecha.Value.Year
+                'GUIADESPACHOBE.ALM_COD = gsCodAlm
+                GUIADESPACHOBE.ALM_COD = cmbalmacen.SelectedValue
+                GUIADESPACHOBE.T_MOVINV = txtt_movinv.Text
+                GUIADESPACHOBE.FEC_GENE = dtpfecha.Value
+                GUIADESPACHOBE.ALMAC = "S"
+                If txtt_movinv.Text = "S31" Then
+                    GUIADESPACHOBE.CANAL = cmbalmacen.SelectedValue
+                End If
+                GUIADESPACHOBE.EST = "A"
+
+                Dim ELMVLOGSBE As New ELMVLOGSBE
+                ELMVLOGSBE.log_codusu = gsCodUsr
+                gsError = GUIADESPACHOBL.SaveRow(GUIADESPACHOBE, DET_DOCUMENTOBE, ELMVLOGSBE, "AR", dgvt_doc, cmb_serdoc.Text, sEstAlmac, dtusuario)
+                If gsError = "OK" Then
+                    MsgBox("Datos Grabados Correctamente", MsgBoxStyle.Information)
+                    For j = 0 To dgvt_doc.Rows.Count - 1
+                        dgvsum.Rows.Add(dgvt_doc.Rows(j).Cells("T_DOC_REF").Value,
+                                dgvt_doc.Rows(j).Cells("SER_DOC_REF").Value,
+                                dgvt_doc.Rows(j).Cells("NRO_DOC_REF").Value,
+                                dgvt_doc.Rows(j).Cells("ART_COD").Value)
+                    Next
+                    gsError = GUIADESPACHOBL.SaveRow(GUIADESPACHOBE, DET_DOCUMENTOBE, ELMVLOGSBE, "ET", dgvsum, cmb_serdoc.Text, sEstAlmac, dtusuario)
+                    cmb_serdoc.Enabled = False
+                    'sEstAlmac = cmbalmac.SelectedValue
+                    Me.btnborrar.Enabled = False
+                    Me.btndocu.Enabled = False
+                    Me.btnagregar.Enabled = False
+                    Dim i As Integer
+                    For i = 0 To 45
+                        dgvt_doc.Columns(i).ReadOnly = True
+                    Next
+                    sEstado = "A"
+                    'Dispose()
+                Else
+                    FormMain.LblError.Text = gsError
+                    MsgBox("Error al Grabar", MsgBoxStyle.Critical)
+                End If
+                Exit Sub
+
+            Case "etique"
+
+                Dim frm As New FormMultiploArtViru
+                frm.ShowDialog()
+                'Dim Lugar, cantidad, articulo, codigo As String
+                'Dim dt, dt2, dt3 As DataTable
+                'articulo = dgvt_doc.Rows(dgvt_doc.CurrentRow.Index).Cells(8).Value
+
+                'If articulo.Substring(0, 4) = "0223" Then
+
+                '    'OBTENER CODIGO VIRU
+                '    dt3 = GUIADESPACHOBL.SelectGetCodviru(txtctct_cod.Text, articulo)
+                '    If dt3.Rows.Count Then
+                '        codigo = dt3.Rows(0).Item(0).ToString
+                '    Else
+                '        MsgBox("Este Articulo no tiene un codigo de cliente asignado", MsgBoxStyle.Information)
+                '    End If
+
+                '    'OBTENER DISTRITO O PROVINCIA
+                '    dt = GUIADESPACHOBL.SelectGetUbigeo(txtctct_cod.Text, txtdir.Text)
+                '    If dt.Rows.Count Then
+                '        Lugar = dt.Rows(0).Item(0).ToString
+                '    End If
+
+                '    'OBTENER CANTIDAD DE PALLTES
+                '    dt2 = GUIADESPACHOBL.SelectGetCantidadPallets(dgvt_doc.Rows(dgvt_doc.CurrentRow.Index).Cells(7).Value, dgvt_doc.Rows(dgvt_doc.CurrentRow.Index).Cells(8).Value)
+                '    If dt2.Rows.Count Then
+                '        cantidad = dt2.Rows(0).Item(0).ToString
+                '    End If
+
+                '    ReDim gsRptArgs(4)
+                '    gsRptArgs(0) = Lugar
+                '    gsRptArgs(1) = cmb_serdoc.SelectedItem
+                '    gsRptArgs(2) = txtnumero.Text
+                '    gsRptArgs(3) = cantidad
+                '    gsRptArgs(4) = codigo
+                '    gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_RPTETIQUETA_PALLETS.rpt"
+                '    gsRptPath = gsPathRpt
+                '    FormReportes.ShowDialog()
+                '    Exit Sub
+                'Else
+                '    MsgBox("No se pueden imprimir etiquetas para este articulo", MsgBoxStyle.Information)
+                'End If
+        End Select
+    End Sub
+
     Function Art_Guia()
         Dim creacion As String = ""
         For i = 0 To dgvt_doc.Rows.Count - 1
@@ -447,175 +618,7 @@ Public Class FormMantGuiaDespacho
 
 
     End Sub
-    Private Sub tsbForm_ItemClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolStripItemClickedEventArgs) Handles tsbForm.ItemClicked
-        Dim sFunc = e.ClickedItem.Tag.ToString()
 
-        If Mid(sFunc, 5, 4) = "func" Then
-            'obtener el objeto a procesar desde el tag del boton
-            sFunc = Mid(sFunc, 10)
-        End If
-
-        Select Case sFunc
-
-            Case "certi_calidad"
-                ReDim gsRptArgs(2)
-                gsRptArgs(0) = RTrim(txtt_doc.Text)
-                gsRptArgs(1) = RTrim(cmb_serdoc.Text)
-                gsRptArgs(2) = RTrim(txtnumero.Text)
-                gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_SP_DOCUMENTO_CERTIFICADO_CALIDAD.rpt"
-                gsRptPath = gsPathRpt
-                FormReportes.ShowDialog()
-                Exit Sub
-            Case "acta"
-                ReDim gsRptArgs(2)
-                gsRptArgs(0) = RTrim(txtt_doc.Text)
-                gsRptArgs(1) = RTrim(cmb_serdoc.Text)
-                gsRptArgs(2) = RTrim(txtnumero.Text)
-                gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_ACTA_ENTREGA_GD.rpt"
-                gsRptPath = gsPathRpt
-                FormReportes.ShowDialog()
-                Exit Sub
-            Case "guia_transpor"
-                ReDim gsRptArgs(3)
-                gsRptArgs(0) = RTrim(txtt_doc.Text)
-                gsRptArgs(1) = txtctct_cod.Text.Trim
-                gsRptArgs(2) = dgvt_doc.Rows(0).Cells("NRO_DOCU2").Value
-                gsRptArgs(3) = dgvt_doc.Rows(0).Cells("TRANSP_COD").Value
-                gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_SP_DOCUMENTO_GUIA_TRASNPORTISTA.rpt"
-                gsRptPath = gsPathRpt
-                FormReportes.ShowDialog()
-                Exit Sub
-            Case "save"
-                SaveData()
-                Exit Sub
-            Case "exit"
-                SelDataOP()
-                Dispose()
-                Exit Sub
-            Case "Print"
-                If txtt_movinv.Text <> "S06" Then
-                    ReDim gsRptArgs(3)
-                    gsRptArgs(0) = RTrim(txtt_doc.Text)
-                    gsRptArgs(1) = RTrim(cmb_serdoc.Text)
-                    gsRptArgs(2) = RTrim(txtnumero.Text)
-                    gsRptArgs(3) = RTrim(txtt_movinv.Text)
-                    gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_GUIADESPACHO.rpt"
-                    gsRptPath = gsPathRpt
-                    FormReportes.ShowDialog()
-                    Exit Sub
-                Else
-                    ReDim gsRptArgs(3)
-                    gsRptArgs(0) = RTrim(txtt_doc.Text)
-                    gsRptArgs(1) = RTrim(cmb_serdoc.Text)
-                    gsRptArgs(2) = RTrim(txtnumero.Text)
-                    gsRptArgs(3) = RTrim(txtt_movinv.Text)
-                    gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_GUIADESPACHO_EXP.rpt"
-                    gsRptPath = gsPathRpt
-                    FormReportes.ShowDialog()
-                    Exit Sub
-                End If
-                Exit Sub
-            Case "anular"
-                If sEstado = "A" Then
-                    MsgBox("Este documento ya se encuentra anulado")
-                    Exit Sub
-                End If
-                If MessageBox.Show("Desea anular el documento",
-                   gpCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question,
-                   MessageBoxDefaultButton.Button1) <> DialogResult.Yes Then
-                    Exit Sub
-                End If
-
-                Dim GUIADESPACHOBE As New GUIADESPACHOBE
-                Dim DET_DOCUMENTOBE As New DET_DOCUMENTOBE
-                GUIADESPACHOBE.T_DOC_REF = txtt_doc.Text
-                GUIADESPACHOBE.SER_DOC_REF = cmb_serdoc.Text
-                GUIADESPACHOBE.NRO_DOC_REF = txtnumero.Text
-                GUIADESPACHOBE.OBSERVA = dtpfecha.Value.Year
-                'GUIADESPACHOBE.ALM_COD = gsCodAlm
-                GUIADESPACHOBE.ALM_COD = cmbalmacen.SelectedValue
-                GUIADESPACHOBE.T_MOVINV = txtt_movinv.Text
-                GUIADESPACHOBE.FEC_GENE = dtpfecha.Value
-                GUIADESPACHOBE.ALMAC = "S"
-                If txtt_movinv.Text = "S31" Then
-                    GUIADESPACHOBE.CANAL = cmbalmacen.SelectedValue
-                End If
-                GUIADESPACHOBE.EST = "A"
-
-                Dim ELMVLOGSBE As New ELMVLOGSBE
-                ELMVLOGSBE.log_codusu = gsCodUsr
-                gsError = GUIADESPACHOBL.SaveRow(GUIADESPACHOBE, DET_DOCUMENTOBE, ELMVLOGSBE, "AR", dgvt_doc, cmb_serdoc.Text, sEstAlmac, dtusuario)
-                If gsError = "OK" Then
-                    MsgBox("Datos Grabados Correctamente", MsgBoxStyle.Information)
-                    For j = 0 To dgvt_doc.Rows.Count - 1
-                        dgvsum.Rows.Add(dgvt_doc.Rows(j).Cells("T_DOC_REF").Value,
-                                dgvt_doc.Rows(j).Cells("SER_DOC_REF").Value,
-                                dgvt_doc.Rows(j).Cells("NRO_DOC_REF").Value,
-                                dgvt_doc.Rows(j).Cells("ART_COD").Value)
-                    Next
-                    gsError = GUIADESPACHOBL.SaveRow(GUIADESPACHOBE, DET_DOCUMENTOBE, ELMVLOGSBE, "ET", dgvsum, cmb_serdoc.Text, sEstAlmac, dtusuario)
-                    cmb_serdoc.Enabled = False
-                    'sEstAlmac = cmbalmac.SelectedValue
-                    Me.btnborrar.Enabled = False
-                    Me.btndocu.Enabled = False
-                    Me.btnagregar.Enabled = False
-                    Dim i As Integer
-                    For i = 0 To 45
-                        dgvt_doc.Columns(i).ReadOnly = True
-                    Next
-                    sEstado = "A"
-                    'Dispose()
-                Else
-                    FormMain.LblError.Text = gsError
-                    MsgBox("Error al Grabar", MsgBoxStyle.Critical)
-                End If
-                Exit Sub
-
-            Case "etique"
-
-                Dim frm As New FormMultiploArtViru
-                frm.ShowDialog()
-                'Dim Lugar, cantidad, articulo, codigo As String
-                'Dim dt, dt2, dt3 As DataTable
-                'articulo = dgvt_doc.Rows(dgvt_doc.CurrentRow.Index).Cells(8).Value
-
-                'If articulo.Substring(0, 4) = "0223" Then
-
-                '    'OBTENER CODIGO VIRU
-                '    dt3 = GUIADESPACHOBL.SelectGetCodviru(txtctct_cod.Text, articulo)
-                '    If dt3.Rows.Count Then
-                '        codigo = dt3.Rows(0).Item(0).ToString
-                '    Else
-                '        MsgBox("Este Articulo no tiene un codigo de cliente asignado", MsgBoxStyle.Information)
-                '    End If
-
-                '    'OBTENER DISTRITO O PROVINCIA
-                '    dt = GUIADESPACHOBL.SelectGetUbigeo(txtctct_cod.Text, txtdir.Text)
-                '    If dt.Rows.Count Then
-                '        Lugar = dt.Rows(0).Item(0).ToString
-                '    End If
-
-                '    'OBTENER CANTIDAD DE PALLTES
-                '    dt2 = GUIADESPACHOBL.SelectGetCantidadPallets(dgvt_doc.Rows(dgvt_doc.CurrentRow.Index).Cells(7).Value, dgvt_doc.Rows(dgvt_doc.CurrentRow.Index).Cells(8).Value)
-                '    If dt2.Rows.Count Then
-                '        cantidad = dt2.Rows(0).Item(0).ToString
-                '    End If
-
-                '    ReDim gsRptArgs(4)
-                '    gsRptArgs(0) = Lugar
-                '    gsRptArgs(1) = cmb_serdoc.SelectedItem
-                '    gsRptArgs(2) = txtnumero.Text
-                '    gsRptArgs(3) = cantidad
-                '    gsRptArgs(4) = codigo
-                '    gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_RPTETIQUETA_PALLETS.rpt"
-                '    gsRptPath = gsPathRpt
-                '    FormReportes.ShowDialog()
-                '    Exit Sub
-                'Else
-                '    MsgBox("No se pueden imprimir etiquetas para este articulo", MsgBoxStyle.Information)
-                'End If
-        End Select
-    End Sub
     Private Sub GetData(ByVal sT_Ref As String, ByVal sS_Ref As String, ByVal sN_Ref As String)
         Dim dtUsuario As DataTable
         Dim Registro As DataRow

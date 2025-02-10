@@ -105,7 +105,9 @@ Public Class FormMovim
         gsRptArgs(2) = dDate1
         gsRptArgs(3) = dDate2
         gsRptArgs(4) = cmbalmacen.SelectedValue 'Mid(cmbalmacen.Text, 1, 4)
-
+        If gsRptArgs(4) = "    " Then
+            gsRptArgs(4) = ""
+        End If
 
         gsRptPath = gsPathRpt
         FormReportes.Show()
