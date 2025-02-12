@@ -2086,6 +2086,20 @@ Public Class GUIAALMACENDAL
                 cmd.Parameters.Add("@fecha", OracleDbType.Varchar2).Value = GUIAALMACENBE.OBSERVA2
                 cmd.ExecuteNonQuery()
                 cmd.Dispose()
+
+            ElseIf GUIAALMACENBE.T_MOVINV = "S31" Or GUIAALMACENBE.T_MOVINV = "E22" Then
+                cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                cmd.CommandText = "SP_DET_DOCU_UPD_ANUTRANS"
+                cmd.Connection = sqlCon
+                cmd.Transaction = sqlTrans
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Parameters.Add("@t_doc_ref", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.T_DOC_REF)
+                cmd.Parameters.Add("@ser_doc_ref", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.SER_DOC_REF)
+                cmd.Parameters.Add("@nro_doc_ref", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.NRO_DOC_REF)
+                cmd.Parameters.Add("@fecha", OracleDbType.Varchar2).Value = GUIAALMACENBE.OBSERVA2
+                cmd.ExecuteNonQuery()
+                cmd.Dispose()
+
             Else
                 cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
                 cmd.CommandText = "SP_DET_DOCU_UPDANHO_ANULAR"
@@ -2283,6 +2297,9 @@ Public Class GUIAALMACENDAL
             End If
             If flagAccion = "TRANS" Then
                 InserTrans(GUIAALMACENBE, DET_DOCUMENTOBE, ELMVALMABE, ELMVLOGSBE, cn, sqlTrans, dg, scodcat, sEst)
+            End If
+            If flagAccion = "TRASLADO" Then
+                InsertTraslado(GUIAALMACENBE, DET_DOCUMENTOBE, ELMVALMABE, ELMVLOGSBE, cn, sqlTrans, dg, scodcat, sEst)
             End If
             If flagAccion = "TRANSUPD" Then
                 UPDTrans(GUIAALMACENBE, DET_DOCUMENTOBE, ELMVALMABE, ELMVLOGSBE, cn, sqlTrans, dg, scodcat, sEst)
@@ -2796,6 +2813,17 @@ Public Class GUIAALMACENDAL
         End Using
         Return dt
     End Function
+    Public Function SelectAlmacDest(ByVal sCod As String, ByVal almacen As String) As DataTable
+        Dim cmd As New Oracle.ManagedDataAccess.Client.OracleCommand
+        Dim dt As New DataTable
+        Using dr As Oracle.ManagedDataAccess.Client.OracleDataReader = Me.GetDataReader("SP_DOCUMENTO_TMOVALM_DEST", {New Oracle.ManagedDataAccess.Client.OracleParameter("@CTCT_COD", sCod),
+                                                                                        New Oracle.ManagedDataAccess.Client.OracleParameter("@almacen", almacen)})
+            If dr.HasRows Then
+                dt.Load(dr)
+            End If
+        End Using
+        Return dt
+    End Function
 
     Public Function SelectAllReq(ByVal sAño As String, ByVal sMes As String) As DataTable
         Dim cmd As New Oracle.ManagedDataAccess.Client.OracleCommand
@@ -3022,5 +3050,616 @@ Public Class GUIAALMACENDAL
 
     End Function
 
+    Private Sub InsertTraslado(ByVal GUIAALMACENBE As GUIAALMACENBE, ByVal DET_DOCUMENTOBE As DET_DOCUMENTOBE, ByVal ELMVALMABE As ELMVALMABE, ByVal ELMVLOGSBE As ELMVLOGSBE,
+                         ByVal sqlCon As Oracle.ManagedDataAccess.Client.OracleConnection, ByVal sqlTrans As Oracle.ManagedDataAccess.Client.OracleTransaction,
+                         ByVal dg As DataGridView, ByVal scodcat As String, ByVal sEst As String)
+        Dim contenedor As String
+        'Dim nro As String
+        Dim cmd As New Oracle.ManagedDataAccess.Client.OracleCommand
+        cmd.CommandText = "SP_DOCUMENTO_INSERTROW_ALM1"
+        cmd.Connection = sqlCon
+        cmd.Transaction = sqlTrans
+        cmd.CommandType = CommandType.StoredProcedure
 
+        'Los parametros que va recibir son las propiedades de la clase 
+        cmd.Parameters.Add("@t_doc_ref", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.T_DOC_REF)
+        cmd.Parameters.Add("@ser_doc_ref", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.SER_DOC_REF)
+        cmd.Parameters.Add("@nro_doc_ref", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.NRO_DOC_REF)
+        cmd.Parameters.Add("@art_cod", OracleDbType.Varchar2).Value = GUIAALMACENBE.ART_COD
+        cmd.Parameters.Add("@fec_gene", OracleDbType.Date).Value = GUIAALMACENBE.FEC_GENE
+        cmd.Parameters.Add("@est", OracleDbType.Varchar2).Value = GUIAALMACENBE.EST
+        cmd.Parameters.Add("@moneda", OracleDbType.Varchar2).Value = GUIAALMACENBE.MONEDA
+        cmd.Parameters.Add("@fec_anu", OracleDbType.Date).Value = GUIAALMACENBE.FEC_ANU
+        cmd.Parameters.Add("@signo", OracleDbType.Varchar2).Value = GUIAALMACENBE.SIGNO
+        cmd.Parameters.Add("@usuario", OracleDbType.Varchar2).Value = GUIAALMACENBE.USUARIO
+        cmd.Parameters.Add("@observa", OracleDbType.Char).Value = GUIAALMACENBE.OBSERVA
+        cmd.Parameters.Add("@t_movinv", OracleDbType.Char).Value = GUIAALMACENBE.T_MOVINV
+        cmd.Parameters.Add("@f_pago_ent", OracleDbType.Varchar2).Value = GUIAALMACENBE.F_PAGO_ENT
+        cmd.Parameters.Add("@for_ent_cod", OracleDbType.Varchar2).Value = GUIAALMACENBE.FOR_ENT_COD
+        cmd.Parameters.Add("@cco_cod", OracleDbType.Varchar2).Value = GUIAALMACENBE.CCO_COD
+        cmd.Parameters.Add("@proveedor", OracleDbType.Char).Value = Trim(GUIAALMACENBE.PROVEEDOR)
+        cmd.Parameters.Add("@ctct_cod", OracleDbType.Varchar2).Value = GUIAALMACENBE.CTCT_COD
+        cmd.Parameters.Add("@dir_cod", OracleDbType.Varchar2).Value = GUIAALMACENBE.DIR_COD
+        cmd.Parameters.Add("@per_cod", OracleDbType.Varchar2).Value = GUIAALMACENBE.PER_COD
+        cmd.Parameters.Add("@fec_dia", OracleDbType.Date).Value = GUIAALMACENBE.FEC_DIA
+        cmd.Parameters.Add("@almac", OracleDbType.Varchar2).Value = GUIAALMACENBE.ALMAC
+        cmd.Parameters.Add("@observa1", OracleDbType.Varchar2).Value = GUIAALMACENBE.OBSERVA1
+        cmd.Parameters.Add("@alm_cod", OracleDbType.Varchar2).Value = GUIAALMACENBE.ALM_COD
+        cmd.Parameters.Add("@NOM_CTCT", OracleDbType.Varchar2).Value = GUIAALMACENBE.NOM_CTCT
+        cmd.ExecuteNonQuery()
+        cmd.Dispose()
+
+        Dim cont As Integer = 0
+        For Each row As DataGridViewRow In dg.Rows
+            cont = cont + 1
+            cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+            cmd.CommandText = "SP_DET_DOCUMENTO_INSALM003"
+            cmd.Connection = sqlCon
+            cmd.Transaction = sqlTrans
+            cmd.CommandType = CommandType.StoredProcedure
+            DET_DOCUMENTOBE.T_DOC_REF = IIf(IsDBNull(RTrim(row.Cells(0).Value)), "", RTrim(row.Cells(0).Value))
+            DET_DOCUMENTOBE.SER_DOC_REF = IIf(IsDBNull(RTrim(row.Cells(1).Value)), "", RTrim(row.Cells(1).Value))
+            DET_DOCUMENTOBE.NRO_DOC_REF = IIf(IsDBNull(RTrim(row.Cells(2).Value)), "", RTrim(row.Cells(2).Value))
+            DET_DOCUMENTOBE.T_DOC_REF1 = IIf(IsDBNull(RTrim(row.Cells(3).Value)), "", RTrim(row.Cells(3).Value))
+            DET_DOCUMENTOBE.SER_DOC_REF1 = IIf(IsDBNull(RTrim(row.Cells(4).Value)), "", RTrim(row.Cells(4).Value))
+            DET_DOCUMENTOBE.NRO_DOC_REF1 = IIf(IsDBNull(RTrim(row.Cells(5).Value)), "", RTrim(row.Cells(5).Value))
+            DET_DOCUMENTOBE.CTCT_COD = IIf(IsDBNull(RTrim(row.Cells(6).Value)), "", RTrim(row.Cells(6).Value))
+            DET_DOCUMENTOBE.CANTIDAD = IIf(IsDBNull(RTrim(row.Cells(7).Value)), "", RTrim(row.Cells(7).Value))
+            DET_DOCUMENTOBE.ART_COD = IIf(IsDBNull(RTrim(row.Cells(8).Value)), "", RTrim(row.Cells(8).Value))
+            DET_DOCUMENTOBE.ACT_COD = IIf(IsDBNull(RTrim(row.Cells(11).Value)), "", RTrim(row.Cells(11).Value))
+            '            DET_DOCUMENTOBE.SIGNO = IIf(IsDBNull(RTrim(row.Cells(15).Value)), "", RTrim(row.Cells(15).Value))
+            DET_DOCUMENTOBE.SIGNO = GUIAALMACENBE.SIGNO
+            DET_DOCUMENTOBE.OBSERVA = IIf(IsDBNull(RTrim(row.Cells(16).Value)), "", RTrim(row.Cells(16).Value))
+            DET_DOCUMENTOBE.T_MOVINV = IIf(IsDBNull(RTrim(row.Cells(17).Value)), "", RTrim(row.Cells(17).Value))
+            DET_DOCUMENTOBE.FEC_GENE = IIf(IsDBNull(RTrim(row.Cells(27).Value)), "", RTrim(row.Cells(27).Value))
+            DET_DOCUMENTOBE.USUARIO = IIf(IsDBNull(RTrim(row.Cells(28).Value)), "", RTrim(row.Cells(28).Value))
+            DET_DOCUMENTOBE.UNIDAD = IIf(IsDBNull(RTrim(row.Cells(29).Value)), "", RTrim(row.Cells(29).Value))
+            DET_DOCUMENTOBE.F_PAGO_ENT = IIf(IsDBNull(RTrim(row.Cells(30).Value)), "", RTrim(row.Cells(30).Value))
+            DET_DOCUMENTOBE.FOR_ENT_COD = IIf(IsDBNull(RTrim(row.Cells(31).Value)), "", RTrim(row.Cells(31).Value))
+            DET_DOCUMENTOBE.FEC_DIA = IIf(IsDBNull(RTrim(row.Cells(32).Value)), "", RTrim(row.Cells(32).Value))
+            DET_DOCUMENTOBE.PROVEEDOR = IIf(IsDBNull(RTrim(row.Cells(33).Value)), "", RTrim(row.Cells(33).Value))
+            DET_DOCUMENTOBE.CCO_COD = IIf(IsDBNull(RTrim(row.Cells(34).Value)), "", RTrim(row.Cells(34).Value))
+            DET_DOCUMENTOBE.LOTE = IIf(IsDBNull(RTrim(row.Cells(36).Value)), "", RTrim(row.Cells(36).Value))
+            DET_DOCUMENTOBE.PER_COD = IIf(IsDBNull(RTrim(row.Cells(37).Value)), "", RTrim(row.Cells(37).Value))
+            DET_DOCUMENTOBE.TIPO_UNIDAD = IIf(IsDBNull(RTrim(row.Cells(45).Value)), "", RTrim(row.Cells(45).Value))
+            DET_DOCUMENTOBE.CONFIGURACION = IIf(IsDBNull(RTrim(row.Cells(46).Value)), "", RTrim(row.Cells(46).Value))
+            DET_DOCUMENTOBE.COMENTARIO = IIf(IsDBNull(RTrim(row.Cells(47).Value)), "", RTrim(row.Cells(47).Value))
+            ' DET_DOCUMENTOBE.FEC_LLEG = IIf(IsDBNull(RTrim(row.Cells(12).Value)), "", RTrim(row.Cells(12).Value))
+            contenedor = IIf(IsDBNull(RTrim(row.Cells(10).Value)), GUIAALMACENBE.FEC_ANU, RTrim(row.Cells(10).Value))
+            'If contenedor.Length > 5 Then
+            '    DET_DOCUMENTOBE.FEC_ENT = IIf(IsDBNull(RTrim(row.Cells(10).Value)), GUIAALMACENBE.FEC_ANU, RTrim(row.Cells(10).Value))
+            'End If
+            DET_DOCUMENTOBE.EST = IIf(IsDBNull(RTrim(row.Cells(44).Value)), "", RTrim(row.Cells(44).Value))
+            DET_DOCUMENTOBE.ACT_COD = IIf(IsDBNull(RTrim(row.Cells(11).Value)), "", RTrim(row.Cells(11).Value))
+            'If GUIAALMACENBE.SER_DOC_REF = DET_DOCUMENTOBE.SER_DOC_REF1 And GUIAALMACENBE.T_DOC_REF = DET_DOCUMENTOBE.T_DOC_REF1 Then
+            '    DET_DOCUMENTOBE.NRO_DOC_REF1 = GUIAALMACENBE.NRO_DOC_REF & "-" & cont
+            'End If
+            If DET_DOCUMENTOBE.T_DOC_REF1 <> "SOLM" And DET_DOCUMENTOBE.T_DOC_REF1 <> "RPD" And DET_DOCUMENTOBE.T_DOC_REF1 <> "REIN" And
+                DET_DOCUMENTOBE.T_DOC_REF1 <> "RFAL" And DET_DOCUMENTOBE.T_DOC_REF1 <> "82" And DET_DOCUMENTOBE.T_DOC_REF1 <> "REQ" Then
+                If DET_DOCUMENTOBE.SER_DOC_REF1 <> "T001" Then
+                    DET_DOCUMENTOBE.NRO_DOC_REF1 = GUIAALMACENBE.NRO_DOC_REF & "-" & cont
+                End If
+            End If
+            DET_DOCUMENTOBE.ART_COD1 = IIf(IsDBNull(RTrim(row.Cells(45).Value)), "", RTrim(row.Cells(45).Value))
+            DET_DOCUMENTOBE.ART_VENTA = IIf(IsDBNull(RTrim(row.Cells(49).Value)), "", RTrim(row.Cells(49).Value))
+            DET_DOCUMENTOBE.CANTIDAD3 = Val(IIf(IsDBNull(RTrim(row.Cells(50).Value)), 0, RTrim(row.Cells(50).Value)))
+            DET_DOCUMENTOBE.CANTIDAD2 = Val(IIf(IsDBNull(RTrim(row.Cells(51).Value)), 0, RTrim(row.Cells(51).Value)))
+            DET_DOCUMENTOBE.CANTIDAD4 = Val(IIf(IsDBNull(RTrim(row.Cells(52).Value)), 0, RTrim(row.Cells(52).Value)))
+            DET_DOCUMENTOBE.CANTIDAD5 = Val(IIf(IsDBNull(RTrim(row.Cells(53).Value)), 0, RTrim(row.Cells(53).Value)))
+            DET_DOCUMENTOBE.SUGERENCIA = Val(IIf(IsDBNull(RTrim(row.Cells(54).Value)), "", RTrim(row.Cells(54).Value)))
+
+            'Los parametros que va recibir son las propiedades de la clase 
+            cmd.Parameters.Add("@t_doc_ref", OracleDbType.Varchar2).Value = GUIAALMACENBE.T_DOC_REF           '01
+            cmd.Parameters.Add("@ser_doc_ref", OracleDbType.Varchar2).Value = GUIAALMACENBE.SER_DOC_REF       '02
+            cmd.Parameters.Add("@nro_doc_ref", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.NRO_DOC_REF)      '03
+            cmd.Parameters.Add("@t_doc_ref1", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.T_DOC_REF1       '04
+            cmd.Parameters.Add("@ser_doc_ref1", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.SER_DOC_REF1   '05
+            cmd.Parameters.Add("@nro_doc_ref1", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.NRO_DOC_REF1   '06
+            cmd.Parameters.Add("@ctct_cod", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.CTCT_COD           '07
+            cmd.Parameters.Add("@cantidad", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD             '08
+            cmd.Parameters.Add("@art_cod", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.ART_COD             '09
+            cmd.Parameters.Add("@signo", OracleDbType.Varchar2).Value = GUIAALMACENBE.SIGNO                '10
+            cmd.Parameters.Add("@observa", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.OBSERVA             '11
+            cmd.Parameters.Add("@t_movinv", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.T_MOVINV)       '12
+            cmd.Parameters.Add("@fec_gene", OracleDbType.Date).Value = GUIAALMACENBE.FEC_GENE                 '13
+            cmd.Parameters.Add("@usuario", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.USUARIO             '14
+            cmd.Parameters.Add("@unidad", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.UNIDAD)         '15
+            cmd.Parameters.Add("@f_pago_ent", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.F_PAGO_ENT       '16
+            cmd.Parameters.Add("@for_ent_cod", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.FOR_ENT_COD     '17
+            cmd.Parameters.Add("@fec_dia", OracleDbType.Date).Value = DET_DOCUMENTOBE.FEC_DIA                 '18
+            cmd.Parameters.Add("@proveedor", OracleDbType.Char).Value = DET_DOCUMENTOBE.PROVEEDOR             '19
+            cmd.Parameters.Add("@cco_cod", OracleDbType.Varchar2).Value = GUIAALMACENBE.CCO_COD               '20
+            cmd.Parameters.Add("@lote", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.LOTE                   '21
+            cmd.Parameters.Add("@per_cod", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.PER_COD             '22
+            cmd.Parameters.Add("@fec_ent", OracleDbType.Date).Value = DET_DOCUMENTOBE.FEC_ENT                 '23
+            'cmd.Parameters.Add("@fec_lleg", OracleDbType.Date).Value = DET_DOCUMENTOBE.FEC_LLEG              
+            cmd.Parameters.Add("@est", OracleDbType.Varchar2).Value = GUIAALMACENBE.EST                       '24
+            cmd.Parameters.Add("@almac", OracleDbType.Varchar2).Value = GUIAALMACENBE.ALMAC                   '25
+            cmd.Parameters.Add("@ACT_COD", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.ACT_COD             '26
+            cmd.Parameters.Add("@art_cod1", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.ART_COD1           '27
+            cmd.Parameters.Add("@art_venta", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.ART_VENTA         '28
+            cmd.Parameters.Add("@cantidad3", OracleDbType.Double).Value = Val(DET_DOCUMENTOBE.CANTIDAD3)      '29
+            cmd.Parameters.Add("@TIPO_UNIDAD", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.TIPO_UNIDAD           '30
+            cmd.Parameters.Add("@CONFIGURACION", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.CONFIGURACION         '31
+            cmd.Parameters.Add("@COMENTARIO", OracleDbType.Varchar2).Value = Val(DET_DOCUMENTOBE.COMENTARIO)      '32
+            cmd.Parameters.Add("@CANTIDAD2", OracleDbType.Double).Value = Val(DET_DOCUMENTOBE.CANTIDAD2)      '51
+            cmd.Parameters.Add("@CANTIDAD4", OracleDbType.Double).Value = Val(DET_DOCUMENTOBE.CANTIDAD4)      '52
+            cmd.Parameters.Add("@CANTIDAD5", OracleDbType.Double).Value = Val(DET_DOCUMENTOBE.CANTIDAD5)      '53
+            cmd.Parameters.Add("@SUGERENCIA", OracleDbType.Varchar2).Value = Val(DET_DOCUMENTOBE.SUGERENCIA)      '54
+            cmd.ExecuteNonQuery()
+            cmd.Dispose()
+            If GUIAALMACENBE.EST <> "A" Then
+                'If GUIAALMACENBE.ALMAC = "E" Then
+                '    cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                '    cmd.CommandText = "SP_ARTICULO_UPDATESTKSUM"
+                '    cmd.Connection = sqlCon
+                '    cmd.Transaction = sqlTrans
+                '    cmd.CommandType = CommandType.StoredProcedure
+                '    cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                '    cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(GUIAALMACENBE.ALM_COD)
+                '    cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD)
+                '    cmd.ExecuteNonQuery()
+                '    cmd.Dispose()
+
+                'Else
+                '    cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                '    cmd.CommandText = "SP_ARTICULO_UPDATESTKRES"
+                '    cmd.Connection = sqlCon
+                '    cmd.Transaction = sqlTrans
+                '    cmd.CommandType = CommandType.StoredProcedure
+                '    cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                '    cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(GUIAALMACENBE.ALM_COD)
+                '    cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD)
+                '    cmd.ExecuteNonQuery()
+                '    cmd.Dispose()
+                'End If
+                If GUIAALMACENBE.T_MOVINV = "E18" Or GUIAALMACENBE.T_MOVINV = "S30" Then
+                    If GUIAALMACENBE.ALMAC = "E" Then
+                        cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                        cmd.CommandText = "SP_ARTICULO_UPDATESTKSUM"
+                        cmd.Connection = sqlCon
+                        cmd.Transaction = sqlTrans
+                        cmd.CommandType = CommandType.StoredProcedure
+                        cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                        cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ALM_COD)
+                        cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD)
+                        cmd.ExecuteNonQuery()
+                        cmd.Dispose()
+
+                        'cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                        'cmd.CommandText = "SP_ARTICULO_UPDATESTKRES"
+                        'cmd.Connection = sqlCon
+                        'cmd.Transaction = sqlTrans
+                        'cmd.CommandType = CommandType.StoredProcedure
+                        'cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD1)
+                        'cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ALM_COD)
+                        'cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD3)
+                        'cmd.ExecuteNonQuery()
+                        'cmd.Dispose()
+
+                        'cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                        'cmd.CommandText = "SP_ARTICULO_UPDATSUMARESTA"
+                        'cmd.Connection = sqlCon
+                        'cmd.Transaction = sqlTrans
+                        'cmd.CommandType = CommandType.StoredProcedure
+                        'cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD1)
+                        'cmd.Parameters.Add("@ART_COD1", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                        'cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ALM_COD)
+                        'cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD)
+                        'cmd.ExecuteNonQuery()
+                        'cmd.Dispose()
+                        'Else
+                        '    cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                        '    cmd.CommandText = "SP_ARTICULO_UPDATRESTASUMA"
+                        '    cmd.Connection = sqlCon
+                        '    cmd.Transaction = sqlTrans
+                        '    cmd.CommandType = CommandType.StoredProcedure
+                        '    cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD1)
+                        '    cmd.Parameters.Add("@ART_COD1", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                        '    cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ALM_COD)
+                        '    cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD)
+                        '    cmd.ExecuteNonQuery()
+                        '    cmd.Dispose()
+                    ElseIf GUIAALMACENBE.ALMAC = "S" Then
+                        cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                        cmd.CommandText = "SP_ARTICULO_UPDATESTKRES"
+                        cmd.Connection = sqlCon
+                        cmd.Transaction = sqlTrans
+                        cmd.CommandType = CommandType.StoredProcedure
+                        cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                        cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ALM_COD)
+                        cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD)
+                        cmd.ExecuteNonQuery()
+                        cmd.Dispose()
+
+                        'cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                        'cmd.CommandText = "SP_ARTICULO_UPDATESTKSUM"
+                        'cmd.Connection = sqlCon
+                        'cmd.Transaction = sqlTrans
+                        'cmd.CommandType = CommandType.StoredProcedure
+                        'cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD1)
+                        'cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ALM_COD)
+                        'cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD3)
+                        'cmd.ExecuteNonQuery()
+                        'cmd.Dispose()
+                    End If
+                Else
+                    If GUIAALMACENBE.ALMAC = "E" Then
+                        cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                        cmd.CommandText = "SP_ARTICULO_UPDATESTKSUM"
+                        cmd.Connection = sqlCon
+                        cmd.Transaction = sqlTrans
+                        cmd.CommandType = CommandType.StoredProcedure
+                        cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                        cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ALM_COD)
+                        cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD)
+                        cmd.ExecuteNonQuery()
+                        cmd.Dispose()
+                    Else
+                        cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                        cmd.CommandText = "SP_ARTICULO_UPDATESTKRES"
+                        cmd.Connection = sqlCon
+                        cmd.Transaction = sqlTrans
+                        cmd.CommandType = CommandType.StoredProcedure
+                        cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                        cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ALM_COD)
+                        cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD)
+                        cmd.ExecuteNonQuery()
+                        cmd.Dispose()
+                    End If
+                End If
+                'MOVIDO
+                'If GUIAALMACENBE.T_MOVINV = "E18" Or GUIAALMACENBE.T_MOVINV = "S30" Then
+                '    cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                '    cmd.CommandText = "SP_ELMVALMAANHO_INS002"
+                '    cmd.Connection = sqlCon
+                '    cmd.Transaction = sqlTrans
+                '    cmd.CommandType = CommandType.StoredProcedure
+                '    cmd.Parameters.Add("@MOV_T_DOC_REF", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.T_DOC_REF)
+                '    cmd.Parameters.Add("@MOV_SER_DOC_REF", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.SER_DOC_REF)
+                '    cmd.Parameters.Add("@MOV_NRO_DOC_REF", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.NRO_DOC_REF)
+                '    cmd.Parameters.Add("@MOV_TIPO_TRANS", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.ALMAC)
+                '    cmd.Parameters.Add("@MOV_CODALM", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.ALM_COD)
+                '    cmd.Parameters.Add("@MOV_CODART", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                '    cmd.Parameters.Add("@MOV_FECEMI", OracleDbType.Date).Value = GUIAALMACENBE.FEC_GENE
+                '    cmd.Parameters.Add("@MOV_CODUM", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.UNIDAD)
+                '    cmd.Parameters.Add("@MOV_CANTID", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD
+                '    cmd.Parameters.Add("@MOV_ESTADO", OracleDbType.Varchar2).Value = GUIAALMACENBE.EST
+                '    cmd.Parameters.Add("@MOV_CODUSR", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.USUARIO
+                '    cmd.Parameters.Add("@MOV_CODTRA", OracleDbType.Varchar2).Value = GUIAALMACENBE.T_MOVINV
+                '    cmd.Parameters.Add("@MOV_T_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.T_DOC_REF1)
+                '    cmd.Parameters.Add("@MOV_NRO_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.NRO_DOC_REF1)
+                '    cmd.Parameters.Add("@MOV_SER_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.SER_DOC_REF1)
+                '    cmd.Parameters.Add("@MOV_ART_COD1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.ART_COD1)
+                '    cmd.ExecuteNonQuery()
+                '    cmd.Dispose()
+                'Else
+                cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                cmd.CommandText = "SP_ELMVALMAANHO_INS"
+                cmd.Connection = sqlCon
+                cmd.Transaction = sqlTrans
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Parameters.Add("@MOV_T_DOC_REF", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.T_DOC_REF)              '0
+                cmd.Parameters.Add("@MOV_SER_DOC_REF", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.SER_DOC_REF)          '1
+                cmd.Parameters.Add("@MOV_NRO_DOC_REF", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.NRO_DOC_REF)          '2
+                cmd.Parameters.Add("@MOV_TIPO_TRANS", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.ALMAC)                 '3
+                cmd.Parameters.Add("@MOV_CODALM", OracleDbType.Varchar2).Value = GUIAALMACENBE.ALM_COD
+                cmd.Parameters.Add("@MOV_CODART", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.ART_COD)                 '5
+                cmd.Parameters.Add("@MOV_FECEMI", OracleDbType.Date).Value = GUIAALMACENBE.FEC_GENE                            '6
+                cmd.Parameters.Add("@MOV_CODUM", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.UNIDAD)                   '7
+                cmd.Parameters.Add("@MOV_CANTID", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD                        '8
+                cmd.Parameters.Add("@MOV_ESTADO", OracleDbType.Varchar2).Value = GUIAALMACENBE.EST                             '9
+                cmd.Parameters.Add("@MOV_CODUSR", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.USUARIO                       '10
+                cmd.Parameters.Add("@MOV_CODTRA", OracleDbType.Varchar2).Value = GUIAALMACENBE.T_MOVINV                        '11
+                cmd.Parameters.Add("@MOV_T_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.T_DOC_REF1)          '12
+                cmd.Parameters.Add("@MOV_NRO_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.NRO_DOC_REF1)      '13
+                cmd.Parameters.Add("@MOV_SER_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.SER_DOC_REF1)      '14
+                cmd.Parameters.Add("@MOV_CCOCOD", OracleDbType.Varchar2).Value = GUIAALMACENBE.CCO_COD                         '15
+                cmd.ExecuteNonQuery()
+                cmd.Dispose()
+                'End If
+
+                'Probar
+                If DET_DOCUMENTOBE.T_DOC_REF1 = "SOLM" Then
+                    cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                    cmd.CommandText = "SP_SOLMAT_UPDATE_EST"
+                    cmd.Connection = sqlCon
+                    cmd.Transaction = sqlTrans
+                    cmd.CommandType = CommandType.StoredProcedure
+                    cmd.Parameters.Add("@T_DOC_REF", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.T_DOC_REF1)
+                    cmd.Parameters.Add("@SER_DOC_REF", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.SER_DOC_REF1)
+                    cmd.Parameters.Add("@NRO_DOC_REF", OracleDbType.Varchar2).Value = Trim(Mid(DET_DOCUMENTOBE.NRO_DOC_REF1, 1, 7))
+                    cmd.Parameters.Add("@CANTIDAD2", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD
+                    cmd.Parameters.Add("@ART_COD", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                    cmd.Parameters.Add("@USUARIOAT", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.USUARIO
+                    cmd.Parameters.Add("@EST1", OracleDbType.Varchar2).Value = "3"
+                    cmd.ExecuteNonQuery()
+                    cmd.Dispose()
+                ElseIf DET_DOCUMENTOBE.T_DOC_REF1 = "RPD" Or DET_DOCUMENTOBE.T_DOC_REF1 = "RFAL" Or DET_DOCUMENTOBE.T_DOC_REF1 = "REIN" Then
+                    cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                    cmd.CommandText = "SP_PRODUCCION_UPDATE_EST"
+                    cmd.Connection = sqlCon
+                    cmd.Transaction = sqlTrans
+                    cmd.CommandType = CommandType.StoredProcedure
+                    cmd.Parameters.Add("@MOV_T_DOC_REF", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.T_DOC_REF1)
+                    cmd.Parameters.Add("@MOV_SER_DOC_REF", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.SER_DOC_REF1)
+                    cmd.Parameters.Add("@MOV_NRO_DOC_REF", OracleDbType.Varchar2).Value = Trim(Mid(DET_DOCUMENTOBE.NRO_DOC_REF1, 1, 7))
+                    cmd.Parameters.Add("@EST1", OracleDbType.Varchar2).Value = "3"
+                    cmd.Parameters.Add("@CANTIDAD", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD
+                    cmd.ExecuteNonQuery()
+                    cmd.Dispose()
+                ElseIf DET_DOCUMENTOBE.T_DOC_REF1 = "82" Then
+                    cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                    cmd.CommandText = "SP_DOCU_UPDCANT82_ALM"
+                    cmd.Connection = sqlCon
+                    cmd.Transaction = sqlTrans
+                    cmd.CommandType = CommandType.StoredProcedure
+                    cmd.Parameters.Add("@t_doc_ref", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.T_DOC_REF1)
+                    cmd.Parameters.Add("@ser_doc_ref", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.SER_DOC_REF1)
+                    cmd.Parameters.Add("@nro_doc_ref", OracleDbType.Varchar2).Value = Mid(DET_DOCUMENTOBE.NRO_DOC_REF1, 1, 7)
+                    cmd.Parameters.Add("@ART_COD", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                    cmd.Parameters.Add("@cantidad", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD
+                    cmd.ExecuteNonQuery()
+                    cmd.Dispose()
+                End If
+            End If
+
+        Next
+        If ELMVLOGSBE.log_codusu <> "0001" Then
+            cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+            cmd.CommandText = "SP_ELMVLOGS_INSERTROW"
+            cmd.Connection = sqlCon
+            cmd.Transaction = sqlTrans
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Parameters.Add("pLOG_CODOPE", OracleDbType.Char).Value = "1"
+            cmd.Parameters.Add("pLOG_CODUSU", OracleDbType.Char).Value = ELMVLOGSBE.log_codusu
+            cmd.Parameters.Add("pLOG_OBSERV", OracleDbType.Char).Value = "Se ingreso el Documento: " + GUIAALMACENBE.T_DOC_REF + "-" + GUIAALMACENBE.SER_DOC_REF + "-" + GUIAALMACENBE.NRO_DOC_REF
+            cmd.ExecuteNonQuery()
+            cmd.Dispose()
+        End If
+
+        ''ENTRADA------------------------------------------------------------
+
+        cont = 0
+        For Each row As DataGridViewRow In dg.Rows
+
+            If GUIAALMACENBE.EST <> "A" Then
+                'If GUIAALMACENBE.ALMAC = "E" Then
+                '    cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                '    cmd.CommandText = "SP_ARTICULO_UPDATESTKSUM"
+                '    cmd.Connection = sqlCon
+                '    cmd.Transaction = sqlTrans
+                '    cmd.CommandType = CommandType.StoredProcedure
+                '    cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                '    cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(GUIAALMACENBE.ALM_COD)
+                '    cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD)
+                '    cmd.ExecuteNonQuery()
+                '    cmd.Dispose()
+
+                'Else
+                '    cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                '    cmd.CommandText = "SP_ARTICULO_UPDATESTKRES"
+                '    cmd.Connection = sqlCon
+                '    cmd.Transaction = sqlTrans
+                '    cmd.CommandType = CommandType.StoredProcedure
+                '    cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                '    cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(GUIAALMACENBE.ALM_COD)
+                '    cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD)
+                '    cmd.ExecuteNonQuery()
+                '    cmd.Dispose()
+                'End If
+                If GUIAALMACENBE.T_MOVINV = "S31" Then
+                    GUIAALMACENBE.ALMAC = "S"
+                ElseIf GUIAALMACENBE.T_MOVINV = "E22" Then
+                    GUIAALMACENBE.ALMAC = "E"
+                End If
+                If GUIAALMACENBE.T_MOVINV = "E18" Or GUIAALMACENBE.T_MOVINV = "S30" Then
+                    If GUIAALMACENBE.ALMAC = "E" Then
+                        cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                        cmd.CommandText = "SP_ARTICULO_UPDATESTKSUM"
+                        cmd.Connection = sqlCon
+                        cmd.Transaction = sqlTrans
+                        cmd.CommandType = CommandType.StoredProcedure
+                        cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                        cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ALM_COD)
+                        cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD)
+                        cmd.ExecuteNonQuery()
+                        cmd.Dispose()
+
+                        'cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                        'cmd.CommandText = "SP_ARTICULO_UPDATESTKRES"
+                        'cmd.Connection = sqlCon
+                        'cmd.Transaction = sqlTrans
+                        'cmd.CommandType = CommandType.StoredProcedure
+                        'cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD1)
+                        'cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ALM_COD)
+                        'cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD3)
+                        'cmd.ExecuteNonQuery()
+                        'cmd.Dispose()
+
+                        'cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                        'cmd.CommandText = "SP_ARTICULO_UPDATSUMARESTA"
+                        'cmd.Connection = sqlCon
+                        'cmd.Transaction = sqlTrans
+                        'cmd.CommandType = CommandType.StoredProcedure
+                        'cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD1)
+                        'cmd.Parameters.Add("@ART_COD1", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                        'cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ALM_COD)
+                        'cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD)
+                        'cmd.ExecuteNonQuery()
+                        'cmd.Dispose()
+                        'Else
+                        '    cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                        '    cmd.CommandText = "SP_ARTICULO_UPDATRESTASUMA"
+                        '    cmd.Connection = sqlCon
+                        '    cmd.Transaction = sqlTrans
+                        '    cmd.CommandType = CommandType.StoredProcedure
+                        '    cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD1)
+                        '    cmd.Parameters.Add("@ART_COD1", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                        '    cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ALM_COD)
+                        '    cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD)
+                        '    cmd.ExecuteNonQuery()
+                        '    cmd.Dispose()
+                    ElseIf GUIAALMACENBE.ALMAC = "S" Then
+                        cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                        cmd.CommandText = "SP_ARTICULO_UPDATESTKRES"
+                        cmd.Connection = sqlCon
+                        cmd.Transaction = sqlTrans
+                        cmd.CommandType = CommandType.StoredProcedure
+                        cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                        cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ALM_COD)
+                        cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD)
+                        cmd.ExecuteNonQuery()
+                        cmd.Dispose()
+
+                        'cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                        'cmd.CommandText = "SP_ARTICULO_UPDATESTKSUM"
+                        'cmd.Connection = sqlCon
+                        'cmd.Transaction = sqlTrans
+                        'cmd.CommandType = CommandType.StoredProcedure
+                        'cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD1)
+                        'cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ALM_COD)
+                        'cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD3)
+                        'cmd.ExecuteNonQuery()
+                        'cmd.Dispose()
+                    End If
+                Else
+                    If GUIAALMACENBE.ALMAC = "E" Then
+                        cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                        cmd.CommandText = "SP_ARTICULO_UPDATESTKSUM"
+                        cmd.Connection = sqlCon
+                        cmd.Transaction = sqlTrans
+                        cmd.CommandType = CommandType.StoredProcedure
+                        cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                        cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(GUIAALMACENBE.ALM_DEST)
+                        cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD)
+                        cmd.ExecuteNonQuery()
+                        cmd.Dispose()
+                    Else
+                        cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                        cmd.CommandText = "SP_ARTICULO_UPDATESTKRES"
+                        cmd.Connection = sqlCon
+                        cmd.Transaction = sqlTrans
+                        cmd.CommandType = CommandType.StoredProcedure
+                        cmd.Parameters.Add("@ART_COD", OracleDbType.Char).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                        cmd.Parameters.Add("@ART_CODALM", OracleDbType.Char).Value = Trim(GUIAALMACENBE.ALM_DEST)
+                        cmd.Parameters.Add("@ART_STOCKACT", OracleDbType.Double).Value = Trim(DET_DOCUMENTOBE.CANTIDAD)
+                        cmd.ExecuteNonQuery()
+                        cmd.Dispose()
+                    End If
+                End If
+                'MOVIDO
+                'If GUIAALMACENBE.T_MOVINV = "E18" Or GUIAALMACENBE.T_MOVINV = "S30" Then
+                '    cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                '    cmd.CommandText = "SP_ELMVALMAANHO_INS002"
+                '    cmd.Connection = sqlCon
+                '    cmd.Transaction = sqlTrans
+                '    cmd.CommandType = CommandType.StoredProcedure
+                '    cmd.Parameters.Add("@MOV_T_DOC_REF", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.T_DOC_REF)
+                '    cmd.Parameters.Add("@MOV_SER_DOC_REF", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.SER_DOC_REF)
+                '    cmd.Parameters.Add("@MOV_NRO_DOC_REF", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.NRO_DOC_REF)
+                '    cmd.Parameters.Add("@MOV_TIPO_TRANS", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.ALMAC)
+                '    cmd.Parameters.Add("@MOV_CODALM", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.ALM_COD)
+                '    cmd.Parameters.Add("@MOV_CODART", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                '    cmd.Parameters.Add("@MOV_FECEMI", OracleDbType.Date).Value = GUIAALMACENBE.FEC_GENE
+                '    cmd.Parameters.Add("@MOV_CODUM", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.UNIDAD)
+                '    cmd.Parameters.Add("@MOV_CANTID", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD
+                '    cmd.Parameters.Add("@MOV_ESTADO", OracleDbType.Varchar2).Value = GUIAALMACENBE.EST
+                '    cmd.Parameters.Add("@MOV_CODUSR", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.USUARIO
+                '    cmd.Parameters.Add("@MOV_CODTRA", OracleDbType.Varchar2).Value = GUIAALMACENBE.T_MOVINV
+                '    cmd.Parameters.Add("@MOV_T_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.T_DOC_REF1)
+                '    cmd.Parameters.Add("@MOV_NRO_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.NRO_DOC_REF1)
+                '    cmd.Parameters.Add("@MOV_SER_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.SER_DOC_REF1)
+                '    cmd.Parameters.Add("@MOV_ART_COD1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.ART_COD1)
+                '    cmd.ExecuteNonQuery()
+                '    cmd.Dispose()
+                'Else
+                cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                cmd.CommandText = "SP_ELMVALMAANHO_INS"
+                cmd.Connection = sqlCon
+                cmd.Transaction = sqlTrans
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Parameters.Add("@MOV_T_DOC_REF", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.T_DOC_REF)              '0
+                cmd.Parameters.Add("@MOV_SER_DOC_REF", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.SER_DOC_REF)          '1
+                cmd.Parameters.Add("@MOV_NRO_DOC_REF", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.NRO_DOC_REF)          '2
+                cmd.Parameters.Add("@MOV_TIPO_TRANS", OracleDbType.Varchar2).Value = GUIAALMACENBE.ALMAC '3
+                cmd.Parameters.Add("@MOV_CODALM", OracleDbType.Varchar2).Value = GUIAALMACENBE.ALM_DEST
+                cmd.Parameters.Add("@MOV_CODART", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.ART_COD)                 '5
+                cmd.Parameters.Add("@MOV_FECEMI", OracleDbType.Date).Value = GUIAALMACENBE.FEC_GENE                            '6
+                cmd.Parameters.Add("@MOV_CODUM", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.UNIDAD)                   '7
+                cmd.Parameters.Add("@MOV_CANTID", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD                        '8
+                cmd.Parameters.Add("@MOV_ESTADO", OracleDbType.Varchar2).Value = GUIAALMACENBE.EST                             '9
+                cmd.Parameters.Add("@MOV_CODUSR", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.USUARIO                       '10
+                cmd.Parameters.Add("@MOV_CODTRA", OracleDbType.Varchar2).Value = GUIAALMACENBE.T_MOVINV                      '11
+                cmd.Parameters.Add("@MOV_T_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.T_DOC_REF1)          '12
+                cmd.Parameters.Add("@MOV_NRO_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.NRO_DOC_REF1)      '13
+                cmd.Parameters.Add("@MOV_SER_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.SER_DOC_REF1)      '14
+                cmd.Parameters.Add("@MOV_CCOCOD", OracleDbType.Varchar2).Value = GUIAALMACENBE.CCO_COD                         '15
+                cmd.ExecuteNonQuery()
+                cmd.Dispose()
+                'End If
+
+                'Probar
+                If DET_DOCUMENTOBE.T_DOC_REF1 = "SOLM" Then
+                    cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                    cmd.CommandText = "SP_SOLMAT_UPDATE_EST"
+                    cmd.Connection = sqlCon
+                    cmd.Transaction = sqlTrans
+                    cmd.CommandType = CommandType.StoredProcedure
+                    cmd.Parameters.Add("@T_DOC_REF", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.T_DOC_REF1)
+                    cmd.Parameters.Add("@SER_DOC_REF", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.SER_DOC_REF1)
+                    cmd.Parameters.Add("@NRO_DOC_REF", OracleDbType.Varchar2).Value = Trim(Mid(DET_DOCUMENTOBE.NRO_DOC_REF1, 1, 7))
+                    cmd.Parameters.Add("@CANTIDAD2", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD
+                    cmd.Parameters.Add("@ART_COD", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                    cmd.Parameters.Add("@USUARIOAT", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.USUARIO
+                    cmd.Parameters.Add("@EST1", OracleDbType.Varchar2).Value = "3"
+                    cmd.ExecuteNonQuery()
+                    cmd.Dispose()
+                ElseIf DET_DOCUMENTOBE.T_DOC_REF1 = "RPD" Or DET_DOCUMENTOBE.T_DOC_REF1 = "RFAL" Or DET_DOCUMENTOBE.T_DOC_REF1 = "REIN" Then
+                    cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                    cmd.CommandText = "SP_PRODUCCION_UPDATE_EST"
+                    cmd.Connection = sqlCon
+                    cmd.Transaction = sqlTrans
+                    cmd.CommandType = CommandType.StoredProcedure
+                    cmd.Parameters.Add("@MOV_T_DOC_REF", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.T_DOC_REF1)
+                    cmd.Parameters.Add("@MOV_SER_DOC_REF", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.SER_DOC_REF1)
+                    cmd.Parameters.Add("@MOV_NRO_DOC_REF", OracleDbType.Varchar2).Value = Trim(Mid(DET_DOCUMENTOBE.NRO_DOC_REF1, 1, 7))
+                    cmd.Parameters.Add("@EST1", OracleDbType.Varchar2).Value = "3"
+                    cmd.Parameters.Add("@CANTIDAD", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD
+                    cmd.ExecuteNonQuery()
+                    cmd.Dispose()
+                ElseIf DET_DOCUMENTOBE.T_DOC_REF1 = "82" Then
+                    cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+                    cmd.CommandText = "SP_DOCU_UPDCANT82_ALM"
+                    cmd.Connection = sqlCon
+                    cmd.Transaction = sqlTrans
+                    cmd.CommandType = CommandType.StoredProcedure
+                    cmd.Parameters.Add("@t_doc_ref", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.T_DOC_REF1)
+                    cmd.Parameters.Add("@ser_doc_ref", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.SER_DOC_REF1)
+                    cmd.Parameters.Add("@nro_doc_ref", OracleDbType.Varchar2).Value = Mid(DET_DOCUMENTOBE.NRO_DOC_REF1, 1, 7)
+                    cmd.Parameters.Add("@ART_COD", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.ART_COD)
+                    cmd.Parameters.Add("@cantidad", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD
+                    cmd.ExecuteNonQuery()
+                    cmd.Dispose()
+                End If
+            End If
+
+        Next
+
+        If ELMVLOGSBE.log_codusu <> "0001" Then
+            cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
+            cmd.CommandText = "SP_ELMVLOGS_INSERTROW"
+            cmd.Connection = sqlCon
+            cmd.Transaction = sqlTrans
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Parameters.Add("pLOG_CODOPE", OracleDbType.Char).Value = "1"
+            cmd.Parameters.Add("pLOG_CODUSU", OracleDbType.Char).Value = ELMVLOGSBE.log_codusu
+            cmd.Parameters.Add("pLOG_OBSERV", OracleDbType.Char).Value = "Se ingreso el Documento: " + GUIAALMACENBE.T_DOC_REF + "-" + GUIAALMACENBE.SER_DOC_REF + "-" + GUIAALMACENBE.NRO_DOC_REF
+            cmd.ExecuteNonQuery()
+            cmd.Dispose()
+        End If
+
+
+
+    End Sub
 End Class

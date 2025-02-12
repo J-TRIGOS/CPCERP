@@ -132,6 +132,16 @@
     Private mNRO_DOCU3 As String
     Private mSER_DOCU3 As String
     Private mNOM_CTCT As String
+    Private mALM_DEST As String
+    Public Property ALM_DEST() As String
+        Get
+            Return mALM_DEST
+        End Get
+        Set(ByVal value As String)
+            mALM_DEST = value
+        End Set
+    End Property
+
     'Propiedades de la entidad
     Public Property SER_DOC_REF() As String
         Get

@@ -3,6 +3,7 @@ Imports IT.ELUX.BE
 Imports IT.ELUX.BL
 Imports System.Net
 Imports System.Net.Mail
+Imports CrystalDecisions.[Shared].Json
 Public Class FormMantGuiaAlmacen
 
     Private gpCaption As String
@@ -220,6 +221,15 @@ Public Class FormMantGuiaAlmacen
             End If
         Next
 
+        If txtt_movinv.Text = "S22" Or txtt_movinv.Text = "S31" Then
+            If cmbalmacen.SelectedIndex = 0 Or cmbAlmDest.SelectedIndex = -1 Then
+                MsgBox("Debe Seleccionar Almacen y Almacen Destino")
+                Return False
+            End If
+
+        End If
+
+
         ' Dim ELTBDETGUIABL As New ELTBDETGUIABL
         ' Dim DataFardo As String = 0
         ' Dim CodArt As String = ""
@@ -296,6 +306,7 @@ Public Class FormMantGuiaAlmacen
             GUIAALMACENBE.T_MOVINV = RTrim(txtt_movinv.Text)
             GUIAALMACENBE.F_PAGO_ENT = RTrim(txtt_pago.Text)
             GUIAALMACENBE.FOR_ENT_COD = RTrim(txtfor_ent.Text)
+            GUIAALMACENBE.ALM_DEST = cmbAlmDest.Text.Substring(0, 4)
             If cmbestado.SelectedIndex = 0 Then
                 GUIAALMACENBE.EST = "H"
             ElseIf cmbestado.SelectedIndex = 1 Then
@@ -331,7 +342,13 @@ Public Class FormMantGuiaAlmacen
                 GUIAALMACENBE.ALMAC = "T"
             End If
             GUIAALMACENBE.OBSERVA1 = txtobserva1.Text
-            GUIAALMACENBE.SIGNO = "+"
+            If txtt_movinv.Text = "S31" Then
+                GUIAALMACENBE.SIGNO = "-"
+            ElseIf txtt_movinv.Text = "E22" Then
+                GUIAALMACENBE.SIGNO = "+"
+            Else
+                GUIAALMACENBE.SIGNO = "+"
+            End If
             GUIAALMACENBE.OBSERVA = RTrim(txtobservacion.Text)
             GUIAALMACENBE.MONEDA = RTrim(cmbmon.SelectedValue)
             GUIAALMACENBE.CCO_COD = RTrim(txtc_costo.Text)
@@ -343,8 +360,8 @@ Public Class FormMantGuiaAlmacen
             GUIAALMACENBE.FEC_DIA = RTrim(DateTime.Now)
             GUIAALMACENBE.NOM_CTCT = cmbproveedor.Text
             GUIAALMACENBE.USUARIO = RTrim(gsUser)
-            DET_DOCUMENTOBE.ALM_COD = (cmbalmacen.SelectedIndex + 1).ToString.PadLeft(4, "0")
-            GUIAALMACENBE.ALM_COD = cmbalmacen.SelectedValue
+            DET_DOCUMENTOBE.ALM_COD = (cmbalmacen.SelectedIndex).ToString.PadLeft(4, "0")
+            GUIAALMACENBE.ALM_COD = (cmbalmacen.SelectedIndex).ToString.PadLeft(4, "0")
             DET_DOCUMENTOBE.T_DOC_REF = txtt_doc.Text
             DET_DOCUMENTOBE.SER_DOC_REF = cmb_serdoc.Text
             DET_DOCUMENTOBE.NRO_DOC_REF = txtnumero.Text
@@ -436,6 +453,7 @@ Public Class FormMantGuiaAlmacen
                         Exit Sub
                     End If
                 End If
+
             End If
             If chk_m.Visible = True Then
                 If flagAccion = "N" Then
@@ -444,7 +462,12 @@ Public Class FormMantGuiaAlmacen
                     gsError = GUIAALMACENBL.SaveRow(GUIAALMACENBE, DET_DOCUMENTOBE, ELMVALMABE, ELMVLOGSBE, "CM", dgvt_doc, cmb_serdoc.Text, sEstAlmac)
                 End If
             Else
-                gsError = GUIAALMACENBL.SaveRow(GUIAALMACENBE, DET_DOCUMENTOBE, ELMVALMABE, ELMVLOGSBE, flagAccion, dgvt_doc, cmb_serdoc.Text, sEstAlmac)
+                If txtt_movinv.Text = "S22" Or txtt_movinv.Text = "S31" Then
+                    gsError = GUIAALMACENBL.SaveRow(GUIAALMACENBE, DET_DOCUMENTOBE, ELMVALMABE, ELMVLOGSBE, "TRASLADO", dgvt_doc, cmb_serdoc.Text, sEstAlmac)
+                Else
+                    gsError = GUIAALMACENBL.SaveRow(GUIAALMACENBE, DET_DOCUMENTOBE, ELMVALMABE, ELMVLOGSBE, flagAccion, dgvt_doc, cmb_serdoc.Text, sEstAlmac)
+                End If
+
             End If
             If gsError = "OK" Then
                 MsgBox("Datos Grabados Correctamente", MsgBoxStyle.Information)
@@ -745,6 +768,8 @@ Public Class FormMantGuiaAlmacen
     End Sub
 
     Private Sub FormMantGuiaAlmacen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Label10.Visible = False
+        cmbAlmDest.Visible = False
         txtt_doc.Select()
         bPrimero = True
         gsError = ""
@@ -772,8 +797,10 @@ Public Class FormMantGuiaAlmacen
         GetCmb("cod", "nombre", dt, cmbdni)
         dt = GUIAALMACENBL.SelectProv
         GetCmb("cod", "nom", dt, cmbproveedor)
+
         dt = GUIAALMACENBL.SelectAlmac("N")
         GetCmb("ALM_CODIGO", "ALM_DESCRI", dt, cmbalmacen)
+
         dgvt_doc.Columns.Add("T_DOC_REF", "Documento") '0
         dgvt_doc.Columns.Add("SER_DOC_REF", "Serie") '1
         dgvt_doc.Columns.Add("NRO_DOC_REF", "Numero") '2
@@ -1387,7 +1414,13 @@ Public Class FormMantGuiaAlmacen
         ElseIf Mid(txtt_movinv.Text, 1, 1) = "S" Then
             cmbalmac.SelectedIndex = 1
         End If
-
+        If cmbt_movinv.Text.Substring(0, 3) = "S31" Or cmbt_movinv.Text.Substring(0, 3) = "E22" Then
+            cmbAlmDest.Visible = True
+            Label10.Visible = True
+        Else
+            cmbAlmDest.Visible = False
+            Label10.Visible = False
+        End If
         Fardo()
     End Sub
 
@@ -1801,6 +1834,18 @@ Public Class FormMantGuiaAlmacen
 
     Private Sub FormMantGuiaAlmacen_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Dispose()
+    End Sub
+
+    Private Sub cmbalmacen_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbalmacen.SelectedIndexChanged
+        'cmbAlmDest.Visible = False
+        'Label10.Visible = False
+        'cmbAlmDest.DataSource = Nothing
+        Dim dt As New DataTable
+        If cmbalmacen.SelectedIndex <> -1 Then
+            dt = GUIAALMACENBL.SelectAlmacDest("N", cmbalmacen.Text.Substring(0, 4))
+            GetCmb("ALM_CODIGO", "ALM_DESCRI", dt, cmbAlmDest)
+        End If
+
     End Sub
 
 #End Region

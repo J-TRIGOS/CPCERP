@@ -86,6 +86,8 @@ Partial Class FormMantGuiaAlmacen
         Me.btnagregar = New System.Windows.Forms.Button()
         Me.lstValor = New System.Windows.Forms.ListBox()
         Me.dgvsum = New System.Windows.Forms.DataGridView()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.cmbAlmDest = New System.Windows.Forms.ComboBox()
         Me.tsbForm.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -150,6 +152,8 @@ Partial Class FormMantGuiaAlmacen
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label10)
+        Me.GroupBox2.Controls.Add(Me.cmbAlmDest)
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.cmbalmacen)
         Me.GroupBox2.Controls.Add(Me.chk_m)
@@ -199,7 +203,7 @@ Partial Class FormMantGuiaAlmacen
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(14, 214)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(61, 16)
+        Me.Label6.Size = New System.Drawing.Size(60, 16)
         Me.Label6.TabIndex = 104
         Me.Label6.Text = "Almacen"
         '
@@ -229,7 +233,7 @@ Partial Class FormMantGuiaAlmacen
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.Location = New System.Drawing.Point(14, 130)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(52, 16)
+        Me.Label14.Size = New System.Drawing.Size(51, 16)
         Me.Label14.TabIndex = 28
         Me.Label14.Text = "Solicita"
         '
@@ -257,7 +261,7 @@ Partial Class FormMantGuiaAlmacen
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(485, 16)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(93, 16)
+        Me.Label4.Size = New System.Drawing.Size(92, 16)
         Me.Label4.TabIndex = 101
         Me.Label4.Text = "Mov. Almacen"
         '
@@ -276,7 +280,7 @@ Partial Class FormMantGuiaAlmacen
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.Location = New System.Drawing.Point(9, 185)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(100, 16)
+        Me.Label18.Size = New System.Drawing.Size(99, 16)
         Me.Label18.TabIndex = 36
         Me.Label18.Text = "Observaciones"
         '
@@ -312,7 +316,7 @@ Partial Class FormMantGuiaAlmacen
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(34, 14)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(108, 16)
+        Me.Label1.Size = New System.Drawing.Size(107, 16)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Tipo Documento"
         '
@@ -322,7 +326,7 @@ Partial Class FormMantGuiaAlmacen
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.Location = New System.Drawing.Point(9, 184)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(65, 16)
+        Me.Label16.Size = New System.Drawing.Size(64, 16)
         Me.Label16.TabIndex = 32
         Me.Label16.Text = "Direccion"
         Me.Label16.Visible = False
@@ -349,7 +353,7 @@ Partial Class FormMantGuiaAlmacen
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.Location = New System.Drawing.Point(9, 158)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(72, 16)
+        Me.Label15.Size = New System.Drawing.Size(71, 16)
         Me.Label15.TabIndex = 29
         Me.Label15.Text = "Proveedor"
         '
@@ -376,7 +380,7 @@ Partial Class FormMantGuiaAlmacen
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.Location = New System.Drawing.Point(591, 79)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(85, 16)
+        Me.Label13.Size = New System.Drawing.Size(84, 16)
         Me.Label13.TabIndex = 23
         Me.Label13.Text = "Centro Costo"
         '
@@ -413,7 +417,7 @@ Partial Class FormMantGuiaAlmacen
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(34, 79)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(108, 16)
+        Me.Label9.Size = New System.Drawing.Size(107, 16)
         Me.Label9.TabIndex = 13
         Me.Label9.Text = "Tipo Movimiento"
         '
@@ -440,7 +444,7 @@ Partial Class FormMantGuiaAlmacen
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(607, 15)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(51, 16)
+        Me.Label7.Size = New System.Drawing.Size(50, 16)
         Me.Label7.TabIndex = 9
         Me.Label7.Text = "Estado"
         '
@@ -450,7 +454,7 @@ Partial Class FormMantGuiaAlmacen
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(406, 16)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(46, 16)
+        Me.Label5.Size = New System.Drawing.Size(45, 16)
         Me.Label5.TabIndex = 6
         Me.Label5.Text = "Fecha"
         '
@@ -460,7 +464,7 @@ Partial Class FormMantGuiaAlmacen
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(321, 14)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(56, 16)
+        Me.Label3.Size = New System.Drawing.Size(55, 16)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Numero"
         '
@@ -470,7 +474,7 @@ Partial Class FormMantGuiaAlmacen
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(248, 16)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(40, 16)
+        Me.Label2.Size = New System.Drawing.Size(39, 16)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Serie"
         '
@@ -580,7 +584,7 @@ Partial Class FormMantGuiaAlmacen
         Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.Location = New System.Drawing.Point(9, 247)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(43, 16)
+        Me.Label17.Size = New System.Drawing.Size(42, 16)
         Me.Label17.TabIndex = 35
         Me.Label17.Text = "Turno"
         Me.Label17.Visible = False
@@ -737,6 +741,27 @@ Partial Class FormMantGuiaAlmacen
         Me.dgvsum.TabIndex = 104
         Me.dgvsum.Visible = False
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(351, 210)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(91, 16)
+        Me.Label10.TabIndex = 106
+        Me.Label10.Text = "Almacen Dest"
+        Me.Label10.Visible = False
+        '
+        'cmbAlmDest
+        '
+        Me.cmbAlmDest.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbAlmDest.FormattingEnabled = True
+        Me.cmbAlmDest.Location = New System.Drawing.Point(439, 205)
+        Me.cmbAlmDest.Name = "cmbAlmDest"
+        Me.cmbAlmDest.Size = New System.Drawing.Size(231, 21)
+        Me.cmbAlmDest.TabIndex = 105
+        Me.cmbAlmDest.Visible = False
+        '
         'FormMantGuiaAlmacen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -829,4 +854,6 @@ Partial Class FormMantGuiaAlmacen
     Friend WithEvents dgvsum As DataGridView
     Friend WithEvents btnFardo As Button
     Friend WithEvents btnRotulo As Button
+    Friend WithEvents Label10 As Label
+    Friend WithEvents cmbAlmDest As ComboBox
 End Class
