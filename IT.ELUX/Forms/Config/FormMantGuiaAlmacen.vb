@@ -306,7 +306,9 @@ Public Class FormMantGuiaAlmacen
             GUIAALMACENBE.T_MOVINV = RTrim(txtt_movinv.Text)
             GUIAALMACENBE.F_PAGO_ENT = RTrim(txtt_pago.Text)
             GUIAALMACENBE.FOR_ENT_COD = RTrim(txtfor_ent.Text)
-            GUIAALMACENBE.ALM_DEST = cmbAlmDest.Text.Substring(0, 4)
+            If txtt_movinv.Text = "S31" Or txtt_movinv.Text = "E22" Then
+                GUIAALMACENBE.ALM_DEST = cmbAlmDest.Text.Substring(0, 4)
+            End If
             If cmbestado.SelectedIndex = 0 Then
                 GUIAALMACENBE.EST = "H"
             ElseIf cmbestado.SelectedIndex = 1 Then
@@ -360,8 +362,8 @@ Public Class FormMantGuiaAlmacen
             GUIAALMACENBE.FEC_DIA = RTrim(DateTime.Now)
             GUIAALMACENBE.NOM_CTCT = cmbproveedor.Text
             GUIAALMACENBE.USUARIO = RTrim(gsUser)
-            DET_DOCUMENTOBE.ALM_COD = (cmbalmacen.SelectedIndex).ToString.PadLeft(4, "0")
-            GUIAALMACENBE.ALM_COD = (cmbalmacen.SelectedIndex).ToString.PadLeft(4, "0")
+            DET_DOCUMENTOBE.ALM_COD = (cmbalmacen.SelectedIndex + 1).ToString.PadLeft(4, "0")
+            GUIAALMACENBE.ALM_COD = (cmbalmacen.SelectedIndex + 1).ToString.PadLeft(4, "0")
             DET_DOCUMENTOBE.T_DOC_REF = txtt_doc.Text
             DET_DOCUMENTOBE.SER_DOC_REF = cmb_serdoc.Text
             DET_DOCUMENTOBE.NRO_DOC_REF = txtnumero.Text
