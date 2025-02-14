@@ -798,8 +798,10 @@ Public Class FormMantGuiaAlmacen
         dt = GUIAALMACENBL.SelectProv
         GetCmb("cod", "nom", dt, cmbproveedor)
 
-        dt = GUIAALMACENBL.SelectAlmac("N")
+        dt = GUIAALMACENBL.SelectAlmacAlterno("N")
         GetCmb("ALM_CODIGO", "ALM_DESCRI", dt, cmbalmacen)
+
+        cmbalmacen.SelectedIndex = 1
 
         dgvt_doc.Columns.Add("T_DOC_REF", "Documento") '0
         dgvt_doc.Columns.Add("SER_DOC_REF", "Serie") '1

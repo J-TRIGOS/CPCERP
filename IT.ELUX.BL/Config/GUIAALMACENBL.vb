@@ -17,6 +17,10 @@ Public Class GUIAALMACENBL
         Return GUIAALMACENDAL.SelectAlmac(sCod)
     End Function
 
+    Public Function SelectAlmacAlterno(ByVal sCod As String) As DataTable
+        Return GUIAALMACENDAL.SelectAlmacAlterno(sCod)
+    End Function
+
     Public Function SelectAlmacDest(ByVal sCod As String, ByVal almacen As String) As DataTable
         Return GUIAALMACENDAL.SelectAlmacDest(sCod, almacen)
     End Function

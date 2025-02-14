@@ -2813,6 +2813,17 @@ Public Class GUIAALMACENDAL
         End Using
         Return dt
     End Function
+
+    Public Function SelectAlmacaLTERNO(ByVal sCod As String) As DataTable
+        Dim cmd As New Oracle.ManagedDataAccess.Client.OracleCommand
+        Dim dt As New DataTable
+        Using dr As Oracle.ManagedDataAccess.Client.OracleDataReader = Me.GetDataReader("SP_DOCUMENTO_TMOVALM_ALTERNO", {New Oracle.ManagedDataAccess.Client.OracleParameter("@CTCT_COD", sCod)})
+            If dr.HasRows Then
+                dt.Load(dr)
+            End If
+        End Using
+        Return dt
+    End Function
     Public Function SelectAlmacDest(ByVal sCod As String, ByVal almacen As String) As DataTable
         Dim cmd As New Oracle.ManagedDataAccess.Client.OracleCommand
         Dim dt As New DataTable
