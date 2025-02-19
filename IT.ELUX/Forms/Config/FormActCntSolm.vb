@@ -203,7 +203,7 @@ Public Class FormActCntSolm
             End If
         End If
 
-        If gsUser = "DCONDOR" Or gsUser = "JVALVERDE" Or gsUser = "SISTEMA" Or gsUser = "JREMENTERIA" Or gsUser = "CQUITO" Then
+        If gsUser = "DCONDOR" Or gsUser = "JVALVERDE" Or gsUser = "SISTEMA" Or gsUser = "JREMENTERIA" Or gsUser = "CQUITO" Or gsUser = "LLAURA" Then
         Else
             Return False
         End If
@@ -355,7 +355,7 @@ Public Class FormActCntSolm
             txtNroPro.Select()
             Return False
         End If
-        If gsUser = "DCONDOR" Or gsUser = "JVALVERDE" Or gsUser = "SISTEMA" Or gsUser = "JREMENTERIA" Or gsUser = "CQUITO" Then
+        If gsUser = "DCONDOR" Or gsUser = "JVALVERDE" Or gsUser = "SISTEMA" Or gsUser = "JREMENTERIA" Or gsUser = "CQUITO" Or gsUser = "LLAURA" Then
         Else
             Return False
         End If
@@ -453,7 +453,7 @@ Public Class FormActCntSolm
             txtNroRei.Select()
             Return False
         End If
-        If gsUser = "DCONDOR" Or gsUser = "JVALVERDE" Or gsUser = "SISTEMA" Or gsUser = "JREMENTERIA" Or gsUser = "CQUITO" Then
+        If gsUser = "DCONDOR" Or gsUser = "JVALVERDE" Or gsUser = "SISTEMA" Or gsUser = "JREMENTERIA" Or gsUser = "CQUITO" Or gsUser = "LLAURA" Then
         Else
             Return False
         End If
@@ -549,7 +549,7 @@ Public Class FormActCntSolm
             txtNroFal.Select()
             Return False
         End If
-        If gsUser = "DCONDOR" Or gsUser = "JVALVERDE" Or gsUser = "SISTEMA" Or gsUser = "JREMENTERIA" Or gsUser = "CQUITO" Then
+        If gsUser = "DCONDOR" Or gsUser = "JVALVERDE" Or gsUser = "SISTEMA" Or gsUser = "JREMENTERIA" Or gsUser = "CQUITO" Or gsUser = "LLAURA" Then
         Else
             Return False
         End If

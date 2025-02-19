@@ -644,7 +644,7 @@ Public Class FormMain
                     End If
 
                     gsCode11 = dgvMain.Rows(dgvMain.CurrentRow.Index).Cells("cco_cod").Value
-                    If gsUser = "SISTEMA" Or gsUser = "LMORAN" Or gsUser = "VHERMOZA" Or gsUser = "RCONISLLA" Or gsUser = "DCONDOR" Then
+                    If gsUser = "SISTEMA" Or gsUser = "LMORAN" Or gsUser = "VHERMOZA" Or gsUser = "RCONISLLA" Or gsUser = "DCONDOR" Or gsUser = "LLAURA" Then
                     Else
                         If Trim(gsCode11) = "203" Or Trim(gsCode11) = "120" Or Trim(gsCode11) = "119" Then
                             gsCode11 = "111"
@@ -3757,7 +3757,7 @@ Public Class FormMain
                     gsCode8 = IIf(IsDBNull(dgvMain.Rows(dgvMain.CurrentRow.Index).Cells("FECHA_ENTREGA").Value), "", dgvMain.Rows(dgvMain.CurrentRow.Index).Cells("FECHA_ENTREGA").Value)
                     gsCode9 = IIf(IsDBNull(dgvMain.Rows(dgvMain.CurrentRow.Index).Cells("U_ENT").Value), "", dgvMain.Rows(dgvMain.CurrentRow.Index).Cells("U_ENT").Value)
                 End If
-                If gsUser = "JTUCNO" Or gsUser = "SISTEMA" Or gsUser = "RCONISLLA" Or gsUser = "DCONDOR" Or gsUser = "BROJAS" Then
+                If gsUser = "JTUCNO" Or gsUser = "SISTEMA" Or gsUser = "RCONISLLA" Or gsUser = "DCONDOR" Or gsUser = "BROJAS" Or gsUser = "LLAURA" Then
                     FormMantAtencionReq.ShowDialog()
                     TSButtonRefresh_Click(Nothing, Nothing)
                 End If

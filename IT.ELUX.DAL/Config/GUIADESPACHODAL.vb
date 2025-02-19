@@ -781,7 +781,7 @@ Public Class GUIADESPACHODAL
                 'REGRESAR LA CANTIDAD 4 A SU ORIGEN
                 If cont = 1 Then
                     cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
-                    cmd.CommandText = "SP_DET_DOCUMENTO_DEL_GD"
+                    cmd.CommandText = " "
                     cmd.Connection = sqlCon
                     cmd.Transaction = sqlTrans
                     cmd.CommandType = CommandType.StoredProcedure

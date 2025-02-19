@@ -21,7 +21,7 @@ Public Class FormRptSegOrdProd
             cmbmes1.Enabled = True
         End If
 
-        If gsUser = "DCONDOR" Or gsUser = "COSTOS" Or gsUser = "JQUICHCA" Then
+        If gsUser = "DCONDOR" Or gsUser = "COSTOS" Or gsUser = "JQUICHCA" Or gsUser = "LLAURA" Then
             btnreporte.Enabled = True
             dtpfec1.Enabled = True
             dtpfec2.Enabled = True
@@ -49,7 +49,7 @@ Public Class FormRptSegOrdProd
         bprimero = False
         cmbaño.Text = Today.Year
 
-        If gsUser = "DCONDOR" Or gsUser = "MRODAS" Or gsUser = "JTRIGOS" Or gsUser = "SISTEMA" Or gsUser = "COSTOS" Or gsUser = "JHUAYLLACAYAN" Then
+        If gsUser = "DCONDOR" Or gsUser = "MRODAS" Or gsUser = "JTRIGOS" Or gsUser = "SISTEMA" Or gsUser = "COSTOS" Or gsUser = "JHUAYLLACAYAN" Or gsUser = "LLAURA" Then
             For i = 0 To lvccosto.Items.Count - 1
                 lvccosto.Items(i).Checked = True
             Next
@@ -127,7 +127,7 @@ Public Class FormRptSegOrdProd
             FormReportes.ShowDialog()
 
         Else
-            If gsUser = "DCONDOR" Or gsUser = "COSTOS" Then
+            If gsUser = "DCONDOR" Or gsUser = "COSTOS" Or gsUser = "LLAURA" Then
                 If txtnumero.Text = "" Then
                     MsgBox("Ingrese Numero OP")
                     Exit Sub

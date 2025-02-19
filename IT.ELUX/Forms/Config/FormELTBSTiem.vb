@@ -287,7 +287,7 @@ Public Class FormELTBSTiem
         dgvtiemper.Columns("COD_LINEA").Visible = False
         bprimero = False
         If flagAccion = "M" Then
-            If gsUser = "SISTEMA" Or gsUser = "LMORAN" Or gsUser = "VHERMOZA" Or gsUser = "RCONISLLA" Or gsUser = "DCONDOR" Then
+            If gsUser = "SISTEMA" Or gsUser = "LMORAN" Or gsUser = "VHERMOZA" Or gsUser = "RCONISLLA" Or gsUser = "DCONDOR" Or gsUser = "LLAURA" Then
             Else
                 If gsUser = "CQUITO" Then
                     nro = ELTBSTIEMBL.OK_CCO_COD(gsUser)

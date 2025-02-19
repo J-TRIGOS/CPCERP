@@ -554,7 +554,7 @@ Public Class FormMantELTBSOLMATERIALES
                 Dim frm As New FormELTBDETSOLMATERIALES
                 If dgvt_doc.Rows(dgvt_doc.CurrentRow.Index).Cells("EST1").Value = "3" Then
                     MsgBox("Esta solicitud ya esta atendida o cerrada")
-                    If gsUser <> "DCONDOR" Or gsUser <> "SISTEMA" Then
+                    If gsUser <> "DCONDOR" Or gsUser <> "SISTEMA" Or gsUser <> "LLAURA" Then
                         frm.btnagregar.Enabled = False
                     End If
                 End If
@@ -683,7 +683,7 @@ Public Class FormMantELTBSOLMATERIALES
             End If
             If dgvt_doc.Rows(dgvt_doc.CurrentRow.Index).Cells("EST1").Value = "3" Then
                 MsgBox("Esta solicitud ya esta atendida o cerrada")
-                If gsUser <> "DCONDOR" Or gsUser <> "SISTEMA" Then
+                If gsUser <> "DCONDOR" Or gsUser <> "SISTEMA" Or gsUser <> "LLAURA" Then
                     Exit Sub
                 End If
             End If
