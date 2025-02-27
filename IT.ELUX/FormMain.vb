@@ -9235,6 +9235,7 @@ Public Class FormMain
 
 
     Private Sub tmrCheck_Tick(sender As Object, e As EventArgs) Handles tmrCheck.Tick
+
         chkNewVersion()
     End Sub
 
