@@ -152,6 +152,24 @@ Public Class FormMantGuiaAlmacen
     Private Function OkData() As Boolean
         Dim date0, date1, date2 As String 'DateTime
 
+        Dim dtCierre As New DataTable
+        Dim modulo As String = "ALMACEN"
+        Dim mesCierre As String = dtpfecha.Value.ToString("MM")
+        Dim anhoCierre As String = dtpfecha.Value.Year
+        dtCierre = GUIAALMACENBL.VerificarCierre(modulo, mesCierre, anhoCierre)
+        If dtCierre.Rows.Count = 0 Then
+            MsgBox("MES CERRADO PARA REGISTRO DE DOCUMENTOS")
+            dtpfecha.Select()
+            Return False
+        Else
+            If dtCierre.Rows(0).Item(0) = "1" Then
+                MsgBox("MES CERRADO PARA REGISTRO DE DOCUMENTOS")
+                dtpfecha.Select()
+                Return False
+
+            End If
+        End If
+
         If cmbestado.SelectedIndex = -1 Then
             MsgBox("Seleccione Estado", MsgBoxStyle.Exclamation)
             cmbestado.Focus()
