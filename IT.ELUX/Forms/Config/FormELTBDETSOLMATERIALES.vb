@@ -315,7 +315,7 @@ Public Class FormELTBDETSOLMATERIALES
                                     Mid(txtcodart.Text, 1, 4) <> "0558" And Mid(txtcodart.Text, 1, 4) <> "0559" And Mid(txtcodart.Text, 1, 4) <> "0560" And
                                     Mid(txtcodart.Text, 1, 4) <> "0571" And Mid(txtcodart.Text, 1, 4) <> "0581" And Mid(txtcodart.Text, 1, 4) <> "0598" And
                                     Mid(txtcodart.Text, 1, 4) <> "0701" And Mid(txtcodart.Text, 1, 4) <> "0703" And Mid(txtcodart.Text, 1, 4) <> "0704" And
-                                    Mid(txtcodart.Text, 1, 4) <> "0707" And Mid(txtcodart.Text, 1, 4) <> "0710" Then
+                                    Mid(txtcodart.Text, 1, 4) <> "0707" And Mid(txtcodart.Text, 1, 4) <> "0710" And Mid(txtcodart.Text, 1, 4) <> "0516" Then
                     MsgBox("Debe referenciar un requerimiento para dicho articulo o ingresarlo con O.P.")
                     Exit Sub
                 End If
