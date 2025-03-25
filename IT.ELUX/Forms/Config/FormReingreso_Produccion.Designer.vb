@@ -694,6 +694,7 @@ Partial Class FormReingreso_Produccion
         Me.dtphoragene.ShowUpDown = True
         Me.dtphoragene.Size = New System.Drawing.Size(96, 20)
         Me.dtphoragene.TabIndex = 12
+        Me.dtphoragene.Value = New Date(2025, 3, 25, 8, 35, 0, 0)
         '
         'Label19
         '

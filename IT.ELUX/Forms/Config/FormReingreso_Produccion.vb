@@ -1016,12 +1016,12 @@ Public Class FormReingreso_Produccion
                     Dim dtpini As DateTime = dtpfec_gene.Value.AddDays(+6).ToShortDateString
                     'Dim dtpini As DateTime = dtpfec_gene.Value.AddDays(+13).ToShortDateString
                     Dim Today As DateTime = DateTime.Now.ToShortDateString
-                    If DateTime.Compare(dtpini, Today) <= 0 Then
-                        MsgBox("La fecha de inicio no debe ser más de 5 dias antes a la fecha actual, Si desea Generar el Ingreso favor comuniquese con los jefes de Producción", MsgBoxStyle.Exclamation)
-                        dtpfec_gene.Focus()
-                    Else
-                        dtphoragene.Value = dtpfec_gene.Value
-                    End If
+                    'If DateTime.Compare(dtpini, Today) <= 0 Then
+                    '    MsgBox("La fecha de inicio no debe ser más de 5 dias antes a la fecha actual, Si desea Generar el Ingreso favor comuniquese con los jefes de Producción", MsgBoxStyle.Exclamation)
+                    '    dtpfec_gene.Focus()
+                    'Else
+                    dtphoragene.Value = dtpfec_gene.Value
+                    'End If
                 End If
             Else
                 MsgBox("Error al ingresar la fecha")
@@ -1042,12 +1042,12 @@ Public Class FormReingreso_Produccion
                 Dim dtpini As DateTime = dtpfec_gene.Value.AddDays(+6).ToShortDateString
                 'Dim dtpini As DateTime = dtpfec_gene.Value.AddDays(+15).ToShortDateString
                 Dim Today As DateTime = DateTime.Now.ToShortDateString
-                If DateTime.Compare(dtpini, Today) <= 0 Then
-                    MsgBox("La fecha de inicio no debe ser más de 5 dias antes a la fecha actual, Si desea Generar el Ingreso favor comuniquese con los jefes de Producción", MsgBoxStyle.Exclamation)
-                    dtpfec_gene.Focus()
-                Else
-                    dtphoragene.Value = dtpfec_gene.Value
-                End If
+                'If DateTime.Compare(dtpini, Today) <= 0 Then
+                '    MsgBox("La fecha de inicio no debe ser más de 5 dias antes a la fecha actual, Si desea Generar el Ingreso favor comuniquese con los jefes de Producción", MsgBoxStyle.Exclamation)
+                '    dtpfec_gene.Focus()
+                'Else
+                dtphoragene.Value = dtpfec_gene.Value
+                'End If
             End If
         End If
     End Sub
