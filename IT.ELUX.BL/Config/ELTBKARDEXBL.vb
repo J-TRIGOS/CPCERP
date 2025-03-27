@@ -107,6 +107,11 @@ Public Class ELTBKARDEXBL
                               ByVal alm As String, ByVal cod As String) As DataTable
         Return ELTBKARDEXDAL.SelRowKarx8(AÑO, fec, fec2, alm, cod)
     End Function
+
+    Public Function SelRowKarx9(ByVal AÑO As String, ByVal fec As String, ByVal fec2 As String,
+                              ByVal alm As String, ByVal cod As String) As DataTable
+        Return ELTBKARDEXDAL.SelRowKarx9(AÑO, fec, fec2, alm, cod)
+    End Function
     Public Function SelRowKarPP6(ByVal AÑO As String, ByVal fec As String, ByVal fec2 As String,
                               ByVal alm As String, ByVal cod As String) As DataTable
         Return ELTBKARDEXDAL.SelRowKarPP6(AÑO, fec, fec2, alm, cod)

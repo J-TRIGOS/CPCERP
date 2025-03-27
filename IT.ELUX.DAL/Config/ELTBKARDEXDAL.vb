@@ -476,6 +476,24 @@ Public Class ELTBKARDEXDAL
         Return dt
 
     End Function
+
+    Public Function SelRowKarx9(ByVal AÑO As String, ByVal fec As String, ByVal fec2 As String,
+                              ByVal alm As String, ByVal cod As String) As DataTable
+        Dim cmd As New Oracle.ManagedDataAccess.Client.OracleCommand
+        Dim dt As New DataTable
+
+        Using dr As Oracle.ManagedDataAccess.Client.OracleDataReader = Me.GetDataReader("SP_KARDEX_GRIDALL_ULTK9", {New Oracle.ManagedDataAccess.Client.OracleParameter("@t_doc_ref", AÑO),
+                                                                                        New Oracle.ManagedDataAccess.Client.OracleParameter("@ser_doc_ref", fec),
+                                                                                        New Oracle.ManagedDataAccess.Client.OracleParameter("@nro_doc_ref", fec2),
+                                                                                        New Oracle.ManagedDataAccess.Client.OracleParameter("@nro_doc_ref", alm),
+                                                                                        New Oracle.ManagedDataAccess.Client.OracleParameter("@nro_doc_ref", cod)})
+            If dr.HasRows Then
+                dt.Load(dr)
+            End If
+        End Using
+        Return dt
+
+    End Function
     Public Function SelRowKarPP6(ByVal AÑO As String, ByVal fec As String, ByVal fec2 As String,
                               ByVal alm As String, ByVal cod As String) As DataTable
         Dim cmd As New Oracle.ManagedDataAccess.Client.OracleCommand

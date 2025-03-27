@@ -1997,6 +1997,9 @@ Public Class FormKardexConta
                     ElseIf cmbaño3.Text = "2024" Then
                         dt1 = ELTBKARDEXBL.SelRowKarx8(cmbaño3.Text, mes(cmbmes3.Text), mes(cmbmes4.Text), gsCodAlm,
                                            IIf(IsDBNull(Registro("STK_CODART")), "", Registro("STK_CODART")))
+                    ElseIf cmbaño3.Text = "2025" Then
+                        dt1 = ELTBKARDEXBL.SelRowKarx9(cmbaño3.Text, mes(cmbmes3.Text), mes(cmbmes4.Text), gsCodAlm,
+                                           IIf(IsDBNull(Registro("STK_CODART")), "", Registro("STK_CODART")))
                     End If
 
                     Dim dtFecCompra As New DataTable
