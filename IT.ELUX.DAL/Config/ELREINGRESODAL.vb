@@ -116,6 +116,13 @@ Public Class ELREINGRESODAL
         cmd.Parameters.Add("@HORA_GENE", OracleDbType.Varchar2).Value = ELREINGRESOBE.HORA_GENE
         cmd.Parameters.Add("@HORA_TERMINO", OracleDbType.Varchar2).Value = ELREINGRESOBE.HORA_TERMINO
         cmd.Parameters.Add("@DIF_HORA", OracleDbType.Varchar2).Value = ELREINGRESOBE.DIF_HORA
+        Dim dato = ELREINGRESOBE.UND_H.ToString
+
+        If ELREINGRESOBE.UND_H.ToString = "∞" Then
+            ELREINGRESOBE.UND_H = 0
+        End If
+        MsgBox(ELREINGRESOBE.UND_H.ToString)
+
         cmd.Parameters.Add("@UND_H", OracleDbType.Double).Value = ELREINGRESOBE.UND_H
         cmd.Parameters.Add("@NUM_DIF", OracleDbType.Double).Value = ELREINGRESOBE.NUM_DIF
         cmd.Parameters.Add("@nrodia", OracleDbType.Varchar2).Value = ELREINGRESOBE.nrodia

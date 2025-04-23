@@ -60,6 +60,7 @@ Partial Class FormReporteVenta
         Me.cmbtven2 = New System.Windows.Forms.ComboBox()
         Me.cmbtven1 = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.radStock = New System.Windows.Forms.RadioButton()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -335,11 +336,12 @@ Partial Class FormReporteVenta
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.radStock)
         Me.GroupBox1.Controls.Add(Me.rdbvistaprod)
         Me.GroupBox1.Controls.Add(Me.rdbvistaventa)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 257)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(168, 44)
+        Me.GroupBox1.Size = New System.Drawing.Size(200, 44)
         Me.GroupBox1.TabIndex = 34
         Me.GroupBox1.TabStop = False
         '
@@ -393,6 +395,16 @@ Partial Class FormReporteVenta
         Me.Label9.Size = New System.Drawing.Size(59, 13)
         Me.Label9.TabIndex = 35
         Me.Label9.Text = "Tipo Venta"
+        '
+        'radStock
+        '
+        Me.radStock.AutoSize = True
+        Me.radStock.Location = New System.Drawing.Point(137, 19)
+        Me.radStock.Name = "radStock"
+        Me.radStock.Size = New System.Drawing.Size(57, 17)
+        Me.radStock.TabIndex = 2
+        Me.radStock.Text = "Vista 3"
+        Me.radStock.UseVisualStyleBackColor = True
         '
         'FormReporteVenta
         '
@@ -486,4 +498,5 @@ Partial Class FormReporteVenta
     Friend WithEvents cmbtven2 As ComboBox
     Friend WithEvents cmbtven1 As ComboBox
     Friend WithEvents Label9 As Label
+    Friend WithEvents radStock As RadioButton
 End Class

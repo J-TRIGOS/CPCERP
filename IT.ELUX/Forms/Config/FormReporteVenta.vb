@@ -129,6 +129,11 @@ Public Class FormReporteVenta
                 gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_VWDETORDENPROD.rpt"
                 gsRptPath = gsPathRpt
                 FormReportes.ShowDialog()
+
+            ElseIf radStock.Checked = True Then
+                gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_VWDETORDENPROD_STOCK.rpt"
+                gsRptPath = gsPathRpt
+                FormReportes.ShowDialog()
             Else
                 gsPathRpt = gsIpserver & "sistema\E.ELUX\REPORTES\02\RPT02_VWDETORDEN.rpt"
                 gsRptPath = gsPathRpt
