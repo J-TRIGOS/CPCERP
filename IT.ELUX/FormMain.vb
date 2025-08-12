@@ -9664,7 +9664,7 @@ Public Class FormMain
         If btnVentas.Text = "Generar Ventas" Then
             Dim filas As DataRow
             Dim dt As DataTable
-            If gsUser = "SISTEMA" Or gsUser = "CHOYOS" Or gsUser = "WFARFAN" Then
+            If gsUser = "SISTEMA" Or gsUser = "CHOYOS" Or gsUser = "WFARFAN" Or gsUser = "JHUAYLLACAYAN" Then
                 dt = ELTBCTA_FACTURACIONBL.SelectArtncnd(cmbaño.SelectedItem, sMes & cmbaño.SelectedItem)
                 If dt.Rows.Count > 0 Then
                     If MessageBox.Show("Hay " & dt.Rows.Count & " Articulos sin asiento desea ingresarlos? ",
