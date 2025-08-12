@@ -9236,6 +9236,7 @@ Public Class FormMain
 
     Private Sub tmrCheck_Tick(sender As Object, e As EventArgs) Handles tmrCheck.Tick
 
+
         chkNewVersion()
     End Sub
 
@@ -9663,7 +9664,7 @@ Public Class FormMain
         If btnVentas.Text = "Generar Ventas" Then
             Dim filas As DataRow
             Dim dt As DataTable
-            If gsUser = "SISTEMA" Or gsUser = "CHOYOS" Or gsUser = "WFARFAN" Or gsUser = "JHUAYLLACAYAN" Then
+            If gsUser = "SISTEMA" Or gsUser = "CHOYOS" Or gsUser = "WFARFAN" Then
                 dt = ELTBCTA_FACTURACIONBL.SelectArtncnd(cmbaño.SelectedItem, sMes & cmbaño.SelectedItem)
                 If dt.Rows.Count > 0 Then
                     If MessageBox.Show("Hay " & dt.Rows.Count & " Articulos sin asiento desea ingresarlos? ",
@@ -9882,7 +9883,8 @@ Public Class FormMain
                             MsgBox("Error al Generar Asientos", MsgBoxStyle.Critical)
                         End If
                     End If
-                ElseIf sMes = "12" And cmbaño.Text = "2019" Then
+                    'ElseIf sMes = "12" And cmbaño.Text = "2019" Then
+                ElseIf cmbaño.Text = "2025" Then
                     dt = ELTBCTA_FACTURACIONBL.SelectArticulosAsiento(cmbaño.SelectedItem, sMes & cmbaño.SelectedItem)
                     If dt.Rows.Count > 0 Then
                         If MessageBox.Show("Hay " & dt.Rows.Count & " Articulos sin asiento desea ingresarlos? ",
