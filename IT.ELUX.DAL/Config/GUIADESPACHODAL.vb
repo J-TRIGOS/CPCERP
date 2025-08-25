@@ -426,6 +426,9 @@ Public Class GUIADESPACHODAL
                     cmd.Parameters.Add("@MOV_SER_DOC_REF", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.SER_DOC_REF)         '1
                     cmd.Parameters.Add("@MOV_NRO_DOC_REF", OracleDbType.Varchar2).Value = GUIADESPACHOBE.NRO_DOC_REF                '2
                     cmd.Parameters.Add("@MOV_TIPO_TRANS", OracleDbType.Varchar2).Value = "S"                                        '3
+                    If almacen = "    " Then
+                        almacen = "0001"
+                    End If
                     cmd.Parameters.Add("@MOV_CODALM", OracleDbType.Varchar2).Value = almacen                                        '4
                     cmd.Parameters.Add("@MOV_CODART", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.ART_COD)                  '5
                     cmd.Parameters.Add("@MOV_FECEMI", OracleDbType.Date).Value = DET_DOCUMENTOBE.FEC_ENT                            '6
@@ -489,23 +492,26 @@ Public Class GUIADESPACHODAL
                     cmd.Parameters.Add("@MOV_SER_DOC_REF", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.SER_DOC_REF)            '1
                     cmd.Parameters.Add("@MOV_NRO_DOC_REF", OracleDbType.Varchar2).Value = GUIADESPACHOBE.NRO_DOC_REF                   '2
                     cmd.Parameters.Add("@MOV_TIPO_TRANS", OracleDbType.Varchar2).Value = "S"                                           '3
+                    If GUIADESPACHOBE.ALM_COD = "    " Then
+                        GUIADESPACHOBE.ALM_COD = "0001"
+                    End If
                     cmd.Parameters.Add("@MOV_CODALM", OracleDbType.Varchar2).Value = GUIADESPACHOBE.ALM_COD                            '4
-                    cmd.Parameters.Add("@MOV_CODART", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.ART_COD)                     '5
-                    cmd.Parameters.Add("@MOV_FECEMI", OracleDbType.Date).Value = DET_DOCUMENTOBE.FEC_ENT                               '6
-                    cmd.Parameters.Add("@MOV_CODUM", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.UNIDAD)                       '7
-                    cmd.Parameters.Add("@MOV_CANTID", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD                            '8
-                    cmd.Parameters.Add("@MOV_ESTADO", OracleDbType.Varchar2).Value = GUIADESPACHOBE.EST                                '9
-                    cmd.Parameters.Add("@MOV_CODUSR", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.USUARIO                           '10
-                    cmd.Parameters.Add("@MOV_CODTRA", OracleDbType.Varchar2).Value = GUIADESPACHOBE.T_MOVINV                           '11
-                    cmd.Parameters.Add("@MOV_T_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.T_DOC_REF1)              '12
-                    cmd.Parameters.Add("@MOV_NRO_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.NRO_DOC_REF1)          '13
-                    cmd.Parameters.Add("@MOV_SER_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.SER_DOC_REF1)          '14
-                    cmd.Parameters.Add("@MOV_CCO_COD", OracleDbType.Varchar2).Value = "" 'Trim(DET_DOCUMENTOBE.CCO_COD)                '15
-                    cmd.ExecuteNonQuery()
-                    cmd.Dispose()
-                End If
+                        cmd.Parameters.Add("@MOV_CODART", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.ART_COD)                     '5
+                        cmd.Parameters.Add("@MOV_FECEMI", OracleDbType.Date).Value = DET_DOCUMENTOBE.FEC_ENT                               '6
+                        cmd.Parameters.Add("@MOV_CODUM", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.UNIDAD)                       '7
+                        cmd.Parameters.Add("@MOV_CANTID", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD                            '8
+                        cmd.Parameters.Add("@MOV_ESTADO", OracleDbType.Varchar2).Value = GUIADESPACHOBE.EST                                '9
+                        cmd.Parameters.Add("@MOV_CODUSR", OracleDbType.Varchar2).Value = DET_DOCUMENTOBE.USUARIO                           '10
+                        cmd.Parameters.Add("@MOV_CODTRA", OracleDbType.Varchar2).Value = GUIADESPACHOBE.T_MOVINV                           '11
+                        cmd.Parameters.Add("@MOV_T_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.T_DOC_REF1)              '12
+                        cmd.Parameters.Add("@MOV_NRO_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.NRO_DOC_REF1)          '13
+                        cmd.Parameters.Add("@MOV_SER_DOC_REF1", OracleDbType.Varchar2).Value = Trim(DET_DOCUMENTOBE.SER_DOC_REF1)          '14
+                        cmd.Parameters.Add("@MOV_CCO_COD", OracleDbType.Varchar2).Value = "" 'Trim(DET_DOCUMENTOBE.CCO_COD)                '15
+                        cmd.ExecuteNonQuery()
+                        cmd.Dispose()
+                    End If
 
-            End If
+                End If
             If DET_DOCUMENTOBE.T_DOC_REF1 = "82" Then
                 cmd = New Oracle.ManagedDataAccess.Client.OracleCommand
                 cmd.CommandText = "SP_DOCU_UPDCANT82"

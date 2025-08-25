@@ -886,9 +886,15 @@ Public Class FormLibroDiario
 
             Try
                 For i = 0 To DgvDetLibro.Rows.Count - 1
+                    If i = 294 Then
+                        MsgBox("OK")
+                    End If
                     DetLibroDiario = DatosDetLibroDiario(i)
                     DetLibroDiario.REG_NRO = LibroDiario.REG_NRO
                     gsError2 = CONTABILIDADBL.SaveRowDet(DetLibroDiario, mes, anho, "N")
+                    If gsError2 <> "OK" Then
+                        MsgBox(gsError2)
+                    End If
                 Next
 
                 'MsgBox("Datos Grabados Correctamente")
