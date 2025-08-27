@@ -372,6 +372,10 @@ Public Class ARTICULOBL
         Return ARTICULODAL.getArtstk(sCodAlm, sSubLinea)
     End Function
 
+    Public Function VerificarOP(ByVal artcod As String) As DataTable
+        Return ARTICULODAL.VerificarOP(artcod)
+    End Function
+
 #End Region
 
 #Region "Grabar Datos"

@@ -109,6 +109,7 @@ Public Class FormMantArticulo
             correos.Subject = creacion
             'creacion = creacion & "Codigo Grupo:" & gcodcor & " Nombre :" & ARTICULOBL.SelectNomGrupCor(gcodcor)
             correos.IsBodyHtml = True
+            'correos.DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess
             correos.BodyEncoding = System.Text.Encoding.UTF8
             For i = 0 To lstValor.Items.Count - 1
                 correos.To.Add(lstValor.Items(i).ToString)
@@ -121,6 +122,7 @@ Public Class FormMantArticulo
 
             envios.Host = "mail.envaseslux.com"
             envios.Port = 587
+
             envios.EnableSsl = True
 
             envios.Send(correos)

@@ -330,12 +330,23 @@ Public Class FormMantGuiaDespacho
 
         Dim DataOP As String = 0
         Dim NomArt As String = ""
+        Dim artOP As DataTable
+        Dim estArtOP As String = "0"
+
         For l = 0 To dgvt_doc.Rows.Count - 1
+
+            NomArt = dgvt_doc.Rows(l).Cells("ART_COD").Value
+            artOP = ARTICULOBL.VerificarOP(NomArt)
+
+            If artOP.Rows.Count > 0 Then
+                estArtOP = artOP.Rows(0).Item(0)
+            End If
+
             NomArt = dgvt_doc.Rows(l).Cells("ART_COD").Value
             If txtt_movinv.Text <> "S31" And txtt_movinv.Text <> "S28" Then
                 If vb.Left(NomArt, 2) = "01" Or vb.Left(NomArt, 2) = "02" Or vb.Left(NomArt, 2) = "03" Or vb.Left(NomArt, 2) = "10" Then
                     If vb.Left(NomArt, 4) = "0201" Or NomArt = "03040328" Or NomArt = "03040344" Or NomArt = "03110001" Or NomArt = "03110002" Or NomArt = "03040025" Or NomArt = "02260027" Or NomArt = "10030029" Or
-                        NomArt = "02180101" Or NomArt = "03040651" Or NomArt = "02230615" Or NomArt = "02230853" Or NomArt = "03100007" Or NomArt = "01010150" Then
+                        NomArt = "02180101" Or NomArt = "03040651" Or NomArt = "02230615" Or NomArt = "02230853" Or NomArt = "03100007" Or NomArt = "01010150" Or estArtOP = "1" Then
                     Else
                         DataOP = GUIADESPACHOBL.SelectDataOP(txtt_doc.Text, cmb_serdoc.Text, txtnumero.Text, dgvt_doc.Rows(l).Cells("ART_COD").Value)
                         If DataOP = 0 Then

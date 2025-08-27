@@ -46,6 +46,17 @@ Public Class ARTICULODAL
 
     End Function
 
+    Public Function VerificarOP(ByVal artcod As String) As DataTable
+        Dim cmd As New Oracle.ManagedDataAccess.Client.OracleCommand
+        Dim dt As New DataTable
+        Using dr As Oracle.ManagedDataAccess.Client.OracleDataReader = Me.GetDataReader("SP_VERIFICAR_ARTOP", {New Oracle.ManagedDataAccess.Client.OracleParameter("@ARTCOD", artcod)})
+            If dr.HasRows Then
+                dt.Load(dr)
+            End If
+        End Using
+        Return dt
+    End Function
+
     Public Function getUniMed(ByVal sCode As String) As String
         Dim cmd As New Oracle.ManagedDataAccess.Client.OracleCommand
         Dim dt As New DataTable
