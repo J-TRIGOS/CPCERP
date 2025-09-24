@@ -21,7 +21,7 @@ Public Class FormRptSegOrdProd
             cmbmes1.Enabled = True
         End If
 
-        If gsUser = "DCONDOR" Or gsUser = "COSTOS" Or gsUser = "JQUICHCA" Or gsUser = "LLAURA" Then
+        If gsUser = "DCONDOR" Or gsUser = "COSTOS" Or gsUser = "JQUICHCA" Or gsUser = "LLAURA" Or gsUser = "LTORRES" Then
             btnreporte.Enabled = True
             dtpfec1.Enabled = True
             dtpfec2.Enabled = True
