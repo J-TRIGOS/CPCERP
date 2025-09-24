@@ -10,7 +10,7 @@ Public Class FormRptSegOrdProd
 
 
 
-        If gsUser = "JTRIGOS" Or gsUser = "MRODAS" Or gsUser = "SISTEMA" Or gsUser = "MRODAS" Or gsUser = "COSTOS" Or gsUser = "JHUAYLLACAYAN" Then
+        If gsUser = "JTRIGOS" Or gsUser = "MRODAS" Or gsUser = "SISTEMA" Or gsUser = "MRODAS" Or gsUser = "COSTOS" Or gsUser = "JHUAYLLACAYAN" Or gsUser = "LTORRES" Then
             btnreporte.Enabled = True
         Else
             btnreporte.Enabled = False
