@@ -127,7 +127,8 @@ Public Class FormMantDetGuiaAlmacenTrans
             Exit Sub
         End If
         cmbart.SelectedValue = txtcodart.Text
-        txtstock.Text = ARTICULOBL.SetStock(txtcodart.Text)
+        'txtstock.Text = ARTICULOBL.SetStock(txtcodart.Text
+        txtstock.Text = ARTICULOBL.SetStockAlm(txtcodart.Text, gsCodAlm)
     End Sub
 
     Private Sub txtcodartdos_KeyDown(sender As Object, e As KeyEventArgs) Handles txtcodartdos.KeyDown
@@ -328,7 +329,8 @@ Public Class FormMantDetGuiaAlmacenTrans
             cmbsublinea.SelectedValue = gSubLinea
             cmbart.SelectedValue = gArt
             txtcodart.Text = gArt
-            txtstock.Text = ARTICULOBL.SetStock(txtcodart.Text)
+            'txtstock.Text = ARTICULOBL.SetStock(txtcodart.Text)
+            txtstock.Text = ARTICULOBL.SetStockAlm(txtcodart.Text, gsCodAlm)
             gLinea = Nothing
             gSubLinea = Nothing
             gArt = Nothing

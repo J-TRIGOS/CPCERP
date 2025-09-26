@@ -254,7 +254,8 @@ Public Class FormMantDetGuiaAlmacen
             cmbsublinea.SelectedValue = gSubLinea
             cmbart.SelectedValue = gArt
             txtcodart.Text = gArt
-            txtstock.Text = ARTICULOBL.SetStock(txtcodart.Text)
+            'txtstock.Text = ARTICULOBL.SetStock(txtcodart.Text)
+            txtstock.Text = ARTICULOBL.SetStockAlm(txtcodart.Text, gsCodAlm)
             gLinea = Nothing
             gSubLinea = Nothing
             gArt = Nothing
@@ -281,7 +282,8 @@ Public Class FormMantDetGuiaAlmacen
             Exit Sub
         End If
         cmbart.SelectedValue = txtcodart.Text
-        txtstock.Text = ARTICULOBL.SetStock(txtcodart.Text)
+        ' txtstock.Text = ARTICULOBL.SetStock(txtcodart.Text)
+        txtstock.Text = ARTICULOBL.SetStockAlm(txtcodart.Text, gsCodAlm)
 
 
     End Sub
@@ -296,7 +298,8 @@ Public Class FormMantDetGuiaAlmacen
                 cmbsublinea.SelectedValue = gSubLinea
                 cmbart.SelectedValue = gArt
                 txtcodart.Text = gArt
-                txtstock.Text = ARTICULOBL.SetStock(txtcodart.Text)
+                'txtstock.Text = ARTICULOBL.SetStock(txtcodart.Text)
+                txtstock.Text = ARTICULOBL.SetStockAlm(txtcodart.Text, gsCodAlm)
                 gLinea = Nothing
                 gSubLinea = Nothing
                 gArt = Nothing
@@ -316,7 +319,8 @@ Public Class FormMantDetGuiaAlmacen
                 cmbsublinea.SelectedValue = gSubLinea
                 cmbart.SelectedValue = gArt
                 txtcodart.Text = gArt
-                txtstock.Text = ARTICULOBL.SetStock(txtcodart.Text)
+                'txtstock.Text = ARTICULOBL.SetStock(txtcodart.Text)
+                txtstock.Text = ARTICULOBL.SetStockAlm(txtcodart.Text, gsCodAlm)
                 gLinea = Nothing
                 gSubLinea = Nothing
                 gArt = Nothing

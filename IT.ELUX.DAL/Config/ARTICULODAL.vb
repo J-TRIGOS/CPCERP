@@ -124,6 +124,21 @@ Public Class ARTICULODAL
             Return dt.Rows(0).Item(0)
         End If
     End Function
+
+    Public Function SetStockAlm(ByVal sCode As String, ByVal codAlm As String) As Double
+        Dim cmd As New Oracle.ManagedDataAccess.Client.OracleCommand
+        Dim dt As New DataTable
+
+        Using dr As OracleDataReader = Me.GetDataReader("SP_ARTICULO_STK_ACT_ALM", {New Oracle.ManagedDataAccess.Client.OracleParameter("@code", sCode),
+                                                                                   New Oracle.ManagedDataAccess.Client.OracleParameter("@Alm", codAlm)})
+            If dr.HasRows Then
+                dt.Load(dr)
+            End If
+        End Using
+        If dt.Rows.Count > 0 Then
+            Return dt.Rows(0).Item(0)
+        End If
+    End Function
     Public Function CodCCNU() As DataTable
         Dim cmd As New Oracle.ManagedDataAccess.Client.OracleCommand
         Dim dt As New DataTable

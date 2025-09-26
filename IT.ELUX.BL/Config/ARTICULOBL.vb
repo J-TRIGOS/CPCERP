@@ -28,6 +28,11 @@ Public Class ARTICULOBL
     Public Function SetStock(ByVal sCode As String) As Double
         Return ARTICULODAL.SetStock(sCode)
     End Function
+
+    Public Function SetStockAlm(ByVal sCode As String, ByVal codAlm As String) As Double
+        Return ARTICULODAL.SetStockAlm(sCode, codAlm)
+    End Function
+
     Public Function CodCCNU() As DataTable
         Return ARTICULODAL.CodCCNU()
     End Function

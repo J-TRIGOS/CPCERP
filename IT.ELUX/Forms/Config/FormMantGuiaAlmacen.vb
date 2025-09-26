@@ -1255,6 +1255,7 @@ Public Class FormMantGuiaAlmacen
         'Dim frm As New FormMantDetGuiaAlmacen
         'gContador = 1
         'frm.ShowDialog()
+        gsCodAlm = cmbalmacen.Text.Substring(0, 4)
         If txtt_movinv.Text = "E12" Then
             MsgBox("No se puede ingresar articulos con este tipo de documento solo se puede documentar")
             Exit Sub
