@@ -363,7 +363,7 @@ Public Class ELTBCLIENTEDAL
         cmd.Parameters.Add("@x_per", OracleDbType.Varchar2).Value = ELTBCLIENTEBE.x_per
         cmd.Parameters.Add("@x_ret", OracleDbType.Varchar2).Value = ELTBCLIENTEBE.x_ret
         cmd.Parameters.Add("@obs", OracleDbType.Varchar2).Value = ELTBCLIENTEBE.obs
-        cmd.Parameters.Add("@digverif", OracleDbType.Int32).Value = ELTBCLIENTEBE.digverif
+        cmd.Parameters.Add("@digverif", OracleDbType.Varchar2).Value = ELTBCLIENTEBE.digverif
         cmd.ExecuteNonQuery()
         cmd.Dispose()
 
@@ -516,7 +516,7 @@ Public Class ELTBCLIENTEDAL
         cmd.Parameters.Add("@x_per", OracleDbType.Varchar2).Value = ELTBCLIENTEBE.x_per
         cmd.Parameters.Add("@x_ret", OracleDbType.Varchar2).Value = ELTBCLIENTEBE.x_ret
         cmd.Parameters.Add("@obs", OracleDbType.NVarchar2).Value = ELTBCLIENTEBE.obs
-        cmd.Parameters.Add("@digverif", OracleDbType.Int32).Value = ELTBCLIENTEBE.digverif
+        cmd.Parameters.Add("@digverif", OracleDbType.NVarchar2).Value = ELTBCLIENTEBE.digverif
         cmd.ExecuteNonQuery()
         cmd.Dispose()
 

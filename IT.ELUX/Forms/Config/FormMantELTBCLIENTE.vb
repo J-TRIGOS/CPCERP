@@ -250,7 +250,7 @@ Public Class FormMantELTBCLIENTE
             txt_codfpago.Text = IIf(IsDBNull(Registro("COD_FPAGO")), "", Registro("COD_FPAGO"))
             cmbCondPago.SelectedValue = IIf(IsDBNull(Registro("COD_FPAGO")), "0", Registro("COD_FPAGO"))
             txt_obspago.Text = IIf(IsDBNull(Registro("OBS")), "", Registro("OBS"))
-            npddigverf.Value = IIf(IsDBNull(Registro("DIGITO_VERF")), 0, Registro("DIGITO_VERF"))
+            txt_DV.Text = IIf(IsDBNull(Registro("DIGITO_VERF")), 0, Registro("DIGITO_VERF"))
             If IIf(IsDBNull(Registro("DIA1")), "", Registro("DIA1")) = "" Then
                 chkcierre.Checked = False
             Else
@@ -393,7 +393,7 @@ Public Class FormMantELTBCLIENTE
                 ELTBCLIENTEBE.Dia4 = gsCodUsr
                 ELTBCLIENTEBE.cod_fpago = txt_codfpago.Text
                 ELTBCLIENTEBE.pais_cod = txtpais.Text
-                ELTBCLIENTEBE.digverif = npddigverf.Value
+                ELTBCLIENTEBE.digverif = txt_DV.Text
                 Dim ELMVLOGSBE As New ELMVLOGSBE
                 ELMVLOGSBE.log_codusu = gsCodUsr
                 gsError = ELTBCLIENTEBL.SaveRow(ELTBCLIENTEBE, flagAccion, dgvt_dir, dgvt_cor, dgvt_tel, ELMVLOGSBE)
@@ -526,9 +526,9 @@ Public Class FormMantELTBCLIENTE
             TabCorreo.SelectTab(2)
             Return False
         End If
-        If txtpais.Text = "PA" And npddigverf.Value = 0 Then
+        If txtpais.Text = "PA" And txt_DV.Text = "" Then
             MsgBox("Ingrese el digito verificador del Proveedor", MsgBoxStyle.Exclamation)
-            npddigverf.Focus()
+            txt_DV.Focus()
             Return False
         End If
         Return True

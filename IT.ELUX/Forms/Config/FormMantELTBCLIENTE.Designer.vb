@@ -25,6 +25,7 @@ Partial Class FormMantELTBCLIENTE
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMantELTBCLIENTE))
         Me.TabCorreo = New System.Windows.Forms.TabControl()
         Me.General = New System.Windows.Forms.TabPage()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.txt_obspago = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -89,8 +90,7 @@ Partial Class FormMantELTBCLIENTE
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbSalir = New System.Windows.Forms.ToolStripButton()
         Me.chkcierre = New System.Windows.Forms.CheckBox()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.npddigverf = New System.Windows.Forms.NumericUpDown()
+        Me.txt_DV = New System.Windows.Forms.TextBox()
         Me.TabCorreo.SuspendLayout()
         Me.General.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -101,7 +101,6 @@ Partial Class FormMantELTBCLIENTE
         Me.TabPage3.SuspendLayout()
         CType(Me.dgvt_tel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tsbForm.SuspendLayout()
-        CType(Me.npddigverf, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabCorreo
@@ -124,7 +123,7 @@ Partial Class FormMantELTBCLIENTE
         Me.General.AccessibleDescription = ""
         Me.General.AccessibleName = ""
         Me.General.BackColor = System.Drawing.Color.White
-        Me.General.Controls.Add(Me.npddigverf)
+        Me.General.Controls.Add(Me.txt_DV)
         Me.General.Controls.Add(Me.Label14)
         Me.General.Controls.Add(Me.CheckBox1)
         Me.General.Controls.Add(Me.txt_obspago)
@@ -170,6 +169,16 @@ Partial Class FormMantELTBCLIENTE
         Me.General.Size = New System.Drawing.Size(715, 365)
         Me.General.TabIndex = 0
         Me.General.Text = "Datos Generales"
+        '
+        'Label14
+        '
+        Me.Label14.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(542, 17)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(55, 23)
+        Me.Label14.TabIndex = 202
+        Me.Label14.Text = "Dig. Verif."
+        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'CheckBox1
         '
@@ -807,23 +816,12 @@ Partial Class FormMantELTBCLIENTE
         Me.chkcierre.Text = "Cliente Cerrado"
         Me.chkcierre.UseVisualStyleBackColor = True
         '
-        'Label14
+        'txt_DV
         '
-        Me.Label14.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(542, 17)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(55, 23)
-        Me.Label14.TabIndex = 202
-        Me.Label14.Text = "Dig. Verif."
-        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'npddigverf
-        '
-        Me.npddigverf.Location = New System.Drawing.Point(599, 19)
-        Me.npddigverf.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
-        Me.npddigverf.Name = "npddigverf"
-        Me.npddigverf.Size = New System.Drawing.Size(87, 21)
-        Me.npddigverf.TabIndex = 203
+        Me.txt_DV.Location = New System.Drawing.Point(604, 18)
+        Me.txt_DV.Name = "txt_DV"
+        Me.txt_DV.Size = New System.Drawing.Size(29, 21)
+        Me.txt_DV.TabIndex = 203
         '
         'FormMantELTBCLIENTE
         '
@@ -852,7 +850,6 @@ Partial Class FormMantELTBCLIENTE
         CType(Me.dgvt_tel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tsbForm.ResumeLayout(False)
         Me.tsbForm.PerformLayout()
-        CType(Me.npddigverf, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -924,6 +921,6 @@ Partial Class FormMantELTBCLIENTE
     Friend WithEvents txt_obspago As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents npddigverf As NumericUpDown
     Friend WithEvents Label14 As Label
+    Friend WithEvents txt_DV As TextBox
 End Class

@@ -57,7 +57,7 @@
     Private mdia2 As String
     Private mdia3 As String
     Private mdia4 As String
-    Private mdigverif As Integer
+    Private mdigverif As String
 
     'Propiedades de la entidad
 
@@ -575,11 +575,11 @@
         End Set
     End Property
 
-    Public Property digverif As Integer
+    Public Property digverif As String
         Get
             Return mdigverif
         End Get
-        Set(value As Integer)
+        Set(value As String)
             mdigverif = value
         End Set
     End Property
