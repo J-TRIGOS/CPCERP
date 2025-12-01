@@ -498,20 +498,15 @@ Public Class FormKardexConta
         dgvtcod2.DataSource = dt
         For Each Registro In dt.Rows
             If cmbaño2.Text = "2019" Then
-                dt1 = ELTBKARDEXBL.SelRowKar1(cmbaño2.Text, mes(cmbmes1.Text), mes(cmbmes2.Text), gsCodAlm,
-                                   IIf(IsDBNull(Registro("STK_CODART")), "", Registro("STK_CODART")))
+                dt1 = ELTBKARDEXBL.SelRowKar1(cmbaño2.Text, mes(cmbmes1.Text), mes(cmbmes2.Text), gsCodAlm, IIf(IsDBNull(Registro("STK_CODART")), "", Registro("STK_CODART")))
             ElseIf cmbaño2.Text = "2020" Then
-                dt1 = ELTBKARDEXBL.SelRowKar2(cmbaño2.Text, mes(cmbmes1.Text), mes(cmbmes2.Text), gsCodAlm,
-                                   IIf(IsDBNull(Registro("STK_CODART")), "", Registro("STK_CODART")))
+                dt1 = ELTBKARDEXBL.SelRowKar2(cmbaño2.Text, mes(cmbmes1.Text), mes(cmbmes2.Text), gsCodAlm, IIf(IsDBNull(Registro("STK_CODART")), "", Registro("STK_CODART")))
             ElseIf cmbaño2.Text = "2021" Then
-                dt1 = ELTBKARDEXBL.SelRowKar3(cmbaño2.Text, mes(cmbmes1.Text), mes(cmbmes2.Text), gsCodAlm,
-                                   IIf(IsDBNull(Registro("STK_CODART")), "", Registro("STK_CODART")))
+                dt1 = ELTBKARDEXBL.SelRowKar3(cmbaño2.Text, mes(cmbmes1.Text), mes(cmbmes2.Text), gsCodAlm, IIf(IsDBNull(Registro("STK_CODART")), "", Registro("STK_CODART")))
             ElseIf cmbaño2.Text = "2022" Then
-                dt1 = ELTBKARDEXBL.SelRowKar5(cmbaño2.Text, mes(cmbmes1.Text), mes(cmbmes2.Text), gsCodAlm,
-                                   IIf(IsDBNull(Registro("STK_CODART")), "", Registro("STK_CODART")))
+                dt1 = ELTBKARDEXBL.SelRowKar5(cmbaño2.Text, mes(cmbmes1.Text), mes(cmbmes2.Text), gsCodAlm, IIf(IsDBNull(Registro("STK_CODART")), "", Registro("STK_CODART")))
             ElseIf cmbaño2.Text = "2023" Then
-                dt1 = ELTBKARDEXBL.SelRowKarxCont(cmbaño2.Text, mes(cmbmes1.Text), mes(cmbmes2.Text), gsCodAlm,
-                                   IIf(IsDBNull(Registro("STK_CODART")), "", Registro("STK_CODART")))
+                dt1 = ELTBKARDEXBL.SelRowKarxCont(cmbaño2.Text, mes(cmbmes1.Text), mes(cmbmes2.Text), gsCodAlm, IIf(IsDBNull(Registro("STK_CODART")), "", Registro("STK_CODART")))
             End If
             If dt1.Rows.Count > 0 Then
                 Dim alto = 0
@@ -2006,6 +2001,7 @@ Public Class FormKardexConta
                     Dim fila As DataRow = dt1.NewRow()
                     If dt1.Rows.Count > 0 Then
                         For Each row As DataRow In dt1.Rows
+
                             'If row("TIPO_OPERACION") = "E19" Then
                             '    dtFecCompra = ELTBKARDEXBL.ActualizarFechaCompra(row("ART_COD"), row("TIPO_DOC"), row("SERIE_NRO"), row("NRO_DOCU"))
                             '    If dtFecCompra.Rows.Count > 0 Then
