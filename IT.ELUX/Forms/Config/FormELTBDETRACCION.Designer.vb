@@ -241,7 +241,7 @@ Partial Class FormELTBDETRACCION
         '
         Me.cmb_serdoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_serdoc.FormattingEnabled = True
-        Me.cmb_serdoc.Items.AddRange(New Object() {"2019", "2020", "2021", "2022", "2023", "2024", "2025"})
+        Me.cmb_serdoc.Items.AddRange(New Object() {"2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"})
         Me.cmb_serdoc.Location = New System.Drawing.Point(226, 14)
         Me.cmb_serdoc.Name = "cmb_serdoc"
         Me.cmb_serdoc.Size = New System.Drawing.Size(71, 21)

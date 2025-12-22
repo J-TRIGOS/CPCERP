@@ -100,7 +100,7 @@ Partial Class FormGenerarFiltro
         '
         Me.cmbañoven.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbañoven.FormattingEnabled = True
-        Me.cmbañoven.Items.AddRange(New Object() {"", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2022", "2023", "2024", "2025"})
+        Me.cmbañoven.Items.AddRange(New Object() {"", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2022", "2023", "2024", "2025", "2026"})
         Me.cmbañoven.Location = New System.Drawing.Point(45, 19)
         Me.cmbañoven.Name = "cmbañoven"
         Me.cmbañoven.Size = New System.Drawing.Size(80, 21)
@@ -160,7 +160,7 @@ Partial Class FormGenerarFiltro
         '
         Me.cmbanho.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbanho.FormattingEnabled = True
-        Me.cmbanho.Items.AddRange(New Object() {"", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"})
+        Me.cmbanho.Items.AddRange(New Object() {"", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"})
         Me.cmbanho.Location = New System.Drawing.Point(38, 19)
         Me.cmbanho.Name = "cmbanho"
         Me.cmbanho.Size = New System.Drawing.Size(80, 21)

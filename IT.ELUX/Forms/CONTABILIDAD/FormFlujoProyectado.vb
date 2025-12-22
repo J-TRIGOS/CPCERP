@@ -46,6 +46,7 @@ Public Class FormFlujoProyectado
         cmb.Items.Add("2023")
         cmb.Items.Add("2024")
         cmb.Items.Add("2025")
+        cmb.Items.Add("2026")
     End Function
 
     Private Function getCmbMes(ByVal cmb As ComboBox)

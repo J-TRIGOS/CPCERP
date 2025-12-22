@@ -261,7 +261,7 @@ Partial Class FormMantCierreMes
         '
         Me.cmbAnho.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbAnho.FormattingEnabled = True
-        Me.cmbAnho.Items.AddRange(New Object() {"2024", "2025"})
+        Me.cmbAnho.Items.AddRange(New Object() {"2024", "2025", "2026"})
         Me.cmbAnho.Location = New System.Drawing.Point(66, 20)
         Me.cmbAnho.Name = "cmbAnho"
         Me.cmbAnho.Size = New System.Drawing.Size(62, 21)
