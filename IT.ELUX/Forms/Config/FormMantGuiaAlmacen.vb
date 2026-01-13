@@ -211,13 +211,13 @@ Public Class FormMantGuiaAlmacen
             Return False
         End If
 
-        If gsUser <> "SISTEMA" Then
-            'If dtpfecha.Value.Year > "2022" Then
-            If txtt_movinv.Text = "S30" Or txtt_movinv.Text = "E18" Then
-                MsgBox("Elija otro movimiento no puede realizar este movimiento")
-                Return False
-            End If
-        End If
+        'If gsUser <> "SISTEMA" Then
+        '    'If dtpfecha.Value.Year > "2022" Then
+        '    If txtt_movinv.Text = "S30" Or txtt_movinv.Text = "E18" Then
+        '        MsgBox("Elija otro movimiento no puede realizar este movimiento")
+        '        Return False
+        '    End If
+        'End If
         'HABILITAR MES PASADO
         'If DateTime.Now.ToString("MM") <= "04" And gsUser = "HBAZAN" Then
         '    If txtt_movinv.Text <> "E17" Then
