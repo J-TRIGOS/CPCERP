@@ -1638,6 +1638,10 @@ Public Class FormMain
             Case "0303020000"
                 FormReporteDespacho.ShowDialog()
                 TSButtonRefresh_Click(Nothing, Nothing)
+
+            Case "0203090000"
+
+                FormInventario.ShowDialog()
             Case "0404010000"
                 'gnOpcion3 = "0"
                 FormEtiquetas.ShowDialog()

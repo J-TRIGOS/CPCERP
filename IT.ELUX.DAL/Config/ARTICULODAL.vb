@@ -46,6 +46,121 @@ Public Class ARTICULODAL
 
     End Function
 
+    Public Function ProcesarInventario(ByVal codigo As String, ByVal cantidad As Decimal, ByVal codAlm As String, ByVal mes As String, ByVal anho As String) As String
+        Dim resultado As String = "OK"
+        Dim cn As New Oracle.ManagedDataAccess.Client.OracleConnection
+        Dim sqlTrans As Oracle.ManagedDataAccess.Client.OracleTransaction
+        cn = ConnectionBegin()
+        sqlTrans = cn.BeginTransaction
+        Try
+            ActualizarInventario(codigo, cantidad, codAlm, mes, anho, cn, sqlTrans)
+            sqlTrans.Commit()
+            resultado = "OK"
+        Catch ex As Oracle.ManagedDataAccess.Client.OracleException
+            sqlTrans.Rollback()
+            resultado = ex.Message
+        Catch ex As Exception
+            sqlTrans.Rollback()
+            resultado = ex.Message
+        Finally
+            sqlTrans = Nothing
+        End Try
+        Return resultado
+    End Function
+
+    Public Sub ActualizarInventario3(ByVal sublinea As String, ByVal fecCorte As String, ByVal codAlm As String, ByVal mes As String, ByVal anho As String,
+                                        ByVal sqlCon As Oracle.ManagedDataAccess.Client.OracleConnection,
+                                        ByVal sqlTrans As Oracle.ManagedDataAccess.Client.OracleTransaction)
+        Dim cmd1 As New Oracle.ManagedDataAccess.Client.OracleCommand
+        cmd1.CommandText = "INSERT INTO ELTBFECHACORTEINV(COD_SUBLINEA, FECHA_CORTE, COD_ALM, ANHO, MES) VALUES('" & sublinea & "', '" & fecCorte & "', '" & codAlm & "', '" & anho & "', '" & mes & "')"
+        cmd1.Connection = sqlCon
+        cmd1.Transaction = sqlTrans
+        cmd1.CommandType = CommandType.Text
+        cmd1.ExecuteNonQuery()
+        cmd1.Dispose()
+    End Sub
+
+    Public Function ProcesarInventario3(ByVal sublinea As String, ByVal fecCorte As String, ByVal codAlm As String, ByVal mes As String, ByVal anho As String) As String
+        Dim resultado As String = "OK"
+        Dim cn1 As New Oracle.ManagedDataAccess.Client.OracleConnection
+        Dim sqlTrans1 As Oracle.ManagedDataAccess.Client.OracleTransaction
+        cn1 = ConnectionBegin()
+        sqlTrans1 = cn1.BeginTransaction
+        Try
+            ActualizarInventario3(sublinea, fecCorte, codAlm, mes, anho, cn1, sqlTrans1)
+            sqlTrans1.Commit()
+            resultado = "OK"
+        Catch ex As Oracle.ManagedDataAccess.Client.OracleException
+            sqlTrans1.Rollback()
+            resultado = ex.Message
+        Catch ex As Exception
+            sqlTrans1.Rollback()
+            resultado = ex.Message
+        Finally
+            sqlTrans1 = Nothing
+        End Try
+        Return resultado
+    End Function
+
+    Public Function getArticuloDescripcion(ByVal sCode As String) As String
+        Dim cmd As New Oracle.ManagedDataAccess.Client.OracleCommand
+        sNomArt = ""
+        Using dr As OracleDataReader = Me.GetDataReader("SP_ARTICULO_SELECTART2", {New Oracle.ManagedDataAccess.Client.OracleParameter("@code", sCode)})
+            While dr.Read
+                sNomArt = dr.GetString(0)
+            End While
+        End Using
+        Return sNomArt
+    End Function
+
+    Public Function ProcesarInventario2(ByVal sublinea As String, ByVal fecCorte As String, ByVal codAlm As String, ByVal mes As String, ByVal anho As String) As String
+        Dim resultado As String = "OK"
+        Dim cn1 As New Oracle.ManagedDataAccess.Client.OracleConnection
+        Dim sqlTrans1 As Oracle.ManagedDataAccess.Client.OracleTransaction
+        cn1 = ConnectionBegin()
+        sqlTrans1 = cn1.BeginTransaction
+        Try
+            ActualizarInventario2(sublinea, fecCorte, codAlm, mes, anho, cn1, sqlTrans1)
+            sqlTrans1.Commit()
+            resultado = "OK"
+        Catch ex As Oracle.ManagedDataAccess.Client.OracleException
+            sqlTrans1.Rollback()
+            resultado = ex.Message
+        Catch ex As Exception
+            sqlTrans1.Rollback()
+            resultado = ex.Message
+        Finally
+            sqlTrans1 = Nothing
+        End Try
+        Return resultado
+    End Function
+
+    Public Sub ActualizarInventario2(ByVal sublinea As String, ByVal fecCorte As String, ByVal codAlm As String, ByVal mes As String, ByVal anho As String,
+                                        ByVal sqlCon As Oracle.ManagedDataAccess.Client.OracleConnection,
+                                        ByVal sqlTrans As Oracle.ManagedDataAccess.Client.OracleTransaction)
+        Dim cmd As New Oracle.ManagedDataAccess.Client.OracleCommand
+        cmd.CommandText = "DELETE ELTBFECHACORTEINV WHERE COD_SUBLINEA = '" & sublinea & "' AND COD_ALM = '" & codAlm & "' AND ANHO = '" & anho & "' AND MES = '" & mes & "'"
+        cmd.Connection = sqlCon
+        cmd.Transaction = sqlTrans
+        cmd.CommandType = CommandType.Text
+        cmd.ExecuteNonQuery()
+        cmd.Dispose()
+
+    End Sub
+
+    Public Sub ActualizarInventario(ByVal codigo As String, ByVal cantidad As Decimal, ByVal codAlm As String, ByVal mes As String, ByVal anho As String,
+                                         ByVal sqlCon As Oracle.ManagedDataAccess.Client.OracleConnection,
+                                         ByVal sqlTrans As Oracle.ManagedDataAccess.Client.OracleTransaction)
+        Dim cmd As New Oracle.ManagedDataAccess.Client.OracleCommand
+        cmd.CommandText = "UPDATE EL_TBARTSTOCK SET ART_INVENT" & mes & anho & " = " & cantidad & " WHERE ART_CODIGO = '" & codigo & "' AND ART_CODALM = '" & codAlm & "'"
+
+        cmd.Connection = sqlCon
+        cmd.Transaction = sqlTrans
+        cmd.CommandType = CommandType.Text
+        cmd.ExecuteNonQuery()
+        cmd.Dispose()
+    End Sub
+
     Public Function VerificarOP(ByVal artcod As String) As DataTable
         Dim cmd As New Oracle.ManagedDataAccess.Client.OracleCommand
         Dim dt As New DataTable

@@ -389,7 +389,7 @@ Public Class ARTICULOBL
         Return ARTICULODAL.SaveRow(ARTICULOBE, flagAccion, ELMVLOGSBE)
     End Function
     Public Function SaveRowFast(ByVal ARTICULOBE As ARTICULOBE, ByVal flagAccion As String, ByVal ELMVLOGSBE As ELMVLOGSBE) As String
-        Return ARTICULODAL.SaveRowFast(ARTICULOBE, flagAccion, ELMVLOGSBE)
+        Return ARTICULODAL.SaveRowfast(ARTICULOBE, flagAccion, ELMVLOGSBE)
     End Function
     Public Function ReporteKardex(ByVal flagAccion As String, ByVal ARTICULOBE As ARTICULOBE) As String
         'Verifica el kardex
@@ -400,5 +400,21 @@ Public Class ARTICULOBL
         Return ARTICULODAL.UpdRow(ARTICULOBE, flagAccion)
     End Function
 #End Region
+
+    Public Function ProcesarInventario(ByVal codigo As String, ByVal cantidad As Decimal, ByVal codAlm As String, ByVal mes As String, ByVal anho As String) As String
+        Return ARTICULODAL.ProcesarInventario(codigo, cantidad, codAlm, mes, anho)
+    End Function
+
+    Public Function ProcesarInventario2(ByVal sublinea As String, ByVal fecCorte As String, ByVal codAlm As String, ByVal mes As String, ByVal anho As String) As String
+        Return ARTICULODAL.ProcesarInventario2(sublinea, fecCorte, codAlm, mes, anho)
+    End Function
+
+    Public Function ProcesarInventario3(ByVal sublinea As String, ByVal fecCorte As String, ByVal codAlm As String, ByVal mes As String, ByVal anho As String) As String
+        Return ARTICULODAL.ProcesarInventario3(sublinea, fecCorte, codAlm, mes, anho)
+    End Function
+
+    Public Function getArticuloDescripcion(ByVal sCode As String) As String
+        Return ARTICULODAL.getArticuloDescripcion(sCode)
+    End Function
 
 End Class

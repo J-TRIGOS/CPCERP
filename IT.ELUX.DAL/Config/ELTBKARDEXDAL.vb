@@ -1302,7 +1302,9 @@ Public Class ELTBKARDEXDAL
             ELTBKARDEXBE.TIPO_DOC = IIf(IsDBNull(RTrim(row.Cells("TIPO_DOC").Value)), "", RTrim(row.Cells("TIPO_DOC").Value))
             ELTBKARDEXBE.SERIE_NRO = IIf(IsDBNull(RTrim(row.Cells("SERIE_NRO").Value)), "", RTrim(row.Cells("SERIE_NRO").Value))
             ELTBKARDEXBE.NRO_DOCU = IIf(IsDBNull(RTrim(row.Cells("NRO_DOCU").Value)), "", RTrim(row.Cells("NRO_DOCU").Value))
-
+            If ELTBKARDEXBE.NRO_DOCU = "0004178" Then
+                ELTBKARDEXBE.NRO_DOCU = "0004178"
+            End If
             ELTBKARDEXBE.TIPO_OPERACION = IIf(IsDBNull(RTrim(row.Cells("TIPO_OPERACION").Value)), "", RTrim(row.Cells("TIPO_OPERACION").Value))
             ELTBKARDEXBE.COD_OPE = IIf(IsDBNull(RTrim(row.Cells("cod_ope").Value)), "", RTrim(row.Cells("cod_ope").Value))
             ELTBKARDEXBE.NOM_OPE = IIf(IsDBNull(RTrim(row.Cells("nom_ope").Value)), "", RTrim(row.Cells("nom_ope").Value))
@@ -1311,13 +1313,36 @@ Public Class ELTBKARDEXDAL
             ELTBKARDEXBE.PRECIO = IIf(IsDBNull(RTrim(row.Cells("PRECIO").Value)), 0, RTrim(row.Cells("PRECIO").Value))
             ELTBKARDEXBE.ACUM = IIf(IsDBNull(RTrim(row.Cells("ACUMULADO").Value)), 0, RTrim(row.Cells("ACUMULADO").Value))
             ELTBKARDEXBE.PRECIO_ENTRADA = IIf(IsDBNull(RTrim(row.Cells("PRECIO_ENTRADA").Value)), 0, RTrim(row.Cells("PRECIO_ENTRADA").Value))
+            If ELTBKARDEXBE.PRECIO_ENTRADA = Double.PositiveInfinity Then
+                ELTBKARDEXBE.PRECIO_ENTRADA = 0
+            End If
+            If Double.IsNaN(ELTBKARDEXBE.PRECIO_ENTRADA) Then
+                ELTBKARDEXBE.PRECIO_ENTRADA = 0
+            End If
+
             ELTBKARDEXBE.PRECIO_SALIDA = IIf(IsDBNull(RTrim(row.Cells("PRECIO_SALIDA").Value)), 0, RTrim(row.Cells("PRECIO_SALIDA").Value))
             If ELTBKARDEXBE.PRECIO_SALIDA = Double.PositiveInfinity Then
                 ELTBKARDEXBE.PRECIO_SALIDA = 0
             End If
+            If Double.IsNaN(ELTBKARDEXBE.PRECIO_SALIDA) Then
+                ELTBKARDEXBE.PRECIO_SALIDA = 0
+            End If
             ELTBKARDEXBE.ALM_COD = IIf(IsDBNull(RTrim(row.Cells("ALM_COD").Value)), "", RTrim(row.Cells("ALM_COD").Value))
             ELTBKARDEXBE.COSTO_ENTRADA = IIf(IsDBNull(RTrim(row.Cells("COSTO_ENTRADA").Value)), 0, RTrim(row.Cells("COSTO_ENTRADA").Value))
+            If Double.IsNaN(ELTBKARDEXBE.COSTO_ENTRADA) Then
+                ELTBKARDEXBE.COSTO_ENTRADA = 0
+            End If
+            If ELTBKARDEXBE.COSTO_ENTRADA = Double.PositiveInfinity Then
+                ELTBKARDEXBE.COSTO_ENTRADA = 0
+            End If
+
+
             ELTBKARDEXBE.PRECIO_SALDO = IIf(IsDBNull(RTrim(row.Cells("PRECIO_SALDO").Value)), 0, RTrim(row.Cells("PRECIO_SALDO").Value))
+
+            If Double.IsNaN(ELTBKARDEXBE.PRECIO_SALDO) Then
+                ELTBKARDEXBE.PRECIO_SALDO = 0
+            End If
+
             If ELTBKARDEXBE.PRECIO_SALDO = Double.PositiveInfinity Then
                 ELTBKARDEXBE.PRECIO_SALDO = 0
             End If
@@ -1325,11 +1350,17 @@ Public Class ELTBKARDEXDAL
             If ELTBKARDEXBE.COSTO_SALDO = Double.PositiveInfinity Then
                 ELTBKARDEXBE.COSTO_SALDO = 0
             End If
+            If Double.IsNaN(ELTBKARDEXBE.COSTO_SALDO) Then
+                ELTBKARDEXBE.COSTO_SALDO = 0
+            End If
             ELTBKARDEXBE.CANTIDAD_SALDO = IIf(IsDBNull(RTrim(row.Cells("CANTIDAD_SALDO").Value)), 0, RTrim(row.Cells("CANTIDAD_SALDO").Value))
             ELTBKARDEXBE.T_MOVIM = IIf(IsDBNull(RTrim(row.Cells("T_MOVIN").Value)), 0, RTrim(row.Cells("T_MOVIN").Value))
             ELTBKARDEXBE.NOM_T_MOVIM = IIf(IsDBNull(RTrim(row.Cells("NOM_T_MOVIN").Value)), 0, RTrim(row.Cells("NOM_T_MOVIN").Value))
             ELTBKARDEXBE.COSTO_SALIDA = IIf(IsDBNull(RTrim(row.Cells("COSTO_SALIDA").Value)), 0, RTrim(row.Cells("COSTO_SALIDA").Value))
             If ELTBKARDEXBE.COSTO_SALIDA = Double.PositiveInfinity Then
+                ELTBKARDEXBE.COSTO_SALIDA = 0
+            End If
+            If Double.IsNaN(ELTBKARDEXBE.COSTO_SALIDA) Then
                 ELTBKARDEXBE.COSTO_SALIDA = 0
             End If
             ELTBKARDEXBE.NRO_PRD = IIf(IsDBNull(RTrim(row.Cells("NRO_RPD").Value)), "", RTrim(row.Cells("NRO_RPD").Value))
@@ -1370,7 +1401,12 @@ Public Class ELTBKARDEXDAL
             cmd.Parameters.Add("@NRO_PRD", OracleDbType.Varchar2).Value = ELTBKARDEXBE.NRO_PRD
             cmd.Parameters.Add("@CUENTA", OracleDbType.Varchar2).Value = ELTBKARDEXBE.CUENTA
             cmd.Parameters.Add("@CUENTA_DEST", OracleDbType.Varchar2).Value = ELTBKARDEXBE.CUENTA_DEST
-            cmd.ExecuteNonQuery()
+            Try
+                cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox("OK")
+            End Try
+
             cmd.Dispose()
         Next
     End Sub

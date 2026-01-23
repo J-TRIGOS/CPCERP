@@ -161,6 +161,12 @@
     <Compile Include="Forms\ALMACEN\FormDetDocumentoOP.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\ALMACEN\FormInventario.Designer.vb">
+      <DependentUpon>FormInventario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ALMACEN\FormInventario.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\ALMACEN\FormRegistroDetBindCard.Designer.vb">
       <DependentUpon>FormRegistroDetBindCard.vb</DependentUpon>
     </Compile>
