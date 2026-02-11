@@ -551,7 +551,7 @@ Public Class ELPRODUCCION_VARIOS
                             art = cmbarticulos.Text
                         End If
 
-                        If Mid(art, 1, 2) = "01" Or Mid(art, 1, 2) = "02" Or Mid(art, 1, 2) = "03" Or Mid(art, 1, 2) = "10" Or art = "05100012" Then
+                        If Mid(art, 1, 2) = "01" Or Mid(art, 1, 2) = "02" Or Mid(art, 1, 2) = "03" Or Mid(art, 1, 2) = "10" Or art = "05100012" Or art = "05410251" Then
                             nro_doc_ref = ELPRODUCCIONBL.SelNRO(DateTime.Now.Year)
                             'nro_doc_ref = "0000071"
                             Dim ELPRODUCCIONBE As New ELPRODUCCIONBE
@@ -642,7 +642,7 @@ Public Class ELPRODUCCION_VARIOS
                         'End If
                         Dim a As String = tvwExplosion.SelectedNode.ToString.Substring(10, 8)
                         cmbarticulos.SelectedItem = a
-                        If Mid(a, 1, 2) = "01" Or Mid(a, 1, 2) = "02" Or Mid(a, 1, 2) = "03" Or Mid(a, 1, 4) = "0512" Then
+                        If Mid(a, 1, 2) = "01" Or Mid(a, 1, 2) = "02" Or Mid(a, 1, 2) = "03" Or Mid(a, 1, 4) = "0512" Or Mid(a, 1, 4) = "0541" Then
                         Else
                             MsgBox("No se puede Programar articulos fuera de los almaces de producción")
                             Exit Sub
