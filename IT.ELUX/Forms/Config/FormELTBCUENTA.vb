@@ -21,6 +21,7 @@ Public Class FormELTBCUENTA
 
     Private Sub FormELTBCUENTAvb_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+
         bPrimero = True
         'Cargar los combos
         Dim dt As DataTable
@@ -37,7 +38,7 @@ Public Class FormELTBCUENTA
                 GetData(gsCode, sNDoc)
                 txtcod.Enabled = False
         End Select
-
+        txtcod.Enabled = True
     End Sub
     Private Sub Limpiar()
         dtpfec_ingreso.Value = DateTime.Now.ToString("dd/MM/yyyy")
