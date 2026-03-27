@@ -1279,8 +1279,8 @@ Public Class ELTBRECEPCOMPDAL
         cmd.Parameters.Add("@ser_doc_ref", OracleDbType.Varchar2).Value = Trim(ELTBRECEPCOMPBE.SER_DOC_REF)
         cmd.Parameters.Add("@nro_doc_ref", OracleDbType.Varchar2).Value = Trim(ELTBRECEPCOMPBE.NRO_DOC_REF)
         cmd.Parameters.Add("@est", OracleDbType.Varchar2).Value = "1"
-        cmd.Parameters.Add("@est", OracleDbType.Varchar2).Value = "A"
-        cmd.Parameters.Add("@nro_doc_ref", OracleDbType.Varchar2).Value = Trim(ELTBDETRECEPCOMPBE.NRO_DOCU2)
+        cmd.Parameters.Add("@estOB", OracleDbType.Varchar2).Value = "A"
+        cmd.Parameters.Add("@nro_doc_ref2", OracleDbType.Varchar2).Value = Trim(ELTBDETRECEPCOMPBE.NRO_DOCU2)
 
         cmd.ExecuteNonQuery()
         cmd.Dispose()

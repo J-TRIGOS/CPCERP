@@ -320,7 +320,7 @@ Public Class FormMantProvisiones
 
         gsError = PROVISIONESBL.SaveRow(PROVISIONESBE, DET_DOCUMENTOBE, flagAccion, ELMVLOGSBE, dgvt_doc)
         bMes1 = Mid(txtmskfecprov.Text, 7, 4)
-        If gsUser <> "CHOYOS" And gsUser <> "SISTEMA" And gsUser <> "JHUAYLLACAYAN" Then
+        If gsUser <> "CHOYOS" And gsUser <> "SISTEMA" And gsUser <> "JHUAYLLACAYAN" Or gsUser <> "WFARFAN" Then
             If gsUser = "MTORRES" Then
                 If sMes1 = "12" And Mid(txtmskfecprov.Text, 7, 4) = DateTime.Now.ToString("yyyy") - 1 Then
                     If DateTime.Now.ToString("dd") >= 20 Then
