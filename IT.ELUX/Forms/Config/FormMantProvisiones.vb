@@ -347,15 +347,15 @@ Public Class FormMantProvisiones
                     Exit Sub
                     'End If
                 Else
-                    If Mid(txtmskfecprov.Text, 7, 4) = DateTime.Now.ToString("yyyy") And
-                    DateTime.Now.ToString("MM") - Mid(txtmskfecprov.Text, 4, 2) >= 2 Then
-                        If DateTime.Now.ToString("dd") >= 20 Then
-                            'If Mid(txtmskfecprov.Text, 4, 2) <> 3 Then
-                            MsgBox("Mes Cerrado")
-                            'End If
-                            Exit Sub
-                        End If
-                    End If
+                    'If Mid(txtmskfecprov.Text, 7, 4) = DateTime.Now.ToString("yyyy") And
+                    'DateTime.Now.ToString("MM") - Mid(txtmskfecprov.Text, 4, 2) >= 2 Then
+                    '    If DateTime.Now.ToString("dd") >= 20 Then
+                    '        'If Mid(txtmskfecprov.Text, 4, 2) <> 3 Then
+                    '        MsgBox("Mes Cerrado")
+                    '        'End If
+                    '        Exit Sub
+                    '    End If
+                    'End If
                 End If
             End If
         End If
