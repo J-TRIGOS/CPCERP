@@ -45,6 +45,7 @@ Public Class FormMantDetGuiaAlmacenTrans
             habilitar(True)
         End If
         bPrimero = False
+        btnagregar.Enabled = True
     End Sub
     Private Sub CleanVar()
         cmbart.SelectedIndex = -1

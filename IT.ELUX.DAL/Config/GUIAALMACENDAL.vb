@@ -1543,6 +1543,7 @@ Public Class GUIAALMACENDAL
                     cmd.Parameters.Add("@MOV_CODTRA", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.T_MOVINV)
                     cmd.Parameters.Add("@MOV_TIPO_TRANS", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.ALMAC)
                     cmd.Parameters.Add("@MOV_CCOCOD", OracleDbType.Varchar2).Value = GUIAALMACENBE.CCO_COD
+                    cmd.Parameters.Add("@MOV_CANTID", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD
                     cmd.ExecuteNonQuery()
                     cmd.Dispose()
                     '--------------
@@ -1562,6 +1563,7 @@ Public Class GUIAALMACENDAL
                     cmd.Parameters.Add("@MOV_CODTRA", OracleDbType.Varchar2).Value = "S30"
                     cmd.Parameters.Add("@MOV_TIPO_TRANS", OracleDbType.Varchar2).Value = "S"
                     cmd.Parameters.Add("@MOV_CCOCOD", OracleDbType.Varchar2).Value = GUIAALMACENBE.CCO_COD
+                    cmd.Parameters.Add("@MOV_CANTID", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD
                     cmd.ExecuteNonQuery()
                     cmd.Dispose()
                 Else
@@ -1580,6 +1582,7 @@ Public Class GUIAALMACENDAL
                     cmd.Parameters.Add("@MOV_CODTRA", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.T_MOVINV)
                     cmd.Parameters.Add("@MOV_TIPO_TRANS", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.ALMAC)
                     cmd.Parameters.Add("@MOV_CCOCOD", OracleDbType.Varchar2).Value = GUIAALMACENBE.CCO_COD
+                    cmd.Parameters.Add("@MOV_CANTID", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD
                     cmd.ExecuteNonQuery()
                     cmd.Dispose()
                     '--------------
@@ -1599,6 +1602,7 @@ Public Class GUIAALMACENDAL
                     cmd.Parameters.Add("@MOV_CODTRA", OracleDbType.Varchar2).Value = "E18"
                     cmd.Parameters.Add("@MOV_TIPO_TRANS", OracleDbType.Varchar2).Value = "E"
                     cmd.Parameters.Add("@MOV_CCOCOD", OracleDbType.Varchar2).Value = GUIAALMACENBE.CCO_COD
+                    cmd.Parameters.Add("@MOV_CANTID", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD
                     cmd.ExecuteNonQuery()
                     cmd.Dispose()
                 End If
@@ -1618,6 +1622,7 @@ Public Class GUIAALMACENDAL
                 cmd.Parameters.Add("@MOV_CODTRA", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.T_MOVINV)
                 cmd.Parameters.Add("@MOV_TIPO_TRANS", OracleDbType.Varchar2).Value = Trim(GUIAALMACENBE.ALMAC)
                 cmd.Parameters.Add("@MOV_CCOCOD", OracleDbType.Varchar2).Value = GUIAALMACENBE.CCO_COD
+                cmd.Parameters.Add("@MOV_CANTID", OracleDbType.Double).Value = DET_DOCUMENTOBE.CANTIDAD
                 cmd.ExecuteNonQuery()
                 cmd.Dispose()
             End If

@@ -1500,7 +1500,7 @@ Public Class FormMain
                 FormMovim.ShowDialog()
                 TSButtonRefresh_Click(Nothing, Nothing)
             Case "0504150000"
-                If gsUser = "JHUAYLLACAYAN" Or gsUser = "SISTEMA" Then
+                If gsUser = "JHUAYLLACAYAN" Or gsUser = "SISTEMA" Or gsUser = "CHOYOS" Then
                     FormMantCierreMes.ShowDialog()
                     TSButtonRefresh_Click(Nothing, Nothing)
                 Else

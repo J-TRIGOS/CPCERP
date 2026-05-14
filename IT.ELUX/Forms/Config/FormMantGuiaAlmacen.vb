@@ -1077,6 +1077,7 @@ Public Class FormMantGuiaAlmacen
         'txtc_costo.Text = "101"
         'txtdni.Text = "72765782"
         'txtobservacion.Text = "AJUSTE DE INVENTARIO AL 20-10"
+        btnborrar.Enabled = True
     End Sub
 
 
@@ -1327,7 +1328,13 @@ Public Class FormMantGuiaAlmacen
                     frm.btnbuscar.Enabled = False
                 End If
                 If flagAccion = "M" Then
-                    frm.btnagregar.Enabled = False
+                    'quitar restriccion para modificar
+                    If gsUser = "LMORAN" Or gsUser = "SISTEMA" Or gsUser = "JTRIGOS" Then
+                        frm.btnagregar.Enabled = True
+                    Else
+                        frm.btnagregar.Enabled = False
+                    End If
+
                 End If
                 gContador = 0
                 Tip1 = dgvt_doc.Rows(dgvt_doc.CurrentRow.Index).Cells("T_DOC_REF1").Value

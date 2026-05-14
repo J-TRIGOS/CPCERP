@@ -367,7 +367,7 @@ Public Class FormMantDetGuiaAlmacen
                 Dim dt As DataTable = ARTICULOBL.SelectNroArtD(txttdoc.Text, cmbSerDocArt.Text, txtcodart.Text)
                 ' If dt.Rows.Count > 0 Then
                 GetCmb("N_DOC", "S_DESCRI", dt, cmbNroDoc)
-                    cmbNroDoc.SelectedIndex = -1
+                cmbNroDoc.SelectedIndex = -1
                 '  End If
             End If
         End If
