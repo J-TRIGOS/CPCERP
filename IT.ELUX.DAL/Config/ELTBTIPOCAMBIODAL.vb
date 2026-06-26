@@ -153,7 +153,7 @@ Public Class ELTBTIPOCAMBIODAL
                           ByVal sqlTrans As Oracle.ManagedDataAccess.Client.OracleTransaction)
 
         Dim cmd As New Oracle.ManagedDataAccess.Client.OracleCommand
-        cmd.CommandText = "SP_DOCUMENTO_TCAMB_FEC1"
+        cmd.CommandText = " "
         cmd.Connection = sqlCon
         cmd.Transaction = sqlTrans
         cmd.CommandType = CommandType.StoredProcedure
