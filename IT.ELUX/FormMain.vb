@@ -992,6 +992,7 @@ Public Class FormMain
 
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cmbTipoCred.Visible = False
+        cmbTipoCred.Visible = False
 
         'Carga el Grid del Main
         Dim dt As New DataTable

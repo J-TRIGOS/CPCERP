@@ -606,7 +606,9 @@ Public Class ELTBKARDEXDAL
     Public Function SelPrecioOC(ByVal tDOC As String, ByVal SDOC As String, ByVal NDOC As String, ByVal ART As String, ByVal ANHO1 As String, ByVal ANHO2 As String) As DataTable
         Dim cmd As New Oracle.ManagedDataAccess.Client.OracleCommand
         Dim dt As New DataTable
-
+        'If NDOC = "0004501" Then
+        '    MsgBox("OK")
+        'End If
         Using dr As Oracle.ManagedDataAccess.Client.OracleDataReader = Me.GetDataReader("SP_KARDEX_GRIDPRECIOOC", {New Oracle.ManagedDataAccess.Client.OracleParameter("@pSER_DOC_REF", SDOC),
                                                                                         New Oracle.ManagedDataAccess.Client.OracleParameter("@pNRO_DOC_REF", NDOC),
                                                                                         New Oracle.ManagedDataAccess.Client.OracleParameter("@pCOD_ART", ART),

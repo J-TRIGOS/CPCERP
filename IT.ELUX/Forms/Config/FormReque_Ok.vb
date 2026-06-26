@@ -747,7 +747,8 @@ IIf(IsDBNull(row("OBSERVA")), "", row("OBSERVA")))
         'dgvt_doc.Columns(46).Visible = False
         'dgvt_doc.Columns(46).Visible = False
         bPrimero = False
-
+        txtproveedor.Text = "155729857-2-2022"
+        cmbproveedor.Text = "CENTRALPACK CORP SA"
     End Sub
 
 #Region "Texto"

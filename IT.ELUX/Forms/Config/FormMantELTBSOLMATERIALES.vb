@@ -321,6 +321,7 @@ Public Class FormMantELTBSOLMATERIALES
                    MessageBoxDefaultButton.Button1) <> DialogResult.Yes Then
             Exit Sub
         End If
+
         If OkData() = False Then
             Exit Sub
         End If
