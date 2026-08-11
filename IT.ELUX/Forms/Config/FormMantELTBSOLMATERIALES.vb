@@ -330,12 +330,12 @@ Public Class FormMantELTBSOLMATERIALES
         '    MsgBox("La fecha de ingreso no debe ser mayor a la fecha actual")
         '    Exit Sub
         'End If
-        For i = 0 To dgvt_doc.Rows.Count - 1
-            If dgvt_doc.Rows(dgvt_doc.CurrentRow.Index).Cells(16).Value = "" Then
-                MsgBox("No se puede guardar por que faltan datos del detalle que completar")
-                Exit Sub
-            End If
-        Next
+        ''   For i = 0 To dgvt_doc.Rows.Count - 1
+        ''       If dgvt_doc.Rows(dgvt_doc.CurrentRow.Index).Cells(16).Value = "" Then
+        ''           MsgBox("No se puede guardar por que faltan datos del detalle que completar")
+        ''           Exit Sub
+        ''       End If
+        ''   Next
         Dim ELTBSTIEMBL As New ELTBSTIEMBL
         Dim dtpini As DateTime = dtpfecha.Value.AddDays(+6).ToShortDateString
         Dim Today As DateTime = DateTime.Now.ToShortDateString

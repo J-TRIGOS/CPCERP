@@ -361,10 +361,10 @@ Public Class FormELTBDETSOLMATERIALES
                     Next
                 End If
                 If Format(bfecha, "yyyy/MM/dd") > Format(CDate("2021/02/12"), "yyyy/MM/dd") Then
-                    If txt_linea.Text = "" Then
-                        MsgBox("Ingrese el centro de costo o Linea")
-                        Exit Sub
-                    End If
+                    'If txt_linea.Text = "" Then
+                    '    MsgBox("Ingrese el centro de costo o Linea")
+                    '    Exit Sub
+                    'End If
                     If rdbnew.Checked And txtnumorden.TextLength = 0 Then
                         MsgBox("Ingrese Numero de Orden o marcar sin OP")
                         Exit Sub

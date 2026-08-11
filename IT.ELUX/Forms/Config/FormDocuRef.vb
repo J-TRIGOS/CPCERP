@@ -939,11 +939,11 @@ Public Class FormDocuRef
 
                                 For Each row As DataRow In dt.Rows
                                     '--1
-                                    For l = 0 To FormMantGuiaDespacho.dgvt_doc.Rows.Count - 1
-                                        If FormMantGuiaDespacho.dgvt_doc.Rows(l).Cells("ART_COD").Value = IIf(IsDBNull(row("ART_COD")), "", row("ART_COD")) Then
-                                            s = s + 1
-                                        End If
-                                    Next
+                                    'For l = 0 To FormMantGuiaDespacho.dgvt_doc.Rows.Count - 1
+                                    '    If FormMantGuiaDespacho.dgvt_doc.Rows(l).Cells("ART_COD").Value = IIf(IsDBNull(row("ART_COD")), "", row("ART_COD")) Then
+                                    '        s = s + 1
+                                    '    End If
+                                    'Next
                                     '--
                                     If s = 0 Then
                                         If row("T_DOC_REF") = "OREQ" Then
