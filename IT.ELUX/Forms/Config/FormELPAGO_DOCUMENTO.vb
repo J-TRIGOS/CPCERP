@@ -1503,14 +1503,25 @@ Public Class FormELPAGO_DOCUMENTO
         Dim tipo = txtt_doc.Text
         Dim numero = txtnumero.Text
         Dim dtValidarDocumento As New DataTable
-        dtValidarDocumento = ELPAGO_DOCUMENTOBL.VerificarNumeroDoc(ope, tipo, serie, numero)
-        If dtValidarDocumento.Rows.Count > 0 Then
-            MsgBox("Número de Documento Registrado", MsgBoxStyle.Exclamation)
-            txtnumero.Select()
-            Exit Sub
-        Else
-            dtpf_gene.Select()
+
+        If flagAccion <> "M" Then
+            dtValidarDocumento = ELPAGO_DOCUMENTOBL.VerificarNumeroDoc(ope, tipo, serie, numero)
+            If dtValidarDocumento.Rows.Count > 0 Then
+                MsgBox("Número de Documento Registrado", MsgBoxStyle.Exclamation)
+                txtnumero.Select()
+                Exit Sub
+            Else
+                dtpf_gene.Select()
+            End If
         End If
+        'dtValidarDocumento = ELPAGO_DOCUMENTOBL.VerificarNumeroDoc(ope, tipo, serie, numero)
+        'If dtValidarDocumento.Rows.Count > 0 Then
+        '    MsgBox("Número de Documento Registrado", MsgBoxStyle.Exclamation)
+        '    txtnumero.Select()
+        '    Exit Sub
+        'Else
+        '    dtpf_gene.Select()
+        'End If
     End Sub
 
     Private Sub btnProcesarAC_Click(sender As Object, e As EventArgs) Handles btnProcesarAC.Click
